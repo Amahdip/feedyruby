@@ -22,7 +22,8 @@ fi
 
 log "Tagging images for compose..."
 sudo docker tag "${APP_IMAGE}" salamruby-app:latest
-sudo docker tag ghcr.io/formbricks/hub:0.5.0 salamruby-hub:0.5.0 2>/dev/null || \
+sudo docker tag ghcr.io/salamruby/hub:0.5.0 salamruby-hub:0.5.0 2>/dev/null || \
+  sudo docker tag ghcr.io/formbricks/hub:0.5.0 salamruby-hub:0.5.0 2>/dev/null || \
   sudo docker tag hub.hamdocker.ir/formbricks/hub:0.5.0 salamruby-hub:0.5.0 2>/dev/null || true
 
 log "Patching docker-compose image references..."
@@ -41,6 +42,7 @@ sed -i \
 
 # Ensure hub image ref is literal in compose
 sed -i 's|image: salamruby-hub:${HUB_IMAGE_REF:-:latest}|image: salamruby-hub:0.5.0|g' docker-compose.yml
+sed -i 's|image: salamruby-hub:0.5.0${HUB_IMAGE_REF:-:latest}|image: salamruby-hub:0.5.0|g' docker-compose.yml
 
 log "Starting stack..."
 sudo docker compose up -d
