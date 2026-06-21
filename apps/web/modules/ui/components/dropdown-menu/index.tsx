@@ -96,7 +96,7 @@ const DropdownMenuItem: React.ForwardRefExoticComponent<
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex w-full cursor-pointer select-none items-center gap-x-2 rounded-lg px-2 py-1.5 text-start text-sm font-medium outline-none focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex w-full cursor-pointer select-none items-center gap-x-2.5 rounded-lg px-3 py-2 text-start text-sm font-medium outline-none focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       inset && "ps-8",
       className
     )}

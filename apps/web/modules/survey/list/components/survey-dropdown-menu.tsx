@@ -35,6 +35,8 @@ import {
   DropdownMenuTrigger,
 } from "@/modules/ui/components/dropdown-menu";
 
+const menuIconClassName = "size-4 shrink-0 text-slate-600";
+
 interface SurveyDropDownMenuProps {
   survey: TSurveyListItem;
   publicDomain: string;
@@ -146,97 +148,80 @@ export const SurveyDropDownMenu = ({
             <MoreVertical className="size-4" aria-hidden="true" />
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="inline-block w-auto min-w-max">
+        <DropdownMenuContent align="end" className="min-w-[11rem]">
           <DropdownMenuGroup>
             {canManageSurvey && (
-              <DropdownMenuItem>
+              <DropdownMenuItem icon={<SquarePenIcon className={menuIconClassName} />}>
                 <Link
-                  className="flex w-full items-center"
+                  className="w-full"
                   href={editHref}
                   onClick={survey.responseCount > 0 ? handleEditforActiveSurvey : undefined}>
-                  <SquarePenIcon className="mr-2 size-4" />
                   {t("common.edit")}
                 </Link>
               </DropdownMenuItem>
             )}
             {canManageSurvey && (
-              <DropdownMenuItem>
-                <button
-                  type="button"
-                  data-testid="duplicate-survey"
-                  className={cn("flex w-full items-center", isDuplicating && "cursor-not-allowed opacity-50")}
-                  disabled={isDuplicating}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    void handleDuplicateSurvey();
-                  }}>
-                  <CopyIcon className="mr-2 size-4" />
-                  {t("common.duplicate")}
-                </button>
+              <DropdownMenuItem
+                icon={<CopyIcon className={menuIconClassName} />}
+                disabled={isDuplicating}
+                data-testid="duplicate-survey"
+                className={cn(isDuplicating && "cursor-not-allowed opacity-50")}
+                onSelect={(e) => {
+                  e.preventDefault();
+                  void handleDuplicateSurvey();
+                }}>
+                {t("common.duplicate")}
               </DropdownMenuItem>
             )}
             {canManageSurvey && workspace?.organizationId && (
               <DropdownMenuItem
                 data-testid="copy-to-workspace"
+                icon={<ArrowRightLeftIcon className={cn(menuIconClassName, "rtl:rotate-180")} />}
                 onSelect={(e) => {
                   e.preventDefault();
                   setIsDropDownOpen(false);
                   setIsCopyModalOpen(true);
                 }}>
-                <ArrowRightLeftIcon className="size-4" />
                 {t("workspace.surveys.copy_to")}
               </DropdownMenuItem>
             )}
             {canPreviewOrCopyLink && (
-              <DropdownMenuItem>
-                <button
-                  type="button"
-                  className={cn(
-                    "flex w-full items-center",
-                    isSingleUseEnabled && "cursor-not-allowed opacity-50"
-                  )}
-                  disabled={isSingleUseEnabled}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsDropDownOpen(false);
-                    const previewUrl = new URL(surveyLink);
-                    previewUrl.searchParams.set("preview", "true");
-                    globalThis.window.open(previewUrl.toString(), "_blank");
-                  }}>
-                  <EyeIcon className="mr-2 size-4" />
-                  {t("common.preview")}
-                </button>
+              <DropdownMenuItem
+                icon={<EyeIcon className={menuIconClassName} />}
+                disabled={isSingleUseEnabled}
+                className={cn(isSingleUseEnabled && "cursor-not-allowed opacity-50")}
+                onSelect={(e) => {
+                  e.preventDefault();
+                  setIsDropDownOpen(false);
+                  const previewUrl = new URL(surveyLink);
+                  previewUrl.searchParams.set("preview", "true");
+                  globalThis.window.open(previewUrl.toString(), "_blank");
+                }}>
+                {t("common.preview")}
               </DropdownMenuItem>
             )}
             {canPreviewOrCopyLink && (
-              <DropdownMenuItem>
-                <button
-                  type="button"
-                  data-testid="copy-link"
-                  className={cn(
-                    "flex w-full items-center",
-                    isSingleUseEnabled && "cursor-not-allowed opacity-50"
-                  )}
-                  disabled={isSingleUseEnabled}
-                  onClick={handleCopyLink}>
-                  <LinkIcon className="mr-2 size-4" />
-                  {t("common.copy_link")}
-                </button>
+              <DropdownMenuItem
+                icon={<LinkIcon className={menuIconClassName} />}
+                disabled={isSingleUseEnabled}
+                data-testid="copy-link"
+                className={cn(isSingleUseEnabled && "cursor-not-allowed opacity-50")}
+                onSelect={(e) => {
+                  e.preventDefault();
+                  void handleCopyLink(e as unknown as React.MouseEvent<HTMLButtonElement>);
+                }}>
+                {t("common.copy_link")}
               </DropdownMenuItem>
             )}
             {canManageSurvey && (
-              <DropdownMenuItem>
-                <button
-                  type="button"
-                  className="flex w-full items-center"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsDropDownOpen(false);
-                    setDeleteDialogOpen(true);
-                  }}>
-                  <TrashIcon className="mr-2 size-4" />
-                  {t("common.delete")}
-                </button>
+              <DropdownMenuItem
+                icon={<TrashIcon className={menuIconClassName} />}
+                onSelect={(e) => {
+                  e.preventDefault();
+                  setIsDropDownOpen(false);
+                  setDeleteDialogOpen(true);
+                }}>
+                {t("common.delete")}
               </DropdownMenuItem>
             )}
           </DropdownMenuGroup>

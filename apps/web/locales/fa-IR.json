@@ -2745,7 +2745,7 @@
       "copy_survey_select_workspaces_placeholder": "جستجو در فضای کارها...",
       "copy_survey_success": "نظرسنجی با موفقیت کپی شد",
       "copy_survey_target_workspaces_label": "فضای کارها را هدف قرار دهید",
-      "copy_to": "... کپی به",
+      "copy_to": "کپی به فضای کار دیگر",
       "delete_survey_and_responses_warning": "آیا مطمئن هستید که می‌خواهید این نظرسنجی و همه پاسخ‌های آن را حذف کنید؟",
       "edit": {
         "activate_translations": "ترجمه ها را فعال کنید",
