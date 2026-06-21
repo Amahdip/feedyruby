@@ -1,9 +1,10 @@
 import "server-only";
 import { TUserLocale } from "@salamruby/types/user";
 import { RTL_LOCALES, isRtlLocale } from "@/lib/i18n/rtl";
+import { DEFAULT_BRAND_COLOR, HIDE_STORAGE_NOT_CONFIGURED_WARNING } from "./brand-color";
 import { env } from "./env";
 
-export { DEFAULT_BRAND_COLOR } from "./brand-color";
+export { DEFAULT_BRAND_COLOR, HIDE_STORAGE_NOT_CONFIGURED_WARNING };
 
 export const IS_SALAMRUBY_CLOUD = env.IS_SALAMRUBY_CLOUD === "1";
 
@@ -124,6 +125,8 @@ export const MAX_FILE_UPLOAD_SIZES = {
   big: 1024 * 1024 * 1024, // 1GB
 } as const;
 export const IS_STORAGE_CONFIGURED = Boolean(S3_BUCKET_NAME);
+export const SHOW_STORAGE_NOT_CONFIGURED_WARNING =
+  !IS_STORAGE_CONFIGURED && !HIDE_STORAGE_NOT_CONFIGURED_WARNING;
 
 // Colors for Survey Bg
 export const SURVEY_BG_COLORS = [

@@ -3,7 +3,11 @@ import { AuthenticationError } from "@salamruby/types/errors";
 import { SettingsCard } from "@/app/(app)/workspaces/[workspaceId]/settings/components/SettingsCard";
 import { redirectBillingRoleFromRestrictedSettings } from "@/app/(app)/workspaces/[workspaceId]/settings/lib/redirect-billing-role";
 import { PrettyUrlsTable } from "@/app/(app)/workspaces/[workspaceId]/settings/organization/domain/components/pretty-urls-table";
-import { IS_SALAMRUBY_CLOUD, IS_STORAGE_CONFIGURED } from "@/lib/constants";
+import {
+  IS_SALAMRUBY_CLOUD,
+  IS_STORAGE_CONFIGURED,
+  SHOW_STORAGE_NOT_CONFIGURED_WARNING,
+} from "@/lib/constants";
 import { getTranslate } from "@/lingodotdev/server";
 import { getWhiteLabelPermission } from "@/modules/ee/license-check/lib/utils";
 import { FaviconCustomizationSettings } from "@/modules/ee/whitelabel/favicon-customization/components/favicon-customization-settings";
@@ -37,7 +41,7 @@ const Page = async (props: Readonly<{ params: Promise<{ workspaceId: string }> }
     <PageContentWrapper>
       <PageHeader pageTitle={t("common.domain")} />
 
-      {!IS_STORAGE_CONFIGURED && (
+      {SHOW_STORAGE_NOT_CONFIGURED_WARNING && (
         <div className="max-w-4xl">
           <Alert variant="warning">
             <AlertDescription>{t("common.storage_not_configured")}</AlertDescription>

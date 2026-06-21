@@ -52,6 +52,9 @@ export const HIDE_ENTERPRISE_SETTINGS = true;
 /** Hide "new version available" banner linking to SalamRuby GitHub releases */
 export const HIDE_VERSION_UPDATE_PROMPT = true;
 
+/** Hide global "storage not configured" banners when RustFS/S3 is not set up */
+export const HIDE_STORAGE_NOT_CONFIGURED_WARNING = false;
+
 /** Render a license-gated section only when enabled, or when upsells are still shown */
 export function shouldRenderEnterpriseSection(isLicensed: boolean): boolean {
   return isLicensed || !HIDE_ENTERPRISE_UPSELL;

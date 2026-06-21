@@ -1,7 +1,12 @@
 import { ResourceNotFoundError } from "@salamruby/types/errors";
 import { SettingsCard } from "@/app/(app)/workspaces/[workspaceId]/settings/components/SettingsCard";
 import { cn } from "@/lib/cn";
-import { IS_STORAGE_CONFIGURED, SURVEY_BG_COLORS, UNSPLASH_ACCESS_KEY } from "@/lib/constants";
+import {
+  IS_STORAGE_CONFIGURED,
+  SHOW_STORAGE_NOT_CONFIGURED_WARNING,
+  SURVEY_BG_COLORS,
+  UNSPLASH_ACCESS_KEY,
+} from "@/lib/constants";
 import { getPublicDomain } from "@/lib/getPublicUrl";
 import { getWorkspace } from "@/lib/workspace/service";
 import { getTranslate } from "@/lingodotdev/server";
@@ -33,7 +38,7 @@ export const WorkspaceLookSettingsPage = async (props: { params: Promise<{ works
   return (
     <PageContentWrapper>
       <PageHeader pageTitle={t("common.appearance")} />
-      {!IS_STORAGE_CONFIGURED && (
+      {SHOW_STORAGE_NOT_CONFIGURED_WARNING && (
         <Alert variant="warning">
           <AlertDescription>{t("common.storage_not_configured")}</AlertDescription>
         </Alert>

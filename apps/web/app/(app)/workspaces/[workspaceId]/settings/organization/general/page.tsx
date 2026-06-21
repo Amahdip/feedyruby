@@ -6,6 +6,7 @@ import {
   FB_LOGO_URL,
   IS_SALAMRUBY_CLOUD,
   IS_STORAGE_CONFIGURED,
+  SHOW_STORAGE_NOT_CONFIGURED_WARNING,
 } from "@/lib/constants";
 import { getUser } from "@/lib/user/service";
 import { getTranslate } from "@/lingodotdev/server";
@@ -54,7 +55,7 @@ const Page = async (props: Readonly<{ params: Promise<{ workspaceId: string }> }
   return (
     <PageContentWrapper>
       <PageHeader pageTitle={t("workspace.settings.general.organization_settings")} />
-      {!IS_STORAGE_CONFIGURED && (
+      {SHOW_STORAGE_NOT_CONFIGURED_WARNING && (
         <div className="max-w-4xl">
           <Alert variant="warning">
             <AlertDescription>{t("common.storage_not_configured")}</AlertDescription>
