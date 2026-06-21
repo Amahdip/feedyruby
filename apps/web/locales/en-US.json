@@ -2431,6 +2431,7 @@
         "favicon_too_large": "Favicon must be under 100KB",
         "no_pretty_urls": "No surveys with Pretty URLs configured yet.",
         "no_pretty_urls_hint": "Open a link survey, go to Summary → Share → Pretty URL, and set a short slug. It will appear here.",
+        "page_hint": "This page is for the browser-tab favicon (small tab icon) and your Pretty URL list. To upload the logo shown in the corner of link surveys, go to Workspace → Look or open a survey → Style → Logo.",
         "pretty_url": "Pretty URL",
         "survey_name": "Survey Name",
         "title": "Pretty URLs",

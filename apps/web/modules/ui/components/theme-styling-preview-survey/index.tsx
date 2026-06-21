@@ -197,7 +197,7 @@ export const ThemeStylingPreviewSurvey = ({
                 ContentRef={ContentRef as React.MutableRefObject<HTMLDivElement> | null}
                 isEditorView>
                 {!workspace.styling?.isLogoHidden && (
-                  <button type="button" className="absolute left-5 top-5" onClick={scrollToEditLogoSection}>
+                  <button type="button" className="absolute start-5 top-5" onClick={scrollToEditLogoSection}>
                     <ClientLogo
                       workspaceLogo={workspace.logo ?? null}
                       workspaceId={workspace.id}

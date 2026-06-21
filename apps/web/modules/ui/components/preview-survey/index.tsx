@@ -287,7 +287,7 @@ export const PreviewSurvey = ({
                   </Modal>
                 ) : (
                   <div className="flex h-full w-full flex-col justify-center px-1">
-                    <div className="absolute left-5 top-5">
+                    <div className="absolute start-5 top-5">
                       {!styling.isLogoHidden && (
                         <ClientLogo
                           workspaceLogo={workspace.logo}
@@ -406,7 +406,7 @@ export const PreviewSurvey = ({
                   styling={styling}
                   ContentRef={ContentRef as React.RefObject<HTMLDivElement>}
                   isEditorView>
-                  <div className="absolute left-5 top-5">
+                  <div className="absolute start-5 top-5">
                     {!styling.isLogoHidden && (
                       <ClientLogo
                         workspaceLogo={workspace.logo}

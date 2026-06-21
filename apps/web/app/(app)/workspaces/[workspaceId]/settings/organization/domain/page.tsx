@@ -49,6 +49,12 @@ const Page = async (props: Readonly<{ params: Promise<{ workspaceId: string }> }
         </div>
       )}
 
+      <div className="max-w-4xl">
+        <Alert variant="info">
+          <AlertDescription>{t("workspace.settings.domain.page_hint")}</AlertDescription>
+        </Alert>
+      </div>
+
       <FaviconCustomizationSettings
         organization={organization}
         hasWhiteLabelPermission={hasWhiteLabelPermission}

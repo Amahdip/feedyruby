@@ -55,8 +55,8 @@ export const ClientLogo = ({
         <Image
           src={logoToUse?.url}
           className={cn(
-            previewSurvey ? "max-h-12" : "max-h-16 md:max-h-20",
-            "w-auto max-w-40 object-contain p-1 md:max-w-56"
+            previewSurvey ? "max-h-20" : "max-h-16 md:max-h-20",
+            "w-auto max-w-48 object-contain p-1 md:max-w-56"
           )}
           width={256}
           height={64}

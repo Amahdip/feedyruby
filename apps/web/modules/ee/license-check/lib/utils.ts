@@ -77,6 +77,10 @@ export const getRemoveBrandingPermission = async (organizationId: string): Promi
 };
 
 export const getWhiteLabelPermission = async (organizationId: string): Promise<boolean> => {
+  if (!IS_SALAMRUBY_CLOUD && HIDE_ENTERPRISE_UPSELL) {
+    return true;
+  }
+
   return getFeaturePermission(organizationId, "whitelabel");
 };
 
