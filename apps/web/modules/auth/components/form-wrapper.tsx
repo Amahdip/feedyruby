@@ -19,7 +19,7 @@ export const FormWrapper = ({ children }: FormWrapperProps) => {
         </div>
         {children}
       </div>
-      <div className="mx-auto mt-6 w-full max-w-sm lg:w-96">
+      <div className="mt-6 flex w-full max-w-sm justify-center lg:w-96">
         <StudioCredit />
       </div>
     </div>

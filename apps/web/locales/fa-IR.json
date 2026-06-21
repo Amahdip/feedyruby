@@ -443,6 +443,8 @@
     "storage_not_configured": "فضای ذخیره‌سازی فایل تنظیم نشده است، آپلودها احتمالاً با شکست مواجه می‌شوند",
     "string": "متن",
     "studio_credit": "{product} · محصولی از {studio}",
+    "studio_credit_lead": "محصولی از",
+    "studio_credit_tail": "",
     "studio_name": "روبی‌تک",
     "studio_product_name": "فیدی‌روبی",
     "styling": "ظاهر",
