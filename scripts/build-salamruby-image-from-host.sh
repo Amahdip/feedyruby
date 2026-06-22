@@ -23,6 +23,9 @@ export HUB_API_KEY="${HUB_API_KEY:-build-time-placeholder}"
 
 touch apps/web/.env
 
+export NEXT_PUBLIC_SURVEYS_BUNDLE_VERSION="${NEXT_PUBLIC_SURVEYS_BUNDLE_VERSION:-$(git rev-parse --short HEAD)}"
+log "Surveys bundle cache-bust version: ${NEXT_PUBLIC_SURVEYS_BUNDLE_VERSION}"
+
 log "Building @salamruby/database..."
 pnpm build --filter=@salamruby/database
 

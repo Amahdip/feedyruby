@@ -39,11 +39,10 @@ export const SurveyInline = (props: Omit<SurveyContainerProps, "containerId">) =
     // Set loading flag immediately to prevent concurrent loads
     isLoadingScript = true;
     try {
-      const scriptUrl = props.appUrl ? `${props.appUrl}/js/surveys.umd.cjs` : "/js/surveys.umd.cjs";
-      const response = await fetch(
-        scriptUrl,
-        process.env.NODE_ENV === "development" ? { cache: "no-store" } : {}
-      );
+      const bundleVersion = process.env.NEXT_PUBLIC_SURVEYS_BUNDLE_VERSION ?? "";
+      const scriptPath = props.appUrl ? `${props.appUrl}/js/surveys.umd.cjs` : "/js/surveys.umd.cjs";
+      const scriptUrl = bundleVersion ? `${scriptPath}?v=${bundleVersion}` : scriptPath;
+      const response = await fetch(scriptUrl, { cache: "no-store" });
 
       if (!response.ok) {
         throw new Error("Failed to load the surveys package");
