@@ -246,7 +246,7 @@ services:
 
   # Run SalamRuby Prisma migrations before Hub writes tables to the shared database.
   salamruby-migrate:
-    image: ghcr.io/salamruby/salamruby:latest
+    image: ${SALAMRUBY_IMAGE:-docker.io/amirmpa/salamruby-survey}:${SALAMRUBY_IMAGE_TAG:-latest}
     restart: "no"
     entrypoint: ["sh", "-c"]
     command:
@@ -260,7 +260,7 @@ services:
 
   salamruby:
     restart: always
-    image: ghcr.io/salamruby/salamruby:latest
+    image: ${SALAMRUBY_IMAGE:-docker.io/amirmpa/salamruby-survey}:${SALAMRUBY_IMAGE_TAG:-latest}
     depends_on:
       postgres:
         condition: service_healthy

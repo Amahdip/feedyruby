@@ -1,8 +1,14 @@
 # Runtime image for SalamRuby when the Next.js app is already built on the host.
 # Build: scripts/build-salamruby-image-from-host.sh
 
-# Build-time only: borrow Prisma linux-musl engines (host builds cannot produce Alpine binaries).
-FROM ghcr.io/formbricks/formbricks:latest AS prisma-engine-donor
+# Build-time only: produce Prisma linux-musl (Alpine) engines in a throwaway stage.
+# Host builds on macOS/glibc cannot emit musl binaries, so instead of borrowing them from a
+# third-party image we generate them here from a clean Alpine plus the app's exact Prisma
+# version (keeps the engine ABI in sync with the generated client). No external image deps.
+FROM node:24-alpine3.23 AS prisma-engine-donor
+RUN apk add --no-cache openssl
+WORKDIR /donor
+RUN npm install --no-save @prisma/engines@7.8.0
 
 FROM node:24-alpine3.23 AS runner
 
@@ -51,7 +57,7 @@ RUN chown -R nextjs:nextjs ./packages/database/generated && chmod -R 755 ./packa
 COPY node_modules/@prisma ./node_modules/@prisma
 RUN chown -R nextjs:nextjs ./node_modules/@prisma && chmod -R 755 ./node_modules/@prisma
 
-COPY --from=prisma-engine-donor /home/nextjs/node_modules/@prisma/engines ./node_modules/@prisma/engines
+COPY --from=prisma-engine-donor /donor/node_modules/@prisma/engines ./node_modules/@prisma/engines
 RUN chown -R nextjs:nextjs ./node_modules/@prisma/engines && chmod -R 755 ./node_modules/@prisma/engines
 
 COPY node_modules/prisma ./node_modules/prisma
