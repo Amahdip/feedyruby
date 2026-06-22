@@ -7,13 +7,13 @@ export const APP_NAME = "فیدی‌روبی";
 export const APP_NAME_LATIN = "FeedieRuby";
 
 /** Portfolio / engineering studio (English) */
-export const STUDIO_NAME = "RubyTech";
+export const STUDIO_NAME = "TechRuby";
 
 /** Portfolio / engineering studio (Persian) */
-export const STUDIO_NAME_FA = "روبی‌تک";
+export const STUDIO_NAME_FA = "تک‌روبی";
 
-/** Future portfolio site — empty until rubytech site exists */
-export const STUDIO_URL = "";
+/** Portfolio site */
+export const STUDIO_URL = "https://techruby.ir";
 
 /** i18n keys for studio attribution (see common.studio_* in locales) */
 export const STUDIO_CREDIT_I18N_KEY = "common.studio_credit";

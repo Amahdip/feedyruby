@@ -6,7 +6,7 @@ type TranslationValue = string;
 
 const translations: Record<TranslationKey, TranslationValue> = {
   "common.continue": "Continue",
-  "common.powered_by_salamruby": "Powered by salamruby",
+  "common.powered_by_salamruby": "FeedieRuby · a TechRuby product",
   "emails.accept": "Accept",
   "emails.click_or_drag_to_upload_files": "Click or drag to upload files.",
   "emails.email_customization_preview_email_heading": "Hey {userName}",
