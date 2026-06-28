@@ -1,10 +1,10 @@
-import { FeedieRubyMark } from "@/modules/ui/components/feedieruby-brand";
+import { FeedyRubyMark } from "@/modules/ui/components/feedyruby-brand";
 
 interface SalamRubyLogoProps {
   className?: string;
 }
 
-/** @deprecated Use FeedieRubyMark — kept for existing imports */
+/** @deprecated Use FeedyRubyMark — kept for existing imports */
 export const SalamRubyLogo = ({ className }: Readonly<SalamRubyLogoProps>) => (
-  <FeedieRubyMark className={className} />
+  <FeedyRubyMark className={className} />
 );

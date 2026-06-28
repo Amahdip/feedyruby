@@ -30,7 +30,7 @@
     "studio_credit_lead": "a",
     "studio_credit_tail": "product",
     "studio_name": "TechRuby",
-    "studio_product_name": "FeedieRuby",
+    "studio_product_name": "FeedyRuby",
     "survey_dialog": "Survey Dialog",
     "takes_less_than_x_minutes": "{count, plural, one {Takes less than 1 minute} other {Takes less than {count} minutes}}",
     "takes_x_minutes": "{count, plural, one {Takes 1 minute} other {Takes {count} minutes}}",

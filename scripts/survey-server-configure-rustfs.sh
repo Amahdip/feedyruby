@@ -3,9 +3,15 @@
 set -euo pipefail
 
 INSTALL_DIR="${INSTALL_DIR:-/home/ubuntu/salamruby}"
-DOMAIN="${DOMAIN:-survey.salamruby.ir}"
-# Use files.<apex-domain> so Arvan *.salamruby.ir wildcard covers SSL (not files.survey.*)
-FILES_DOMAIN="${FILES_DOMAIN:-files.${DOMAIN#*.}}"
+DOMAIN="${DOMAIN:-feedyruby.ir}"
+# Extract apex domain safely (e.g. survey.feedyruby.ir -> feedyruby.ir, feedyruby.ir -> feedyruby.ir)
+if [[ "$DOMAIN" =~ ^[a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]+$ ]]; then
+  APEX_DOMAIN="${DOMAIN#*.}"
+else
+  APEX_DOMAIN="$DOMAIN"
+fi
+# Use files.<apex-domain> so Arvan wildcard covers SSL (not files.survey.*)
+FILES_DOMAIN="${FILES_DOMAIN:-files.${APEX_DOMAIN}}"
 SRC_DIR="${SRC_DIR:-/home/ubuntu/salamruby-src}"
 RUSTFS_IMAGE="${RUSTFS_IMAGE:-rustfs/rustfs:1.0.0-alpha.93}"
 MC_IMAGE="${MC_IMAGE:-minio/mc@sha256:95b5f3f7969a5c5a9f3a700ba72d5c84172819e13385aaf916e237cf111ab868}"

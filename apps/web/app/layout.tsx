@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import React from "react";
 import { NoScriptWarning } from "@/app/components/NoScriptWarning";
 import { SentryProvider } from "@/app/sentry/SentryProvider";
@@ -19,17 +19,51 @@ import { getLocale } from "@/lingodotdev/language";
 import { loadLocaleResources } from "@/lingodotdev/load-locale";
 import "../modules/ui/globals.css";
 
+export const viewport: Viewport = {
+  themeColor: "#8B1D3B",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: {
     template: `%s | ${APP_NAME}`,
-    default: APP_NAME,
+    default: "فیدی‌روبی | فرم‌ساز و پرسش‌نامه ساز آنلاین متن‌باز",
   },
-  description: "Survey and feedback platform",
+  description:
+    "فیدی‌روبی (FeedyRuby) اولین پلتفرم متن‌باز فرم‌ساز و پرسش‌نامه ساز آنلاین بومی‌سازی شده در ایران. جایگزین راست‌چین، مدرن و امن فرم‌بریکس (Formbricks) و تایپ‌فرم (Typeform) با کنترل کامل روی داده‌ها.",
+  keywords: [
+    "فرم‌ساز",
+    "فرم‌ساز آنلاین",
+    "پرسش‌نامه ساز",
+    "پرسش‌نامه ساز آنلاین",
+    "نظرسنجی آنلاین",
+    "ساخت نظرسنجی",
+    "فرم بریکس فارسی",
+    "تایپ فرم فارسی",
+    "FeedyRuby",
+    "Formbricks Farsi",
+    "Typeform Farsi",
+    "سنجش رضایت مشتریان",
+    "فرم‌ساز رایگان",
+  ],
   icons: {
     icon: BRAND_ASSETS.iconRubyTilePng,
     apple: BRAND_ASSETS.iconRubyTilePng,
   },
   applicationName: APP_NAME_LATIN,
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "فیدی‌روبی | فرم‌ساز و پرسش‌نامه ساز آنلاین متن‌باز",
+    description:
+      "سیستم پیشرفته نظرسنجی آنلاین و دریافت بازخورد با پنل فارسی، راست‌چین و امنیت بالای داده‌ها. جایگزین بومی فرم‌بریکس.",
+    type: "website",
+    locale: "fa_IR",
+    siteName: APP_NAME_LATIN,
+  },
 };
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {

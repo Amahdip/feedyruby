@@ -37,9 +37,9 @@ module.exports = {
       },
       colors: {
         brand: {
-          DEFAULT: "#00E6CA",
-          light: "#00E6CA",
-          dark: "#00C4B8",
+          DEFAULT: "#8B1D3B",
+          light: "#8B1D3B",
+          dark: "#68132B",
         },
         focus: "var(--salamruby-focus, #1982fc)",
         // error: "rgb(from var(--salamruby-error) r g b / <alpha-value>)",

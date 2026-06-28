@@ -27,7 +27,7 @@ export const getSurveys = reactCache(async (workspaceId: string): Promise<TSurve
       },
     });
 
-    return surveysPrisma.map((surveyPrisma) => transformPrismaSurvey<TSurvey>(surveyPrisma));
+    return surveysPrisma.map((surveyPrisma: any) => transformPrismaSurvey<TSurvey>(surveyPrisma));
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
       logger.error({ error }, "getSurveys: Could not fetch surveys");

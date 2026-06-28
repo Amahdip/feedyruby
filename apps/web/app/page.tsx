@@ -11,6 +11,7 @@ import { getOrganizationsByUserId } from "@/lib/organization/service";
 import { getUser } from "@/lib/user/service";
 import { getUserWorkspaces } from "@/lib/workspace/service";
 import { authOptions } from "@/modules/auth/lib/authOptions";
+import { LandingPage } from "@/modules/marketing/components/landing-page";
 import { ClientLogout } from "@/modules/ui/components/client-logout";
 
 const Page = async () => {
@@ -21,7 +22,7 @@ const Page = async () => {
     if (isFreshInstance) {
       return redirect("/setup/intro");
     } else {
-      return redirect("/auth/login");
+      return <LandingPage />;
     }
   }
 

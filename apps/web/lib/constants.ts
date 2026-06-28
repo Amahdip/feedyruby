@@ -62,9 +62,9 @@ export const OIDC_DISPLAY_NAME = env.OIDC_DISPLAY_NAME;
 export const OIDC_SIGNING_ALGORITHM = env.OIDC_SIGNING_ALGORITHM;
 
 export const SAML_DATABASE_URL = env.SAML_DATABASE_URL;
-export const SAML_TENANT = "salamruby.com";
-export const SAML_PRODUCT = "salamruby";
-export const SAML_AUDIENCE = "https://saml.salamruby.com";
+export const SAML_TENANT = "feedyruby.ir";
+export const SAML_PRODUCT = "feedyruby";
+export const SAML_AUDIENCE = "https://saml.feedyruby.ir";
 export const SAML_PATH = "/api/auth/saml/callback";
 
 export const SIGNUP_ENABLED = IS_SALAMRUBY_CLOUD || IS_DEVELOPMENT || E2E_TESTING;

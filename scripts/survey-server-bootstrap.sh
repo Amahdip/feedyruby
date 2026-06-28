@@ -2,8 +2,8 @@
 # Bootstrap SalamRuby on survey VPS using Iranian mirrors (Mirava catalog).
 set -euo pipefail
 
-DOMAIN="${DOMAIN:-survey.salamruby.ir}"
-EMAIL="${EMAIL:-admin@salamruby.ir}"
+DOMAIN="${DOMAIN:-feedyruby.ir}"
+EMAIL="${EMAIL:-admin@feedyruby.ir}"
 INSTALL_DIR="${INSTALL_DIR:-/home/ubuntu/salamruby}"
 SRC_DIR="${SRC_DIR:-/home/ubuntu/salamruby-src}"
 

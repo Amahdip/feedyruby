@@ -119,7 +119,7 @@ export const EndScreenForm = ({
               } else {
                 updateSurvey({
                   buttonLabel: { default: t("workspace.surveys.edit.create_your_own_survey") },
-                  buttonLink: "https://salamruby.ir",
+                  buttonLink: "https://feedyruby.ir",
                 });
               }
               setshowEndingCardCTA(!showEndingCardCTA);

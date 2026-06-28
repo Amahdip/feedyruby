@@ -715,7 +715,7 @@ serviceMonitor:
 # Cube.js Analytics Configuration
 ##########################################################
 cube:
-  # Cube semantic-layer service used by SalamRuby analytics. Disabled for FeedieRuby self-host.
+  # Cube semantic-layer service used by SalamRuby analytics. Disabled for FeedyRuby self-host.
   # Set to true only if you re-enable dashboards and run Cube (see docker/cube/).
   enabled: false
   replicas: 1

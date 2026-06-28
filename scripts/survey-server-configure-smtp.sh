@@ -4,9 +4,9 @@
 set -euo pipefail
 
 INSTALL_DIR="${INSTALL_DIR:-/home/ubuntu/salamruby}"
-MAIL_FROM="${MAIL_FROM:-mail@salamruby.ir}"
-MAIL_FROM_NAME="${MAIL_FROM_NAME:-SalamRuby}"
-SMTP_HOST="${SMTP_HOST:-mail.salamruby.ir}"
+MAIL_FROM="${MAIL_FROM:-mail@feedyruby.ir}"
+MAIL_FROM_NAME="${MAIL_FROM_NAME:-FeedyRuby}"
+SMTP_HOST="${SMTP_HOST:-mail.feedyruby.ir}"
 SMTP_PORT="${SMTP_PORT:-587}"
 
 log() { echo "[configure-smtp] $*"; }
@@ -34,4 +34,4 @@ patch_compose
 log "Recreating salamruby container..."
 sudo docker compose up -d salamruby
 
-log "Done. Password reset emails should work at https://survey.salamruby.ir/auth/forgot-password"
+log "Done. Password reset emails should work at https://${DOMAIN}/auth/forgot-password"

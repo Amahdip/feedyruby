@@ -62,7 +62,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/modules/ui/components/dropdown-menu";
-import { FeedieRubyIconLight } from "@/modules/ui/components/feedieruby-brand";
+import { FeedyRubyIconLight } from "@/modules/ui/components/feedyruby-brand";
 import { GoBackButton } from "@/modules/ui/components/go-back-button";
 import { SidebarExpandChevron } from "@/modules/ui/components/sidebar-expand-chevron";
 import { ModalButton } from "@/modules/ui/components/upgrade-prompt";
@@ -500,7 +500,7 @@ export const MainNavigation = ({
                   href={dashboardHref}
                   className="flex shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
                   aria-label={t("common.home")}>
-                  <FeedieRubyIconLight className="size-8" priority />
+                  <FeedyRubyIconLight className="size-8" priority />
                 </Link>
                 <GoBackButton url={dashboardHref} />
               </div>
@@ -541,7 +541,7 @@ export const MainNavigation = ({
                     !isCollapsed && isTextVisible ? "opacity-0" : "opacity-100"
                   )}
                   aria-label={t("common.home")}>
-                  <FeedieRubyIconLight className={cn(isCollapsed ? "size-9" : "size-8")} priority />
+                  <FeedyRubyIconLight className={cn(isCollapsed ? "size-9" : "size-8")} priority />
                 </Link>
                 <Button
                   variant="ghost"

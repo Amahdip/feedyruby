@@ -2,7 +2,7 @@
 set -euo pipefail
 
 INSTALL_DIR="${INSTALL_DIR:-/home/ubuntu/salamruby}"
-DOMAIN="${DOMAIN:-survey.salamruby.ir}"
+DOMAIN="${DOMAIN:-feedyruby.ir}"
 APP_IMAGE="${APP_IMAGE:-amirmpa/salamruby-survey:latest}"
 APP_IMAGE_MIRROR="${APP_IMAGE_MIRROR:-hub.hamdocker.ir/amirmpa/salamruby-survey:latest}"
 

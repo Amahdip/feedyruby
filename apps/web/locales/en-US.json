@@ -146,7 +146,7 @@
     "api_keys": "API Keys",
     "app": "App",
     "app_survey": "App Survey",
-    "app_version": "FeedieRuby Version",
+    "app_version": "FeedyRuby Version",
     "appearance": "Appearance",
     "apply_filters": "Apply filters",
     "archived": "Archived",
@@ -372,7 +372,7 @@
     "placeholder": "Placeholder",
     "please_select_at_least_one_survey": "Please select at least one survey",
     "please_select_at_least_one_trigger": "Please select at least one trigger",
-    "powered_by_salamruby": "FeedieRuby · a TechRuby product",
+    "powered_by_salamruby": "FeedyRuby · a TechRuby product",
     "preview": "Preview",
     "privacy": "Privacy Policy",
     "product_manager": "Product Manager",
@@ -445,7 +445,7 @@
     "studio_credit_lead": "a",
     "studio_credit_tail": "product",
     "studio_name": "TechRuby",
-    "studio_product_name": "FeedieRuby",
+    "studio_product_name": "FeedyRuby",
     "styling": "Styling",
     "subheader": "Subheader",
     "submit": "Submit",
@@ -599,6 +599,130 @@
     "verification_new_email_subject": "Email change verification",
     "verification_security_notice": "If you did not request this email change, please ignore this email or contact support immediately.",
     "verified_link_survey_email_subject": "Your survey is ready to be filled out."
+  },
+  "marketing": {
+    "landing": {
+      "cta": {
+        "signUpFree": "Sign Up Free",
+        "subtitle": "Join schools, researchers, and startups already using FeedyRuby to make data-driven decisions.",
+        "title": "Ready to Collect Better Feedback?"
+      },
+      "faq": {
+        "a1": "Yes, FeedyRuby is 100% open-source under the AGPLv3 license. You can view the code, run it locally, and even host it on your own servers without paying a cent.",
+        "a2": "On the free tier, surveys will temporarily pause collection once you reach 500 responses in a month. We'll send you an email alert beforehand, and you can upgrade to a paid tier at any time to resume collecting.",
+        "a3": "Absolutely! We provide comprehensive Docker Compose scripts and documentation for self-hosting FeedyRuby on your own VPS or private cloud.",
+        "a4": "Yes, FeedyRuby is designed with RTL layouts in mind. Survey templates and responses support right-to-left typing (Farsi, Arabic, Hebrew) natively.",
+        "q1": "Is FeedyRuby really open source?",
+        "q2": "What happens if I exceed my monthly response limit?",
+        "q3": "Can I self-host FeedyRuby?",
+        "q4": "Do you support RTL languages like Persian?",
+        "subtitle": "Clear answers to the most common queries about our survey platform.",
+        "title": "Frequently Asked Questions"
+      },
+      "features": {
+        "advancedIntegrations": {
+          "description": "Connect your survey data instantly to Slack, Hubspot, Webhooks, and other key business tools.",
+          "title": "Advanced Integrations"
+        },
+        "emailLinkSurveys": {
+          "description": "Send beautiful surveys via email newsletters, SMS, or share simple landing links in seconds.",
+          "title": "Email & Link Surveys"
+        },
+        "inAppSurveys": {
+          "description": "Trigger clean, contextual surveys directly inside your web or mobile app based on user actions.",
+          "title": "In-App Surveys"
+        },
+        "openSource": {
+          "description": "Built transparently on top of open standards, allowing complete inspection and self-hosting.",
+          "title": "100% Open-Source"
+        },
+        "privacyFirst": {
+          "description": "Maintain full control of your user's response data with GDPR-compliant cloud tracking.",
+          "title": "Privacy-First Analytics"
+        },
+        "realTimeResponses": {
+          "description": "Monitor user feedback live as it comes in with beautiful, detailed charts and exports.",
+          "title": "Real-Time Responses"
+        },
+        "subtitle": "Powerful, customizable surveys and workflows designed to fit any business, university research project, or school feedback loop.",
+        "title": "Everything You Need to Collect Feedback"
+      },
+      "footer": {
+        "contact": "Contact",
+        "docs": "Docs",
+        "privacy": "Privacy Policy",
+        "rights": "© {year} FeedyRuby & SalamRuby School. All rights reserved.",
+        "target": "Targeted for Iran-first and Global researchers.",
+        "terms": "Terms of Service"
+      },
+      "hero": {
+        "badge": "Iran-First Open-Source Survey Platform",
+        "description": "FeedyRuby is the modern, open-source alternative to Qualtrics and Formbricks. Gather customer and student feedback effortlessly, with zero complexity and GDPR-compliant data standards.",
+        "learnMore": "Learn More",
+        "startFree": "Start Free (No Card Required)",
+        "title": "Create Beautiful Surveys",
+        "titleMinutes": "in Minutes"
+      },
+      "nav": {
+        "docs": "Docs",
+        "faq": "FAQ",
+        "features": "Features",
+        "pricing": "Pricing",
+        "signIn": "Sign In",
+        "signUp": "Sign Up"
+      },
+      "pricing": {
+        "enterprise": {
+          "cta": "Contact Sales",
+          "description": "For large organizations with strict data compliance",
+          "f1": "Unlimited responses & custom limits",
+          "f2": "SAML SSO & Advanced team roles",
+          "f3": "Dedicated account manager",
+          "f4": "Custom SLA & security reviews",
+          "f5": "On-premise / self-host support",
+          "name": "Enterprise",
+          "price": "Custom"
+        },
+        "free": {
+          "cta": "Start Free",
+          "description": "Perfect for starting out and personal projects",
+          "f1": "500 responses per month",
+          "f2": "3 active surveys",
+          "f3": "Basic survey analytics",
+          "f4": "Standard templates",
+          "f5": "Community support",
+          "name": "Free",
+          "price": "$0"
+        },
+        "popular": "Popular",
+        "pro": {
+          "cta": "Go Pro",
+          "description": "For scaling products and businesses",
+          "f1": "5,000 responses per month",
+          "f2": "Team collaboration (3 seats)",
+          "f3": "Slack & Zapier integrations",
+          "f4": "Advanced survey logic & skip paths",
+          "f5": "Priority support",
+          "name": "Pro",
+          "period": "/mo",
+          "price": "$79"
+        },
+        "starter": {
+          "cta": "Upgrade to Starter",
+          "description": "For small teams needing more answers",
+          "f1": "2,000 responses per month",
+          "f2": "Unlimited active surveys",
+          "f3": "Advanced analytics dashboard",
+          "f4": "Custom branding removal",
+          "f5": "Email support (24h SLA)",
+          "name": "Starter",
+          "period": "/mo",
+          "price": "$29"
+        },
+        "subtitle": "FeedyRuby comes with a generous free plan, and scales flexibly as your feedback grows.",
+        "title": "Simple, Transparent Pricing"
+      }
+    }
   },
   "organizations": {
     "landing": {
@@ -2215,7 +2339,7 @@
       "salamruby_branding_hidden": "salamruby branding is hidden.",
       "salamruby_branding_settings_description": "We love your support but understand if you toggle it off.",
       "salamruby_branding_shown": "salamruby branding is shown.",
-      "show_powered_by_salamruby": "Show “FeedieRuby · a TechRuby product” signature",
+      "show_powered_by_salamruby": "Show “FeedyRuby · a TechRuby product” signature",
       "show_salamruby_branding_in": "Show salamruby Branding in {type} surveys",
       "styling_updated_successfully": "Styling updated successfully",
       "suggest_colors": "Suggest colors",
@@ -2445,7 +2569,7 @@
         "enterprise_features": "Enterprise Features",
         "feedback_directories": "Feedback Directories",
         "get_an_enterprise_license_to_get_access_to_all_features": "Get an Enterprise license to get access to all features.",
-        "hide_powered_by_salamruby": "Hide \"FeedieRuby · a TechRuby product\"",
+        "hide_powered_by_salamruby": "Hide \"FeedyRuby · a TechRuby product\"",
         "insights_dashboards": "Insights Dashboards",
         "keep_full_control_over_your_data_privacy_and_security": "Keep full control over your data privacy and security.",
         "license_features_table_access": "Access",

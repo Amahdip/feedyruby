@@ -4,7 +4,7 @@ export const DEFAULT_BRAND_COLOR = "#1e40af";
 export const APP_NAME = "فیدی‌روبی";
 
 /** Latin slug / metadata */
-export const APP_NAME_LATIN = "FeedieRuby";
+export const APP_NAME_LATIN = "FeedyRuby";
 
 /** Portfolio / engineering studio (English) */
 export const STUDIO_NAME = "TechRuby";
@@ -37,7 +37,7 @@ export const HIDE_CONTACTS_FEATURE = true;
 export const HIDE_UNIFY_FEEDBACK = true;
 export const HIDE_DASHBOARDS_FEATURE = true;
 
-/** FeedieRuby self-host: dashboards hidden — skip bundled Cube.js (~1.7GB) in Docker Compose */
+/** FeedyRuby self-host: dashboards hidden — skip bundled Cube.js (~1.7GB) in Docker Compose */
 export const DISABLE_CUBE_ANALYTICS = true;
 
 /** Link surveys only — hide website/app SDK survey type and app-connection setup */

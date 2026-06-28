@@ -8,7 +8,7 @@ interface BrandImageProps {
   priority?: boolean;
 }
 
-export const FeedieRubyIcon = ({ className, priority = false }: Readonly<BrandImageProps>) => (
+export const FeedyRubyIcon = ({ className, priority = false }: Readonly<BrandImageProps>) => (
   <Image
     src={BRAND_ASSETS.iconRubyTile}
     alt={APP_NAME}
@@ -19,7 +19,7 @@ export const FeedieRubyIcon = ({ className, priority = false }: Readonly<BrandIm
   />
 );
 
-export const FeedieRubyIconLight = ({ className, priority = false }: Readonly<BrandImageProps>) => (
+export const FeedyRubyIconLight = ({ className, priority = false }: Readonly<BrandImageProps>) => (
   <Image
     src={BRAND_ASSETS.iconWhiteTile}
     alt={APP_NAME}
@@ -30,7 +30,7 @@ export const FeedieRubyIconLight = ({ className, priority = false }: Readonly<Br
   />
 );
 
-export const FeedieRubyMark = ({ className, priority = false }: Readonly<BrandImageProps>) => (
+export const FeedyRubyMark = ({ className, priority = false }: Readonly<BrandImageProps>) => (
   <Image
     src={BRAND_ASSETS.mark}
     alt={APP_NAME}
@@ -41,7 +41,7 @@ export const FeedieRubyMark = ({ className, priority = false }: Readonly<BrandIm
   />
 );
 
-export const FeedieRubyWordmark = ({ className, priority = false }: Readonly<BrandImageProps>) => (
+export const FeedyRubyWordmark = ({ className, priority = false }: Readonly<BrandImageProps>) => (
   <Image
     src={BRAND_ASSETS.wordmark}
     alt={APP_NAME_LATIN}

@@ -14,8 +14,8 @@ LOCALE_PATH = Path(__file__).resolve().parents[1] / "apps/web/locales/fa-IR.json
 PHRASE_REPLACEMENTS: list[tuple[str, str]] = [
     ("سالامروبی", "فیدی‌روبی"),
     ("سلام‌روبی", "فیدی‌روبی"),
-    ("Formbricks", "FeedieRuby"),
-    ("formbricks", "feedieruby"),
+    ("Formbricks", "FeedyRuby"),
+    ("formbricks", "feedyruby"),
     ("تجزیه و تحلیل", "تحلیل"),
     ("صندوق ورودی", "صندوق دریافت"),
     ("کلیپ بورد", "کلیپ‌بورد"),

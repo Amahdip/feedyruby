@@ -23,7 +23,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/modules/ui/components/dropdown-menu";
-import { FeedieRubyWordmark } from "@/modules/ui/components/feedieruby-brand";
+import { FeedyRubyWordmark } from "@/modules/ui/components/feedyruby-brand";
 import { SidebarExpandChevron } from "@/modules/ui/components/sidebar-expand-chevron";
 
 interface LandingSidebarProps {
@@ -111,7 +111,7 @@ export const LandingSidebar = ({ user, organization, isMultiOrgEnabled }: Landin
       className={cn(
         "z-40 flex w-sidebar-collapsed flex-col justify-between rounded-r-xl border-r border-slate-200 bg-white pt-3 shadow-md transition-all duration-100"
       )}>
-      <FeedieRubyWordmark className="mx-3 h-7 max-w-[9rem]" priority />
+      <FeedyRubyWordmark className="mx-3 h-7 max-w-[9rem]" priority />
 
       <div className="flex flex-col">
         {/* Organization Switcher */}
