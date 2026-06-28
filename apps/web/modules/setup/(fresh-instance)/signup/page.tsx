@@ -24,7 +24,7 @@ import { getIsSamlSsoEnabled, getIsSsoEnabled } from "@/modules/ee/license-check
 
 export const metadata: Metadata = {
   title: "Sign up",
-  description: "Open-source Experience Management. Free & open source.",
+  description: "Iran's modern survey & experience management platform.",
 };
 
 export const SignupPage = async () => {

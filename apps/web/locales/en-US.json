@@ -608,11 +608,11 @@
         "title": "Ready to Collect Better Feedback?"
       },
       "faq": {
-        "a1": "Yes, FeedyRuby's core is 100% open-source under the AGPLv3 license, and the code is publicly available for inspection and transparency. We run the platform as a managed service on our servers in Iran, so you can use it with no technical setup.",
+        "a1": "Yes, getting started with FeedyRuby is completely free. We run the platform as a managed service on our servers in Iran, so your data stays local and you can get started with no technical setup.",
         "a2": "On the free tier, surveys will temporarily pause collection once you reach 500 responses in a month. We'll send you an email alert beforehand, and you can upgrade to a paid tier at any time to resume collecting.",
         "a3": "All your data is stored securely on our servers inside Iran and never leaves the country — with no sanctions risk and no third-party access.",
         "a4": "Yes, FeedyRuby is designed with RTL layouts in mind. Survey templates and responses support right-to-left typing (Farsi, Arabic, Hebrew) natively.",
-        "q1": "Is FeedyRuby really open source?",
+        "q1": "Is FeedyRuby really free to use?",
         "q2": "What happens if I exceed my monthly response limit?",
         "q3": "Where is my data stored?",
         "q4": "Do you support RTL languages like Persian?",
@@ -633,8 +633,8 @@
           "title": "In-App Surveys"
         },
         "openSource": {
-          "description": "Built transparently on open standards with full code inspection — a project by the SalamRuby coding school.",
-          "title": "100% Open-Source"
+          "description": "Built in Iran by the SalamRuby coding school — your data stays on local servers and our support team is right here.",
+          "title": "Made in Iran"
         },
         "privacyFirst": {
           "description": "Your users' response data is stored securely on our servers in Iran, and you keep full control of it.",
@@ -656,8 +656,8 @@
         "terms": "Terms of Service"
       },
       "hero": {
-        "badge": "Iran-First Open-Source Survey Platform",
-        "description": "FeedyRuby is the modern, open-source alternative to Qualtrics and Formbricks. Gather customer and student feedback effortlessly, with zero complexity and GDPR-compliant data standards.",
+        "badge": "Iran's Leading Survey Platform",
+        "description": "FeedyRuby is Iran's modern survey and experience management platform. Gather customer and student feedback effortlessly — beautiful RTL-native UX and data secured on Iranian servers.",
         "learnMore": "Learn More",
         "startFree": "Start Free (No Card Required)",
         "title": "Create Beautiful Surveys",
@@ -730,7 +730,7 @@
         "title": "Start Creating Interactive Forms Today"
       },
       "faq": {
-        "a1": "Yes, getting started with FeedyRuby is free and its core is 100% open-source. We run the platform as a managed service on our servers inside Iran.",
+        "a1": "Yes, getting started with FeedyRuby is completely free. We run the platform as a managed service on our servers inside Iran.",
         "a2": "Yes, FeedyRuby is fully localized. It supports Right-to-Left (RTL) layouts natively, and Persian/Jalali calendar features are supported for survey participants.",
         "a3": "All your data is hosted on our servers inside Iran and never leaves the country — with no server setup required on your side.",
         "a4": "On FeedyRuby's enterprise plans, there are absolutely no limits on responses, surveys, or users, and all the data stays yours.",
@@ -755,7 +755,7 @@
         "badge": "Smart Form Builder Comparison",
         "ctaHost": "Learn More",
         "ctaStart": "Start for Free",
-        "description": "If you are looking for total data control, secure hosting inside Iran, modern UX/UI design, and zero response limits, FeedyRuby is the ultimate open-source alternative to Porsline.",
+        "description": "If you are looking for total data control, secure hosting inside Iran, modern UX/UI design, and zero response limits, FeedyRuby is the modern alternative to Porsline — built for Iranian teams.",
         "title": "FeedyRuby vs Porsline",
         "titleSub": "The Professional Choice for Gathering Feedback",
         "versus": "VS"
@@ -774,7 +774,7 @@
         "rowDataControl": "Data Ownership & Control",
         "rowDeveloper": "Developer APIs & Webhooks",
         "rowInApp": "In-App Surveys",
-        "rowOpenSource": "100% Open Source (AGPLv3)",
+        "rowOpenSource": "Hosted in Iran",
         "rowPricing": "Pricing / Free limits",
         "rowRtl": "Native RTL/Farsi Support",
         "rowSelfHost": "Data hosted inside Iran",
@@ -783,8 +783,8 @@
         "yes": "Yes"
       },
       "seo": {
-        "description": "A comprehensive comparison between FeedyRuby and Porsline. Discover why FeedyRuby's open-source, RTL-friendly, developer-first platform is the perfect alternative.",
-        "title": "FeedyRuby vs Porsline | Best Open Source Survey Alternative"
+        "description": "A comprehensive comparison between FeedyRuby and Porsline. Discover why FeedyRuby's RTL-native, developer-first platform is the modern alternative for Iranian teams.",
+        "title": "FeedyRuby vs Porsline | Modern Survey Platform for Iranian Teams"
       }
     }
   },
@@ -810,7 +810,7 @@
     "check_inbox_or_spam": "Please also check your spam folder if you do not see the email in your inbox.",
     "completed": "This survey is closed.",
     "completed_heading": "Survey Completed",
-    "create_your_own": "Create your own open-source survey",
+    "create_your_own": "Create your own free survey",
     "enter_pin": "This survey is protected. Enter the PIN below.",
     "just_curious": "Just curious?",
     "link_invalid": "This survey can only be taken by invitation.",
@@ -836,7 +836,7 @@
     "intro": {
       "get_started": "Get started",
       "made_with_love_in_kiel": "Made with 🤍 in Iran",
-      "paragraph_1": "FeedyRuby is an Experience Management Suite built on one of the world's <b>fastest-growing open-source survey platforms</b> — a project by the SalamRuby coding school.",
+      "paragraph_1": "FeedyRuby is an Experience Management Suite purpose-built for Iranian teams — designed <b>Farsi-first with full RTL support</b> and all data hosted on Iranian servers by the SalamRuby coding school.",
       "paragraph_2": "Run targeted surveys on websites, in apps or anywhere online. Gather valuable insights to <b>craft irresistible experiences</b> for customers, users and employees.",
       "paragraph_3": "We are committed to the highest degree of data privacy. Your data is hosted securely on our servers in Iran, so you keep <b>full control over your data</b> with no sanctions worries.",
       "welcome_to_feedyruby": "Welcome to FeedyRuby!"
@@ -1630,7 +1630,7 @@
     "uncover_strengths_and_weaknesses_name": "Uncover Strengths & Weaknesses",
     "uncover_strengths_and_weaknesses_question_1_choice_1": "Ease of use",
     "uncover_strengths_and_weaknesses_question_1_choice_2": "Good value for money",
-    "uncover_strengths_and_weaknesses_question_1_choice_3": "It is open-source",
+    "uncover_strengths_and_weaknesses_question_1_choice_3": "It has great UX",
     "uncover_strengths_and_weaknesses_question_1_choice_4": "The founders are cute",
     "uncover_strengths_and_weaknesses_question_1_choice_5": "Other",
     "uncover_strengths_and_weaknesses_question_1_headline": "What do you value most about $[workspaceName]?",
@@ -3396,7 +3396,7 @@
         "subtract": "Subtract -",
         "survey_closed_message_heading_required": "Add a heading to the custom survey closed message.",
         "survey_completed_heading": "Survey Completed",
-        "survey_completed_subheading": "This free & open-source survey has been closed",
+        "survey_completed_subheading": "This survey has been closed",
         "survey_display_settings": "Survey Display Settings",
         "survey_placement": "Survey Placement",
         "survey_preview": "Survey Preview 👀",

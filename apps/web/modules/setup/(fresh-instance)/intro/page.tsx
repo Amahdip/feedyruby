@@ -5,7 +5,7 @@ import { Button } from "@/modules/ui/components/button";
 
 export const metadata: Metadata = {
   title: "Intro",
-  description: "Open-source Experience Management. Free & open source.",
+  description: "Iran's modern survey & experience management platform.",
 };
 
 export const IntroPage = async () => {
