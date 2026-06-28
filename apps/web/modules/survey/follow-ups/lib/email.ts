@@ -4,11 +4,11 @@ import {
   ProcessedResponseElement,
   ProcessedVariable,
   renderFollowUpEmail,
-} from "@salamruby/email";
-import { TResponse } from "@salamruby/types/responses";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurveyFollowUp } from "@salamruby/types/surveys/follow-up";
-import { TSurvey } from "@salamruby/types/surveys/types";
+} from "@feedyruby/email";
+import { TResponse } from "@feedyruby/types/responses";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurveyFollowUp } from "@feedyruby/types/surveys/follow-up";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { IMPRINT_ADDRESS, IMPRINT_URL, PRIVACY_URL, TERMS_URL } from "@/lib/constants";
 import { getElementResponseMapping } from "@/lib/responses";
 import { parseRecallInfo } from "@/lib/utils/recall";

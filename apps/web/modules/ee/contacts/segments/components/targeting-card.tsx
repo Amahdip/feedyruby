@@ -7,14 +7,14 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 import { Trans, useTranslation } from "react-i18next";
-import { TContactAttributeKey } from "@salamruby/types/contact-attribute-key";
+import { TContactAttributeKey } from "@feedyruby/types/contact-attribute-key";
 import type {
   TBaseFilter,
   TSegment,
   TSegmentCreateInput,
   TSegmentUpdateInput,
-} from "@salamruby/types/segment";
-import type { TSurvey } from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/segment";
+import type { TSurvey } from "@feedyruby/types/surveys/types";
 import { useWorkspace } from "@/app/(app)/workspaces/[workspaceId]/context/workspace-context";
 import { cn } from "@/lib/cn";
 import { structuredClone } from "@/lib/pollyfills/structuredClone";
@@ -439,7 +439,7 @@ export function TargetingCard({
                   components={{
                     docsLink: (
                       <Link
-                        href="https://salamruby.com/docs/app-surveys/user-identification"
+                        href="https://feedyruby.com/docs/app-surveys/user-identification"
                         target="_blank"
                         rel="noreferrer"
                         className="underline"

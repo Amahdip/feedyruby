@@ -2,19 +2,19 @@
 
 import { useTranslation } from "react-i18next";
 import { v7 as uuidv7 } from "uuid";
-import { TAllowedFileExtension } from "@salamruby/types/storage";
+import { TAllowedFileExtension } from "@feedyruby/types/storage";
 import {
   TSurveyElement,
   TSurveyElementTypeEnum,
   TSurveyOpenTextElementInputType,
   TValidationLogic,
-} from "@salamruby/types/surveys/elements";
+} from "@feedyruby/types/surveys/elements";
 import {
   TAddressField,
   TContactInfoField,
   TValidationRule,
   TValidationRuleType,
-} from "@salamruby/types/surveys/validation-rules";
+} from "@feedyruby/types/surveys/validation-rules";
 import { AdvancedOptionToggle } from "@/modules/ui/components/advanced-option-toggle";
 import { RULE_TYPE_CONFIG } from "../lib/validation-rules-config";
 import {

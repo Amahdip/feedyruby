@@ -1,7 +1,7 @@
 import "server-only";
-import type { TSurveyType } from "@salamruby/types/surveys/types";
-import type { TTemplate } from "@salamruby/types/templates";
-import type { TUserLocale } from "@salamruby/types/user";
+import type { TSurveyType } from "@feedyruby/types/surveys/types";
+import type { TTemplate } from "@feedyruby/types/templates";
+import type { TUserLocale } from "@feedyruby/types/user";
 import { isInternalI18nString, isPlainObject } from "../../guards";
 
 export type TV3TemplateSurveyCreatePayload = {

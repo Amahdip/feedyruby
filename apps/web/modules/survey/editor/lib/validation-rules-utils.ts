@@ -1,11 +1,11 @@
-import { TSurveyElementTypeEnum, TSurveyOpenTextElementInputType } from "@salamruby/types/surveys/elements";
+import { TSurveyElementTypeEnum, TSurveyOpenTextElementInputType } from "@feedyruby/types/surveys/elements";
 import {
   APPLICABLE_RULES,
   TAddressField,
   TContactInfoField,
   TValidationRule,
   TValidationRuleType,
-} from "@salamruby/types/surveys/validation-rules";
+} from "@feedyruby/types/surveys/validation-rules";
 
 const stringRules: TValidationRuleType[] = [
   "minLength",

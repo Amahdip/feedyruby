@@ -4290,7 +4290,7 @@ export const iso639Languages = [
 ] as const satisfies readonly TIso639Language[];
 
 /**
- * Union of every ISO 639 language code SalamRuby supports.
+ * Union of every ISO 639 language code FeedyRuby supports.
  * Derived automatically from the `iso639Languages` array — stays in sync
  * without any manual maintenance.
  */

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { type TResponseTtc } from "@salamruby/types/responses";
+import { type TResponseTtc } from "@feedyruby/types/responses";
 
 export const getUpdatedTtc = (ttc: TResponseTtc, questionId: string, time: number) => {
   // Check if the question ID already exists

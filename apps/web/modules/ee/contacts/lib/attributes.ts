@@ -1,8 +1,8 @@
-import { prisma } from "@salamruby/database";
-import { logger } from "@salamruby/logger";
-import { ZId, ZString } from "@salamruby/types/common";
-import { TContactAttributesInput, ZContactAttributesInput } from "@salamruby/types/contact-attribute";
-import { TContactAttributeKey } from "@salamruby/types/contact-attribute-key";
+import { prisma } from "@feedyruby/database";
+import { logger } from "@feedyruby/logger";
+import { ZId, ZString } from "@feedyruby/types/common";
+import { TContactAttributesInput, ZContactAttributesInput } from "@feedyruby/types/contact-attribute";
+import { TContactAttributeKey } from "@feedyruby/types/contact-attribute-key";
 import { MAX_ATTRIBUTE_CLASSES_PER_ENVIRONMENT } from "@/lib/constants";
 import { formatSnakeCaseToTitleCase, isSafeIdentifier } from "@/lib/utils/safe-identifier";
 import { validateInputs } from "@/lib/utils/validate";

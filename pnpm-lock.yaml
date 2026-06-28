@@ -26,12 +26,12 @@ importers:
       '@azure/playwright':
         specifier: 1.1.5
         version: 1.1.5(@playwright/test@1.58.2)
+      '@feedyruby/eslint-config':
+        specifier: workspace:*
+        version: link:packages/config-eslint
       '@playwright/test':
         specifier: 1.58.2
         version: 1.58.2
-      '@salamruby/eslint-config':
-        specifier: workspace:*
-        version: link:packages/config-eslint
       dotenv:
         specifier: 17.3.1
         version: 17.3.1
@@ -119,6 +119,42 @@ importers:
       '@dnd-kit/utilities':
         specifier: 3.2.2
         version: 3.2.2(react@19.2.6)
+      '@feedyruby/ai':
+        specifier: workspace:*
+        version: link:../../packages/ai
+      '@feedyruby/cache':
+        specifier: workspace:*
+        version: link:../../packages/cache
+      '@feedyruby/database':
+        specifier: workspace:*
+        version: link:../../packages/database
+      '@feedyruby/email':
+        specifier: workspace:*
+        version: link:../../packages/email
+      '@feedyruby/hub':
+        specifier: workspace:*
+        version: link:../../packages/hub
+      '@feedyruby/i18n-utils':
+        specifier: workspace:*
+        version: link:../../packages/i18n-utils
+      '@feedyruby/jobs':
+        specifier: workspace:*
+        version: link:../../packages/jobs
+      '@feedyruby/js-core':
+        specifier: workspace:*
+        version: link:../../packages/js-core
+      '@feedyruby/logger':
+        specifier: workspace:*
+        version: link:../../packages/logger
+      '@feedyruby/storage':
+        specifier: workspace:*
+        version: link:../../packages/storage
+      '@feedyruby/surveys':
+        specifier: workspace:*
+        version: link:../../packages/surveys
+      '@feedyruby/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       '@hookform/resolvers':
         specifier: 5.2.2
         version: 5.2.2(react-hook-form@7.71.2(react@19.2.6))
@@ -230,42 +266,6 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: 1.2.8
         version: 1.2.8(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@salamruby/ai':
-        specifier: workspace:*
-        version: link:../../packages/ai
-      '@salamruby/cache':
-        specifier: workspace:*
-        version: link:../../packages/cache
-      '@salamruby/database':
-        specifier: workspace:*
-        version: link:../../packages/database
-      '@salamruby/email':
-        specifier: workspace:*
-        version: link:../../packages/email
-      '@salamruby/hub':
-        specifier: workspace:*
-        version: link:../../packages/hub
-      '@salamruby/i18n-utils':
-        specifier: workspace:*
-        version: link:../../packages/i18n-utils
-      '@salamruby/jobs':
-        specifier: workspace:*
-        version: link:../../packages/jobs
-      '@salamruby/js-core':
-        specifier: workspace:*
-        version: link:../../packages/js-core
-      '@salamruby/logger':
-        specifier: workspace:*
-        version: link:../../packages/logger
-      '@salamruby/storage':
-        specifier: workspace:*
-        version: link:../../packages/storage
-      '@salamruby/surveys':
-        specifier: workspace:*
-        version: link:../../packages/surveys
-      '@salamruby/types':
-        specifier: workspace:*
-        version: link:../../packages/types
       '@sentry/nextjs':
         specifier: 10.43.0
         version: 10.43.0(@opentelemetry/context-async-hooks@2.7.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@2.7.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@2.7.1(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@16.2.6(@opentelemetry/api@1.9.0)(@playwright/test@1.58.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react@19.2.6)(webpack@5.105.4(lightningcss@1.32.0)(postcss@8.5.14))
@@ -453,10 +453,10 @@ importers:
         specifier: 5.4.6
         version: 5.4.6(zod@4.3.6)
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../../packages/config-typescript
-      '@salamruby/eslint-config':
+      '@feedyruby/eslint-config':
         specifier: workspace:*
         version: link:../../packages/config-eslint
       '@testing-library/jest-dom':
@@ -537,20 +537,20 @@ importers:
       '@aws-sdk/credential-providers':
         specifier: 3.1017.0
         version: 3.1017.0
-      '@salamruby/logger':
+      '@feedyruby/logger':
         specifier: workspace:*
         version: link:../logger
-      '@salamruby/types':
+      '@feedyruby/types':
         specifier: workspace:*
         version: link:../types
       ai:
         specifier: 6.0.177
         version: 6.0.177(zod@4.3.6)
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
-      '@salamruby/eslint-config':
+      '@feedyruby/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
       '@vitest/coverage-v8':
@@ -565,7 +565,7 @@ importers:
 
   packages/cache:
     dependencies:
-      '@salamruby/logger':
+      '@feedyruby/logger':
         specifier: workspace:*
         version: link:../logger
       redis:
@@ -575,10 +575,10 @@ importers:
         specifier: 4.3.6
         version: 4.3.6
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
-      '@salamruby/eslint-config':
+      '@feedyruby/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
       '@vitest/coverage-v8':
@@ -662,6 +662,12 @@ importers:
 
   packages/database:
     dependencies:
+      '@feedyruby/logger':
+        specifier: workspace:*
+        version: link:../logger
+      '@feedyruby/types':
+        specifier: workspace:*
+        version: link:../types
       '@paralleldrive/cuid2':
         specifier: 2.3.1
         version: 2.3.1
@@ -671,12 +677,6 @@ importers:
       '@prisma/client':
         specifier: 7.8.0
         version: 7.8.0(prisma@7.8.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(better-sqlite3@12.8.0)(magicast@0.5.2)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3))(typescript@5.9.3)
-      '@salamruby/logger':
-        specifier: workspace:*
-        version: link:../logger
-      '@salamruby/types':
-        specifier: workspace:*
-        version: link:../types
       bcryptjs:
         specifier: 3.0.3
         version: 3.0.3
@@ -693,10 +693,10 @@ importers:
         specifier: 5.4.6
         version: 5.4.6(zod@4.3.6)
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
-      '@salamruby/eslint-config':
+      '@feedyruby/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
       '@types/pg':
@@ -733,13 +733,13 @@ importers:
         specifier: 5.2.11
         version: 5.2.11
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
-      '@salamruby/eslint-config':
+      '@feedyruby/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
-      '@salamruby/types':
+      '@feedyruby/types':
         specifier: workspace:*
         version: link:../types
       autoprefixer:
@@ -766,10 +766,10 @@ importers:
         specifier: ^13.0.6
         version: 13.0.6
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
-      '@salamruby/eslint-config':
+      '@feedyruby/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
       '@types/node':
@@ -787,13 +787,13 @@ importers:
 
   packages/jobs:
     dependencies:
-      '@salamruby/database':
+      '@feedyruby/database':
         specifier: workspace:*
         version: link:../database
-      '@salamruby/logger':
+      '@feedyruby/logger':
         specifier: workspace:*
         version: link:../logger
-      '@salamruby/types':
+      '@feedyruby/types':
         specifier: workspace:*
         version: link:../types
       bullmq:
@@ -806,10 +806,10 @@ importers:
         specifier: 4.3.6
         version: 4.3.6
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
-      '@salamruby/eslint-config':
+      '@feedyruby/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
       '@vitest/coverage-v8':
@@ -827,10 +827,10 @@ importers:
 
   packages/js-core:
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
-      '@salamruby/eslint-config':
+      '@feedyruby/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
       '@vitest/coverage-v8':
@@ -861,10 +861,10 @@ importers:
         specifier: 4.3.6
         version: 4.3.6
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
-      '@salamruby/eslint-config':
+      '@feedyruby/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
       vite:
@@ -885,14 +885,14 @@ importers:
       '@aws-sdk/s3-request-presigner':
         specifier: 3.1007.0
         version: 3.1007.0
-      '@salamruby/logger':
+      '@feedyruby/logger':
         specifier: workspace:*
         version: link:../logger
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
-      '@salamruby/eslint-config':
+      '@feedyruby/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
       '@vitest/coverage-v8':
@@ -950,10 +950,10 @@ importers:
         specifier: 3.5.0
         version: 3.5.0
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
-      '@salamruby/eslint-config':
+      '@feedyruby/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
       '@storybook/react':
@@ -1010,7 +1010,7 @@ importers:
       '@calcom/embed-snippet':
         specifier: 1.3.3
         version: 1.3.3
-      '@salamruby/survey-ui':
+      '@feedyruby/survey-ui':
         specifier: workspace:*
         version: link:../survey-ui
       i18next:
@@ -1032,21 +1032,21 @@ importers:
         specifier: 3.5.0
         version: 3.5.0
     devDependencies:
+      '@feedyruby/config-typescript':
+        specifier: workspace:*
+        version: link:../config-typescript
+      '@feedyruby/eslint-config':
+        specifier: workspace:*
+        version: link:../config-eslint
+      '@feedyruby/i18n-utils':
+        specifier: workspace:*
+        version: link:../i18n-utils
+      '@feedyruby/types':
+        specifier: workspace:*
+        version: link:../types
       '@preact/preset-vite':
         specifier: 2.10.5
         version: 2.10.5(@babel/core@7.29.0)(preact@10.29.1)(rollup@4.59.0)(vite@7.3.3(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.47.1)(tsx@4.21.0)(yaml@2.9.0))
-      '@salamruby/config-typescript':
-        specifier: workspace:*
-        version: link:../config-typescript
-      '@salamruby/eslint-config':
-        specifier: workspace:*
-        version: link:../config-eslint
-      '@salamruby/i18n-utils':
-        specifier: workspace:*
-        version: link:../i18n-utils
-      '@salamruby/types':
-        specifier: workspace:*
-        version: link:../types
       '@tailwindcss/postcss':
         specifier: 4.2.4
         version: 4.2.4
@@ -1096,16 +1096,16 @@ importers:
         specifier: 5.4.6
         version: 5.4.6(zod@4.3.6)
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
 
   packages/vite-plugins:
     devDependencies:
-      '@salamruby/config-typescript':
+      '@feedyruby/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
-      '@salamruby/eslint-config':
+      '@feedyruby/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
       vite:

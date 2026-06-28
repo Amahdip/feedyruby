@@ -1,15 +1,15 @@
 import { createId } from "@paralleldrive/cuid2";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { logger } from "@salamruby/logger";
-import { OperationNotAllowedError, ResourceNotFoundError, ValidationError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { logger } from "@feedyruby/logger";
+import { OperationNotAllowedError, ResourceNotFoundError, ValidationError } from "@feedyruby/types/errors";
 import {
   TBaseFilters,
   TEvaluateSegmentUserData,
   TSegmentCreateInput,
   TSegmentUpdateInput,
   TSegmentWithSurveyRefs,
-} from "@salamruby/types/segment";
+} from "@feedyruby/types/segment";
 import { getSurvey } from "@/lib/survey/service";
 import { validateInputs } from "@/lib/utils/validate";
 import {
@@ -29,7 +29,7 @@ import {
 } from "./segments";
 
 // Mock dependencies
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     segment: {
       findUnique: vi.fn(),
@@ -55,7 +55,7 @@ vi.mock("@/lib/utils/validate", () => ({
   validateInputs: vi.fn(() => true), // Assume validation passes
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },

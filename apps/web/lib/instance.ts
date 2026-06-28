@@ -1,9 +1,9 @@
 import "server-only";
 import { createHash } from "node:crypto";
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { DatabaseError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { DatabaseError } from "@feedyruby/types/errors";
 
 export type TInstanceInfo = {
   instanceId: string;

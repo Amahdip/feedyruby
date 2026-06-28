@@ -3,7 +3,7 @@ import {
   TContactAttributeDataType,
   TContactAttributeKey,
   ZContactAttributeDataType,
-} from "@salamruby/types/contact-attribute-key";
+} from "@feedyruby/types/contact-attribute-key";
 
 export const ZContact = z.object({
   id: z.cuid2(),

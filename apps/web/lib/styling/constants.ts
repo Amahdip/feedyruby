@@ -1,5 +1,5 @@
 // https://github.com/airbnb/javascript/#naming--uppercase
-import { TWorkspaceStyling } from "@salamruby/types/workspace";
+import { TWorkspaceStyling } from "@feedyruby/types/workspace";
 import { DEFAULT_BRAND_COLOR } from "@/lib/brand-color";
 import { isLight, mixColor } from "@/lib/utils/colors";
 

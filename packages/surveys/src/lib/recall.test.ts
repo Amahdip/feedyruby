@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from "vitest";
-import { type TResponseData, type TResponseVariables } from "@salamruby/types/responses";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/constants";
-import { type TSurveyOpenTextElement } from "@salamruby/types/surveys/elements";
+import { type TResponseData, type TResponseVariables } from "@feedyruby/types/responses";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/constants";
+import { type TSurveyOpenTextElement } from "@feedyruby/types/surveys/elements";
 import { parseRecallInformation, replaceRecallInfo } from "./recall";
 
 // Mock getLocalizedValue (assuming path and simple behavior)
@@ -32,7 +32,7 @@ describe("replaceRecallInfo", () => {
   };
 
   const variables: TResponseVariables = {
-    productName: "SalamRuby",
+    productName: "FeedyRuby",
     userRole: "Admin",
     lastLogin: "2024-03-10",
   };
@@ -45,7 +45,7 @@ describe("replaceRecallInfo", () => {
 
   test("should replace recall info from variables if not in responseData", () => {
     const text = "Product: #recall:productName/fallback:N/A#. Role: #recall:userRole/fallback:User#.";
-    const expected = "Product: SalamRuby. Role: Admin.";
+    const expected = "Product: FeedyRuby. Role: Admin.";
     expect(replaceRecallInfo(text, responseData, variables)).toBe(expected);
   });
 
@@ -97,7 +97,7 @@ describe("replaceRecallInfo", () => {
   test("should handle multiple recall patterns in a single string", () => {
     const text =
       "Hi #recall:name/fallback:User#, welcome to #recall:productName/fallback:Our Product#. Your role is #recall:userRole/fallback:Member#.";
-    const expected = "Hi John Doe, welcome to SalamRuby. Your role is Admin.";
+    const expected = "Hi John Doe, welcome to FeedyRuby. Your role is Admin.";
     expect(replaceRecallInfo(text, responseData, variables)).toBe(expected);
   });
 
@@ -159,7 +159,7 @@ describe("parseRecallInformation", () => {
   };
 
   const variables: TResponseVariables = {
-    productName: "SalamRuby",
+    productName: "FeedyRuby",
     userRole: "Admin",
     lastLogin: "2024-03-10",
     surveyType: "Onboarding",
@@ -190,7 +190,7 @@ describe("parseRecallInformation", () => {
       headline: { en: "Main Question" },
       subheader: { en: "Details: #recall:productName/fallback:N/A#." },
     };
-    const expectedSubheader = "Details: SalamRuby.";
+    const expectedSubheader = "Details: FeedyRuby.";
     const result = parseRecallInformation(question, "en", responseData, variables);
     expect(result.subheader?.en).toBe(expectedSubheader);
   });

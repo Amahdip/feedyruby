@@ -2,8 +2,8 @@
 
 declare global {
   interface Window {
-    __salamrubyNonce?: string;
-    salamrubySurveys?: {
+    __feedyrubyNonce?: string;
+    feedyrubySurveys?: {
       renderSurvey: (options: unknown) => void;
       setNonce: (nonce: string | undefined) => void;
     };

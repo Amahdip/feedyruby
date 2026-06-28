@@ -1,7 +1,7 @@
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
 import { ApiErrorResponseV2 } from "@/modules/api/v2/types/api-error";
 
 export const deleteDisplay = async (displayId: string): Promise<Result<boolean, ApiErrorResponseV2>> => {

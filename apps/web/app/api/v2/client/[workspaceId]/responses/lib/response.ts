@@ -1,15 +1,15 @@
 import "server-only";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { TContactAttributes } from "@salamruby/types/contact-attribute";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { TContactAttributes } from "@feedyruby/types/contact-attribute";
 import {
   DatabaseError,
   InvalidInputError,
   ResourceNotFoundError,
   UniqueConstraintError,
-} from "@salamruby/types/errors";
-import { TResponseWithQuotaFull } from "@salamruby/types/quota";
-import { TResponse, ZResponseInput } from "@salamruby/types/responses";
+} from "@feedyruby/types/errors";
+import { TResponseWithQuotaFull } from "@feedyruby/types/quota";
+import { TResponse, ZResponseInput } from "@feedyruby/types/responses";
 import {
   buildClientResponse,
   createResponseWithQuotaEvaluation as createClientResponseWithQuotaEvaluation,

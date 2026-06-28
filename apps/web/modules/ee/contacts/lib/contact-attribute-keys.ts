@@ -1,8 +1,8 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { TContactAttributeDataType, TContactAttributeKey } from "@salamruby/types/contact-attribute-key";
-import { InvalidInputError, OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { TContactAttributeDataType, TContactAttributeKey } from "@feedyruby/types/contact-attribute-key";
+import { InvalidInputError, OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { formatSnakeCaseToTitleCase } from "@/lib/utils/safe-identifier";
 import {
   getReservedFutureDefaultAttributeKeyIssue,

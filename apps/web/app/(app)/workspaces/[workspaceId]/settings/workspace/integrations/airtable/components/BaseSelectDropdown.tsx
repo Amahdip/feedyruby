@@ -2,7 +2,7 @@
 
 import { Control, Controller, UseFormSetValue } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { TIntegrationItem } from "@salamruby/types/integration";
+import { TIntegrationItem } from "@feedyruby/types/integration";
 import { Label } from "@/modules/ui/components/label";
 import {
   Select,

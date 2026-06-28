@@ -15,7 +15,7 @@ vi.stubGlobal("window", {
 vi.stubGlobal("document", {
   getElementById: vi.fn(() => {
     return {
-      id: "salamruby-recaptcha-script",
+      id: "feedyruby-recaptcha-script",
       parentNode: {
         removeChild: vi.fn(),
       },
@@ -23,7 +23,7 @@ vi.stubGlobal("document", {
   }),
   createElement: vi.fn(() => {
     return {
-      id: "salamruby-recaptcha-script",
+      id: "feedyruby-recaptcha-script",
       src: "",
       async: true,
       defer: true,

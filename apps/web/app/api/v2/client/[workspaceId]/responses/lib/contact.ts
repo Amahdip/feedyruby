@@ -1,6 +1,6 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { TContactAttributes } from "@salamruby/types/contact-attribute";
+import { prisma } from "@feedyruby/database";
+import { TContactAttributes } from "@feedyruby/types/contact-attribute";
 
 type TContactAttributeResult = {
   attributeKey: {

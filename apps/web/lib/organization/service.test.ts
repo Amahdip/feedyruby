@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { DatabaseError } from "@salamruby/types/errors";
-import { IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { DatabaseError } from "@feedyruby/types/errors";
+import { IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { updateUser } from "@/lib/user/service";
 import {
   cleanupStripeCustomer,
@@ -18,7 +18,7 @@ import {
   updateOrganization,
 } from "./service";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     $transaction: vi.fn(),
     organization: {
@@ -168,9 +168,9 @@ describe("Organization Service", () => {
     test("should create organization with default billing settings", async () => {
       const expectedBilling = {
         limits: {
-          workspaces: IS_SALAMRUBY_CLOUD ? 1 : 3,
+          workspaces: IS_FEEDYRUBY_CLOUD ? 1 : 3,
           monthly: {
-            responses: IS_SALAMRUBY_CLOUD ? 250 : 1500,
+            responses: IS_FEEDYRUBY_CLOUD ? 250 : 1500,
           },
         },
         stripeCustomerId: null,
@@ -198,9 +198,9 @@ describe("Organization Service", () => {
           billing: {
             create: {
               limits: {
-                workspaces: IS_SALAMRUBY_CLOUD ? 1 : 3,
+                workspaces: IS_FEEDYRUBY_CLOUD ? 1 : 3,
                 monthly: {
-                  responses: IS_SALAMRUBY_CLOUD ? 250 : 1500,
+                  responses: IS_FEEDYRUBY_CLOUD ? 250 : 1500,
                 },
               },
               stripeCustomerId: null,
@@ -362,7 +362,7 @@ describe("Organization Service", () => {
 
       await deleteOrganization("org1");
 
-      if (IS_SALAMRUBY_CLOUD) {
+      if (IS_FEEDYRUBY_CLOUD) {
         expect(cleanupStripeCustomer).toHaveBeenCalledWith("cus_123");
       }
     });

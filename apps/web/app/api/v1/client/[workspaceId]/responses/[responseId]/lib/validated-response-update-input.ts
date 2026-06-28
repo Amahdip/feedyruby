@@ -1,4 +1,4 @@
-import { TResponseUpdateInput, ZResponseUpdateInput } from "@salamruby/types/responses";
+import { TResponseUpdateInput, ZResponseUpdateInput } from "@feedyruby/types/responses";
 import {
   TParseAndValidateJsonBodyResult,
   parseAndValidateJsonBody,

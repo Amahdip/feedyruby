@@ -1,5 +1,5 @@
-import { logger } from "@salamruby/logger";
-import { TIntegrationAirtableTables } from "@salamruby/types/integration/airtable";
+import { logger } from "@feedyruby/logger";
+import { TIntegrationAirtableTables } from "@feedyruby/types/integration/airtable";
 
 export const fetchTables = async (workspaceId: string, baseId: string) => {
   const res = await fetch(`/api/v1/integrations/airtable/tables?baseId=${baseId}`, {

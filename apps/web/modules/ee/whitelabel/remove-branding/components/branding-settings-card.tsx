@@ -1,7 +1,7 @@
-import { TWorkspace } from "@salamruby/types/workspace";
+import { TWorkspace } from "@feedyruby/types/workspace";
 import { SettingsCard } from "@/app/(app)/workspaces/[workspaceId]/settings/components/SettingsCard";
 import { shouldRenderEnterpriseSection } from "@/lib/brand-color";
-import { ENTERPRISE_LICENSE_REQUEST_FORM_URL, IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { ENTERPRISE_LICENSE_REQUEST_FORM_URL, IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { getTranslate } from "@/lingodotdev/server";
 import { EditBranding } from "@/modules/ee/whitelabel/remove-branding/components/edit-branding";
 import { Alert, AlertDescription } from "@/modules/ui/components/alert";
@@ -28,21 +28,21 @@ export const BrandingSettingsCard = async ({
 
   const buttons: [ModalButton, ModalButton] = [
     {
-      text: IS_SALAMRUBY_CLOUD ? t("common.upgrade_plan") : t("common.request_trial_license"),
-      href: IS_SALAMRUBY_CLOUD
+      text: IS_FEEDYRUBY_CLOUD ? t("common.upgrade_plan") : t("common.request_trial_license"),
+      href: IS_FEEDYRUBY_CLOUD
         ? `${workspaceBasePath}/settings/organization/billing`
         : ENTERPRISE_LICENSE_REQUEST_FORM_URL,
     },
     {
       text: t("common.learn_more"),
-      href: "https://salamruby.com/docs/self-hosting/advanced/enterprise-features/hide-powered-by-salamruby",
+      href: "https://feedyruby.com/docs/self-hosting/advanced/enterprise-features/hide-powered-by-feedyruby",
     },
   ];
 
   return (
     <SettingsCard
-      title={t("workspace.look.salamruby_branding")}
-      description={t("workspace.look.salamruby_branding_settings_description")}>
+      title={t("workspace.look.feedyruby_branding")}
+      description={t("workspace.look.feedyruby_branding_settings_description")}>
       {canRemoveBranding ? (
         <div className="space-y-4">
           <EditBranding

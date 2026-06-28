@@ -1,7 +1,7 @@
-// Minimal type declarations for @salamruby/logger
+// Minimal type declarations for @feedyruby/logger
 // This file provides basic typings so TypeScript can compile imports.
 
-declare module "@salamruby/logger" {
+declare module "@feedyruby/logger" {
   export interface Logger {
     info(message?: any, ...optionalParams: any[]): void;
     warn(message?: any, ...optionalParams: any[]): void;

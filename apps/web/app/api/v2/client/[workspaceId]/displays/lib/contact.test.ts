@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 import { doesContactExistInWorkspace } from "./contact";
 
 // Mock prisma
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     contact: {
       findFirst: vi.fn(),

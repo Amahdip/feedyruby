@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import {
   assertOrganizationAIConfigured,
   generateOrganizationAIObject,
@@ -20,7 +20,7 @@ const mocks = vi.hoisted(() => ({
 
 vi.mock("server-only", () => ({}));
 
-vi.mock("@salamruby/ai", () => ({
+vi.mock("@feedyruby/ai", () => ({
   AIConfigurationError: class AIConfigurationError extends Error {
     code: string;
 
@@ -34,7 +34,7 @@ vi.mock("@salamruby/ai", () => ({
   isAiConfigured: mocks.isAiConfigured,
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: mocks.loggerError,
   },

@@ -1,16 +1,16 @@
 import { getServerSession } from "next-auth";
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { ZId } from "@salamruby/types/common";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { ZId } from "@feedyruby/types/common";
 import {
   AuthenticationError,
   AuthorizationError,
   DatabaseError,
   ResourceNotFoundError,
-} from "@salamruby/types/errors";
-import { IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+} from "@feedyruby/types/errors";
+import { IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { getMembershipByUserIdOrganizationId } from "@/lib/membership/service";
 import { getAccessFlags } from "@/lib/membership/utils";
 import { getMonthlyOrganizationResponseCount, getOrganization } from "@/lib/organization/service";
@@ -282,7 +282,7 @@ export const getWorkspaceLayoutData = reactCache(
     ]);
 
     let responseCount = 0;
-    if (IS_SALAMRUBY_CLOUD) {
+    if (IS_FEEDYRUBY_CLOUD) {
       responseCount = await getMonthlyOrganizationResponseCount(organization.id);
     }
 

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { TAPIKeyWorkspacePermission } from "@salamruby/types/auth";
+import { TAPIKeyWorkspacePermission } from "@feedyruby/types/auth";
 import { hasPermission, hasWorkspacePermission } from "./utils";
 
 describe("hasPermission", () => {

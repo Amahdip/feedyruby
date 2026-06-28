@@ -1,11 +1,11 @@
 import "server-only";
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma, Workspace } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { ZId } from "@salamruby/types/common";
-import { DatabaseError, ResourceNotFoundError } from "@salamruby/types/errors";
-import { TOrganizationBilling, TOrganizationWhitelabel } from "@salamruby/types/organizations";
+import { prisma } from "@feedyruby/database";
+import { Prisma, Workspace } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { ZId } from "@feedyruby/types/common";
+import { DatabaseError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import { TOrganizationBilling, TOrganizationWhitelabel } from "@feedyruby/types/organizations";
 import { validateInputs } from "@/lib/utils/validate";
 
 type TWorkspaceForLinkSurvey = Pick<

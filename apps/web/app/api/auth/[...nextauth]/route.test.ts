@@ -39,7 +39,7 @@ vi.mock("@sentry/nextjs", () => ({
   captureException: mocks.captureException,
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     withContext: vi.fn(() => ({
       error: mocks.loggerError,

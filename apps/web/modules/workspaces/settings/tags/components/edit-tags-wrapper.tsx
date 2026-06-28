@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { TTag, TTagsCount } from "@salamruby/types/tags";
+import { TTag, TTagsCount } from "@feedyruby/types/tags";
 import { EmptyState } from "@/modules/ui/components/empty-state";
 import { SingleTag } from "@/modules/workspaces/settings/tags/components/single-tag";
 

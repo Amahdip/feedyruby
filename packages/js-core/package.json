@@ -1,17 +1,17 @@
 {
-  "name": "@salamruby/js-core",
+  "name": "@feedyruby/js-core",
   "private": true,
   "type": "module",
   "license": "MIT",
   "version": "1.0.0",
-  "description": "Js core for SalamRuby that contains the logic for executing the @salamruby/js library and is loaded asynchronously over the SalamRuby API.",
-  "homepage": "https://salamruby.com",
+  "description": "Js core for FeedyRuby that contains the logic for executing the @feedyruby/js library and is loaded asynchronously over the FeedyRuby API.",
+  "homepage": "https://feedyruby.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/salamruby/salamruby"
+    "url": "https://github.com/feedyruby/feedyruby"
   },
   "keywords": [
-    "SalamRuby",
+    "FeedyRuby",
     "surveys",
     "experience management"
   ],
@@ -42,10 +42,10 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage"
   },
-  "author": "SalamRuby <hola@salamruby.com>",
+  "author": "FeedyRuby <hola@feedyruby.com>",
   "devDependencies": {
-    "@salamruby/config-typescript": "workspace:*",
-    "@salamruby/eslint-config": "workspace:*",
+    "@feedyruby/config-typescript": "workspace:*",
+    "@feedyruby/eslint-config": "workspace:*",
     "@vitest/coverage-v8": "4.1.6",
     "vite": "7.3.3",
     "vite-plugin-dts": "4.5.4",

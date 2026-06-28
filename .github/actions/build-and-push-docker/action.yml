@@ -3,7 +3,7 @@ description: |
   Unified Docker build and push action for both ECR and GHCR registries.
 
   Supports:
-  - ECR builds for SalamRuby Cloud deployment
+  - ECR builds for FeedyRuby Cloud deployment
   - GHCR builds for community self-hosting
   - Automatic version resolution and tagging
   - Conditional signing and deployment tags

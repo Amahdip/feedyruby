@@ -1,5 +1,5 @@
-import { TSurveyBlock } from "@salamruby/types/surveys/blocks";
-import { TSurveyElement } from "@salamruby/types/surveys/elements";
+import { TSurveyBlock } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElement } from "@feedyruby/types/surveys/elements";
 
 export const copySurveyLink = (surveyUrl: string, singleUseId?: string): string => {
   return singleUseId ? `${surveyUrl}?suId=${singleUseId}` : surveyUrl;

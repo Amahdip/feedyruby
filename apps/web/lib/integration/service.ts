@@ -1,16 +1,16 @@
 import "server-only";
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { ZId, ZOptionalNumber, ZString } from "@salamruby/types/common";
-import { DatabaseError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { ZId, ZOptionalNumber, ZString } from "@feedyruby/types/common";
+import { DatabaseError } from "@feedyruby/types/errors";
 import {
   TIntegration,
   TIntegrationByType,
   TIntegrationInput,
   ZIntegrationType,
-} from "@salamruby/types/integration";
+} from "@feedyruby/types/integration";
 import { ITEMS_PER_PAGE } from "../constants";
 import { validateInputs } from "../utils/validate";
 

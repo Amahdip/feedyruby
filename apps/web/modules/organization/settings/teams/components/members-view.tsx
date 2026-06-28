@@ -1,11 +1,11 @@
 import { Suspense } from "react";
-import { TOrganizationRole } from "@salamruby/types/memberships";
-import { TOrganization } from "@salamruby/types/organizations";
+import { TOrganizationRole } from "@feedyruby/types/memberships";
+import { TOrganization } from "@feedyruby/types/organizations";
 import { SettingsCard } from "@/app/(app)/workspaces/[workspaceId]/settings/components/SettingsCard";
 import {
   ENTERPRISE_LICENSE_REQUEST_FORM_URL,
   INVITE_DISABLED,
-  IS_SALAMRUBY_CLOUD,
+  IS_FEEDYRUBY_CLOUD,
   IS_STORAGE_CONFIGURED,
 } from "@/lib/constants";
 import { getTranslate } from "@/lingodotdev/server";
@@ -71,7 +71,7 @@ export const MembersView = async ({
           isLeaveOrganizationDisabled={isLeaveOrganizationDisabled}
           isInviteDisabled={INVITE_DISABLED}
           isAccessControlAllowed={isAccessControlAllowed}
-          isSalamRubyCloud={IS_SALAMRUBY_CLOUD}
+          isFeedyRubyCloud={IS_FEEDYRUBY_CLOUD}
           isStorageConfigured={IS_STORAGE_CONFIGURED}
           enterpriseLicenseRequestFormUrl={ENTERPRISE_LICENSE_REQUEST_FORM_URL}
           isMultiOrgEnabled={isMultiOrgEnabled}

@@ -21,7 +21,7 @@ import { Loader2 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import {
   DateRange,
   useResponseFilter,

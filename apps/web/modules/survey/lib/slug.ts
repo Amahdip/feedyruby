@@ -1,9 +1,9 @@
 import "server-only";
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
-import { TSurveyStatus } from "@salamruby/types/surveys/types";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import { TSurveyStatus } from "@feedyruby/types/surveys/types";
 
 export interface TSurveyBySlug {
   id: string;

@@ -1,10 +1,10 @@
 import "server-only";
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { ZId, ZOptionalNumber, ZString } from "@salamruby/types/common";
-import { DatabaseError, ValidationError } from "@salamruby/types/errors";
-import type { TWorkspace } from "@salamruby/types/workspace";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { ZId, ZOptionalNumber, ZString } from "@feedyruby/types/common";
+import { DatabaseError, ValidationError } from "@feedyruby/types/errors";
+import type { TWorkspace } from "@feedyruby/types/workspace";
 import { ITEMS_PER_PAGE } from "../constants";
 import { validateInputs } from "../utils/validate";
 

@@ -1,4 +1,4 @@
-import { TContactAttributeDataType } from "@salamruby/types/contact-attribute-key";
+import { TContactAttributeDataType } from "@feedyruby/types/contact-attribute-key";
 
 type TRawValue = string | number | Date;
 

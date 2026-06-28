@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { StorageErrorCode } from "@salamruby/storage";
-import { DatabaseError, InvalidInputError, ValidationError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { StorageErrorCode } from "@feedyruby/storage";
+import { DatabaseError, InvalidInputError, ValidationError } from "@feedyruby/types/errors";
 import { deleteFilesByWorkspaceId } from "@/modules/storage/service";
 import { createWorkspace, deleteWorkspace, updateWorkspace } from "./workspace";
 
@@ -28,7 +28,7 @@ const baseWorkspace = {
   logo: null,
 };
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     workspace: {
       update: vi.fn(),
@@ -56,7 +56,7 @@ const expectNoFrdSideEffects = () => {
   expect(prisma.feedbackDirectoryWorkspace.create).not.toHaveBeenCalled();
 };
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },

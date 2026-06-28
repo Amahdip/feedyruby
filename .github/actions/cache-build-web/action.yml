@@ -65,7 +65,7 @@ runs:
       shell: bash
 
     - run: |
-        pnpm build --filter=@salamruby/web...
+        pnpm build --filter=@feedyruby/web...
       if: steps.cache-build.outputs.cache-hit != 'true'
       shell: bash
       env:

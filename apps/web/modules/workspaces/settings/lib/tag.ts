@@ -1,10 +1,10 @@
 import "server-only";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ZId } from "@salamruby/types/common";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
-import { TTag } from "@salamruby/types/tags";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ZId } from "@feedyruby/types/common";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
+import { TTag } from "@feedyruby/types/tags";
 import { validateInputs } from "@/lib/utils/validate";
 import { TagError } from "@/modules/workspaces/settings/types/tag";
 

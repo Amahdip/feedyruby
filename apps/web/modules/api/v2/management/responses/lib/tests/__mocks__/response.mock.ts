@@ -1,5 +1,5 @@
-import { Response } from "@salamruby/database/prisma";
-import { TOrganizationBilling } from "@salamruby/types/organizations";
+import { Response } from "@feedyruby/database/prisma";
+import { TOrganizationBilling } from "@feedyruby/types/organizations";
 import { TGetResponsesFilter } from "@/modules/api/v2/management/responses/types/responses";
 
 export const responseInput: Omit<Response, "id"> = {

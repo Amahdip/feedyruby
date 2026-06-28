@@ -44,7 +44,7 @@ vi.mock("@/lib/jwt", async (importOriginal) => {
   };
 });
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     user: {
       findUnique: mockUserFindUnique,
@@ -68,7 +68,7 @@ vi.mock("@/lib/utils/action-client/action-client-middleware", () => ({
   checkAuthorizationUpdated: mockCheckAuthorizationUpdated,
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     info: vi.fn(),
     warn: vi.fn(),

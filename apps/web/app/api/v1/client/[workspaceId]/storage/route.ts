@@ -1,5 +1,5 @@
-import { logger } from "@salamruby/logger";
-import { ZUploadPrivateFileRequest } from "@salamruby/types/storage";
+import { logger } from "@feedyruby/logger";
+import { ZUploadPrivateFileRequest } from "@feedyruby/types/storage";
 import { parseAndValidateJsonBody } from "@/app/lib/api/parse-and-validate-json-body";
 import { responses } from "@/app/lib/api/response";
 import { THandlerParams, withV1ApiWrapper } from "@/app/lib/api/with-api-logging";

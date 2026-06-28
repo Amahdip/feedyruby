@@ -5,8 +5,8 @@ import * as Collapsible from "@radix-ui/react-collapsible";
 import { CheckIcon, LinkIcon, MonitorIcon } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TSegment } from "@salamruby/types/segment";
-import { TSurvey, TSurveyType } from "@salamruby/types/surveys/types";
+import { TSegment } from "@feedyruby/types/segment";
+import { TSurvey, TSurveyType } from "@feedyruby/types/surveys/types";
 import { getDefaultEndingCard } from "@/app/lib/survey-builder";
 import { HIDE_APP_SURVEY_TYPE } from "@/lib/brand-color";
 import { cn } from "@/lib/cn";
@@ -178,13 +178,13 @@ export const HowToSendCard = ({ localSurvey, setLocalSurvey, appSetupCompleted }
                       {localSurvey.type === option.id && option.alert && (
                         <Alert variant="warning" className="mt-2">
                           <AlertTitle>
-                            {t("workspace.surveys.edit.salamruby_sdk_is_not_connected")}
+                            {t("workspace.surveys.edit.feedyruby_sdk_is_not_connected")}
                           </AlertTitle>
                           <AlertDescription>
-                            {t("workspace.surveys.edit.connect_salamruby_and_launch_surveys")}
+                            {t("workspace.surveys.edit.connect_feedyruby_and_launch_surveys")}
                           </AlertDescription>
                           <AlertButton onClick={() => window.open(appConnectionHref, "_blank")}>
-                            {t("common.connect_salamruby")}
+                            {t("common.connect_feedyruby")}
                           </AlertButton>
                         </Alert>
                       )}

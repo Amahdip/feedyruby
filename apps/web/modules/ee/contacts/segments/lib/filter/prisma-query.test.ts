@@ -1,13 +1,13 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { Prisma } from "@salamruby/database/prisma";
-import { TBaseFilters, TSegmentWithSurveyRefs } from "@salamruby/types/segment";
+import { Prisma } from "@feedyruby/database/prisma";
+import { TBaseFilters, TSegmentWithSurveyRefs } from "@feedyruby/types/segment";
 import { getSegment } from "../segments";
 import { segmentFilterToPrismaQuery } from "./prisma-query";
 
 const mockQueryRawUnsafe = vi.fn();
 const mockFindFirst = vi.fn();
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     $queryRawUnsafe: (...args: unknown[]) => mockQueryRawUnsafe(...args),
     contactAttribute: {
@@ -261,7 +261,7 @@ describe("segmentFilterToPrismaQuery", () => {
             type: "attribute" as const,
             contactAttributeKey: "company",
           },
-          value: "SalamRuby",
+          value: "FeedyRuby",
           qualifier: {
             operator: "equals",
           },
@@ -357,7 +357,7 @@ describe("segmentFilterToPrismaQuery", () => {
                 attributes: {
                   some: {
                     attributeKey: { key: "company" },
-                    value: { equals: "SalamRuby", mode: "insensitive" },
+                    value: { equals: "FeedyRuby", mode: "insensitive" },
                   },
                 },
               },
@@ -417,7 +417,7 @@ describe("segmentFilterToPrismaQuery", () => {
             type: "attribute" as const,
             contactAttributeKey: "company",
           },
-          value: "SalamRuby",
+          value: "FeedyRuby",
           qualifier: {
             operator: "equals",
           },
@@ -474,7 +474,7 @@ describe("segmentFilterToPrismaQuery", () => {
                     attributeKey: {
                       key: "company",
                     },
-                    value: { equals: "SalamRuby", mode: "insensitive" },
+                    value: { equals: "FeedyRuby", mode: "insensitive" },
                   },
                 },
               },

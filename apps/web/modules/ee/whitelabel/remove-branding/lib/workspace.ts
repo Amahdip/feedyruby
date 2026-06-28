@@ -1,9 +1,9 @@
 import "server-only";
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { logger } from "@salamruby/logger";
-import { ZId } from "@salamruby/types/common";
-import { ValidationError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { logger } from "@feedyruby/logger";
+import { ZId } from "@feedyruby/types/common";
+import { ValidationError } from "@feedyruby/types/errors";
 import { validateInputs } from "@/lib/utils/validate";
 import { TWorkspaceUpdateBrandingInput, ZWorkspaceUpdateBrandingInput } from "../types/workspace";
 

@@ -1,4 +1,4 @@
-import { TResponseDataValue } from "@salamruby/types/responses";
+import { TResponseDataValue } from "@feedyruby/types/responses";
 
 export const isValidValue = (value: TResponseDataValue) => {
   return (

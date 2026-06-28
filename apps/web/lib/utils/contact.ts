@@ -1,5 +1,5 @@
-import { TContactAttributes } from "@salamruby/types/contact-attribute";
-import { TResponseContact } from "@salamruby/types/responses";
+import { TContactAttributes } from "@feedyruby/types/contact-attribute";
+import { TResponseContact } from "@feedyruby/types/responses";
 
 export const getContactIdentifier = (
   contact: TResponseContact | null,

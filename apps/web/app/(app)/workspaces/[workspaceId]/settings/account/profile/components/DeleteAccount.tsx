@@ -4,8 +4,8 @@ import type { Session } from "next-auth";
 import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { TOrganization } from "@salamruby/types/organizations";
-import { TUser } from "@salamruby/types/user";
+import { TOrganization } from "@feedyruby/types/organizations";
+import { TUser } from "@feedyruby/types/user";
 import { DeleteAccountModal } from "@/modules/account/components/DeleteAccountModal";
 import {
   ACCOUNT_DELETION_SSO_REAUTH_ERROR_QUERY_PARAM,
@@ -16,7 +16,7 @@ import { TooltipRenderer } from "@/modules/ui/components/tooltip";
 
 interface DeleteAccountProps {
   session: Session | null;
-  IS_SALAMRUBY_CLOUD: boolean;
+  IS_FEEDYRUBY_CLOUD: boolean;
   user: TUser;
   organizationsWithSingleOwner: TOrganization[];
   accountDeletionError?: string | string[];
@@ -27,7 +27,7 @@ interface DeleteAccountProps {
 
 export const DeleteAccount = ({
   session,
-  IS_SALAMRUBY_CLOUD,
+  IS_FEEDYRUBY_CLOUD,
   user,
   organizationsWithSingleOwner,
   accountDeletionError,
@@ -73,7 +73,7 @@ export const DeleteAccount = ({
         open={isModalOpen}
         setOpen={setModalOpen}
         user={user}
-        isSalamRubyCloud={IS_SALAMRUBY_CLOUD}
+        isFeedyRubyCloud={IS_FEEDYRUBY_CLOUD}
         organizationsWithSingleOwner={organizationsWithSingleOwner}
         isSsoIdentityConfirmationDisabled={isSsoIdentityConfirmationDisabled}
       />

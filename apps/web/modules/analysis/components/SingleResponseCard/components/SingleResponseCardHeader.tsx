@@ -3,9 +3,9 @@
 import { TrashIcon } from "lucide-react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { TResponse } from "@salamruby/types/responses";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUser, TUserLocale } from "@salamruby/types/user";
+import { TResponse } from "@feedyruby/types/responses";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUser, TUserLocale } from "@feedyruby/types/user";
 import { useWorkspace } from "@/app/(app)/workspaces/[workspaceId]/context/workspace-context";
 import { timeSince } from "@/lib/time";
 import { getContactIdentifier } from "@/lib/utils/contact";

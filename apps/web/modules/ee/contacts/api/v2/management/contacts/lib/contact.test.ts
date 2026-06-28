@@ -1,11 +1,11 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { TContactAttributeKey } from "@salamruby/types/contact-attribute-key";
+import { prisma } from "@feedyruby/database";
+import { TContactAttributeKey } from "@feedyruby/types/contact-attribute-key";
 import { TContactCreateRequest } from "@/modules/ee/contacts/types/contact";
 import { createContact } from "./contact";
 
 // Mock prisma
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     contact: {
       findFirst: vi.fn(),

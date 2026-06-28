@@ -1,4 +1,4 @@
-import type { TSurvey } from "@salamruby/types/surveys/types";
+import type { TSurvey } from "@feedyruby/types/surveys/types";
 import { getElementsFromBlocks } from "@/modules/survey/lib/client-utils";
 
 const isStoredAssetUrl = (url: string | undefined | null): boolean =>

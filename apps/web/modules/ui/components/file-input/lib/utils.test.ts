@@ -1,6 +1,6 @@
 import { toast } from "react-hot-toast";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { TAllowedFileExtension } from "@salamruby/types/storage";
+import { TAllowedFileExtension } from "@feedyruby/types/storage";
 import { convertHeicToJpegAction } from "./actions";
 import { checkForYoutubePrivacyMode, getAllowedFiles } from "./utils";
 

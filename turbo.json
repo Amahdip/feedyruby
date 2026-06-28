@@ -2,208 +2,208 @@
   "$schema": "https://turborepo.org/schema.json",
   "globalEnv": ["MIGRATE_DATABASE_URL", "SHADOW_DATABASE_URL"],
   "tasks": {
-    "@salamruby/ai#build": {
-      "dependsOn": ["@salamruby/logger#build"],
+    "@feedyruby/ai#build": {
+      "dependsOn": ["@feedyruby/logger#build"],
       "outputs": ["dist/**"]
     },
-    "@salamruby/ai#lint": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/ai#lint": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/ai#test": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/ai#test": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/ai#test:coverage": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/ai#test:coverage": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/ai#typecheck": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/ai#typecheck": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/cache#build": {
-      "dependsOn": ["@salamruby/logger#build"],
+    "@feedyruby/cache#build": {
+      "dependsOn": ["@feedyruby/logger#build"],
       "outputs": ["dist/**"]
     },
-    "@salamruby/cache#go": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/cache#go": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/cache#lint": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/cache#lint": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/cache#test": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/cache#test": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/cache#test:coverage": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/cache#test:coverage": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/cache#typecheck": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/cache#typecheck": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/database#build": {
+    "@feedyruby/database#build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", "generated/prisma/**"]
     },
-    "@salamruby/database#lint": {
-      "dependsOn": ["@salamruby/logger#build", "@salamruby/database#build"]
+    "@feedyruby/database#lint": {
+      "dependsOn": ["@feedyruby/logger#build", "@feedyruby/database#build"]
     },
-    "@salamruby/database#typecheck": {
-      "dependsOn": ["@salamruby/logger#build", "@salamruby/database#generate"]
+    "@feedyruby/database#typecheck": {
+      "dependsOn": ["@feedyruby/logger#build", "@feedyruby/database#build"]
     },
-    "@salamruby/email#build": {
+    "@feedyruby/email#build": {
       "dependsOn": ["^build"],
       "outputs": []
     },
-    "@salamruby/i18n-utils#build": {
+    "@feedyruby/i18n-utils#build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "@salamruby/i18n-utils#lint": {
+    "@feedyruby/i18n-utils#lint": {
       "dependsOn": ["^lint"]
     },
-    "@salamruby/i18n-utils#test": {
-      "dependsOn": ["@salamruby/i18n-utils#build"]
+    "@feedyruby/i18n-utils#test": {
+      "dependsOn": ["@feedyruby/i18n-utils#build"]
     },
-    "@salamruby/jobs#build": {
-      "dependsOn": ["@salamruby/logger#build"],
+    "@feedyruby/jobs#build": {
+      "dependsOn": ["@feedyruby/logger#build"],
       "outputs": ["dist/**"]
     },
-    "@salamruby/jobs#lint": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/jobs#lint": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/jobs#test": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/jobs#test": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/jobs#test:coverage": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/jobs#test:coverage": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/js-core#build": {
-      "dependsOn": ["^build", "@salamruby/database#build"],
+    "@feedyruby/js-core#build": {
+      "dependsOn": ["^build", "@feedyruby/database#build"],
       "outputs": ["dist/**"]
     },
-    "@salamruby/js-core#go": {
+    "@feedyruby/js-core#go": {
       "cache": false,
-      "dependsOn": ["@salamruby/database#db:setup"],
+      "dependsOn": ["@feedyruby/database#db:setup"],
       "persistent": true
     },
-    "@salamruby/js-core#lint": {
-      "dependsOn": ["@salamruby/database#build"]
+    "@feedyruby/js-core#lint": {
+      "dependsOn": ["@feedyruby/database#build"]
     },
-    "@salamruby/js-core#typecheck": {
-      "dependsOn": ["@salamruby/database#build"]
+    "@feedyruby/js-core#typecheck": {
+      "dependsOn": ["@feedyruby/database#build"]
     },
-    "@salamruby/logger#build": {
+    "@feedyruby/logger#build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "@salamruby/storage#build": {
-      "dependsOn": ["@salamruby/logger#build"],
+    "@feedyruby/storage#build": {
+      "dependsOn": ["@feedyruby/logger#build"],
       "outputs": ["dist/**"]
     },
-    "@salamruby/storage#go": {
+    "@feedyruby/storage#go": {
       "cache": false,
-      "dependsOn": ["@salamruby/storage#build"],
+      "dependsOn": ["@feedyruby/storage#build"],
       "persistent": true
     },
-    "@salamruby/storage#lint": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/storage#lint": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/storage#test": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/storage#test": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/storage#test:coverage": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/storage#test:coverage": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/storage#typecheck": {
-      "dependsOn": ["@salamruby/logger#build"]
+    "@feedyruby/storage#typecheck": {
+      "dependsOn": ["@feedyruby/logger#build"]
     },
-    "@salamruby/survey-ui#build": {
+    "@feedyruby/survey-ui#build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "@salamruby/survey-ui#build:dev": {
+    "@feedyruby/survey-ui#build:dev": {
       "dependsOn": ["^build:dev"],
       "outputs": ["dist/**"]
     },
-    "@salamruby/survey-ui#go": {
+    "@feedyruby/survey-ui#go": {
       "cache": false,
-      "dependsOn": ["@salamruby/survey-ui#build"],
+      "dependsOn": ["@feedyruby/survey-ui#build"],
       "persistent": true
     },
-    "@salamruby/surveys#build": {
-      "dependsOn": ["^build", "@salamruby/survey-ui#build"],
+    "@feedyruby/surveys#build": {
+      "dependsOn": ["^build", "@feedyruby/survey-ui#build"],
       "outputs": ["dist/**"]
     },
-    "@salamruby/surveys#build:dev": {
-      "dependsOn": ["^build:dev", "@salamruby/i18n-utils#build", "@salamruby/survey-ui#build:dev"],
+    "@feedyruby/surveys#build:dev": {
+      "dependsOn": ["^build:dev", "@feedyruby/i18n-utils#build", "@feedyruby/survey-ui#build:dev"],
       "outputs": ["dist/**"]
     },
-    "@salamruby/surveys#go": {
+    "@feedyruby/surveys#go": {
       "cache": false,
-      "dependsOn": ["@salamruby/survey-ui#build", "@salamruby/surveys#build"],
+      "dependsOn": ["@feedyruby/survey-ui#build", "@feedyruby/surveys#build"],
       "persistent": true
     },
-    "@salamruby/surveys#test": {
-      "dependsOn": ["@salamruby/survey-ui#build"]
+    "@feedyruby/surveys#test": {
+      "dependsOn": ["@feedyruby/survey-ui#build"]
     },
-    "@salamruby/surveys#test:coverage": {
-      "dependsOn": ["@salamruby/survey-ui#build"]
+    "@feedyruby/surveys#test:coverage": {
+      "dependsOn": ["@feedyruby/survey-ui#build"]
     },
-    "@salamruby/surveys#typecheck": {
-      "dependsOn": ["@salamruby/i18n-utils#build", "@salamruby/survey-ui#build"]
+    "@feedyruby/surveys#typecheck": {
+      "dependsOn": ["@feedyruby/i18n-utils#build", "@feedyruby/survey-ui#build"]
     },
-    "@salamruby/web#dev": {
+    "@feedyruby/web#dev": {
       "cache": false,
       "dependsOn": [
-        "@salamruby/ai#build",
-        "@salamruby/cache#build",
-        "@salamruby/database#build",
-        "@salamruby/jobs#build",
-        "@salamruby/logger#build",
-        "@salamruby/storage#build"
+        "@feedyruby/ai#build",
+        "@feedyruby/cache#build",
+        "@feedyruby/database#build",
+        "@feedyruby/jobs#build",
+        "@feedyruby/logger#build",
+        "@feedyruby/storage#build"
       ],
       "persistent": true
     },
-    "@salamruby/web#go": {
+    "@feedyruby/web#go": {
       "cache": false,
       "dependsOn": [
-        "@salamruby/ai#build",
-        "@salamruby/cache#build",
-        "@salamruby/database#build",
-        "@salamruby/database#db:setup",
-        "@salamruby/jobs#build",
-        "@salamruby/logger#build",
-        "@salamruby/storage#build"
+        "@feedyruby/ai#build",
+        "@feedyruby/cache#build",
+        "@feedyruby/database#build",
+        "@feedyruby/database#db:setup",
+        "@feedyruby/jobs#build",
+        "@feedyruby/logger#build",
+        "@feedyruby/storage#build"
       ],
       "persistent": true
     },
-    "@salamruby/web#test": {
+    "@feedyruby/web#test": {
       "dependsOn": [
-        "@salamruby/ai#build",
-        "@salamruby/logger#build",
-        "@salamruby/database#build",
-        "@salamruby/storage#build",
-        "@salamruby/cache#build",
-        "@salamruby/jobs#build",
-        "@salamruby/surveys#build"
+        "@feedyruby/ai#build",
+        "@feedyruby/logger#build",
+        "@feedyruby/database#build",
+        "@feedyruby/storage#build",
+        "@feedyruby/cache#build",
+        "@feedyruby/jobs#build",
+        "@feedyruby/surveys#build"
       ]
     },
-    "@salamruby/web#test:coverage": {
+    "@feedyruby/web#test:coverage": {
       "dependsOn": [
-        "@salamruby/ai#build",
-        "@salamruby/logger#build",
-        "@salamruby/database#build",
-        "@salamruby/storage#build",
-        "@salamruby/cache#build",
-        "@salamruby/jobs#build",
-        "@salamruby/surveys#build"
+        "@feedyruby/ai#build",
+        "@feedyruby/logger#build",
+        "@feedyruby/database#build",
+        "@feedyruby/storage#build",
+        "@feedyruby/cache#build",
+        "@feedyruby/jobs#build",
+        "@feedyruby/surveys#build"
       ]
     },
-    "@salamruby/web#typecheck": {
+    "@feedyruby/web#typecheck": {
       "dependsOn": [
-        "@salamruby/ai#build",
-        "@salamruby/cache#build",
-        "@salamruby/database#build",
-        "@salamruby/logger#build",
-        "@salamruby/storage#build",
-        "@salamruby/surveys#build"
+        "@feedyruby/ai#build",
+        "@feedyruby/cache#build",
+        "@feedyruby/database#build",
+        "@feedyruby/logger#build",
+        "@feedyruby/storage#build",
+        "@feedyruby/surveys#build"
       ]
     },
     "build": {
@@ -278,7 +278,7 @@
         "IMPRINT_URL",
         "IMPRINT_ADDRESS",
         "INVITE_DISABLED",
-        "IS_SALAMRUBY_CLOUD",
+        "IS_FEEDYRUBY_CLOUD",
         "CHATWOOT_WEBSITE_TOKEN",
         "CHATWOOT_BASE_URL",
         "POSTHOG_KEY",
@@ -289,11 +289,11 @@
         "NEXT_PUBLIC_DOCSEARCH_APP_ID",
         "NEXT_PUBLIC_DOCSEARCH_API_KEY",
         "NEXT_PUBLIC_DOCSEARCH_INDEX_NAME",
-        "NEXT_PUBLIC_SALAMRUBY_PMF_FORM_ID",
-        "NEXT_PUBLIC_SALAMRUBY_URL",
-        "NEXT_PUBLIC_SALAMRUBY_COM_API_HOST",
-        "NEXT_PUBLIC_SALAMRUBY_COM_ENVIRONMENT_ID",
-        "NEXT_PUBLIC_SALAMRUBY_COM_DOCS_FEEDBACK_SURVEY_ID",
+        "NEXT_PUBLIC_FEEDYRUBY_PMF_FORM_ID",
+        "NEXT_PUBLIC_FEEDYRUBY_URL",
+        "NEXT_PUBLIC_FEEDYRUBY_COM_API_HOST",
+        "NEXT_PUBLIC_FEEDYRUBY_COM_ENVIRONMENT_ID",
+        "NEXT_PUBLIC_FEEDYRUBY_COM_DOCS_FEEDBACK_SURVEY_ID",
         "OPENAI_API_KEY",
         "OTEL_EXPORTER_OTLP_ENDPOINT",
         "OTEL_EXPORTER_OTLP_HEADERS",
@@ -389,7 +389,7 @@
     },
     "db:setup": {
       "cache": false,
-      "dependsOn": ["@salamruby/logger#build", "@salamruby/database#build"],
+      "dependsOn": ["@feedyruby/logger#build", "@feedyruby/database#build"],
       "outputs": []
     },
     "db:start": {
@@ -404,7 +404,8 @@
       "persistent": true
     },
     "generate": {
-      "dependsOn": ["^generate"]
+      "dependsOn": ["^generate"],
+      "outputs": ["generated/**"]
     },
     "go": {
       "cache": false,
@@ -421,7 +422,7 @@
       "persistent": true
     },
     "storybook#storybook": {
-      "dependsOn": ["@salamruby/logger#build"]
+      "dependsOn": ["@feedyruby/logger#build"]
     },
     "test": {
       "outputs": []
@@ -430,7 +431,7 @@
       "outputs": []
     },
     "typecheck": {
-      "dependsOn": ["@salamruby/database#generate", "^typecheck"],
+      "dependsOn": ["@feedyruby/database#generate", "^typecheck"],
       "outputs": []
     }
   },

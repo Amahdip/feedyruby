@@ -1,8 +1,8 @@
 import { getServerSession } from "next-auth";
 import { type NextRequest } from "next/server";
 import { z } from "zod";
-import { logger } from "@salamruby/logger";
-import { TooManyRequestsError } from "@salamruby/types/errors";
+import { logger } from "@feedyruby/logger";
+import { TooManyRequestsError } from "@feedyruby/types/errors";
 import { authenticateRequest } from "@/app/api/v1/auth";
 import { RequestBodyTooLargeError, parseJsonBodyWithLimit } from "@/app/lib/api/request-body";
 import { getApiKeyFromHeaders } from "@/modules/api/lib/api-key-auth";

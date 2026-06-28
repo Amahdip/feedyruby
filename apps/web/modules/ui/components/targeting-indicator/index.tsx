@@ -2,7 +2,7 @@
 
 import { FilterIcon, UsersIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { TSegment } from "@salamruby/types/segment";
+import { TSegment } from "@feedyruby/types/segment";
 
 export const TargetingIndicator = ({ segment }: { segment: TSegment | null }) => {
   const { t } = useTranslation();

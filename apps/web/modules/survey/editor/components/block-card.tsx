@@ -7,13 +7,13 @@ import * as Collapsible from "@radix-ui/react-collapsible";
 import { ChevronDownIcon, ChevronRightIcon, GripIcon } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Workspace } from "@salamruby/database/prisma-browser";
-import { TI18nString } from "@salamruby/types/i18n";
-import { TSurveyBlock, TSurveyBlockLogic } from "@salamruby/types/surveys/blocks";
-import { TSurveyElement, TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { getTextContent } from "@salamruby/types/surveys/validation";
-import { TUserLocale } from "@salamruby/types/user";
+import { Workspace } from "@feedyruby/database/prisma-browser";
+import { TI18nString } from "@feedyruby/types/i18n";
+import { TSurveyBlock, TSurveyBlockLogic } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElement, TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { getTextContent } from "@feedyruby/types/surveys/validation";
+import { TUserLocale } from "@feedyruby/types/user";
 import { cn } from "@/lib/cn";
 import { recallToHeadline } from "@/lib/utils/recall";
 import { AddElementToBlockButton } from "@/modules/survey/editor/components/add-element-to-block-button";
@@ -63,7 +63,7 @@ interface BlockCardProps {
   lastElementIndex: number;
   invalidElements?: string[];
   addElement: (element: any, index?: number) => void;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   isCxMode: boolean;
   locale: TUserLocale;
   responseCount: number;
@@ -97,7 +97,7 @@ export const BlockCard = ({
   lastElementIndex,
   invalidElements,
   addElement,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   isCxMode,
   locale,
   responseCount,
@@ -222,7 +222,7 @@ export const BlockCard = ({
     // FileUpload needs extra props
     if (element.type === TSurveyElementTypeEnum.FileUpload) {
       additionalProps.workspace = workspace;
-      additionalProps.isSalamRubyCloud = isSalamRubyCloud;
+      additionalProps.isFeedyRubyCloud = isFeedyRubyCloud;
     }
 
     // @ts-expect-error - These props should cover everything

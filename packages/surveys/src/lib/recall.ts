@@ -1,5 +1,5 @@
-import { type TResponseData, type TResponseVariables } from "@salamruby/types/responses";
-import { type TSurveyElement } from "@salamruby/types/surveys/elements";
+import { type TResponseData, type TResponseVariables } from "@feedyruby/types/responses";
+import { type TSurveyElement } from "@feedyruby/types/surveys/elements";
 import { formatDateWithOrdinal, isValidDateString } from "@/lib/date-time";
 import { getLocalizedValue } from "@/lib/i18n";
 

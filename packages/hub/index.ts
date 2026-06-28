@@ -1,4 +1,4 @@
-// Minimal @salamruby/hub client stub for builds and environments without the full Hub SDK.
+// Minimal @feedyruby/hub client stub for builds and environments without the full Hub SDK.
 
 export class APIError extends Error {
   status: number;
@@ -143,7 +143,7 @@ const feedbackRecordsApi = {
   },
 };
 
-export class SalamRubyHub {
+export class FeedyRubyHub {
   static APIError = APIError;
 
   apiKey: string;
@@ -172,7 +172,7 @@ export class SalamRubyHub {
   }
 }
 
-export namespace SalamRubyHub {
+export namespace FeedyRubyHub {
   export type FeedbackRecordCreateParams = FeedbackRecord.CreateParams;
   export type FeedbackRecordData = FeedbackRecord.Data;
   export type FeedbackRecordListParams = FeedbackRecord.ListParams;
@@ -205,4 +205,4 @@ export namespace SalamRubyHub {
   }
 }
 
-export default SalamRubyHub;
+export default FeedyRubyHub;

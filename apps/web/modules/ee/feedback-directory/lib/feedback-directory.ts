@@ -1,11 +1,11 @@
 import "server-only";
 import { cache as reactCache } from "react";
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { Prisma, type PrismaClient } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ZId } from "@salamruby/types/common";
-import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma, type PrismaClient } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ZId } from "@feedyruby/types/common";
+import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { validateInputs } from "@/lib/utils/validate";
 import {
   TFeedbackDirectory,

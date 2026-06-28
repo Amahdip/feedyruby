@@ -1,5 +1,5 @@
 {
-  "name": "@salamruby/hub",
+  "name": "@feedyruby/hub",
   "version": "0.0.0",
   "private": true,
   "main": "index.ts",

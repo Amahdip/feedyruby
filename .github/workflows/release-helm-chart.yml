@@ -65,27 +65,27 @@ jobs:
           set -euo pipefail
 
           echo "Updating Chart.yaml with version: ${VERSION}"
-          yq -i ".version = \"${VERSION}\"" charts/salamruby/Chart.yaml
-          yq -i ".appVersion = \"${VERSION}\"" charts/salamruby/Chart.yaml
+          yq -i ".version = \"${VERSION}\"" charts/feedyruby/Chart.yaml
+          yq -i ".appVersion = \"${VERSION}\"" charts/feedyruby/Chart.yaml
 
           echo "✅ Successfully updated Chart.yaml"
 
-      - name: Validate default SalamRuby image tag
+      - name: Validate default FeedyRuby image tag
         env:
           VERSION: ${{ env.VERSION }}
         run: |
           set -euo pipefail
 
-          rendered="$(helm template qa charts/salamruby \
-            --set salamruby.webappUrl=https://qa.example.com \
+          rendered="$(helm template qa charts/feedyruby \
+            --set feedyruby.webappUrl=https://qa.example.com \
             --show-only templates/deployment.yaml \
             --show-only templates/migration-job.yaml)"
 
-          expected_image="ghcr.io/salamruby/salamruby:${VERSION}"
+          expected_image="ghcr.io/feedyruby/feedyruby:${VERSION}"
           image_count="$(grep -c "image: ${expected_image}$" <<< "$rendered" || true)"
           if [[ "$image_count" -ne 2 ]]; then
             echo "Expected web Deployment and migration Job to render ${expected_image}; found ${image_count} matches"
-            grep "image: ghcr.io/salamruby/salamruby:" <<< "$rendered" || true
+            grep "image: ghcr.io/feedyruby/feedyruby:" <<< "$rendered" || true
             exit 1
           fi
 
@@ -97,7 +97,7 @@ jobs:
           trap 'rm -f "$values_file"' EXIT
 
           cat > "$values_file" <<'YAML'
-          salamruby:
+          feedyruby:
             webappUrl: https://qa.example.com
 
           externalSecret:
@@ -107,15 +107,15 @@ jobs:
                 data:
                   AI_OPENAI_COMPATIBLE_API_KEY:
                     remoteRef:
-                      key: salamruby/qwen-vllm
+                      key: feedyruby/qwen-vllm
                       property: apiKey
                   AI_OPENAI_COMPATIBLE_HEADERS_JSON:
                     remoteRef:
-                      key: salamruby/qwen-vllm
+                      key: feedyruby/qwen-vllm
                       property: headersJson
                   AI_OPENAI_COMPATIBLE_QUERY_PARAMS_JSON:
                     remoteRef:
-                      key: salamruby/qwen-vllm
+                      key: feedyruby/qwen-vllm
                       property: queryParamsJson
 
           deployment:
@@ -128,21 +128,21 @@ jobs:
               AI_OPENAI_COMPATIBLE_API_KEY:
                 valueFrom:
                   secretKeyRef:
-                    name: salamruby-ai-secrets
+                    name: feedyruby-ai-secrets
                     key: AI_OPENAI_COMPATIBLE_API_KEY
               AI_OPENAI_COMPATIBLE_HEADERS_JSON:
                 valueFrom:
                   secretKeyRef:
-                    name: salamruby-ai-secrets
+                    name: feedyruby-ai-secrets
                     key: AI_OPENAI_COMPATIBLE_HEADERS_JSON
               AI_OPENAI_COMPATIBLE_QUERY_PARAMS_JSON:
                 valueFrom:
                   secretKeyRef:
-                    name: salamruby-ai-secrets
+                    name: feedyruby-ai-secrets
                     key: AI_OPENAI_COMPATIBLE_QUERY_PARAMS_JSON
           YAML
 
-          rendered="$(helm template qa charts/salamruby \
+          rendered="$(helm template qa charts/feedyruby \
             -f "$values_file" \
             --show-only templates/deployment.yaml \
             --show-only templates/externalsecrets.yaml)"
@@ -158,7 +158,7 @@ jobs:
             "value: \"vllm\"" \
             "name: AI_OPENAI_COMPATIBLE_SUPPORTS_STRUCTURED_OUTPUTS" \
             "value: \"1\"" \
-            "name: salamruby-ai-secrets"; do
+            "name: feedyruby-ai-secrets"; do
             if ! grep -F "$expected" <<< "$rendered" >/dev/null; then
               echo "Expected Helm render to contain: $expected"
               exit 1
@@ -187,9 +187,9 @@ jobs:
           set -euo pipefail
 
           echo "Packaging Helm chart version: ${VERSION}"
-          helm package ./charts/salamruby
+          helm package ./charts/feedyruby
 
-          echo "✅ Successfully packaged salamruby-${VERSION}.tgz"
+          echo "✅ Successfully packaged feedyruby-${VERSION}.tgz"
 
       - name: Push Helm chart to GitHub Container Registry
         env:
@@ -197,7 +197,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          echo "Pushing Helm chart to registry: salamruby-${VERSION}.tgz"
-          helm push "salamruby-${VERSION}.tgz" oci://ghcr.io/salamruby/helm-charts
+          echo "Pushing Helm chart to registry: feedyruby-${VERSION}.tgz"
+          helm push "feedyruby-${VERSION}.tgz" oci://ghcr.io/feedyruby/helm-charts
 
           echo "✅ Successfully pushed Helm chart to registry"

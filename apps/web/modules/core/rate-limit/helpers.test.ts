@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { logger } from "@salamruby/logger";
-import { err, ok } from "@salamruby/types/error-handlers";
+import { logger } from "@feedyruby/logger";
+import { err, ok } from "@feedyruby/types/error-handlers";
 import { hashString } from "@/lib/hash-string";
 // Import modules after mocking
 import { getClientIpFromHeaders } from "@/lib/utils/client-ip";
@@ -21,7 +21,7 @@ vi.mock("./rate-limit", () => ({
   checkRateLimit: vi.fn(),
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },

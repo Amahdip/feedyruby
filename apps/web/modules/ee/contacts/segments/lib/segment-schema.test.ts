@@ -1,6 +1,6 @@
 import { createId } from "@paralleldrive/cuid2";
 import { describe, expect, test } from "vitest";
-import { ZSegmentCreateInput, ZSegmentFilters, ZSegmentUpdateInput } from "@salamruby/types/segment";
+import { ZSegmentCreateInput, ZSegmentFilters, ZSegmentUpdateInput } from "@feedyruby/types/segment";
 
 const validFilters = [
   {

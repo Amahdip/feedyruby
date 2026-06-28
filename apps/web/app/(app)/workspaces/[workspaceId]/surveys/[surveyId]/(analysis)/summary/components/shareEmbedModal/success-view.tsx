@@ -2,8 +2,8 @@ import { BellRing, BlocksIcon, Share2Icon, UserIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUser } from "@salamruby/types/user";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUser } from "@feedyruby/types/user";
 import { useWorkspace } from "@/app/(app)/workspaces/[workspaceId]/context/workspace-context";
 import {
   ShareSettingsType,

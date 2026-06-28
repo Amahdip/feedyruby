@@ -1,13 +1,13 @@
 "use server";
 
 import { z } from "zod";
-import { logger } from "@salamruby/logger";
-import { InvalidInputError, UnknownError } from "@salamruby/types/errors";
-import { ZUser, ZUserEmail, ZUserLocale, ZUserName, ZUserPassword } from "@salamruby/types/user";
+import { logger } from "@feedyruby/logger";
+import { InvalidInputError, UnknownError } from "@feedyruby/types/errors";
+import { ZUser, ZUserEmail, ZUserLocale, ZUserName, ZUserPassword } from "@feedyruby/types/user";
 import { hashPassword } from "@/lib/auth";
 import {
   EMAIL_VERIFICATION_DISABLED,
-  IS_SALAMRUBY_CLOUD,
+  IS_FEEDYRUBY_CLOUD,
   IS_TURNSTILE_CONFIGURED,
   TURNSTILE_SECRET_KEY,
   WEBAPP_URL,
@@ -167,7 +167,7 @@ async function handleOrganizationCreation(ctx: ActionClientCtx, user: TCreatedUs
   });
 
   // Stripe setup must run AFTER membership is created so the owner email is available
-  if (IS_SALAMRUBY_CLOUD) {
+  if (IS_FEEDYRUBY_CLOUD) {
     ensureCloudStripeSetupForOrganization(organization.id).catch((error) => {
       logger.error(
         { error, organizationId: organization.id },
@@ -263,7 +263,7 @@ export const createUserAction = actionClient.inputSchema(ZCreateUserAction).acti
 
       await subscribeUserToMailingList({
         email: user.email,
-        isSalamRubyCloud: IS_SALAMRUBY_CLOUD,
+        isFeedyRubyCloud: IS_FEEDYRUBY_CLOUD,
         subscribeToSecurityUpdates: parsedInput.subscribeToSecurityUpdates,
         subscribeToProductUpdates: parsedInput.subscribeToProductUpdates,
       });

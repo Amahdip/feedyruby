@@ -19,7 +19,7 @@ export const validWebHookURL = (urlInput: string, allowInternalUrls = false) => 
     }
 
     const domainError: string =
-      "Please enter a complete URL with a valid domain (e.g., https://salamruby.com)";
+      "Please enter a complete URL with a valid domain (e.g., https://feedyruby.com)";
 
     const multipleSlashesPattern = /(?<!:)\/\/+/;
     if (multipleSlashesPattern.test(trimmedInput)) {

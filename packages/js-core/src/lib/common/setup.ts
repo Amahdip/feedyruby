@@ -108,23 +108,23 @@ export const setup = async (
     logger.debug("No existing configuration found.");
   }
 
-  // salamruby is in error state, skip setup
+  // feedyruby is in error state, skip setup
   if (existingConfig?.status.value === "error") {
     if (isDebug) {
-      logger.debug("SalamRuby is in error state, but debug mode is active. Resetting config and continuing.");
+      logger.debug("FeedyRuby is in error state, but debug mode is active. Resetting config and continuing.");
       config.resetConfig();
       return okVoid();
     }
 
-    console.error("🧱 SalamRuby - SalamRuby was set to an error state.");
+    console.error("🧱 FeedyRuby - FeedyRuby was set to an error state.");
 
     const expiresAt = existingConfig.status.expiresAt;
 
     if (expiresAt && !isNowExpired(new Date(expiresAt))) {
-      console.error("🧱 SalamRuby - Error state is not expired, skipping initialization");
+      console.error("🧱 FeedyRuby - Error state is not expired, skipping initialization");
       return okVoid();
     }
-    console.error("🧱 SalamRuby - Error state is expired. Continuing with initialization.");
+    console.error("🧱 FeedyRuby - Error state is expired. Continuing with initialization.");
   }
 
   logger.debug("Start setup");
@@ -367,7 +367,7 @@ export const handleErrorOnFirstSetup = (e: { code: string; responseMessage: stri
     logger.error(`Error during first setup: ${e.code} - ${e.responseMessage}. Please try again later.`);
   }
 
-  // put salamruby in error state (by creating a new config) and throw error
+  // put feedyruby in error state (by creating a new config) and throw error
   const initialErrorConfig: Partial<TConfig> = {
     status: {
       value: "error",
@@ -379,21 +379,21 @@ export const handleErrorOnFirstSetup = (e: { code: string; responseMessage: stri
     localStorage.setItem(JS_LOCAL_STORAGE_KEY, JSON.stringify(initialErrorConfig));
   })();
 
-  throw new Error("Could not set up salamruby");
+  throw new Error("Could not set up feedyruby");
 };
 
-export const putSalamRubyInErrorState = (salamrubyConfig: Config): void => {
+export const putFeedyRubyInErrorState = (feedyrubyConfig: Config): void => {
   const logger = Logger.getInstance();
 
   if (getIsDebug()) {
-    logger.debug("Not putting salamruby in error state because debug mode is active (no error state)");
+    logger.debug("Not putting feedyruby in error state because debug mode is active (no error state)");
     return;
   }
 
-  logger.debug("Putting salamruby in error state");
-  // change salamruby status to error
-  salamrubyConfig.update({
-    ...salamrubyConfig.get(),
+  logger.debug("Putting feedyruby in error state");
+  // change feedyruby status to error
+  feedyrubyConfig.update({
+    ...feedyrubyConfig.get(),
     status: {
       value: "error",
       expiresAt: new Date(new Date().getTime() + 10 * 60000), // 10 minutes in the future

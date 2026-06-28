@@ -1,4 +1,4 @@
-import { TConnector } from "@salamruby/types/surveys/logic";
+import { TConnector } from "@feedyruby/types/surveys/logic";
 import { TComboboxGroupedOption, TComboboxOption } from "@/modules/ui/components/input-combo-box";
 
 export interface TGenericCondition {

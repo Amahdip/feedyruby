@@ -10,7 +10,7 @@ vi.mock("@/lib/constants", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/lib/constants")>();
   return {
     ...actual,
-    get IS_SALAMRUBY_CLOUD() {
+    get IS_FEEDYRUBY_CLOUD() {
       return mocks.isCloud;
     },
   };
@@ -24,7 +24,7 @@ vi.mock("./stripe-client", () => ({
   },
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: { warn: mocks.loggerWarn },
 }));
 

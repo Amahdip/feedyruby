@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { ZInvite } from "@salamruby/database/zod/invites";
-import { ZUserName } from "@salamruby/types/user";
+import { ZInvite } from "@feedyruby/database/zod/invites";
+import { ZUserName } from "@feedyruby/types/user";
 
 export const ZInvitee = ZInvite.pick({
   name: true,

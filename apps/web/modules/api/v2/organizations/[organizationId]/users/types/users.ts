@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { ZUser } from "@salamruby/database/zod/users";
-import { ZUserName } from "@salamruby/types/user";
+import { ZUser } from "@feedyruby/database/zod/users";
+import { ZUserName } from "@feedyruby/types/user";
 import { ZGetFilter } from "@/modules/api/v2/types/api-filter";
 
 export const ZGetUsersFilter = ZGetFilter.extend({

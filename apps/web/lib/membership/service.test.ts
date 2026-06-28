@@ -1,11 +1,11 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { DatabaseError, UnknownError } from "@salamruby/types/errors";
-import { TMembership } from "@salamruby/types/memberships";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { DatabaseError, UnknownError } from "@feedyruby/types/errors";
+import { TMembership } from "@feedyruby/types/memberships";
 import { createMembership, getMembershipByUserIdOrganizationId } from "./service";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     membership: {
       findUnique: vi.fn(),

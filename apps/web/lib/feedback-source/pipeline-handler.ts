@@ -1,8 +1,8 @@
 import "server-only";
-import { logger } from "@salamruby/logger";
-import { TFeedbackSourceWithMappings } from "@salamruby/types/feedback-source";
-import { TResponse } from "@salamruby/types/responses";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { logger } from "@feedyruby/logger";
+import { TFeedbackSourceWithMappings } from "@feedyruby/types/feedback-source";
+import { TResponse } from "@feedyruby/types/responses";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { createFeedbackRecordsBatch } from "@/modules/hub";
 import { getFeedbackSourcesBySurveyId, updateFeedbackSource } from "./service";
 import { transformResponseToFeedbackRecords } from "./transform";
@@ -40,7 +40,7 @@ const processFeedbackSource = async (
   const feedbackRecords = transformResponseToFeedbackRecords(
     response,
     survey,
-    feedbackSource.salamrubyMappings,
+    feedbackSource.feedyrubyMappings,
     feedbackSource.feedbackDirectoryId
   );
 

@@ -1,9 +1,9 @@
 "use server";
 
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
-import { ZSurveyQuotaInput } from "@salamruby/types/quota";
+import { ZId } from "@feedyruby/types/common";
+import { OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import { ZSurveyQuotaInput } from "@feedyruby/types/quota";
 import { authenticatedActionClient } from "@/lib/utils/action-client";
 import { checkAuthorizationUpdated } from "@/lib/utils/action-client/action-client-middleware";
 import { AuthenticatedActionClientCtx } from "@/lib/utils/action-client/types/context";

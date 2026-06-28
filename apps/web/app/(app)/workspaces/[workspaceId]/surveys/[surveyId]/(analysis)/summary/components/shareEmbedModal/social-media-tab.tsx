@@ -101,7 +101,7 @@ export const SocialMediaTab: React.FC<SocialMediaTabProps> = ({ surveyUrl, surve
         <AlertButton
           onClick={() => {
             window.open(
-              "https://salamruby.com/docs/xm-and-surveys/surveys/link-surveys/source-tracking",
+              "https://feedyruby.com/docs/xm-and-surveys/surveys/link-surveys/source-tracking",
               "_blank",
               "noopener,noreferrer"
             );

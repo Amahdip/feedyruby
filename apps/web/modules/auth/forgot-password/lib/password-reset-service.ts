@@ -1,16 +1,16 @@
 import "server-only";
 import crypto from "node:crypto";
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { ZId } from "@salamruby/types/common";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { ZId } from "@feedyruby/types/common";
 import {
   INVALID_PASSWORD_RESET_TOKEN_ERROR_CODE,
   InvalidPasswordResetTokenError,
-} from "@salamruby/types/errors";
-import type { TUserEmail, TUserLocale } from "@salamruby/types/user";
-import { ZUserEmail, ZUserLocale, ZUserPassword } from "@salamruby/types/user";
+} from "@feedyruby/types/errors";
+import type { TUserEmail, TUserLocale } from "@feedyruby/types/user";
+import { ZUserEmail, ZUserLocale, ZUserPassword } from "@feedyruby/types/user";
 import { hashPassword } from "@/lib/auth";
 import { DEBUG_SHOW_RESET_LINK, PASSWORD_RESET_TOKEN_LIFETIME_MINUTES, WEBAPP_URL } from "@/lib/constants";
 import { hashString } from "@/lib/hash-string";

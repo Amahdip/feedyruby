@@ -1,4 +1,4 @@
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/constants";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/constants";
 
 export const V3_SURVEY_GENERATE_PROMPT_MIN_LENGTH = 4;
 export const V3_SURVEY_GENERATE_PROMPT_DETAIL_MIN_LENGTH = 24;

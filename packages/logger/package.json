@@ -1,19 +1,19 @@
 {
-  "name": "@salamruby/logger",
+  "name": "@feedyruby/logger",
   "private": true,
   "type": "module",
   "version": "0.1.0",
-  "homepage": "https://salamruby.com",
+  "homepage": "https://feedyruby.com",
   "license": "MIT",
-  "description": "Logger for SalamRuby",
+  "description": "Logger for FeedyRuby",
   "main": "./dist/index.js",
   "types": "./dist/src/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/salamruby/salamruby"
+    "url": "https://github.com/feedyruby/feedyruby"
   },
   "keywords": [
-    "SalamRuby",
+    "FeedyRuby",
     "logger",
     "logging"
   ],
@@ -34,7 +34,7 @@
     "build": "rimraf dist && vite build && tsc --project tsconfig.build.json",
     "test": "vitest run"
   },
-  "author": "SalamRuby <hola@salamruby.com>",
+  "author": "FeedyRuby <hola@feedyruby.com>",
   "dependencies": {
     "pino": "10.3.1",
     "pino-opentelemetry-transport": "3.0.0",
@@ -42,8 +42,8 @@
     "zod": "4.3.6"
   },
   "devDependencies": {
-    "@salamruby/config-typescript": "workspace:*",
-    "@salamruby/eslint-config": "workspace:*",
+    "@feedyruby/config-typescript": "workspace:*",
+    "@feedyruby/eslint-config": "workspace:*",
     "vite": "7.3.3",
     "vitest": "4.1.6"
   }

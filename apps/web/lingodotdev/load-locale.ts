@@ -1,4 +1,4 @@
-import { TUserLocale } from "@salamruby/types/user";
+import { TUserLocale } from "@feedyruby/types/user";
 
 type LocaleModule = { default: Record<string, unknown> };
 

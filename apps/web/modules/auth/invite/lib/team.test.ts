@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { OrganizationRole, Prisma } from "@salamruby/database/prisma";
-import { DatabaseError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { OrganizationRole, Prisma } from "@feedyruby/database/prisma";
+import { DatabaseError } from "@feedyruby/types/errors";
 import { createTeamMembership } from "./team";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     team: {
       findUnique: vi.fn(),

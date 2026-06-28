@@ -1,25 +1,25 @@
 /* eslint-disable @typescript-eslint/no-namespace -- using namespaces is required for prisma-json-types-generator */
-import { type TActionClassNoCodeConfig } from "@salamruby/types/action-classes";
-import type { TChartConfig, TChartQuery, TWidgetLayout } from "@salamruby/types/analysis";
-import type { TOrganizationAccess } from "@salamruby/types/api-key";
-import { type TIntegrationConfig } from "@salamruby/types/integration";
+import { type TActionClassNoCodeConfig } from "@feedyruby/types/action-classes";
+import type { TChartConfig, TChartQuery, TWidgetLayout } from "@feedyruby/types/analysis";
+import type { TOrganizationAccess } from "@feedyruby/types/api-key";
+import { type TIntegrationConfig } from "@feedyruby/types/integration";
 import {
   type TOrganizationBilling,
   type TOrganizationBillingPlanLimits,
   type TOrganizationStripeBilling,
   type TOrganizationWhitelabel,
-} from "@salamruby/types/organizations";
-import type { TSurveyQuotaLogic } from "@salamruby/types/quota";
+} from "@feedyruby/types/organizations";
+import type { TSurveyQuotaLogic } from "@feedyruby/types/quota";
 import {
   type TResponseContactAttributes,
   type TResponseData,
   type TResponseMeta,
   type TResponseTtc,
   type TResponseVariables,
-} from "@salamruby/types/responses";
-import { type TBaseFilters } from "@salamruby/types/segment";
-import { type TSurveyBlock } from "@salamruby/types/surveys/blocks";
-import type { TSurveyFollowUpAction, TSurveyFollowUpTrigger } from "@salamruby/types/surveys/follow-up";
+} from "@feedyruby/types/responses";
+import { type TBaseFilters } from "@feedyruby/types/segment";
+import { type TSurveyBlock } from "@feedyruby/types/surveys/blocks";
+import type { TSurveyFollowUpAction, TSurveyFollowUpTrigger } from "@feedyruby/types/surveys/follow-up";
 import {
   type TSurveyClosedMessage,
   type TSurveyEnding,
@@ -33,9 +33,9 @@ import {
   type TSurveyVariables,
   type TSurveyWelcomeCard,
   type TSurveyWorkspaceOverwrites,
-} from "@salamruby/types/surveys/types";
-import type { TUserLocale, TUserNotificationSettings } from "@salamruby/types/user";
-import { type TLogo, type TWorkspaceConfig, type TWorkspaceStyling } from "@salamruby/types/workspace";
+} from "@feedyruby/types/surveys/types";
+import type { TUserLocale, TUserNotificationSettings } from "@feedyruby/types/user";
+import { type TLogo, type TWorkspaceConfig, type TWorkspaceStyling } from "@feedyruby/types/workspace";
 
 declare global {
   namespace PrismaJson {

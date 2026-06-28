@@ -1,7 +1,7 @@
 import * as Sentry from "@sentry/nextjs";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 import { ZodError } from "zod";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { ApiErrorResponseV2 } from "@/modules/api/v2/types/api-error";
 import { formatZodError, handleApiError, logApiError, logApiRequest } from "../utils";
 

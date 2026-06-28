@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { getMonthlyOrganizationResponseCount } from "@/lib/organization/service";
 import { getOrganizationWorkspacesCount } from "@/lib/workspace/service";
 import { getTranslate } from "@/lingodotdev/server";
@@ -16,7 +16,7 @@ export const PricingPage = async (props: { params: Promise<{ workspaceId: string
 
   const { organization, isMember } = await getWorkspaceAuth(params.workspaceId);
 
-  if (!IS_SALAMRUBY_CLOUD) {
+  if (!IS_FEEDYRUBY_CLOUD) {
     notFound();
   }
 

@@ -1,8 +1,8 @@
 "use server";
 
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { ZId } from "@feedyruby/types/common";
+import { OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { getOrganization } from "@/lib/organization/service";
 import { authenticatedActionClient } from "@/lib/utils/action-client";
 import { checkAuthorizationUpdated } from "@/lib/utils/action-client/action-client-middleware";

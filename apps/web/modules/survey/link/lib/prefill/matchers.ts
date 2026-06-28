@@ -1,4 +1,4 @@
-import { TSurveyElementChoice } from "@salamruby/types/surveys/elements";
+import { TSurveyElementChoice } from "@feedyruby/types/surveys/elements";
 
 /**
  * Match a value against element choices by ID first, then by label

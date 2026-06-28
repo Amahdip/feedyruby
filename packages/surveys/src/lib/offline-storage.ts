@@ -1,6 +1,6 @@
-import { TResponseData, TResponseTtc, TResponseUpdate, TResponseVariables } from "@salamruby/types/responses";
+import { TResponseData, TResponseTtc, TResponseUpdate, TResponseVariables } from "@feedyruby/types/responses";
 
-const DB_NAME = "salamruby-offline";
+const DB_NAME = "feedyruby-offline";
 const DB_VERSION = 1;
 
 const STORE_PENDING_RESPONSES = "pendingResponses";
@@ -96,7 +96,7 @@ const openDb = (): Promise<IDBDatabase> => {
     };
 
     request.onblocked = () => {
-      console.warn("SalamRuby: IndexedDB open blocked by another connection");
+      console.warn("FeedyRuby: IndexedDB open blocked by another connection");
     };
 
     request.onerror = () => {
@@ -120,7 +120,7 @@ export const addPendingResponse = async (entry: Omit<PendingResponseEntry, "id">
       request.onerror = () => reject(request.error ?? new Error("IndexedDB request failed"));
     });
   } catch (e) {
-    console.warn("SalamRuby: Failed to persist response to IndexedDB", e);
+    console.warn("FeedyRuby: Failed to persist response to IndexedDB", e);
     return -1;
   }
 };
@@ -141,7 +141,7 @@ export const getPendingResponses = async (surveyId: string): Promise<PendingResp
       request.onerror = () => reject(request.error ?? new Error("IndexedDB request failed"));
     });
   } catch (e) {
-    console.warn("SalamRuby: Failed to read pending responses from IndexedDB", e);
+    console.warn("FeedyRuby: Failed to read pending responses from IndexedDB", e);
     return [];
   }
 };
@@ -158,7 +158,7 @@ export const removePendingResponse = async (id: number): Promise<void> => {
       request.onerror = () => reject(request.error ?? new Error("IndexedDB request failed"));
     });
   } catch (e) {
-    console.warn("SalamRuby: Failed to remove pending response from IndexedDB", e);
+    console.warn("FeedyRuby: Failed to remove pending response from IndexedDB", e);
   }
 };
 
@@ -174,7 +174,7 @@ export const countPendingResponses = async (surveyId: string): Promise<number> =
       request.onerror = () => reject(request.error ?? new Error("IndexedDB request failed"));
     });
   } catch (e) {
-    console.warn("SalamRuby: Failed to count pending responses from IndexedDB", e);
+    console.warn("FeedyRuby: Failed to count pending responses from IndexedDB", e);
     return 0;
   }
 };
@@ -199,7 +199,7 @@ export const clearPendingResponses = async (surveyId: string): Promise<void> => 
       tx.onerror = () => reject(tx.error ?? new Error("IndexedDB transaction failed"));
     });
   } catch (e) {
-    console.warn("SalamRuby: Failed to clear pending responses from IndexedDB", e);
+    console.warn("FeedyRuby: Failed to clear pending responses from IndexedDB", e);
   }
 };
 
@@ -215,7 +215,7 @@ export const saveSurveyProgress = async (progress: SurveyProgressEntry): Promise
       request.onerror = () => reject(request.error ?? new Error("IndexedDB request failed"));
     });
   } catch (e) {
-    console.warn("SalamRuby: Failed to save survey progress to IndexedDB", e);
+    console.warn("FeedyRuby: Failed to save survey progress to IndexedDB", e);
   }
 };
 
@@ -231,7 +231,7 @@ export const getSurveyProgress = async (surveyId: string): Promise<SurveyProgres
       request.onerror = () => reject(request.error ?? new Error("IndexedDB request failed"));
     });
   } catch (e) {
-    console.warn("SalamRuby: Failed to read survey progress from IndexedDB", e);
+    console.warn("FeedyRuby: Failed to read survey progress from IndexedDB", e);
     return undefined;
   }
 };
@@ -270,7 +270,7 @@ export const patchSurveyProgressSnapshot = async (
       getRequest.onerror = () => reject(getRequest.error ?? new Error("IndexedDB request failed"));
     });
   } catch (e) {
-    console.warn("SalamRuby: Failed to patch survey progress snapshot in IndexedDB", e);
+    console.warn("FeedyRuby: Failed to patch survey progress snapshot in IndexedDB", e);
   }
 };
 
@@ -286,6 +286,6 @@ export const clearSurveyProgress = async (surveyId: string): Promise<void> => {
       request.onerror = () => reject(request.error ?? new Error("IndexedDB request failed"));
     });
   } catch (e) {
-    console.warn("SalamRuby: Failed to clear survey progress from IndexedDB", e);
+    console.warn("FeedyRuby: Failed to clear survey progress from IndexedDB", e);
   }
 };

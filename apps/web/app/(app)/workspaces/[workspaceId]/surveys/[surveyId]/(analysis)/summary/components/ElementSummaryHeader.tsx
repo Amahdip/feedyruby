@@ -3,8 +3,8 @@
 import { InboxIcon } from "lucide-react";
 import type { JSX } from "react";
 import { useTranslation } from "react-i18next";
-import { TSurvey, TSurveyElementSummary } from "@salamruby/types/surveys/types";
-import { getTextContent } from "@salamruby/types/surveys/validation";
+import { TSurvey, TSurveyElementSummary } from "@feedyruby/types/surveys/types";
+import { getTextContent } from "@feedyruby/types/surveys/validation";
 import { recallToHeadline } from "@/lib/utils/recall";
 import { formatTextWithSlashes } from "@/modules/survey/editor/lib/utils";
 import { getElementTypes } from "@/modules/survey/lib/elements";

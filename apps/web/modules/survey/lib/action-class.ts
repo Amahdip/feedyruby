@@ -1,8 +1,8 @@
 import { cache as reactCache } from "react";
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { ActionClass } from "@salamruby/database/prisma";
-import { DatabaseError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { ActionClass } from "@feedyruby/database/prisma";
+import { DatabaseError } from "@feedyruby/types/errors";
 import { validateInputs } from "@/lib/utils/validate";
 
 export const getActionClasses = reactCache(async (workspaceId: string): Promise<ActionClass[]> => {

@@ -25,7 +25,7 @@ const setup = async (setupConfig: TConfigInput): Promise<void> => {
     const isDebug = getIsDebug();
     if (isDebug) {
       // eslint-disable-next-line no-console -- legacy init
-      console.warn("🧱 SalamRuby - Warning: Using legacy init");
+      console.warn("🧱 FeedyRuby - Warning: Using legacy init");
     }
     await queue.add(Setup.setup, CommandType.Setup, false, {
       ...setupConfig,
@@ -89,14 +89,14 @@ const registerRouteChange = async (): Promise<void> => {
  */
 const setNonce = (nonce: string | undefined): void => {
   // Store nonce on window for access when surveys package loads
-  globalThis.window.__salamrubyNonce = nonce;
+  globalThis.window.__feedyrubyNonce = nonce;
 
   // Set nonce in surveys package if it's already loaded
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Runtime check for surveys package availability
-  globalThis.window.salamrubySurveys?.setNonce?.(nonce);
+  globalThis.window.feedyrubySurveys?.setNonce?.(nonce);
 };
 
-const salamruby = {
+const feedyruby = {
   /** @deprecated Use setup() instead. This method will be removed in a future version */
   init: (initConfig: TLegacyConfigInput) => setup(initConfig as unknown as TConfigInput),
   setup,
@@ -111,13 +111,13 @@ const salamruby = {
   setNonce,
 };
 
-// Explicitly assign to globalThis so the wrapper SDK (@salamruby/js) can
+// Explicitly assign to globalThis so the wrapper SDK (@feedyruby/js) can
 // find us even when the UMD environment detection is fooled by a leaked
 // `exports` or `module` global on the page (e.g. from another UMD bundle,
 // a tag manager, or a browser extension).  This runs inside the UMD factory,
 // so it executes regardless of which branch the wrapper picks.
-(globalThis as unknown as Record<string, unknown>).salamruby = salamruby;
+(globalThis as unknown as Record<string, unknown>).feedyruby = feedyruby;
 
-type TSalamRuby = typeof salamruby;
-export type { TSalamRuby };
-export default salamruby;
+type TFeedyRuby = typeof feedyruby;
+export type { TFeedyRuby };
+export default feedyruby;

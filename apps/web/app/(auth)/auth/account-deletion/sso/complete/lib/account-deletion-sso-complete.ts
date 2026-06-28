@@ -1,14 +1,14 @@
 import "server-only";
 import { getServerSession } from "next-auth";
-import { logger } from "@salamruby/logger";
-import { AuthorizationError } from "@salamruby/types/errors";
-import { IS_SALAMRUBY_CLOUD, WEBAPP_URL } from "@/lib/constants";
+import { logger } from "@feedyruby/logger";
+import { AuthorizationError } from "@feedyruby/types/errors";
+import { IS_FEEDYRUBY_CLOUD, WEBAPP_URL } from "@/lib/constants";
 import { verifyAccountDeletionSsoReauthIntent } from "@/lib/jwt";
 import { getValidatedCallbackUrl } from "@/lib/utils/url";
 import {
   ACCOUNT_DELETION_SSO_REAUTH_ERROR_QUERY_PARAM,
   ACCOUNT_DELETION_SSO_REAUTH_FAILED_ERROR_CODE,
-  SALAMRUBY_CLOUD_ACCOUNT_DELETION_SURVEY_URL,
+  FEEDYRUBY_CLOUD_ACCOUNT_DELETION_SURVEY_URL,
 } from "@/modules/account/constants";
 import { deleteUserWithAccountDeletionAuthorization } from "@/modules/account/lib/account-deletion";
 import { queueAccountDeletionAuditEvent } from "@/modules/account/lib/account-deletion-audit";
@@ -42,7 +42,7 @@ const getSafeFailureRedirectPath = (returnToUrl: string) => {
 };
 
 const getPostDeletionRedirectPath = () =>
-  IS_SALAMRUBY_CLOUD ? SALAMRUBY_CLOUD_ACCOUNT_DELETION_SURVEY_URL : "/auth/login";
+  IS_FEEDYRUBY_CLOUD ? FEEDYRUBY_CLOUD_ACCOUNT_DELETION_SURVEY_URL : "/auth/login";
 
 export const completeAccountDeletionSsoIdentityConfirmationAndGetRedirectPath = async ({
   intent,

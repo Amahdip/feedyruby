@@ -1,17 +1,17 @@
-import type { Iso639Code } from "@salamruby/i18n-utils";
+import type { Iso639Code } from "@feedyruby/i18n-utils";
 
 /**
- * Native-script display names for every ISO 639 code SalamRuby supports.
+ * Native-script display names for every ISO 639 code FeedyRuby supports.
  *
  * Each language is shown in its own script (e.g. "Deutsch", "français", "日本語")
  * so users can recognise their language regardless of the current UI locale.
  *
  * The `Iso639Code` key type is derived from the `iso639Languages` array in
- * @salamruby/i18n-utils via `as const satisfies`, so adding or removing a
+ * @feedyruby/i18n-utils via `as const satisfies`, so adding or removing a
  * language there will cause a compile-time error here until this map is updated.
  *
  * ~5 KB — still ~71 KB smaller than the old 14-locale static list from
- * @salamruby/i18n-utils that was previously bundled.
+ * @feedyruby/i18n-utils that was previously bundled.
  */
 const NATIVE_NAMES: Record<Iso639Code, string> = {
   aa: "Afar",

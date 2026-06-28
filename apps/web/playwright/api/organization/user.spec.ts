@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { ME_API_URL, TEAMS_API_URL, USERS_API_URL } from "@/playwright/api/constants";
 import { test } from "../../lib/fixtures";
 import { loginAndGetApiKey } from "../../lib/utils";
@@ -12,7 +12,7 @@ test.describe("API Tests for Users", () => {
     let teamName = "New Team from API";
 
     const randomSuffix = Math.random().toString(36).substring(2, 15);
-    const userEmail = `usere2etest${randomSuffix}@salamruby-test.com`;
+    const userEmail = `usere2etest${randomSuffix}@feedyruby-test.com`;
 
     try {
       ({ apiKey } = await loginAndGetApiKey(page, users));

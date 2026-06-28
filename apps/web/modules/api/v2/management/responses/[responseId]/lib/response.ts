@@ -1,10 +1,10 @@
 import { cache as reactCache } from "react";
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { Prisma, Response } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
-import { TResponse } from "@salamruby/types/responses";
+import { prisma } from "@feedyruby/database";
+import { Prisma, Response } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
+import { TResponse } from "@feedyruby/types/responses";
 import { deleteDisplay } from "@/modules/api/v2/management/responses/[responseId]/lib/display";
 import { getSurveyQuestions } from "@/modules/api/v2/management/responses/[responseId]/lib/survey";
 import { findAndDeleteUploadedFilesInResponse } from "@/modules/api/v2/management/responses/[responseId]/lib/utils";

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { DatabaseError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { DatabaseError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { requireV3WorkspaceAccess } from "@/app/api/v3/lib/auth";
 import { problemForbidden } from "@/app/api/v3/lib/response";
 import { capturePostHogEvent } from "@/lib/posthog";
@@ -31,7 +31,7 @@ import {
   validateV3SurveyFromRawInput,
 } from "./operations";
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     withContext: vi.fn(() => ({
       warn: vi.fn(),

@@ -1,4 +1,4 @@
-import { Result, ok } from "@salamruby/types/error-handlers";
+import { Result, ok } from "@feedyruby/types/error-handlers";
 import { ApiErrorResponseV2 } from "@/modules/api/v2/types/api-error";
 import { fetchWorkspaceId, fetchWorkspaceIdFromSurveyIds } from "./services";
 

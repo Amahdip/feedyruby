@@ -1,15 +1,15 @@
 import { twMerge } from "tailwind-merge";
-import { type Result, err, ok, wrapThrowsAsync } from "@salamruby/types/error-handlers";
-import { type ApiErrorResponse } from "@salamruby/types/errors";
-import { type TJsWorkspaceStateSurvey } from "@salamruby/types/js";
-import { type TAllowedFileExtension } from "@salamruby/types/storage";
+import { type Result, err, ok, wrapThrowsAsync } from "@feedyruby/types/error-handlers";
+import { type ApiErrorResponse } from "@feedyruby/types/errors";
+import { type TJsWorkspaceStateSurvey } from "@feedyruby/types/js";
+import { type TAllowedFileExtension } from "@feedyruby/types/storage";
 import {
   type TSurveyBlock,
   type TSurveyBlockLogic,
   type TSurveyBlockLogicAction,
-} from "@salamruby/types/surveys/blocks";
-import { type TSurveyElement, type TSurveyElementChoice } from "@salamruby/types/surveys/elements";
-import { type TShuffleOption } from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/surveys/blocks";
+import { type TSurveyElement, type TSurveyElementChoice } from "@feedyruby/types/surveys/elements";
+import { type TShuffleOption } from "@feedyruby/types/surveys/types";
 import { ApiResponse, ApiSuccessResponse } from "@/types/api";
 
 type ClassValue = string | boolean | null | undefined | ClassValue[];
@@ -218,7 +218,7 @@ export const getDefaultLanguageCode = (survey: TJsWorkspaceStateSurvey): string 
   if (defaultSurveyLanguage) return defaultSurveyLanguage.language.code;
 };
 
-// Inlined from @salamruby/types/storage.ts to avoid Zod dependency
+// Inlined from @feedyruby/types/storage.ts to avoid Zod dependency
 const mimeTypes: Record<string, string> = {
   heic: "image/heic",
   png: "image/png",

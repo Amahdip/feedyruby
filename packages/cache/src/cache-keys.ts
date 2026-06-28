@@ -6,7 +6,7 @@ import { makeCacheKey } from "./utils/key";
  * Pattern: fb:\{resource\}:\{identifier\}:\{subResource\}
  *
  * Benefits:
- * - Clear namespace hierarchy (fb = salamruby)
+ * - Clear namespace hierarchy (fb = feedyruby)
  * - Collision-proof across workspaces
  * - Easy debugging and monitoring
  * - Predictable invalidation patterns

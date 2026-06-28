@@ -1,8 +1,8 @@
-import { prisma } from "@salamruby/database";
-import { Prisma, Webhook } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ZId } from "@salamruby/types/common";
-import { DatabaseError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma, Webhook } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ZId } from "@feedyruby/types/common";
+import { DatabaseError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { validateInputs } from "@/lib/utils/validate";
 
 export const deleteWebhook = async (id: string): Promise<Omit<Webhook, "secret">> => {

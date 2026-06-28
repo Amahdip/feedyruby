@@ -1,24 +1,24 @@
 import { type JSX } from "preact";
 import { useCallback, useEffect, useMemo, useRef, useState } from "preact/hooks";
-import { TJsFileUploadParams, type TJsWorkspaceStateSurvey } from "@salamruby/types/js";
+import { SurveyContainerProps } from "@feedyruby/types/feedyruby-surveys";
+import { TJsFileUploadParams, type TJsWorkspaceStateSurvey } from "@feedyruby/types/js";
 import type {
   TResponseData,
   TResponseTtc,
   TResponseUpdate,
   TResponseVariables,
-} from "@salamruby/types/responses";
-import { SurveyContainerProps } from "@salamruby/types/salamruby-surveys";
-import { TUploadFileConfig } from "@salamruby/types/storage";
-import { TSurveyBlock, TSurveyBlockLogic } from "@salamruby/types/surveys/blocks";
-import { TSurveyElement } from "@salamruby/types/surveys/elements";
+} from "@feedyruby/types/responses";
+import { TUploadFileConfig } from "@feedyruby/types/storage";
+import { TSurveyBlock, TSurveyBlockLogic } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElement } from "@feedyruby/types/surveys/elements";
 import { BlockConditional } from "@/components/general/block-conditional";
 import { EndingCard } from "@/components/general/ending-card";
 import { ErrorComponent } from "@/components/general/error-component";
+import { FeedyRubyBranding } from "@/components/general/feedyruby-branding";
 import { LanguageSwitch } from "@/components/general/language-switch";
 import { ProgressBar } from "@/components/general/progress-bar";
 import { RecaptchaBranding } from "@/components/general/recaptcha-branding";
 import { ResponseErrorComponent } from "@/components/general/response-error-component";
-import { SalamRubyBranding } from "@/components/general/salamruby-branding";
 import { SurveyCloseButton } from "@/components/general/survey-close-button";
 import { WelcomeCard } from "@/components/general/welcome-card";
 import { AutoCloseWrapper } from "@/components/wrappers/auto-close-wrapper";
@@ -506,7 +506,7 @@ export function Survey({
                 surveyState.enableBootstrapResponseCreate();
                 await persistSurveyStateSnapshot({ displayId: null });
               } else {
-                console.error("SalamRuby: Failed to recover responseId from displayId", {
+                console.error("FeedyRuby: Failed to recover responseId from displayId", {
                   displayId: progress.surveyStateSnapshot.displayId,
                   error: responseLookup.error,
                 });
@@ -575,7 +575,7 @@ export function Survey({
         setPendingSyncCount(0);
 
         if (result.syncedCount > 0) {
-          console.log(`SalamRuby: Synced ${result.syncedCount} offline response(s)`);
+          console.log(`FeedyRuby: Synced ${result.syncedCount} offline response(s)`);
         }
 
         // Clean up IndexedDB and mark sending as finished after successful sync
@@ -910,7 +910,7 @@ export function Survey({
   useEffect(() => {
     if (isResponseSendingFinished && isSurveyFinished) {
       // Post a message to the parent window indicating that the survey is completed.
-      window.parent.postMessage("salamrubySurveyCompleted", "*"); // NOSONAR typescript:S2819 // We can't check the targetOrigin here because we don't know the parent window's origin.
+      window.parent.postMessage("feedyrubySurveyCompleted", "*"); // NOSONAR typescript:S2819 // We can't check the targetOrigin here because we don't know the parent window's origin.
       onFinished?.();
     }
   }, [isResponseSendingFinished, isSurveyFinished, onFinished]);
@@ -1237,7 +1237,7 @@ export function Survey({
                 "flex flex-col justify-center gap-2",
                 isCloseButtonVisible || isLanguageSwitchVisible ? "p-2" : "p-3"
               )}>
-              {isBrandingEnabled ? <SalamRubyBranding /> : null}
+              {isBrandingEnabled ? <FeedyRubyBranding /> : null}
               {isSpamProtectionEnabled ? <RecaptchaBranding /> : null}
             </div>
           </div>

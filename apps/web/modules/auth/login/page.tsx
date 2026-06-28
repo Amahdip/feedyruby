@@ -31,7 +31,7 @@ import { LoginForm } from "./components/login-form";
 
 export const metadata: Metadata = {
   title: "Login",
-  description: "Log in to salamruby",
+  description: "Log in to feedyruby",
 };
 
 export const LoginPage = async ({

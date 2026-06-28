@@ -1,9 +1,9 @@
 "use server";
 
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
-import { ZResponseFilterCriteria } from "@salamruby/types/responses";
+import { ZId } from "@feedyruby/types/common";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
+import { ZResponseFilterCriteria } from "@feedyruby/types/responses";
 import { capturePostHogEvent } from "@/lib/posthog";
 import { getResponseDownloadFile, getResponseFilteringValues } from "@/lib/response/service";
 import { getSurvey } from "@/lib/survey/service";

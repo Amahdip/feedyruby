@@ -17,7 +17,7 @@ declare global {
 export const loadRecaptchaScript = (recaptchaSiteKey?: string): Promise<void> => {
   return new Promise((resolve, reject) => {
     // Check if script already exists
-    if (document.getElementById("salamruby-recaptcha-script")) {
+    if (document.getElementById("feedyruby-recaptcha-script")) {
       resolve();
       return;
     }
@@ -30,7 +30,7 @@ export const loadRecaptchaScript = (recaptchaSiteKey?: string): Promise<void> =>
 
     // Create script element
     const script = document.createElement("script");
-    script.id = "salamruby-recaptcha-script";
+    script.id = "feedyruby-recaptcha-script";
     script.src = `https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`;
     script.async = true;
     script.defer = true;

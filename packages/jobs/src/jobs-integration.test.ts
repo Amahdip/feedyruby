@@ -1,7 +1,7 @@
 import { QueueEvents } from "bullmq";
 import IORedis from "ioredis";
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { JOBS_DEFAULT_JOB_OPTIONS, JOBS_PREFIX, JOBS_QUEUE_NAME, JOB_NAMES } from "./constants";
 import {
   enqueueTestLogJob,
@@ -53,7 +53,7 @@ describe("BullMQ integration tests", () => {
 
     runtime = await startJobsRuntime({ redisUrl });
     queueEventsConnection = new IORedis(redisUrl, {
-      connectionName: "salamruby-jobs-queue-events",
+      connectionName: "feedyruby-jobs-queue-events",
       maxRetriesPerRequest: null,
     });
     queueEvents = new QueueEvents(JOBS_QUEUE_NAME, {

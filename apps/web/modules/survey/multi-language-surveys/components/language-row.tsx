@@ -1,8 +1,8 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { Language } from "@salamruby/database/prisma-browser";
-import { TUserLocale } from "@salamruby/types/user";
+import { Language } from "@feedyruby/database/prisma-browser";
+import { TUserLocale } from "@feedyruby/types/user";
 import { Button } from "@/modules/ui/components/button";
 import { Input } from "@/modules/ui/components/input";
 import { LanguageSelect } from "./language-select";

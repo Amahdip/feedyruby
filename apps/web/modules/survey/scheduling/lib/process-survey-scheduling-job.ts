@@ -1,6 +1,6 @@
 import "server-only";
-import type { JobHandler, TSurveySchedulingJobData } from "@salamruby/jobs";
-import { logger } from "@salamruby/logger";
+import type { JobHandler, TSurveySchedulingJobData } from "@feedyruby/jobs";
+import { logger } from "@feedyruby/logger";
 import { reconcileDueSurveySchedules } from "./survey-scheduling";
 
 export const processSurveySchedulingJob: JobHandler<TSurveySchedulingJobData> = async (data, context) => {

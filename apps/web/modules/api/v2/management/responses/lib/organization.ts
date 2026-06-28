@@ -1,7 +1,7 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { err, ok } from "@salamruby/types/error-handlers";
-import { TOrganizationBilling } from "@salamruby/types/organizations";
+import { prisma } from "@feedyruby/database";
+import { err, ok } from "@feedyruby/types/error-handlers";
+import { TOrganizationBilling } from "@feedyruby/types/organizations";
 import { getBillingUsageCycleWindow } from "@/lib/utils/billing";
 
 export const getOrganizationIdFromWorkspaceId = reactCache(async (workspaceId: string) => {

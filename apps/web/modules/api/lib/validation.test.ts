@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { TResponseData } from "@salamruby/types/responses";
-import { TSurveyBlock } from "@salamruby/types/surveys/blocks";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurveyQuestion, TSurveyQuestionTypeEnum } from "@salamruby/types/surveys/types";
-import { TValidationErrorMap } from "@salamruby/types/surveys/validation-rules";
+import { TResponseData } from "@feedyruby/types/responses";
+import { TSurveyBlock } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurveyQuestion, TSurveyQuestionTypeEnum } from "@feedyruby/types/surveys/types";
+import { TValidationErrorMap } from "@feedyruby/types/surveys/validation-rules";
 import {
   formatValidationErrorsForV1Api,
   formatValidationErrorsForV2Api,
@@ -22,7 +22,7 @@ vi.mock("@/lib/survey/utils", () => ({
   getElementsFromBlocks: (...args: unknown[]) => mockGetElementsFromBlocks(...args),
 }));
 
-vi.mock("@salamruby/surveys/validation", () => ({
+vi.mock("@feedyruby/surveys/validation", () => ({
   validateBlockResponses: (...args: unknown[]) => mockValidateBlockResponses(...args),
 }));
 

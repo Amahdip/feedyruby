@@ -1,14 +1,14 @@
 "use server";
 
-import { logger } from "@salamruby/logger";
-import { TUserEmail, ZUserEmail } from "@salamruby/types/user";
+import { logger } from "@feedyruby/logger";
+import { TUserEmail, ZUserEmail } from "@feedyruby/types/user";
 import { validateInputs } from "@/lib/utils/validate";
 
 export type TMailingListId = "security" | "product-updates";
 
 const MAILING_LIST_ENDPOINTS: Record<TMailingListId, string> = {
-  security: "https://ee.salamruby.com/api/v1/public/mailing/security/subscriptions",
-  "product-updates": "https://ee.salamruby.com/api/v1/public/mailing/product-updates/subscriptions",
+  security: "https://ee.feedyruby.com/api/v1/public/mailing/security/subscriptions",
+  "product-updates": "https://ee.feedyruby.com/api/v1/public/mailing/product-updates/subscriptions",
 } as const;
 
 const EE_SERVER_TIMEOUT_MS = 5000;
@@ -74,18 +74,18 @@ export const subscribeToMailingList = async ({
 
 export const subscribeUserToMailingList = async ({
   email,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   subscribeToSecurityUpdates,
   subscribeToProductUpdates,
 }: {
   email: TUserEmail;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   subscribeToSecurityUpdates?: boolean;
   subscribeToProductUpdates?: boolean;
 }): Promise<void> => {
-  if (isSalamRubyCloud && subscribeToProductUpdates) {
+  if (isFeedyRubyCloud && subscribeToProductUpdates) {
     await subscribeToMailingList({ email, listId: "product-updates" });
-  } else if (!isSalamRubyCloud && subscribeToSecurityUpdates) {
+  } else if (!isFeedyRubyCloud && subscribeToSecurityUpdates) {
     await subscribeToMailingList({ email, listId: "security" });
   }
 };

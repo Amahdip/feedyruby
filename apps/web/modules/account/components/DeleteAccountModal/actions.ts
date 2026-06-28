@@ -1,9 +1,9 @@
 "use server";
 
 import { z } from "zod";
-import { logger } from "@salamruby/logger";
-import { AuthorizationError } from "@salamruby/types/errors";
-import { ZUserEmail } from "@salamruby/types/user";
+import { logger } from "@feedyruby/logger";
+import { AuthorizationError } from "@feedyruby/types/errors";
+import { ZUserEmail } from "@feedyruby/types/user";
 import { WEBAPP_URL } from "@/lib/constants";
 import { capturePostHogEvent } from "@/lib/posthog";
 import { authenticatedActionClient } from "@/lib/utils/action-client";

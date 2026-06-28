@@ -1,4 +1,4 @@
-import { TOrganizationBilling } from "@salamruby/types/organizations";
+import { TOrganizationBilling } from "@feedyruby/types/organizations";
 
 export const organizationId = "zo6u7apbattt8dquvzbgjjwb";
 export const workspaceId = "oh5cq6yu418itha55vsuj47e";

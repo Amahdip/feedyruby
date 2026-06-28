@@ -1,4 +1,4 @@
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { handleErrorResponse } from "@/app/api/v1/auth";
 import { RequestBodyTooLargeError, parseJsonBodyWithLimit } from "@/app/lib/api/request-body";
 import { responses } from "@/app/lib/api/response";

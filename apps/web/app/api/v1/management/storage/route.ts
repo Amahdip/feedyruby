@@ -1,5 +1,5 @@
-import { logger } from "@salamruby/logger";
-import { ZUploadPublicFileRequest } from "@salamruby/types/storage";
+import { logger } from "@feedyruby/logger";
+import { ZUploadPublicFileRequest } from "@feedyruby/types/storage";
 import { resolveBodyIds } from "@/app/api/v1/management/lib/workspace-resolver";
 import { checkAuth } from "@/app/api/v1/management/storage/lib/utils";
 import { RequestBodyTooLargeError, parseJsonBodyWithLimit } from "@/app/lib/api/request-body";

@@ -1,5 +1,5 @@
 import { ZodOpenApiOperationObject, ZodOpenApiPathsObject } from "zod-openapi";
-import { ZResponse } from "@salamruby/database/zod/responses";
+import { ZResponse } from "@feedyruby/database/zod/responses";
 import {
   deleteResponseEndpoint,
   getResponseEndpoint,

@@ -1,8 +1,8 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { Workspace } from "@salamruby/database/prisma-browser";
-import { TTemplate, TTemplateFilter } from "@salamruby/types/templates";
+import { Workspace } from "@feedyruby/database/prisma-browser";
+import { TTemplate, TTemplateFilter } from "@feedyruby/types/templates";
 import { cn } from "@/lib/cn";
 import { replacePresetPlaceholders } from "@/lib/utils/templates";
 import { Button } from "@/modules/ui/components/button";

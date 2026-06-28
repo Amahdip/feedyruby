@@ -12,6 +12,6 @@
     "skipLibCheck": true,
     "tsBuildInfoFile": ".turbo/generated-prisma.tsbuildinfo"
   },
-  "extends": "@salamruby/config-typescript/node16.json",
+  "extends": "@feedyruby/config-typescript/node16.json",
   "include": ["generated/prisma/**/*.ts"]
 }

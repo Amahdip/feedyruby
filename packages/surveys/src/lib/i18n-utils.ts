@@ -1,4 +1,4 @@
-import { TSurveyLanguage } from "@salamruby/types/surveys/types";
+import { TSurveyLanguage } from "@feedyruby/types/surveys/types";
 
 export const getI18nLanguage = (languageCode: string, languages: TSurveyLanguage[]) => {
   let locale = languageCode;

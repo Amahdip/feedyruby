@@ -1,6 +1,6 @@
-import type { TSurveyBlocks } from "@salamruby/types/surveys/blocks";
-import type { TConditionGroup, TDynamicLogicFieldValue } from "@salamruby/types/surveys/logic";
-import type { TSurveyEndings, TSurveyHiddenFields, TSurveyVariables } from "@salamruby/types/surveys/types";
+import type { TSurveyBlocks } from "@feedyruby/types/surveys/blocks";
+import type { TConditionGroup, TDynamicLogicFieldValue } from "@feedyruby/types/surveys/logic";
+import type { TSurveyEndings, TSurveyHiddenFields, TSurveyVariables } from "@feedyruby/types/surveys/types";
 import type { InvalidParam } from "@/app/api/v3/lib/response";
 
 type TReferenceValidationInput = {

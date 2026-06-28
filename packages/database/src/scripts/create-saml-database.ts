@@ -1,4 +1,4 @@
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { PrismaClient } from "../prisma";
 import { createPrismaPgAdapter } from "../prisma-adapter";
 

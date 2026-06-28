@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import {
   TFeedbackSourceType,
   UNSUPPORTED_FEEDBACK_SOURCE_ELEMENT_TYPES,
-} from "@salamruby/types/feedback-source";
+} from "@feedyruby/types/feedback-source";
 import {
   getResponseCountAction,
   importCsvDataAction,
@@ -50,11 +50,11 @@ import {
   CSV_HIDDEN_STATIC_MAPPINGS,
   CSV_PROTECTED_TARGET_IDS,
   TCreateFeedbackSourceStep,
+  TFeedyRubyFeedbackSourceForm,
   TFieldMapping,
-  TSalamRubyFeedbackSourceForm,
   TSourceField,
   TUnifySurvey,
-  ZSalamRubyFeedbackSourceForm,
+  ZFeedyRubyFeedbackSourceForm,
   getTranslatedFeedbackSourceError,
 } from "../types";
 import {
@@ -67,10 +67,10 @@ import {
 } from "../utils";
 import { CsvFeedbackSourceUI } from "./csv-feedback-source-ui";
 import { FeedbackSourceTypeSelector } from "./feedback-source-type-selector";
-import { SalamRubyQuestionList } from "./salamruby-question-list";
+import { FeedyRubyQuestionList } from "./feedyruby-question-list";
 
-const API_INGESTION_DOCS_URL = "https://salamruby.com/docs/unify-feedback/api/rest-api";
-const FEEDBACK_RECORD_MCP_DOCS_URL = "https://salamruby.com/docs/unify-feedback/api/mcp";
+const API_INGESTION_DOCS_URL = "https://feedyruby.com/docs/unify-feedback/api/rest-api";
+const FEEDBACK_RECORD_MCP_DOCS_URL = "https://feedyruby.com/docs/unify-feedback/api/mcp";
 
 interface CreateFeedbackSourceModalProps {
   open: boolean;
@@ -94,7 +94,7 @@ const getDialogTitle = (
   t: (key: string) => string
 ): string => {
   if (step === "selectType") return t("workspace.unify.add_feedback_source");
-  if (type === "salamruby_survey") return t("workspace.unify.select_survey_and_questions");
+  if (type === "feedyruby_survey") return t("workspace.unify.select_survey_and_questions");
   if (type === "csv") return t("workspace.unify.import_csv_data");
   return t("workspace.unify.configure_mapping");
 };
@@ -105,13 +105,13 @@ const getDialogDescription = (
   t: (key: string) => string
 ): string => {
   if (step === "selectType") return t("workspace.unify.select_source_type_description");
-  if (type === "salamruby_survey") return t("workspace.unify.select_survey_questions_description");
+  if (type === "feedyruby_survey") return t("workspace.unify.select_survey_questions_description");
   if (type === "csv") return t("workspace.unify.upload_csv_data_description");
   return t("workspace.unify.configure_mapping");
 };
 
 const getNextStepButtonLabel = (type: TFeedbackSourceOptionId | null, t: (key: string) => string): string => {
-  if (type === "salamruby_survey") return t("workspace.unify.select_questions");
+  if (type === "feedyruby_survey") return t("workspace.unify.select_questions");
   if (type === "csv") return t("workspace.unify.configure_import");
   if (type === "api_ingestion") return t("common.learn_more");
   if (type === "feedback_record_mcp") return t("common.learn_more");
@@ -140,16 +140,16 @@ export const CreateFeedbackSourceModal = ({
 
   const defaultFeedbackSourceName = useMemo<Record<TFeedbackSourceType, string>>(
     () => ({
-      salamruby_survey: t("workspace.unify.default_source_name_salamruby"),
+      feedyruby_survey: t("workspace.unify.default_source_name_feedyruby"),
       csv: t("workspace.unify.default_source_name_csv"),
     }),
     [t]
   );
 
-  const salamrubyForm = useForm<TSalamRubyFeedbackSourceForm>({
-    resolver: zodResolver(ZSalamRubyFeedbackSourceForm),
+  const feedyrubyForm = useForm<TFeedyRubyFeedbackSourceForm>({
+    resolver: zodResolver(ZFeedyRubyFeedbackSourceForm),
     defaultValues: {
-      sourceName: defaultFeedbackSourceName.salamruby_survey,
+      sourceName: defaultFeedbackSourceName.feedyruby_survey,
       surveyId: "",
       selectedQuestionIds: [],
       importHistorical: true,
@@ -170,9 +170,9 @@ export const CreateFeedbackSourceModal = ({
   const [selectedDirectoryId, setSelectedDirectoryId] = useState<string | null>(directories[0]?.id ?? null);
   const userEditedFeedbackSourceNameRef = useRef(false);
 
-  const salamrubyValues = salamrubyForm.watch();
-  const selectedSurveyId = salamrubyValues.surveyId;
-  const selectedQuestionIds = salamrubyValues.selectedQuestionIds ?? [];
+  const feedyrubyValues = feedyrubyForm.watch();
+  const selectedSurveyId = feedyrubyValues.surveyId;
+  const selectedQuestionIds = feedyrubyValues.selectedQuestionIds ?? [];
 
   const selectedSurvey = useMemo(
     () => surveys.find((survey) => survey.id === selectedSurveyId) ?? null,
@@ -215,33 +215,33 @@ export const CreateFeedbackSourceModal = ({
   );
 
   useEffect(() => {
-    if (selectedSurveyId && currentStep === "mapping" && selectedType === "salamruby_survey") {
+    if (selectedSurveyId && currentStep === "mapping" && selectedType === "feedyruby_survey") {
       fetchResponseCount(selectedSurveyId);
     }
   }, [currentStep, fetchResponseCount, selectedSurveyId, selectedType]);
 
   useEffect(() => {
-    if (currentStep !== "mapping" || selectedType !== "salamruby_survey" || !selectedSurveyId) {
+    if (currentStep !== "mapping" || selectedType !== "feedyruby_survey" || !selectedSurveyId) {
       return;
     }
 
     const survey = surveys.find((item) => item.id === selectedSurveyId);
     const supportedElementIds = survey ? getSelectableQuestionIds(survey) : [];
 
-    salamrubyForm.setValue("selectedQuestionIds", supportedElementIds, {
+    feedyrubyForm.setValue("selectedQuestionIds", supportedElementIds, {
       shouldDirty: true,
       shouldValidate: true,
     });
-    salamrubyForm.setValue("importHistorical", true, {
+    feedyrubyForm.setValue("importHistorical", true, {
       shouldDirty: true,
     });
-  }, [currentStep, salamrubyForm, selectedSurveyId, selectedType, surveys]);
+  }, [currentStep, feedyrubyForm, selectedSurveyId, selectedType, surveys]);
 
   const resetForm = () => {
     setCurrentStep("selectType");
     setSelectedType(null);
-    salamrubyForm.reset({
-      sourceName: defaultFeedbackSourceName.salamruby_survey,
+    feedyrubyForm.reset({
+      sourceName: defaultFeedbackSourceName.feedyruby_survey,
       surveyId: "",
       selectedQuestionIds: [],
       importHistorical: true,
@@ -277,9 +277,9 @@ export const CreateFeedbackSourceModal = ({
       return;
     }
 
-    if (selectedType === "salamruby_survey") {
-      salamrubyForm.reset({
-        sourceName: defaultFeedbackSourceName.salamruby_survey,
+    if (selectedType === "feedyruby_survey") {
+      feedyrubyForm.reset({
+        sourceName: defaultFeedbackSourceName.feedyruby_survey,
         surveyId: "",
         selectedQuestionIds: [],
         importHistorical: true,
@@ -355,21 +355,21 @@ export const CreateFeedbackSourceModal = ({
     }
   };
 
-  const handleSalamRubyQuestionToggle = (questionId: string) => {
-    const nextSelection = toggleQuestionId(salamrubyForm.getValues("selectedQuestionIds"), questionId);
-    salamrubyForm.setValue("selectedQuestionIds", nextSelection, {
+  const handleFeedyRubyQuestionToggle = (questionId: string) => {
+    const nextSelection = toggleQuestionId(feedyrubyForm.getValues("selectedQuestionIds"), questionId);
+    feedyrubyForm.setValue("selectedQuestionIds", nextSelection, {
       shouldDirty: true,
       shouldValidate: true,
     });
   };
 
-  const handleCreateSalamRubyFeedbackSource = async (values: TSalamRubyFeedbackSourceForm) => {
+  const handleCreateFeedyRubyFeedbackSource = async (values: TFeedyRubyFeedbackSourceForm) => {
     if (!selectedDirectoryId) return;
     setIsCreating(true);
 
     const feedbackSourceId = await onCreateFeedbackSource({
       name: values.sourceName.trim(),
-      type: "salamruby_survey",
+      type: "feedyruby_survey",
       feedbackDirectoryId: selectedDirectoryId,
       surveyMappings: [{ surveyId: values.surveyId, elementIds: values.selectedQuestionIds }],
     });
@@ -490,13 +490,13 @@ export const CreateFeedbackSourceModal = ({
                 workspaceId={workspaceId}
               />
             )}
-            {currentStep === "mapping" && selectedType === "salamruby_survey" && (
-              <FormProvider {...salamrubyForm}>
+            {currentStep === "mapping" && selectedType === "feedyruby_survey" && (
+              <FormProvider {...feedyrubyForm}>
                 <form
                   className="space-y-4"
-                  onSubmit={salamrubyForm.handleSubmit(handleCreateSalamRubyFeedbackSource)}>
+                  onSubmit={feedyrubyForm.handleSubmit(handleCreateFeedyRubyFeedbackSource)}>
                   <FormField
-                    control={salamrubyForm.control}
+                    control={feedyrubyForm.control}
                     name="sourceName"
                     render={({ field, fieldState: { error } }) => (
                       <FormItem>
@@ -518,7 +518,7 @@ export const CreateFeedbackSourceModal = ({
                   {directories.length === 0 && <NoFeedbackDirectoryAlert workspaceId={workspaceId} t={t} />}
 
                   <FormField
-                    control={salamrubyForm.control}
+                    control={feedyrubyForm.control}
                     name="surveyId"
                     render={({ field, fieldState: { error } }) => (
                       <FormItem>
@@ -545,17 +545,17 @@ export const CreateFeedbackSourceModal = ({
                   />
 
                   <FormField
-                    control={salamrubyForm.control}
+                    control={feedyrubyForm.control}
                     name="selectedQuestionIds"
                     render={({ fieldState: { error } }) => (
                       <FormItem>
                         <FormLabel>{t("workspace.unify.select_questions")}</FormLabel>
                         <FormControl>
                           <div>
-                            <SalamRubyQuestionList
+                            <FeedyRubyQuestionList
                               survey={selectedSurvey}
                               selectedQuestionIds={selectedQuestionIds}
-                              onQuestionToggle={handleSalamRubyQuestionToggle}
+                              onQuestionToggle={handleFeedyRubyQuestionToggle}
                             />
                           </div>
                         </FormControl>
@@ -568,7 +568,7 @@ export const CreateFeedbackSourceModal = ({
 
                   {selectedSurveyResponseCount !== null && selectedSurveyResponseCount > 0 && (
                     <FormField
-                      control={salamrubyForm.control}
+                      control={feedyrubyForm.control}
                       name="importHistorical"
                       render={({ field }) => (
                         <FormItem className="rounded-md border border-slate-200 p-3">
@@ -660,24 +660,24 @@ export const CreateFeedbackSourceModal = ({
             {currentStep === "selectType" ? (
               <Button
                 onClick={handleNextStep}
-                disabled={!selectedType || (selectedType === "salamruby_survey" && surveys.length === 0)}>
+                disabled={!selectedType || (selectedType === "feedyruby_survey" && surveys.length === 0)}>
                 {getNextStepButtonLabel(selectedType, t)}
               </Button>
             ) : (
               <Button
                 onClick={
-                  selectedType === "salamruby_survey"
-                    ? () => void salamrubyForm.handleSubmit(handleCreateSalamRubyFeedbackSource)()
+                  selectedType === "feedyruby_survey"
+                    ? () => void feedyrubyForm.handleSubmit(handleCreateFeedyRubyFeedbackSource)()
                     : handleCreateCsvFeedbackSource
                 }
                 disabled={
                   isCreating ||
                   isImporting ||
                   !selectedDirectoryId ||
-                  (selectedType === "salamruby_survey"
-                    ? !isFeedbackSourceNameValid(salamrubyValues.sourceName ?? "") ||
-                      !salamrubyValues.surveyId ||
-                      !salamrubyValues.selectedQuestionIds?.length
+                  (selectedType === "feedyruby_survey"
+                    ? !isFeedbackSourceNameValid(feedyrubyValues.sourceName ?? "") ||
+                      !feedyrubyValues.surveyId ||
+                      !feedyrubyValues.selectedQuestionIds?.length
                     : !isFeedbackSourceNameValid(csvFeedbackSourceName) ||
                       !isCsvValid ||
                       !areCsvRequiredFieldsMapped)

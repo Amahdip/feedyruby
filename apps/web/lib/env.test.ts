@@ -8,7 +8,7 @@ const setTestEnv = (overrides: Record<string, string | undefined> = {}) => {
     NODE_ENV: "test",
     DATABASE_URL: "https://example.com/db",
     ENCRYPTION_KEY: "12345678901234567890123456789012",
-    HUB_API_URL: "https://hub.salamruby.local",
+    HUB_API_URL: "https://hub.feedyruby.local",
     HUB_API_KEY: "test-hub-api-key",
     ...overrides,
   };
@@ -208,12 +208,12 @@ describe("env", () => {
 
   test("uses the configured Cube environment variables when provided", async () => {
     setTestEnv({
-      CUBEJS_API_URL: "https://cube.salamruby.local",
+      CUBEJS_API_URL: "https://cube.feedyruby.local",
       CUBEJS_API_SECRET: "cube-secret",
     });
     const { env } = await import("./env");
 
-    expect(env.CUBEJS_API_URL).toBe("https://cube.salamruby.local");
+    expect(env.CUBEJS_API_URL).toBe("https://cube.feedyruby.local");
     expect(env.CUBEJS_API_SECRET).toBe("cube-secret");
   });
 
@@ -231,16 +231,16 @@ describe("env", () => {
 
   test("accepts Cube JWT issuer and audience configuration", async () => {
     setTestEnv({
-      CUBEJS_API_URL: "https://cube.salamruby.local",
+      CUBEJS_API_URL: "https://cube.feedyruby.local",
       CUBEJS_API_SECRET: "cube-secret",
-      CUBEJS_JWT_AUDIENCE: "salamruby-cube",
-      CUBEJS_JWT_ISSUER: "salamruby-web",
+      CUBEJS_JWT_AUDIENCE: "feedyruby-cube",
+      CUBEJS_JWT_ISSUER: "feedyruby-web",
     });
 
     const { env } = await import("./env");
 
-    expect(env.CUBEJS_JWT_AUDIENCE).toBe("salamruby-cube");
-    expect(env.CUBEJS_JWT_ISSUER).toBe("salamruby-web");
+    expect(env.CUBEJS_JWT_AUDIENCE).toBe("feedyruby-cube");
+    expect(env.CUBEJS_JWT_ISSUER).toBe("feedyruby-web");
   });
 
   test("treats empty Cube API URL as unset when Cube analytics is disabled", async () => {

@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { subscribeToMailingList, subscribeUserToMailingList } from "./mailing-subscription";
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
     info: vi.fn(),
@@ -35,7 +35,7 @@ describe("subscribeToMailingList", () => {
 
     expect(result).toEqual({ success: true });
     expect(globalThis.fetch).toHaveBeenCalledWith(
-      "https://ee.salamruby.com/api/v1/public/mailing/security/subscriptions",
+      "https://ee.feedyruby.com/api/v1/public/mailing/security/subscriptions",
       expect.objectContaining({
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -58,7 +58,7 @@ describe("subscribeToMailingList", () => {
 
     expect(result).toEqual({ success: true });
     expect(globalThis.fetch).toHaveBeenCalledWith(
-      "https://ee.salamruby.com/api/v1/public/mailing/product-updates/subscriptions",
+      "https://ee.feedyruby.com/api/v1/public/mailing/product-updates/subscriptions",
       expect.objectContaining({
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -122,26 +122,26 @@ describe("subscribeUserToMailingList", () => {
     vi.clearAllMocks();
   });
 
-  test("should subscribe to product-updates when isSalamRubyCloud is true and subscribeToProductUpdates is true", async () => {
+  test("should subscribe to product-updates when isFeedyRubyCloud is true and subscribeToProductUpdates is true", async () => {
     vi.mocked(globalThis.fetch).mockResolvedValueOnce(new Response(null, { status: 200 }));
 
     await subscribeUserToMailingList({
       email: "test@example.com",
-      isSalamRubyCloud: true,
+      isFeedyRubyCloud: true,
       subscribeToProductUpdates: true,
       subscribeToSecurityUpdates: false,
     });
 
     expect(globalThis.fetch).toHaveBeenCalledWith(
-      "https://ee.salamruby.com/api/v1/public/mailing/product-updates/subscriptions",
+      "https://ee.feedyruby.com/api/v1/public/mailing/product-updates/subscriptions",
       expect.any(Object)
     );
   });
 
-  test("should not subscribe when isSalamRubyCloud is true but subscribeToProductUpdates is false", async () => {
+  test("should not subscribe when isFeedyRubyCloud is true but subscribeToProductUpdates is false", async () => {
     await subscribeUserToMailingList({
       email: "test@example.com",
-      isSalamRubyCloud: true,
+      isFeedyRubyCloud: true,
       subscribeToProductUpdates: false,
       subscribeToSecurityUpdates: true,
     });
@@ -149,26 +149,26 @@ describe("subscribeUserToMailingList", () => {
     expect(globalThis.fetch).not.toHaveBeenCalled();
   });
 
-  test("should subscribe to security when isSalamRubyCloud is false and subscribeToSecurityUpdates is true", async () => {
+  test("should subscribe to security when isFeedyRubyCloud is false and subscribeToSecurityUpdates is true", async () => {
     vi.mocked(globalThis.fetch).mockResolvedValueOnce(new Response(null, { status: 200 }));
 
     await subscribeUserToMailingList({
       email: "test@example.com",
-      isSalamRubyCloud: false,
+      isFeedyRubyCloud: false,
       subscribeToSecurityUpdates: true,
       subscribeToProductUpdates: false,
     });
 
     expect(globalThis.fetch).toHaveBeenCalledWith(
-      "https://ee.salamruby.com/api/v1/public/mailing/security/subscriptions",
+      "https://ee.feedyruby.com/api/v1/public/mailing/security/subscriptions",
       expect.any(Object)
     );
   });
 
-  test("should not subscribe when isSalamRubyCloud is false but subscribeToSecurityUpdates is false", async () => {
+  test("should not subscribe when isFeedyRubyCloud is false but subscribeToSecurityUpdates is false", async () => {
     await subscribeUserToMailingList({
       email: "test@example.com",
-      isSalamRubyCloud: false,
+      isFeedyRubyCloud: false,
       subscribeToSecurityUpdates: false,
       subscribeToProductUpdates: true,
     });
@@ -179,7 +179,7 @@ describe("subscribeUserToMailingList", () => {
   test("should not subscribe when both subscription flags are undefined", async () => {
     await subscribeUserToMailingList({
       email: "test@example.com",
-      isSalamRubyCloud: true,
+      isFeedyRubyCloud: true,
     });
 
     expect(globalThis.fetch).not.toHaveBeenCalled();
@@ -190,7 +190,7 @@ describe("subscribeUserToMailingList", () => {
 
     await subscribeUserToMailingList({
       email: "test@example.com",
-      isSalamRubyCloud: true,
+      isFeedyRubyCloud: true,
       subscribeToProductUpdates: true,
       subscribeToSecurityUpdates: true,
     });
@@ -198,7 +198,7 @@ describe("subscribeUserToMailingList", () => {
     // Should only call product-updates endpoint for cloud users
     expect(globalThis.fetch).toHaveBeenCalledTimes(1);
     expect(globalThis.fetch).toHaveBeenCalledWith(
-      "https://ee.salamruby.com/api/v1/public/mailing/product-updates/subscriptions",
+      "https://ee.feedyruby.com/api/v1/public/mailing/product-updates/subscriptions",
       expect.any(Object)
     );
   });

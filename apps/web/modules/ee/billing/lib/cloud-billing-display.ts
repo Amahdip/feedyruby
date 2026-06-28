@@ -1,10 +1,10 @@
 import "server-only";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import {
   type TCloudBillingInterval,
   type TOrganizationStripePendingChange,
   type TOrganizationStripeSubscriptionStatus,
-} from "@salamruby/types/organizations";
+} from "@feedyruby/types/organizations";
 import { getBillingUsageCycleWindow } from "@/lib/utils/billing";
 import { getOrganizationBillingWithReadThroughSync } from "./organization-billing";
 

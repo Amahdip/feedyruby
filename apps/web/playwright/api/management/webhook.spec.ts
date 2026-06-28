@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { SURVEYS_API_URL, WEBHOOKS_API_URL } from "@/playwright/api/constants";
 import { test } from "../../lib/fixtures";
 import { loginAndGetApiKey } from "../../lib/utils";

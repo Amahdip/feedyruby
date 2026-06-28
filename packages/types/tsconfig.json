@@ -5,6 +5,6 @@
     "rootDir": "./"
   },
   "exclude": ["dist", "build", "node_modules"],
-  "extends": "@salamruby/config-typescript/node16.json",
+  "extends": "@feedyruby/config-typescript/node16.json",
   "include": ["."]
 }

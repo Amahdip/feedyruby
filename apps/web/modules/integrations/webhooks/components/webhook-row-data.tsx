@@ -2,8 +2,8 @@
 
 import { TFunction } from "i18next";
 import { useTranslation } from "react-i18next";
-import { Webhook } from "@salamruby/database/prisma-browser";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { Webhook } from "@feedyruby/database/prisma-browser";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { timeSince } from "@/lib/time";
 import { Badge } from "@/modules/ui/components/badge";
 

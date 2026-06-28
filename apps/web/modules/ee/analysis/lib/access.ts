@@ -1,6 +1,6 @@
 import "server-only";
-import { logger } from "@salamruby/logger";
-import { AuthorizationError } from "@salamruby/types/errors";
+import { logger } from "@feedyruby/logger";
+import { AuthorizationError } from "@feedyruby/types/errors";
 import { checkAuthorizationUpdated } from "@/lib/utils/action-client/action-client-middleware";
 import { getOrganizationIdFromWorkspaceId } from "@/lib/utils/helper";
 import { getFeedbackDirectoryAuthContext } from "@/modules/ee/feedback-directory/lib/feedback-directory";

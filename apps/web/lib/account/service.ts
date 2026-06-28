@@ -1,7 +1,7 @@
-import { prisma } from "@salamruby/database";
-import { Prisma, PrismaClient } from "@salamruby/database/prisma";
-import { TAccount, TAccountInput, ZAccountInput } from "@salamruby/types/account";
-import { DatabaseError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma, PrismaClient } from "@feedyruby/database/prisma";
+import { TAccount, TAccountInput, ZAccountInput } from "@feedyruby/types/account";
+import { DatabaseError } from "@feedyruby/types/errors";
 import { validateInputs } from "../utils/validate";
 
 type TAccountDbClient = PrismaClient | Prisma.TransactionClient;

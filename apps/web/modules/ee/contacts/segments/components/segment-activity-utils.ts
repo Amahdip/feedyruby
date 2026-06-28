@@ -1,5 +1,5 @@
-import { TBaseFilters, TSegmentWithSurveyRefs } from "@salamruby/types/segment";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TBaseFilters, TSegmentWithSurveyRefs } from "@feedyruby/types/segment";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 
 type TSurveySummary = Pick<TSurvey, "id" | "name" | "status">;
 type TReferencingSegmentSurveyGroup = {

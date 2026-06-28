@@ -1,7 +1,7 @@
 /**
  * Query builder utility to construct Cube.js queries from chart builder state.
  */
-import { TChartQuery, TCubeFilter, TMemberFilter, TTimeDimension } from "@salamruby/types/analysis";
+import { TChartQuery, TCubeFilter, TMemberFilter, TTimeDimension } from "@feedyruby/types/analysis";
 
 export type TFilterFieldType = "string" | "number" | "time";
 

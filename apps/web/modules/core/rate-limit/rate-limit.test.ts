@@ -31,7 +31,7 @@ vi.mock("@/lib/constants", () => ({
   RATE_LIMITING_DISABLED: false,
   SENTRY_DSN: "https://test@sentry.io/test",
 }));
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     info: vi.fn(),
     debug: vi.fn(),
@@ -217,7 +217,7 @@ describe("checkRateLimit", () => {
       captureException: mockCaptureException,
     }));
 
-    vi.doMock("@salamruby/logger", () => ({
+    vi.doMock("@feedyruby/logger", () => ({
       logger: {
         info: vi.fn(),
         debug: vi.fn(),
@@ -260,7 +260,7 @@ describe("checkRateLimit", () => {
       captureException: mockCaptureException,
     }));
 
-    vi.doMock("@salamruby/logger", () => ({
+    vi.doMock("@feedyruby/logger", () => ({
       logger: {
         info: vi.fn(),
         debug: vi.fn(),
@@ -312,7 +312,7 @@ describe("checkRateLimit", () => {
       captureException: mockCaptureException,
     }));
 
-    vi.doMock("@salamruby/logger", () => ({
+    vi.doMock("@feedyruby/logger", () => ({
       logger: {
         info: vi.fn(),
         debug: vi.fn(),

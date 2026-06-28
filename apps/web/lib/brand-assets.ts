@@ -1,8 +1,12 @@
 export const BRAND_ASSETS = {
-  iconRubyTile: "/brand/feedyruby-icon-ruby-tile.svg",
-  iconWhiteTile: "/brand/feedyruby-icon-white-tile.svg",
-  iconDarkTile: "/brand/feedyruby-icon-dark-tile.svg",
-  mark: "/brand/feedyruby-mark.svg",
-  wordmark: "/brand/feedyruby-wordmark.svg",
-  iconRubyTilePng: "/brand/feedyruby-icon-ruby-tile.png",
+  icon: "/brand/feedyruby-icon.svg",
+  iconSimple: "/brand/feedyruby-icon-simple.svg",
+  iconWhite: "/brand/feedyruby-icon-white.svg",
+  iconFuchsia: "/brand/feedyruby-icon-fuchsia.svg",
+  iconViolet: "/brand/feedyruby-icon-violet.svg",
+  wordmarkDark: "/brand/feedyruby-wordmark-dark.svg",
+  wordmarkLight: "/brand/feedyruby-wordmark-light.svg",
+  stackedDark: "/brand/feedyruby-stacked-dark.svg",
+  wordmarkFaDark: "/brand/feedyruby-wordmark-fa-dark.svg",
+  wordmarkFaLight: "/brand/feedyruby-wordmark-fa-light.svg",
 } as const;

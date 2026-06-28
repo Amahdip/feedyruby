@@ -1,6 +1,6 @@
 import type { TFunction } from "i18next";
-import type { TResponseDataValue } from "@salamruby/types/responses";
-import type { TSurveyElement } from "@salamruby/types/surveys/elements";
+import type { TResponseDataValue } from "@feedyruby/types/responses";
+import type { TSurveyElement } from "@feedyruby/types/surveys/elements";
 import type {
   TValidationRuleParams,
   TValidationRuleParamsContains,
@@ -26,7 +26,7 @@ import type {
   TValidationRuleParamsPattern,
   TValidationRuleType,
   TValidatorCheckResult,
-} from "@salamruby/types/surveys/validation-rules";
+} from "@feedyruby/types/surveys/validation-rules";
 import { countSelections } from "./validators/selection-utils";
 import { validateEmail, validatePhone, validateUrl } from "./validators/validation-utils";
 

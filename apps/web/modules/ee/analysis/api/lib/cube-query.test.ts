@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from "vitest";
-import type { TChartQuery } from "@salamruby/types/analysis";
+import type { TChartQuery } from "@feedyruby/types/analysis";
 import { getCubeQueryAuditSummary, validateCubeQueryMembers } from "./cube-query";
 
 vi.mock("server-only", () => ({}));

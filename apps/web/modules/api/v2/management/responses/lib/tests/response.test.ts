@@ -10,8 +10,8 @@ import {
   workspaceId,
 } from "./__mocks__/response.mock";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { err, ok } from "@salamruby/types/error-handlers";
+import { prisma } from "@feedyruby/database";
+import { err, ok } from "@feedyruby/types/error-handlers";
 import {
   getMonthlyOrganizationResponseCount,
   getOrganizationBilling,
@@ -25,7 +25,7 @@ vi.mock("@/modules/api/v2/management/responses/lib/organization", () => ({
   getMonthlyOrganizationResponseCount: vi.fn(),
 }));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     response: {
       create: vi.fn(),
@@ -39,7 +39,7 @@ vi.mock("@/lib/constants", async () => {
   const actual = await vi.importActual<typeof import("@/lib/constants")>("@/lib/constants");
   return {
     ...actual,
-    IS_SALAMRUBY_CLOUD: true,
+    IS_FEEDYRUBY_CLOUD: true,
     IS_PRODUCTION: false,
     ENCRYPTION_KEY: "test",
   };

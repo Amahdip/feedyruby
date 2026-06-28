@@ -2,8 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { ZId } from "@feedyruby/types/common";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import { deleteResponse, getResponse } from "@/lib/response/service";
 import { createTag } from "@/lib/tag/service";
 import { addTagToRespone, deleteTagOnResponse } from "@/lib/tagOnResponse/service";

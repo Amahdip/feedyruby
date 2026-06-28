@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { DatabaseError, UnknownError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { DatabaseError, UnknownError } from "@feedyruby/types/errors";
 import {
   deleteMembership,
   getMembersByOrganizationId,
@@ -10,7 +10,7 @@ import {
   getOrganizationOwnerCount,
 } from "./membership";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     membership: {
       findMany: vi.fn(),
@@ -27,7 +27,7 @@ vi.mock("@salamruby/database", () => ({
 vi.mock("@/lib/constants", () => ({ ITEMS_PER_PAGE: 2 }));
 vi.mock("@/lib/utils/validate", () => ({ validateInputs: vi.fn() }));
 vi.mock("react", () => ({ cache: (fn: Function) => fn }));
-vi.mock("@salamruby/logger", () => ({ logger: { error: vi.fn() } }));
+vi.mock("@feedyruby/logger", () => ({ logger: { error: vi.fn() } }));
 
 const organizationId = "org-1";
 const userId = "user-1";

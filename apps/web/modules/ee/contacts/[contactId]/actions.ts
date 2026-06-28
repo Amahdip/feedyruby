@@ -1,8 +1,8 @@
 "use server";
 
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { ZId } from "@feedyruby/types/common";
+import { InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { capturePostHogEvent } from "@/lib/posthog";
 import { authenticatedActionClient } from "@/lib/utils/action-client";
 import { checkAuthorizationUpdated } from "@/lib/utils/action-client/action-client-middleware";

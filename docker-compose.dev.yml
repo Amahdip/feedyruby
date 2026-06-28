@@ -1,5 +1,5 @@
 services:
-  # PostgreSQL must load the vector library so Hub (and SalamRuby) can use the pgvector extension.
+  # PostgreSQL must load the vector library so Hub (and FeedyRuby) can use the pgvector extension.
   postgres:
     image: pgvector/pgvector:pg18
     volumes:
@@ -66,8 +66,8 @@ services:
     environment:
       - RUSTFS_ADMIN_USER=devrustfs
       - RUSTFS_ADMIN_PASSWORD=devrustfs123
-      - RUSTFS_BUCKET_NAME=salamruby
-      - RUSTFS_POLICY_NAME=salamruby-policy
+      - RUSTFS_BUCKET_NAME=feedyruby
+      - RUSTFS_POLICY_NAME=feedyruby-policy
       - RUSTFS_SERVICE_USER=devrustfs-service
       - RUSTFS_SERVICE_PASSWORD=devrustfs-service123
       - RUSTFS_CORS_ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001,http://localhost:3002,http://127.0.0.1:3002
@@ -110,14 +110,14 @@ services:
       hub-db-create:
         condition: service_completed_successfully
 
-  # SalamRuby Hub API (ghcr.io/salamruby/hub). Uses a dedicated local Hub database by default.
+  # FeedyRuby Hub API (ghcr.io/salamruby/hub). Uses a dedicated local Hub database by default.
   hub:
     image: ghcr.io/salamruby/hub:${HUB_IMAGE_TAG:-0.5.0}
     depends_on:
       hub-migrate:
         condition: service_completed_successfully
     ports:
-      - "8080:8080"
+      - "8088:8080"
     environment: &hub-runtime-environment
       API_KEY: ${HUB_API_KEY:-dev-api-key}
       DATABASE_URL: ${HUB_DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/hub?sslmode=disable}

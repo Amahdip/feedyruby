@@ -1,16 +1,16 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
-import { TUser } from "@salamruby/types/user";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
+import { TUser } from "@feedyruby/types/user";
 import { updateUser } from "./user";
 
 vi.mock("@/modules/storage/utils", () => ({
   isValidImageFile: vi.fn(),
 }));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     user: {
       update: vi.fn(),

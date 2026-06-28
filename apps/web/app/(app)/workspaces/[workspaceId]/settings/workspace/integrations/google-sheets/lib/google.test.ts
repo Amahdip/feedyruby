@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { authorize } from "./google";
 
 // Mock the logger
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },

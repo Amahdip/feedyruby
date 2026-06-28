@@ -1,5 +1,5 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 
 export const getContactByUserId = reactCache(
   async (

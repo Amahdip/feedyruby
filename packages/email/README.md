@@ -1,6 +1,6 @@
-# @salamruby/emails
+# @feedyruby/emails
 
-Email templates for SalamRuby with React Email preview server.
+Email templates for FeedyRuby with React Email preview server.
 
 ## Purpose
 
@@ -46,7 +46,7 @@ import { mockT } from "@/src/lib/mock-translate";
 The web app imports render helper functions from this package:
 
 ```typescript
-import { renderVerificationEmail } from "@salamruby/email";
+import { renderVerificationEmail } from "@feedyruby/email";
 
 // Pass real translation function and data
 const html = await renderVerificationEmail({
@@ -59,7 +59,7 @@ const html = await renderVerificationEmail({
 For complex emails with pre-processing:
 
 ```typescript
-import { renderResponseFinishedEmail } from "@salamruby/email";
+import { renderResponseFinishedEmail } from "@feedyruby/email";
 import { getElementResponseMapping } from "@/lib/responses";
 
 // Pre-process data before rendering

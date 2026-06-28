@@ -35,7 +35,7 @@ export default defineConfig(async (): Promise<UserConfig> => {
     resolve: {
       alias: {
         "@": resolve(__dirname, "src"),
-        "@salamruby/logger": resolve(__dirname, "../logger/src/index.ts"),
+        "@feedyruby/logger": resolve(__dirname, "../logger/src/index.ts"),
       },
     },
     build: {

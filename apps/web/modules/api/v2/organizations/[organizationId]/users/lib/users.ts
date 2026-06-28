@@ -1,8 +1,8 @@
-import { prisma } from "@salamruby/database";
-import { OrganizationRole, Prisma, TeamUserRole } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { TUser } from "@salamruby/database/zod/users";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
+import { prisma } from "@feedyruby/database";
+import { OrganizationRole, Prisma, TeamUserRole } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { TUser } from "@feedyruby/database/zod/users";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
 import { getUsersQuery } from "@/modules/api/v2/organizations/[organizationId]/users/lib/utils";
 import {
   TGetUsersFilter,

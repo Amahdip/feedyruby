@@ -2,15 +2,15 @@ x-environment: &environment
   environment: &app-environment
     ######################################################## REQUIRED ########################################################
 
-    # The url of your SalamRuby instance used in the admin panel
+    # The url of your FeedyRuby instance used in the admin panel
     # Set this to your public-facing URL, e.g., example http://localhost:3000 or https://example.com
     WEBAPP_URL:
 
     # Required for next-auth. Should be the same as WEBAPP_URL
     NEXTAUTH_URL:
 
-    # PostgreSQL DB for SalamRuby to connect to
-    DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/salamruby?schema=public"
+    # PostgreSQL DB for FeedyRuby to connect to
+    DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/feedyruby?schema=public"
 
     # NextJS Auth
     # @see: https://next-auth.js.org/configuration/options#nextauth_secret
@@ -29,13 +29,13 @@ x-environment: &environment
     # To use external Redis/Valkey: remove the redis service below and update this URL
     REDIS_URL: redis://redis:6379
 
-    # SalamRuby Hub (port 8080): API key required. Use e.g. openssl rand -hex 32
+    # FeedyRuby Hub (port 8080): API key required. Use e.g. openssl rand -hex 32
     HUB_API_KEY:
 
-    # Base URL the SalamRuby app uses to reach Hub. Defaults to the internal Hub service.
+    # Base URL the FeedyRuby app uses to reach Hub. Defaults to the internal Hub service.
     HUB_API_URL: ${HUB_API_URL:-http://hub:8080}
 
-    # Hub database URL (optional). Default: same Postgres as SalamRuby. Set only if Hub uses a separate DB.
+    # Hub database URL (optional). Default: same Postgres as FeedyRuby. Set only if Hub uses a separate DB.
     # HUB_DATABASE_URL:
 
     # Set the minimum log level(debug, info, warn, error, fatal)
@@ -43,7 +43,7 @@ x-environment: &environment
 
     ############################################# OPTIONAL (ENTERPRISE EDITION) #############################################
 
-    # Enterprise License Key (More info at: https://salamruby.com/docs/self-hosting/license)
+    # Enterprise License Key (More info at: https://feedyruby.com/docs/self-hosting/license)
     # Required to access Enterprise-only features
     # ENTERPRISE_LICENSE_KEY:
 
@@ -139,7 +139,7 @@ x-environment: &environment
     # OIDC_SIGNING_ALGORITHM:
 
     # Set the below to SAML Provider if you want to enable SAML
-    # SAML_DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/salamruby-saml?sslmode=disable"
+    # SAML_DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/feedyruby-saml?sslmode=disable"
 
     ########################################## OPTIONAL (THIRD PARTY INTEGRATIONS) ###########################################
 
@@ -175,7 +175,7 @@ x-environment: &environment
 
     ########################################## OPTIONAL (SERVER CONFIGURATION) ###########################################
 
-    # Set the below to 1 to disable Rate Limiting across SalamRuby
+    # Set the below to 1 to disable Rate Limiting across FeedyRuby
     # RATE_LIMITING_DISABLED: 1
 
     # Set the below to 1 to disable telemetry reporting (ignored when EE license is active)
@@ -184,7 +184,7 @@ x-environment: &environment
     # Set the below to send OpenTelemetry data via OTLP to your collector
     # OTEL_EXPORTER_OTLP_ENDPOINT: http://localhost:4318
     # OTEL_EXPORTER_OTLP_PROTOCOL: http/protobuf
-    # OTEL_SERVICE_NAME: salamruby
+    # OTEL_SERVICE_NAME: feedyruby
     # OTEL_RESOURCE_ATTRIBUTES: deployment.environment=development
     # OTEL_TRACES_SAMPLER: parentbased_traceidratio
     # OTEL_TRACES_SAMPLER_ARG: 1
@@ -219,7 +219,7 @@ services:
       - postgres:/var/lib/postgresql
     environment:
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=salamruby
+      - POSTGRES_DB=feedyruby
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres || exit 1"]
       interval: 5s
@@ -244,9 +244,9 @@ services:
       retries: 30
       start_period: 10s
 
-  # Run SalamRuby Prisma migrations before Hub writes tables to the shared database.
-  salamruby-migrate:
-    image: ${SALAMRUBY_IMAGE:-docker.io/amirmpa/salamruby-survey}:${SALAMRUBY_IMAGE_TAG:-latest}
+  # Run FeedyRuby Prisma migrations before Hub writes tables to the shared database.
+  feedyruby-migrate:
+    image: ${FEEDYRUBY_IMAGE:-docker.io/amirmpa/feedyruby}:${FEEDYRUBY_IMAGE_TAG:-latest}
     restart: "no"
     entrypoint: ["sh", "-c"]
     command:
@@ -258,9 +258,9 @@ services:
         condition: service_healthy
     <<: *environment
 
-  salamruby:
+  feedyruby:
     restart: always
-    image: ${SALAMRUBY_IMAGE:-docker.io/amirmpa/salamruby-survey}:${SALAMRUBY_IMAGE_TAG:-latest}
+    image: ${FEEDYRUBY_IMAGE:-docker.io/amirmpa/feedyruby}:${FEEDYRUBY_IMAGE_TAG:-latest}
     depends_on:
       postgres:
         condition: service_healthy
@@ -287,12 +287,12 @@ services:
         'if [ -x /usr/local/bin/goose ] && [ -x /usr/local/bin/river ]; then /usr/local/bin/goose -dir /app/migrations postgres "$$DATABASE_URL" up && /usr/local/bin/river migrate-up --database-url "$$DATABASE_URL"; else echo ''Migration tools (goose/river) not in image.''; exit 1; fi',
       ]
     environment:
-      DATABASE_URL: ${HUB_DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/salamruby?sslmode=disable}
+      DATABASE_URL: ${HUB_DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/feedyruby?sslmode=disable}
     depends_on:
-      salamruby-migrate:
+      feedyruby-migrate:
         condition: service_completed_successfully
 
-  # SalamRuby Hub API (ghcr.io/salamruby/hub). Set HUB_API_KEY. By default shares the SalamRuby database; set HUB_DATABASE_URL to use a separate DB.
+  # FeedyRuby Hub API (ghcr.io/salamruby/hub). Set HUB_API_KEY. By default shares the FeedyRuby database; set HUB_DATABASE_URL to use a separate DB.
   hub:
     restart: always
     image: ghcr.io/salamruby/hub${HUB_IMAGE_REF:-:latest}
@@ -303,7 +303,7 @@ services:
         condition: service_healthy
     environment:
       API_KEY: ${HUB_API_KEY:?HUB_API_KEY is required to run Hub}
-      DATABASE_URL: ${HUB_DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/salamruby?sslmode=disable}
+      DATABASE_URL: ${HUB_DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/feedyruby?sslmode=disable}
 
 volumes:
   postgres:

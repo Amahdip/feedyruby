@@ -25,7 +25,7 @@ const getProductPlanMetadata = (
     return null;
   }
 
-  return product.metadata.salamruby_plan ?? null;
+  return product.metadata.feedyruby_plan ?? null;
 };
 
 export const getCloudPlanFromProduct = (

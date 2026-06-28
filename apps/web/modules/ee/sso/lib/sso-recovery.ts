@@ -1,7 +1,7 @@
 import type { Account } from "next-auth";
-import { prisma } from "@salamruby/database";
-import type { IdentityProvider, Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
+import { prisma } from "@feedyruby/database";
+import type { IdentityProvider, Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
 import { WEBAPP_URL } from "@/lib/constants";
 import { createEmailToken, createSsoRelinkIntent, verifySsoRelinkIntent } from "@/lib/jwt";
 import { getValidatedCallbackUrl } from "@/lib/utils/url";
@@ -24,7 +24,7 @@ const getSsoRecoveryLogger = (
 ) =>
   logger.withContext({
     event,
-    name: "salamruby",
+    name: "feedyruby",
   });
 
 const queueSsoRecoveryAuditEvent = ({

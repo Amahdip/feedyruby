@@ -1,9 +1,9 @@
 "use server";
 
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
-import { ZCloudBillingInterval } from "@salamruby/types/organizations";
+import { ZId } from "@feedyruby/types/common";
+import { OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import { ZCloudBillingInterval } from "@feedyruby/types/organizations";
 import { WEBAPP_URL } from "@/lib/constants";
 import { getOrganization } from "@/lib/organization/service";
 import { capturePostHogEvent } from "@/lib/posthog";

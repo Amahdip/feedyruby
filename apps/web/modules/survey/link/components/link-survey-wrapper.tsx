@@ -1,8 +1,8 @@
 import { type JSX, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { SurveyType, Workspace } from "@salamruby/database/prisma-browser";
-import { TSurveyStyling } from "@salamruby/types/surveys/types";
-import { TWorkspaceStyling } from "@salamruby/types/workspace";
+import { SurveyType, Workspace } from "@feedyruby/database/prisma-browser";
+import { TSurveyStyling } from "@feedyruby/types/surveys/types";
+import { TWorkspaceStyling } from "@feedyruby/types/workspace";
 import { cn } from "@/lib/cn";
 import { LegalFooter } from "@/modules/survey/link/components/legal-footer";
 import { SurveyLoadingAnimation } from "@/modules/survey/link/components/survey-loading-animation";
@@ -24,7 +24,7 @@ interface LinkSurveyWrapperProps {
   IMPRINT_URL?: string;
   PRIVACY_URL?: string;
   TERMS_URL?: string;
-  IS_SALAMRUBY_CLOUD: boolean;
+  IS_FEEDYRUBY_CLOUD: boolean;
   publicDomain: string;
   isBrandingEnabled: boolean;
   dir?: "ltr" | "rtl" | "auto";
@@ -44,7 +44,7 @@ export const LinkSurveyWrapper = ({
   IMPRINT_URL,
   PRIVACY_URL,
   TERMS_URL,
-  IS_SALAMRUBY_CLOUD,
+  IS_FEEDYRUBY_CLOUD,
   publicDomain,
   isBrandingEnabled,
   dir = "auto",
@@ -111,7 +111,7 @@ export const LinkSurveyWrapper = ({
           IMPRINT_URL={IMPRINT_URL}
           PRIVACY_URL={PRIVACY_URL}
           TERMS_URL={TERMS_URL}
-          IS_SALAMRUBY_CLOUD={IS_SALAMRUBY_CLOUD}
+          IS_FEEDYRUBY_CLOUD={IS_FEEDYRUBY_CLOUD}
           surveyUrl={publicDomain + "/s/" + surveyId}
         />
       </div>

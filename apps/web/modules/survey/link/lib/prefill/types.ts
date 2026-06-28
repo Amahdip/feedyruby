@@ -1,4 +1,4 @@
-import { TSurveyElementChoice, TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
+import { TSurveyElementChoice, TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
 
 type TInvalidResult = {
   isValid: false;

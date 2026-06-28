@@ -1,9 +1,9 @@
 import { createId } from "@paralleldrive/cuid2";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { TContactAttributeDataType } from "@salamruby/types/contact-attribute-key";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { TContactAttributeDataType } from "@feedyruby/types/contact-attribute-key";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
 import { isSafeIdentifier } from "@/lib/utils/safe-identifier";
 import { ApiErrorResponseV2 } from "@/modules/api/v2/types/api-error";
 import {

@@ -7,7 +7,7 @@ import {
   MousePointerClickIcon,
   SmartphoneIcon,
 } from "lucide-react";
-import { TResponseMeta } from "@salamruby/types/responses";
+import { TResponseMeta } from "@feedyruby/types/responses";
 import { capitalize } from "@/lib/utils/object";
 
 export const getAddressFieldLabel = (field: string, t: TFunction) => {

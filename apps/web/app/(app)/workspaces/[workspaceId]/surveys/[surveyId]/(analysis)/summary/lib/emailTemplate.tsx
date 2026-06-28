@@ -1,4 +1,4 @@
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import { getPublicDomain } from "@/lib/getPublicUrl";
 import { toJsWorkspaceStateSurvey } from "@/lib/survey/client-utils";
 import { getSurvey } from "@/lib/survey/service";

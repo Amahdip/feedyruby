@@ -1,12 +1,12 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
 import {
   DatabaseError,
   InvalidInputError,
   ResourceNotFoundError,
   ValidationError,
-} from "@salamruby/types/errors";
+} from "@feedyruby/types/errors";
 import { validateInputs } from "@/lib/utils/validate";
 import { TDisplayCreateInputV2 } from "../types/display";
 import { doesContactExistInWorkspace } from "./contact";
@@ -18,7 +18,7 @@ vi.mock("@/lib/utils/validate", () => ({
   ), // Pass through validation for testing
 }));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     display: {
       create: vi.fn(),

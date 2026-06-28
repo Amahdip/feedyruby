@@ -1,5 +1,5 @@
 import { ZodOpenApiOperationObject, ZodOpenApiPathsObject } from "zod-openapi";
-import { ZWebhook, ZWebhookWithoutSecret } from "@salamruby/database/zod/webhooks";
+import { ZWebhook, ZWebhookWithoutSecret } from "@feedyruby/database/zod/webhooks";
 import {
   deleteWebhookEndpoint,
   getWebhookEndpoint,

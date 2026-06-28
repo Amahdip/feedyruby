@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from "vitest";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import { getOrganizationIdFromWorkspaceId } from "@/lib/utils/helper";
 import { getWorkspace } from "@/lib/workspace/service";
 import { resolveV3WorkspaceContext } from "./workspace-context";

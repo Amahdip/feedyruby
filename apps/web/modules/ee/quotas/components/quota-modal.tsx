@@ -15,8 +15,8 @@ import {
   TSurveyQuotaLogic,
   ZSurveyQuotaAction,
   ZSurveyQuotaInput,
-} from "@salamruby/types/quota";
-import { TSurvey } from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/quota";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { getFormattedErrorMessage } from "@/lib/utils/helper";
 import { replaceHeadlineRecall } from "@/lib/utils/recall";
 import { createQuotaAction, updateQuotaAction } from "@/modules/ee/quotas/actions";

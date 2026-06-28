@@ -1,14 +1,14 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { type ActionClass } from "@salamruby/database/prisma";
-import { DatabaseError, ValidationError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { type ActionClass } from "@feedyruby/database/prisma";
+import { DatabaseError, ValidationError } from "@feedyruby/types/errors";
 import { validateInputs } from "@/lib/utils/validate";
 import { getActionClasses } from "./action-class";
 
 vi.mock("@/lib/utils/validate");
 
 // Mock prisma
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     actionClass: {
       findMany: vi.fn(),

@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState, useTransition } from "react";
 import { useTranslation } from "react-i18next";
-import { TOrganization } from "@salamruby/types/organizations";
-import { TUser } from "@salamruby/types/user";
+import { TOrganization } from "@feedyruby/types/organizations";
+import { TUser } from "@feedyruby/types/user";
 import { getOrganizationsForSwitcherAction } from "@/app/(app)/workspaces/[workspaceId]/actions";
-import { HIDE_SALAMRUBY_EXTERNAL_LINKS } from "@/lib/brand-color";
+import { HIDE_FEEDYRUBY_EXTERNAL_LINKS } from "@/lib/brand-color";
 import { cn } from "@/lib/cn";
 import { getSidebarDropdownSide, isRtlLocale } from "@/lib/i18n/rtl";
 import { getFormattedErrorMessage } from "@/lib/utils/helper";
@@ -90,12 +90,12 @@ export const LandingSidebar = ({ user, organization, isMultiOrgEnabled }: Landin
     });
   };
 
-  const dropdownNavigation = HIDE_SALAMRUBY_EXTERNAL_LINKS
+  const dropdownNavigation = HIDE_FEEDYRUBY_EXTERNAL_LINKS
     ? []
     : [
         {
           label: t("common.documentation"),
-          href: "https://salamruby.com/docs",
+          href: "https://feedyruby.com/docs",
           target: "_blank",
           icon: ArrowUpRightIcon,
         },
@@ -111,7 +111,7 @@ export const LandingSidebar = ({ user, organization, isMultiOrgEnabled }: Landin
       className={cn(
         "z-40 flex w-sidebar-collapsed flex-col justify-between rounded-r-xl border-r border-slate-200 bg-white pt-3 shadow-md transition-all duration-100"
       )}>
-      <FeedyRubyWordmark className="mx-3 h-7 max-w-[9rem]" priority />
+      <FeedyRubyWordmark className="mx-3 h-7 max-w-[9rem]" isRtl={isRtl} priority />
 
       <div className="flex flex-col">
         {/* Organization Switcher */}

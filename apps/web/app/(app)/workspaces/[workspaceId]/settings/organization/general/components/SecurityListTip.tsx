@@ -3,12 +3,12 @@
 import { ShieldCheckIcon } from "lucide-react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { HIDE_SALAMRUBY_EXTERNAL_LINKS } from "@/lib/brand-color";
+import { HIDE_FEEDYRUBY_EXTERNAL_LINKS } from "@/lib/brand-color";
 
 export const SecurityListTip = () => {
   const { t } = useTranslation();
 
-  if (HIDE_SALAMRUBY_EXTERNAL_LINKS) {
+  if (HIDE_FEEDYRUBY_EXTERNAL_LINKS) {
     return null;
   }
 
@@ -19,7 +19,7 @@ export const SecurityListTip = () => {
         <p className="text-sm">
           {t("workspace.settings.general.security_list_tip")}{" "}
           <Link
-            href="https://salamruby.com/security#stay-informed-with-salamruby-security-updates"
+            href="https://feedyruby.com/security#stay-informed-with-feedyruby-security-updates"
             target="_blank"
             rel="noopener noreferrer"
             className="underline hover:text-blue-700">

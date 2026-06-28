@@ -1,5 +1,5 @@
 import type { z } from "zod";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import type { CacheError, Result } from "@/types/error";
 import { ErrorCode, err, ok } from "@/types/error";
 

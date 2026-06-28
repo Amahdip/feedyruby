@@ -6,10 +6,10 @@ import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
-import { OrganizationRole } from "@salamruby/database/prisma-browser";
-import { ZId } from "@salamruby/types/common";
-import { TOrganizationRole, ZOrganizationRole } from "@salamruby/types/memberships";
-import { ZUserName } from "@salamruby/types/user";
+import { OrganizationRole } from "@feedyruby/database/prisma-browser";
+import { ZId } from "@feedyruby/types/common";
+import { TOrganizationRole, ZOrganizationRole } from "@feedyruby/types/memberships";
+import { ZUserName } from "@feedyruby/types/user";
 import { useWorkspace } from "@/app/(app)/workspaces/[workspaceId]/context/workspace-context";
 import { HIDE_ENTERPRISE_UPSELL } from "@/lib/brand-color";
 import { AddMemberRole } from "@/modules/ee/role-management/components/add-member-role";
@@ -27,7 +27,7 @@ interface IndividualInviteTabProps {
   onSubmit: (data: { name: string; email: string; role: TOrganizationRole; teamIds: string[] }[]) => void;
   teams: TOrganizationTeam[];
   isAccessControlAllowed: boolean;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   membershipRole?: TOrganizationRole;
   showTeamAdminRestrictions: boolean;
   enterpriseLicenseRequestFormUrl: string;
@@ -38,7 +38,7 @@ export const IndividualInviteTab = ({
   onSubmit,
   teams,
   isAccessControlAllowed,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   membershipRole,
   showTeamAdminRestrictions,
   enterpriseLicenseRequestFormUrl,
@@ -138,7 +138,7 @@ export const IndividualInviteTab = ({
               <AddMemberRole
                 control={control}
                 isAccessControlAllowed={isAccessControlAllowed}
-                isSalamRubyCloud={isSalamRubyCloud}
+                isFeedyRubyCloud={isFeedyRubyCloud}
                 membershipRole={membershipRole}
               />
               {watch("role") === "member" && (
@@ -193,7 +193,7 @@ export const IndividualInviteTab = ({
                 className="ms-1 underline"
                 target="_blank"
                 href={
-                  isSalamRubyCloud
+                  isFeedyRubyCloud
                     ? `${workspaceBasePath}/settings/organization/billing`
                     : enterpriseLicenseRequestFormUrl
                 }>

@@ -2,7 +2,7 @@
 
 import { PlusIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 
 interface AddEndingCardButtonProps {
   localSurvey: TSurvey;

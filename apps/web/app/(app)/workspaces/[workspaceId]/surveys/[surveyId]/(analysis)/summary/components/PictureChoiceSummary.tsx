@@ -3,9 +3,9 @@
 import { InboxIcon } from "lucide-react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
-import { type TI18nString } from "@salamruby/types/i18n";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurvey, TSurveyElementSummaryPictureSelection } from "@salamruby/types/surveys/types";
+import { type TI18nString } from "@feedyruby/types/i18n";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurvey, TSurveyElementSummaryPictureSelection } from "@feedyruby/types/surveys/types";
 import { getChoiceIdByValue } from "@/lib/response/utils";
 import { IdBadge } from "@/modules/ui/components/id-badge";
 import { ProgressBar } from "@/modules/ui/components/progress-bar";

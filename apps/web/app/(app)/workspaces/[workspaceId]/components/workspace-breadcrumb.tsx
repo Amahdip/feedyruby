@@ -5,7 +5,7 @@ import { ChevronDownIcon, ChevronRightIcon, CogIcon, FoldersIcon, Loader2, PlusI
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import { useTranslation } from "react-i18next";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { getWorkspacesForSwitcherAction } from "@/app/(app)/workspaces/[workspaceId]/actions";
 import { getFormattedErrorMessage } from "@/lib/utils/helper";
 import { BreadcrumbItem } from "@/modules/ui/components/breadcrumb";
@@ -30,7 +30,7 @@ interface WorkspaceBreadcrumbProps {
   currentWorkspaceName?: string; // Optional: pass directly if context not available
   isOwnerOrManager: boolean;
   organizationWorkspacesLimit: number;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   isLicenseActive: boolean;
   currentOrganizationId: string;
   isAccessControlAllowed: boolean;
@@ -43,7 +43,7 @@ export const WorkspaceBreadcrumb = ({
   currentWorkspaceName,
   isOwnerOrManager,
   organizationWorkspacesLimit,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   isLicenseActive,
   currentOrganizationId,
   isAccessControlAllowed,
@@ -124,7 +124,7 @@ export const WorkspaceBreadcrumb = ({
   };
 
   const getLimitModalButtons = (): [ModalButton, ModalButton] => {
-    if (isSalamRubyCloud) {
+    if (isFeedyRubyCloud) {
       return [
         {
           text: t("workspace.settings.billing.upgrade"),
@@ -142,7 +142,7 @@ export const WorkspaceBreadcrumb = ({
         text: t("workspace.settings.billing.upgrade"),
         href: isLicenseActive
           ? `${workspaceBasePath}/settings/organization/enterprise`
-          : "https://salamruby.com/upgrade-self-hosted-license",
+          : "https://feedyruby.com/upgrade-self-hosted-license",
       },
       {
         text: t("common.cancel"),

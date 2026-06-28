@@ -1,4 +1,4 @@
-import { TOrganizationRole } from "@salamruby/types/memberships";
+import { TOrganizationRole } from "@feedyruby/types/memberships";
 
 export const getAccessFlags = (role?: TOrganizationRole) => {
   const isOwner = role === "owner";

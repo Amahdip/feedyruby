@@ -2,7 +2,7 @@
 
 declare global {
   interface Window {
-    salamrubySurveys?: {
+    feedyrubySurveys?: {
       renderSurveyInline: (...args: unknown[]) => unknown;
       renderSurveyModal: (...args: unknown[]) => unknown;
       renderSurvey: (options: unknown) => void;

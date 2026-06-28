@@ -1,9 +1,9 @@
 {
-  "name": "@salamruby/survey-ui",
+  "name": "@feedyruby/survey-ui",
   "license": "MIT",
   "version": "1.0.4",
   "description": "React UI components for building surveys and forms - includes NPS, rating scales, multi-select, file upload, and more. Built with Radix UI and Tailwind CSS.",
-  "homepage": "https://salamruby.com",
+  "homepage": "https://feedyruby.com",
   "type": "module",
   "keywords": [
     "react",
@@ -15,22 +15,22 @@
     "rating",
     "questionnaire",
     "feedback",
-    "salamruby",
+    "feedyruby",
     "tailwindcss",
     "typescript",
     "accessible"
   ],
   "author": {
-    "name": "SalamRuby",
-    "url": "https://salamruby.com"
+    "name": "FeedyRuby",
+    "url": "https://feedyruby.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/salamruby/salamruby",
+    "url": "https://github.com/feedyruby/feedyruby",
     "directory": "packages/survey-ui"
   },
   "bugs": {
-    "url": "https://github.com/salamruby/salamruby/issues"
+    "url": "https://github.com/feedyruby/feedyruby/issues"
   },
   "sideEffects": [
     "**/*.css"
@@ -84,8 +84,8 @@
     "tailwind-merge": "3.5.0"
   },
   "devDependencies": {
-    "@salamruby/config-typescript": "workspace:*",
-    "@salamruby/eslint-config": "workspace:*",
+    "@feedyruby/config-typescript": "workspace:*",
+    "@feedyruby/eslint-config": "workspace:*",
     "@storybook/react": "10.3.6",
     "@storybook/react-vite": "10.3.6",
     "@tailwindcss/postcss": "4.2.4",

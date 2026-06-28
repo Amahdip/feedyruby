@@ -1,8 +1,8 @@
-import { type TI18nString } from "@salamruby/types/i18n";
-import { TResponseData, TResponseDataValue, TResponseVariables } from "@salamruby/types/responses";
-import { TSurveyElement } from "@salamruby/types/surveys/elements";
-import { TSurvey, TSurveyRecallItem } from "@salamruby/types/surveys/types";
-import { getTextContent } from "@salamruby/types/surveys/validation";
+import { type TI18nString } from "@feedyruby/types/i18n";
+import { TResponseData, TResponseDataValue, TResponseVariables } from "@feedyruby/types/responses";
+import { TSurveyElement } from "@feedyruby/types/surveys/elements";
+import { TSurvey, TSurveyRecallItem } from "@feedyruby/types/surveys/types";
+import { getTextContent } from "@feedyruby/types/surveys/validation";
 import { getLocalizedValue } from "@/lib/i18n/utils";
 import { structuredClone } from "@/lib/pollyfills/structuredClone";
 import { getElementsFromBlocks } from "@/modules/survey/lib/client-utils";

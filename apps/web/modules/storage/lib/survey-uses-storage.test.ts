@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import type { TSurvey } from "@salamruby/types/surveys/types";
+import type { TSurvey } from "@feedyruby/types/surveys/types";
 import { surveyUsesStorage } from "./survey-uses-storage";
 
 const createSurvey = (overrides: Partial<TSurvey> = {}): TSurvey =>

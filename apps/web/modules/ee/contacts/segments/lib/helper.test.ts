@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { InvalidInputError } from "@salamruby/types/errors";
-import { TBaseFilters, TSegmentWithSurveyRefs } from "@salamruby/types/segment";
+import { InvalidInputError } from "@feedyruby/types/errors";
+import { TBaseFilters, TSegmentWithSurveyRefs } from "@feedyruby/types/segment";
 import { checkForRecursiveSegmentFilter } from "@/modules/ee/contacts/segments/lib/helper";
 import { getSegment } from "@/modules/ee/contacts/segments/lib/segments";
 

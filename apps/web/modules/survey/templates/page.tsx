@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import { DEFAULT_LOCALE } from "@/lib/constants";
 import { getPublicDomain } from "@/lib/getPublicUrl";
 import { getUserLocale } from "@/lib/user/service";

@@ -1,9 +1,9 @@
 import { Session } from "next-auth";
 import { z } from "zod";
-import { TMembership, ZMembership } from "@salamruby/types/memberships";
-import { TOrganization, ZOrganization } from "@salamruby/types/organizations";
-import { TUser, ZUser } from "@salamruby/types/user";
-import { TWorkspace, ZWorkspace } from "@salamruby/types/workspace";
+import { TMembership, ZMembership } from "@feedyruby/types/memberships";
+import { TOrganization, ZOrganization } from "@feedyruby/types/organizations";
+import { TUser, ZUser } from "@feedyruby/types/user";
+import { TWorkspace, ZWorkspace } from "@feedyruby/types/workspace";
 import {
   TEnterpriseLicenseFeatures,
   TLicenseStatus,

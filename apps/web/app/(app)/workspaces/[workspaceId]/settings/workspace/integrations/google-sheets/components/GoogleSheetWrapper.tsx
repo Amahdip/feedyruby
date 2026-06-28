@@ -4,9 +4,9 @@ import { useCallback, useEffect, useState } from "react";
 import {
   TIntegrationGoogleSheets,
   TIntegrationGoogleSheetsConfigData,
-} from "@salamruby/types/integration/google-sheet";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+} from "@feedyruby/types/integration/google-sheet";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { validateGoogleSheetsConnectionAction } from "@/app/(app)/workspaces/[workspaceId]/settings/workspace/integrations/google-sheets/actions";
 import { ManageIntegration } from "@/app/(app)/workspaces/[workspaceId]/settings/workspace/integrations/google-sheets/components/ManageIntegration";
 import { authorize } from "@/app/(app)/workspaces/[workspaceId]/settings/workspace/integrations/google-sheets/lib/google";

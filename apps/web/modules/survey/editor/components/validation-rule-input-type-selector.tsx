@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { TSurveyOpenTextElementInputType } from "@salamruby/types/surveys/elements";
+import { TSurveyOpenTextElementInputType } from "@feedyruby/types/surveys/elements";
 import {
   Select,
   SelectContent,

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { responses } from "@/app/lib/api/response";
 import { putResponseHandler } from "./put-response-handler";
 
@@ -17,7 +17,7 @@ const mocks = vi.hoisted(() => ({
   validateResponseData: vi.fn(),
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: mocks.loggerError,
   },

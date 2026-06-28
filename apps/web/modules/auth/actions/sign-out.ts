@@ -1,6 +1,6 @@
 "use server";
 
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { logSignOut } from "@/modules/auth/lib/utils";
 
 /**

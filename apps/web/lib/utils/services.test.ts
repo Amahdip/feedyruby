@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 import {
   ActionClass,
   ApiKey,
@@ -15,9 +15,9 @@ import {
   Team,
   Webhook,
   Workspace,
-} from "@salamruby/database/prisma";
-import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
-import { TSurveyQuota } from "@salamruby/types/quota";
+} from "@feedyruby/database/prisma";
+import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import { TSurveyQuota } from "@feedyruby/types/quota";
 import { validateInputs } from "@/lib/utils/validate";
 import { getQuota as getQuotaService } from "@/modules/ee/quotas/lib/quotas";
 import {
@@ -46,7 +46,7 @@ vi.mock("@/lib/utils/validate", () => ({
   validateInputs: vi.fn(),
 }));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     actionClass: {
       findUnique: vi.fn(),

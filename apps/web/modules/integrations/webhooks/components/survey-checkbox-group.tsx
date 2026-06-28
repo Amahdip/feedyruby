@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { Checkbox } from "@/modules/ui/components/checkbox";
 
 interface SurveyCheckboxGroupProps {

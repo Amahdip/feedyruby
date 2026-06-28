@@ -1,4 +1,4 @@
-import { TJsWorkspaceStateSurvey, TJsWorkspaceStateWorkspaceSetting } from "@salamruby/types/js";
+import { TJsWorkspaceStateSurvey, TJsWorkspaceStateWorkspaceSetting } from "@feedyruby/types/js";
 
 export const getStyling = (workspace: TJsWorkspaceStateWorkspaceSetting, survey: TJsWorkspaceStateSurvey) => {
   // allow style overwrite is disabled from the workspace

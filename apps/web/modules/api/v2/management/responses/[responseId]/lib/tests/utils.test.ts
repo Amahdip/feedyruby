@@ -1,11 +1,11 @@
 import { fileUploadQuestion, openTextQuestion, responseData, workspaceId } from "./__mocks__/utils.mock";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { logger } from "@salamruby/logger";
-import { okVoid } from "@salamruby/types/error-handlers";
+import { logger } from "@feedyruby/logger";
+import { okVoid } from "@feedyruby/types/error-handlers";
 import { deleteFile } from "@/modules/storage/service";
 import { findAndDeleteUploadedFilesInResponse } from "../utils";
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },

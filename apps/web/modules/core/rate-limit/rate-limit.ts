@@ -1,7 +1,7 @@
 import * as Sentry from "@sentry/nextjs";
-import { createCacheKey } from "@salamruby/cache";
-import { logger } from "@salamruby/logger";
-import { Result, ok } from "@salamruby/types/error-handlers";
+import { createCacheKey } from "@feedyruby/cache";
+import { logger } from "@feedyruby/logger";
+import { Result, ok } from "@feedyruby/types/error-handlers";
 import { cache } from "@/lib/cache";
 import { RATE_LIMITING_DISABLED, SENTRY_DSN } from "@/lib/constants";
 import { TRateLimitConfig, type TRateLimitResponse } from "./types/rate-limit";

@@ -9,9 +9,9 @@ import {
   TIntegrationGoogleSheets,
   TIntegrationGoogleSheetsConfigData,
   TIntegrationGoogleSheetsInput,
-} from "@salamruby/types/integration/google-sheet";
-import { TSurvey, TSurveyQuestionId } from "@salamruby/types/surveys/types";
-import { getTextContent } from "@salamruby/types/surveys/validation";
+} from "@feedyruby/types/integration/google-sheet";
+import { TSurvey, TSurveyQuestionId } from "@feedyruby/types/surveys/types";
+import { getTextContent } from "@feedyruby/types/surveys/validation";
 import { createOrUpdateIntegrationAction } from "@/app/(app)/workspaces/[workspaceId]/settings/workspace/integrations/actions";
 import { getSpreadsheetNameByIdAction } from "@/app/(app)/workspaces/[workspaceId]/settings/workspace/integrations/google-sheets/actions";
 import {

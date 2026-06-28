@@ -1,14 +1,14 @@
 import { v7 as uuidv7 } from "uuid";
-import { prisma } from "@salamruby/database";
-import { Prisma, Webhook } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ZId } from "@salamruby/types/common";
+import { prisma } from "@feedyruby/database";
+import { Prisma, Webhook } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ZId } from "@feedyruby/types/common";
 import {
   DatabaseError,
   InvalidInputError,
   ResourceNotFoundError,
   UnknownError,
-} from "@salamruby/types/errors";
+} from "@feedyruby/types/errors";
 import { DANGEROUSLY_ALLOW_WEBHOOK_INTERNAL_URLS } from "@/lib/constants";
 import { generateStandardWebhookSignature, generateWebhookSecret } from "@/lib/crypto";
 import { validateInputs } from "@/lib/utils/validate";

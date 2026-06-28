@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { ApiKeyPermission } from "@salamruby/database/prisma";
+import { ApiKeyPermission } from "@feedyruby/database/prisma";
 import { buildV3AuditLog, queueV3AuditLog } from "@/app/api/v3/lib/audit";
 import {
   createdResponse,
@@ -33,7 +33,7 @@ vi.mock("@/app/api/v3/lib/audit", () => ({
   queueV3AuditLog: vi.fn().mockResolvedValue(undefined),
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     withContext: vi.fn(() => ({
       error: vi.fn(),
@@ -63,7 +63,7 @@ const authInfo = {
   clientId: "key_1",
   scopes: ["surveys:read", "surveys:write"],
   extra: {
-    salamrubyAuthentication: apiKeyAuth,
+    feedyrubyAuthentication: apiKeyAuth,
     requestId: "req_tool",
   },
 };

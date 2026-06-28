@@ -1,19 +1,19 @@
 import { TFunction } from "i18next";
 import { EyeOffIcon, FileDigitIcon, FileType2Icon } from "lucide-react";
 import { HTMLInputTypeAttribute, JSX } from "react";
-import { TI18nString } from "@salamruby/types/i18n";
-import { TSurveyQuota } from "@salamruby/types/quota";
-import { TSurveyBlockLogic, TSurveyBlockLogicAction } from "@salamruby/types/surveys/blocks";
-import { TSurveyElement, TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
+import { TI18nString } from "@feedyruby/types/i18n";
+import { TSurveyQuota } from "@feedyruby/types/quota";
+import { TSurveyBlockLogic, TSurveyBlockLogicAction } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElement, TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
 import {
   TConditionGroup,
   TLeftOperand,
   TRightOperand,
   TSingleCondition,
   TSurveyLogicConditionsOperator,
-} from "@salamruby/types/surveys/logic";
-import { TSurvey, TSurveyEndings, TSurveyVariable, TSurveyWelcomeCard } from "@salamruby/types/surveys/types";
-import { getTextContent } from "@salamruby/types/surveys/validation";
+} from "@feedyruby/types/surveys/logic";
+import { TSurvey, TSurveyEndings, TSurveyVariable, TSurveyWelcomeCard } from "@feedyruby/types/surveys/types";
+import { getTextContent } from "@feedyruby/types/surveys/validation";
 import { getLocalizedValue } from "@/lib/i18n/utils";
 import { isConditionGroup } from "@/lib/surveyLogic/utils";
 import { recallToHeadline } from "@/lib/utils/recall";

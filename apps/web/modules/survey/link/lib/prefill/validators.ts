@@ -7,7 +7,7 @@ import {
   TSurveyMultipleChoiceElement,
   TSurveyPictureSelectionElement,
   TSurveyRatingElement,
-} from "@salamruby/types/surveys/elements";
+} from "@feedyruby/types/surveys/elements";
 import { matchOptionByIdOrLabel } from "./matchers";
 import { parseCommaSeparated, parseNumber } from "./parsers";
 import { TValidationResult } from "./types";

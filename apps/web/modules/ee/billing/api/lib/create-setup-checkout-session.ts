@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-import type { TCloudBillingInterval } from "@salamruby/types/organizations";
+import type { TCloudBillingInterval } from "@feedyruby/types/organizations";
 import { STRIPE_API_VERSION } from "@/lib/constants";
 import { env } from "@/lib/env";
 

@@ -1,5 +1,5 @@
-import type { TI18nString } from "@salamruby/types/i18n";
-import type { TSurvey } from "@salamruby/types/surveys/types";
+import type { TI18nString } from "@feedyruby/types/i18n";
+import type { TSurvey } from "@feedyruby/types/surveys/types";
 import { structuredClone } from "@/lib/pollyfills/structuredClone";
 
 const stripHtmlTags = (value: string): string =>

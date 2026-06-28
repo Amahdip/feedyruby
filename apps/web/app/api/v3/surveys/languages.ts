@@ -1,9 +1,9 @@
 import "server-only";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { DatabaseError } from "@salamruby/types/errors";
-import type { TSurveyLanguage } from "@salamruby/types/surveys/types";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { DatabaseError } from "@feedyruby/types/errors";
+import type { TSurveyLanguage } from "@feedyruby/types/surveys/types";
 import type { TV3SurveyDocument } from "./schemas";
 
 export type TV3SurveyLanguageRequest = {

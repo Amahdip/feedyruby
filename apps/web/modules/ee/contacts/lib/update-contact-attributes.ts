@@ -1,7 +1,7 @@
 import "server-only";
-import { TContactAttributes, TContactAttributesInput } from "@salamruby/types/contact-attribute";
-import { TContactAttributeKey } from "@salamruby/types/contact-attribute-key";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { TContactAttributes, TContactAttributesInput } from "@feedyruby/types/contact-attribute";
+import { TContactAttributeKey } from "@feedyruby/types/contact-attribute-key";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import { TAttributeUpdateMessage, updateAttributes } from "./attributes";
 import { getContactAttributeKeys } from "./contact-attribute-keys";
 import { getContactAttributes } from "./contact-attributes";

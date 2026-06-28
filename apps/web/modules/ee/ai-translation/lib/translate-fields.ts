@@ -1,6 +1,6 @@
 import "server-only";
 import { z } from "zod";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { generateOrganizationAIObject } from "@/lib/ai/service";
 
 export const ZAITranslationField = z.object({

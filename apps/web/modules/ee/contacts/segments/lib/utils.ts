@@ -15,7 +15,7 @@ import {
   TSegmentOperator,
   TSegmentPersonFilter,
   TSegmentSegmentFilter,
-} from "@salamruby/types/segment";
+} from "@feedyruby/types/segment";
 
 // type guard to check if a resource is a filter
 export const isResourceFilter = (resource: TSegmentFilter | TBaseFilters): resource is TSegmentFilter => {

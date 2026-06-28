@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["@salamruby/eslint-config/next.js"],
+  extends: ["@feedyruby/eslint-config/next.js"],
   parserOptions: {
     project: "tsconfig.json",
     tsconfigRootDir: __dirname,

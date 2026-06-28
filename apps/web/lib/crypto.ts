@@ -1,6 +1,6 @@
 import { compare, hash } from "bcryptjs";
 import { createCipheriv, createDecipheriv, createHash, createHmac, randomBytes } from "node:crypto";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { ENCRYPTION_KEY } from "@/lib/constants";
 
 const ALGORITHM_V1 = "aes256";

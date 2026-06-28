@@ -1,12 +1,12 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Invite, Prisma } from "@salamruby/database/prisma";
+import { prisma } from "@feedyruby/database";
+import { Invite, Prisma } from "@feedyruby/database/prisma";
 import {
   DatabaseError,
   InvalidInputError,
   ResourceNotFoundError,
   ValidationError,
-} from "@salamruby/types/errors";
+} from "@feedyruby/types/errors";
 import { getMembershipByUserIdOrganizationId } from "@/lib/membership/service";
 import { TInvitee } from "../types/invites";
 import {
@@ -18,7 +18,7 @@ import {
   resendInvite,
 } from "./invite";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     invite: {
       findUnique: vi.fn(),

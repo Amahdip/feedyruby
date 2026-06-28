@@ -3,8 +3,8 @@
 import { Copy, SquareArrowOutUpRight } from "lucide-react";
 import { toast } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { useSingleUseId } from "@/modules/survey/hooks/useSingleUseId";
 import { Button } from "@/modules/ui/components/button";
 import { getSurveyUrl } from "../../utils";

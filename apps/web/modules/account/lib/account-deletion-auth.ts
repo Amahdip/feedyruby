@@ -1,5 +1,5 @@
 import "server-only";
-import type { User } from "@salamruby/database/prisma";
+import type { User } from "@feedyruby/database/prisma";
 
 type TAccountDeletionPasswordAuthData = Pick<User, "identityProvider">;
 

@@ -1,5 +1,5 @@
-import { OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { getElementsFromBlocks } from "@/lib/survey/utils";
 import { getExternalUrlsPermission } from "@/modules/survey/lib/permission";
 import { getOrganizationBilling } from "@/modules/survey/lib/survey";

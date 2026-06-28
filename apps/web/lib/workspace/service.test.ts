@@ -1,12 +1,12 @@
 import { createId } from "@paralleldrive/cuid2";
 import { afterEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { OrganizationRole, Prisma, WidgetPlacement, Workspace } from "@salamruby/database/prisma";
-import { DatabaseError, ValidationError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { OrganizationRole, Prisma, WidgetPlacement, Workspace } from "@feedyruby/database/prisma";
+import { DatabaseError, ValidationError } from "@feedyruby/types/errors";
 import { ITEMS_PER_PAGE } from "../constants";
 import { getUserWorkspaces, getWorkspace, getWorkspaces } from "./service";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     workspace: {
       findUnique: vi.fn(),

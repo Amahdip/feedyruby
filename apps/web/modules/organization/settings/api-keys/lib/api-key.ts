@@ -1,12 +1,12 @@
 import "server-only";
 import { randomBytes } from "node:crypto";
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { ApiKey, ApiKeyPermission, Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { TOrganizationAccess } from "@salamruby/types/api-key";
-import { ZId } from "@salamruby/types/common";
-import { DatabaseError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { ApiKey, ApiKeyPermission, Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { TOrganizationAccess } from "@feedyruby/types/api-key";
+import { ZId } from "@feedyruby/types/common";
+import { DatabaseError } from "@feedyruby/types/errors";
 import { CONTROL_HASH } from "@/lib/constants";
 import { hashSecret, hashSha256, parseApiKeyV2, verifySecret } from "@/lib/crypto";
 import { validateInputs } from "@/lib/utils/validate";

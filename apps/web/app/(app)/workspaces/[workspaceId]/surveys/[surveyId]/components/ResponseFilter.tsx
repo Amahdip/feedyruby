@@ -4,9 +4,9 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { ChevronDown, ChevronUp, Plus, TrashIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TI18nString } from "@salamruby/types/i18n";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TI18nString } from "@feedyruby/types/i18n";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import {
   SelectedFilterValue,
   TResponseStatus,

@@ -1,8 +1,8 @@
 "use server";
 
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { ZLanguageInput } from "@salamruby/types/workspace";
+import { ZId } from "@feedyruby/types/common";
+import { ZLanguageInput } from "@feedyruby/types/workspace";
 import {
   createLanguage,
   deleteLanguage,

@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { TIntegrationItem } from "@salamruby/types/integration";
-import { TIntegrationAirtable } from "@salamruby/types/integration/airtable";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+import { TIntegrationItem } from "@feedyruby/types/integration";
+import { TIntegrationAirtable } from "@feedyruby/types/integration/airtable";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { ManageIntegration } from "@/app/(app)/workspaces/[workspaceId]/settings/workspace/integrations/airtable/components/ManageIntegration";
 import { authorize } from "@/app/(app)/workspaces/[workspaceId]/settings/workspace/integrations/airtable/lib/airtable";
 import airtableLogo from "@/images/airtableLogo.svg";

@@ -1,5 +1,5 @@
 import { createId } from "@paralleldrive/cuid2";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import type { MigrationScript } from "../../src/scripts/migration-runner";
 import type {
   Block,

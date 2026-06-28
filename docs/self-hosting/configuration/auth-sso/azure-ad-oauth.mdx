@@ -1,24 +1,24 @@
 ---
 title: Azure AD OAuth
-description: "Configure Microsoft Entra ID (Azure AD) OAuth for secure Single Sign-On with your SalamRuby instance. Use enterprise-grade authentication for your survey platform."
+description: "Configure Microsoft Entra ID (Azure AD) OAuth for secure Single Sign-On with your FeedyRuby instance. Use enterprise-grade authentication for your survey platform."
 icon: "microsoft"
 ---
 
-<Note>AzureAD OAuth is part of the SalamRuby [Enterprise Edition](/self-hosting/advanced/license)</Note>
+<Note>AzureAD OAuth is part of the FeedyRuby [Enterprise Edition](/self-hosting/advanced/license)</Note>
 
 ### Microsoft Entra ID
 
-Do you have a Microsoft Entra ID Tenant? Integrate it with your SalamRuby instance to allow users to log in using their existing Microsoft credentials. This guide will walk you through the process of setting up an Application Registration for your SalamRuby instance.
+Do you have a Microsoft Entra ID Tenant? Integrate it with your FeedyRuby instance to allow users to log in using their existing Microsoft credentials. This guide will walk you through the process of setting up an Application Registration for your FeedyRuby instance.
 
 ### Requirements
 
 - A Microsoft Entra ID Tenant populated with users. [Create a tenant as per Microsoft's documentation](https://learn.microsoft.com/en-us/entra/fundamentals/create-new-tenant).
 
-- A SalamRuby instance running and accessible.
+- A FeedyRuby instance running and accessible.
 
-- The callback URI for your SalamRuby instance: `{WEBAPP_URL}/api/auth/callback/azure-ad`
+- The callback URI for your FeedyRuby instance: `{WEBAPP_URL}/api/auth/callback/azure-ad`
 
-## How to connect your SalamRuby instance to Microsoft Entra
+## How to connect your FeedyRuby instance to Microsoft Entra
 
 <Steps>
   <Step title="Access the Microsoft Entra admin center">
@@ -35,7 +35,7 @@ Do you have a Microsoft Entra ID Tenant? Integrate it with your SalamRuby instan
   </Step>
 
   <Step title="Configure the application">
-    - Name your application something descriptive, such as `SalamRuby SSO`.
+    - Name your application something descriptive, such as `FeedyRuby SSO`.
 
     ![third](https://res.cloudinary.com/dwdb9tvii/image/upload/v1738250292/image_rooa3w.jpg)
 
@@ -43,7 +43,7 @@ Do you have a Microsoft Entra ID Tenant? Integrate it with your SalamRuby instan
 
     ![fourth](https://res.cloudinary.com/dwdb9tvii/image/upload/v1738250542/image_nyndzo.jpg)
 
-    - Under **Redirect URI**, select **Web** for the platform and paste your SalamRuby callback URI (see Requirements above).
+    - Under **Redirect URI**, select **Web** for the platform and paste your FeedyRuby callback URI (see Requirements above).
 
     ![fifth](https://res.cloudinary.com/dwdb9tvii/image/upload/v1738250776/image_s3pgb6.jpg)
 
@@ -85,15 +85,15 @@ Do you have a Microsoft Entra ID Tenant? Integrate it with your SalamRuby instan
   </Step>
 
   <Step title="Update environment variables">
-    - Update these environment variables in your `docker-compose.yml` or pass it like your other environment variables to the SalamRuby container.
+    - Update these environment variables in your `docker-compose.yml` or pass it like your other environment variables to the FeedyRuby container.
 
     <Note>
       You must wrap the `AZUREAD_CLIENT_SECRET` value in double quotes (e.g., "THis~iS4faKe.53CreTvALu3"`) to prevent issues with special characters.
     </Note>
 
-    An example `.env` for Microsoft Entra ID in SalamRuby would look like this:
+    An example `.env` for Microsoft Entra ID in FeedyRuby would look like this:
 
-    ```yml SalamRuby Env for Microsoft Entra ID SSO
+    ```yml FeedyRuby Env for Microsoft Entra ID SSO
     AZUREAD_CLIENT_ID=a25cadbd-f049-4690-ada3-56a163a72f4c
     AZUREAD_TENANT_ID=2746c29a-a3a6-4ea1-8762-37816d4b7885
     AZUREAD_CLIENT_SECRET="THis~iS4faKe.53CreTvALu3"
@@ -101,7 +101,7 @@ Do you have a Microsoft Entra ID Tenant? Integrate it with your SalamRuby instan
   </Step>
 
   <Step title="Restart and test">
-    - Restart your SalamRuby instance.
+    - Restart your FeedyRuby instance.
     - You're all set! Users can now sign up & log in using their Microsoft credentials associated with your Entra ID Tenant.
   </Step>
 </Steps>

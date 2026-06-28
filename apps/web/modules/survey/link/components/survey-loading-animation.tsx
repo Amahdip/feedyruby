@@ -99,7 +99,7 @@ export const SurveyLoadingAnimation = ({
       });
     });
 
-    const targetNode = document.getElementById("salamruby-survey-container");
+    const targetNode = document.getElementById("feedyruby-survey-container");
     if (targetNode) {
       observer.observe(targetNode, { childList: true });
     }
@@ -124,7 +124,7 @@ export const SurveyLoadingAnimation = ({
         )}>
         {isBrandingEnabled && (
           <p className={cn("text-center text-xs font-semibold text-slate-700 transition-all duration-1000")}>
-            {t("common.powered_by_salamruby")}
+            {t("common.powered_by_feedyruby")}
           </p>
         )}
         <LoadingSpinner />

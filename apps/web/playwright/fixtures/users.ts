@@ -1,8 +1,8 @@
 import bcrypt from "bcryptjs";
 import { Page } from "playwright";
 import { TestInfo } from "playwright/test";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
 
 export const login = async (user: Prisma.UserGetPayload<{ include: { memberships: true } }>, page: Page) => {
   const csrfToken = await page

@@ -1,13 +1,13 @@
 {
-  "name": "@salamruby/vite-plugins",
+  "name": "@feedyruby/vite-plugins",
   "license": "MIT",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "homepage": "https://salamruby.com",
+  "homepage": "https://feedyruby.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/salamruby/salamruby"
+    "url": "https://github.com/feedyruby/feedyruby"
   },
   "sideEffects": false,
   "scripts": {
@@ -16,8 +16,8 @@
     "lint": "eslint . --ext .ts,.js,.tsx,.jsx"
   },
   "devDependencies": {
-    "@salamruby/config-typescript": "workspace:*",
-    "@salamruby/eslint-config": "workspace:*",
+    "@feedyruby/config-typescript": "workspace:*",
+    "@feedyruby/eslint-config": "workspace:*",
     "vite": "7.3.3"
   }
 }

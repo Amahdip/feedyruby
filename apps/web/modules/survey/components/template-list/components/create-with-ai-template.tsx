@@ -2,7 +2,7 @@
 
 import { SparklesIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import type { TUserLocale } from "@salamruby/types/user";
+import type { TUserLocale } from "@feedyruby/types/user";
 import type { TAIUnavailableReason } from "@/modules/ee/analysis/charts/lib/ai-availability";
 import { CreateWithAIDialog } from "./create-with-ai-dialog";
 

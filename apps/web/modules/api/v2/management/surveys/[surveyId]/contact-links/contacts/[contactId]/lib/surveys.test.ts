@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 import { getSurvey } from "./surveys";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     survey: {
       findUnique: vi.fn(),

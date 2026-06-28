@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { TWidgetLayout, ZChartConfig, ZChartQuery, ZWidgetLayout } from "@salamruby/types/analysis";
-import { ZId } from "@salamruby/types/common";
+import { TWidgetLayout, ZChartConfig, ZChartQuery, ZWidgetLayout } from "@feedyruby/types/analysis";
+import { ZId } from "@feedyruby/types/common";
 
 export const CHART_TYPE_IDS = ["area", "bar", "line", "pie", "big_number"] as const;
 export const ZChartType = z.enum(CHART_TYPE_IDS);

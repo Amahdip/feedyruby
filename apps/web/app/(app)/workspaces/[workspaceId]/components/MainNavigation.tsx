@@ -24,9 +24,9 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState, useTransition } from "react";
 import { useTranslation } from "react-i18next";
-import { TOrganizationRole } from "@salamruby/types/memberships";
-import { TOrganization } from "@salamruby/types/organizations";
-import { TUser } from "@salamruby/types/user";
+import { TOrganizationRole } from "@feedyruby/types/memberships";
+import { TOrganization } from "@feedyruby/types/organizations";
+import { TUser } from "@feedyruby/types/user";
 import {
   getOrganizationsForSwitcherAction,
   getWorkspacesForSwitcherAction,
@@ -37,7 +37,7 @@ import { isNewerVersion } from "@/app/(app)/workspaces/[workspaceId]/lib/utils";
 import {
   HIDE_CONTACTS_FEATURE,
   HIDE_DASHBOARDS_FEATURE,
-  HIDE_SALAMRUBY_EXTERNAL_LINKS,
+  HIDE_FEEDYRUBY_EXTERNAL_LINKS,
   HIDE_UNIFY_FEEDBACK,
   HIDE_VERSION_UPDATE_PROMPT,
 } from "@/lib/brand-color";
@@ -75,7 +75,7 @@ interface NavigationProps {
   user: TUser;
   organization: TOrganization;
   workspace: { id: string; name: string };
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   isDevelopment: boolean;
   membershipRole?: TOrganizationRole;
   publicDomain: string;
@@ -91,7 +91,7 @@ export const MainNavigation = ({
   user,
   workspace,
   membershipRole,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   isDevelopment,
   publicDomain,
   organizationWorkspacesLimit,
@@ -230,18 +230,18 @@ export const MainNavigation = ({
       href: `/workspaces/${workspace.id}/settings/account/profile`,
       icon: UserCircleIcon,
     },
-    ...(HIDE_SALAMRUBY_EXTERNAL_LINKS
+    ...(HIDE_FEEDYRUBY_EXTERNAL_LINKS
       ? []
       : [
           {
             label: t("common.documentation"),
-            href: "https://salamruby.com/docs",
+            href: "https://feedyruby.com/docs",
             target: "_blank",
             icon: ArrowUpRightIcon,
           },
           {
             label: t("common.share_feedback"),
-            href: "https://github.com/salamruby/salamruby/issues",
+            href: "https://github.com/feedyruby/feedyruby/issues",
             target: "_blank",
             icon: ArrowUpRightIcon,
           },
@@ -368,7 +368,7 @@ export const MainNavigation = ({
   }, [isOwnerOrManager]);
 
   const trialDaysRemaining = useMemo(() => {
-    if (!isSalamRubyCloud || organization.billing?.stripe?.subscriptionStatus !== "trialing") return null;
+    if (!isFeedyRubyCloud || organization.billing?.stripe?.subscriptionStatus !== "trialing") return null;
     const trialEnd = organization.billing.stripe.trialEnd;
     if (!trialEnd) return null;
     const ts = new Date(trialEnd).getTime();
@@ -376,13 +376,13 @@ export const MainNavigation = ({
     const msPerDay = 86_400_000;
     return Math.ceil((ts - Date.now()) / msPerDay);
   }, [
-    isSalamRubyCloud,
+    isFeedyRubyCloud,
     organization.billing?.stripe?.subscriptionStatus,
     organization.billing?.stripe?.trialEnd,
   ]);
 
   const dashboardHref = isBilling
-    ? getBillingFallbackPath(workspace.id, isSalamRubyCloud)
+    ? getBillingFallbackPath(workspace.id, isFeedyRubyCloud)
     : `/workspaces/${workspace.id}/surveys`;
 
   const handleWorkspaceChange = (workspaceId: string) => {
@@ -425,7 +425,7 @@ export const MainNavigation = ({
   };
 
   const workspaceLimitModalButtons = (): [ModalButton, ModalButton] => {
-    if (isSalamRubyCloud) {
+    if (isFeedyRubyCloud) {
       return [
         {
           text: t("workspace.settings.billing.upgrade"),
@@ -443,7 +443,7 @@ export const MainNavigation = ({
         text: t("workspace.settings.billing.upgrade"),
         href: isLicenseActive
           ? `/workspaces/${workspace.id}/settings/organization/enterprise`
-          : "https://salamruby.com/upgrade-self-hosted-license",
+          : "https://feedyruby.com/upgrade-self-hosted-license",
       },
       {
         text: t("common.cancel"),
@@ -512,7 +512,7 @@ export const MainNavigation = ({
                 organizationId={organization.id}
                 organizationName={organization.name}
                 membershipRole={membershipRole}
-                isSalamRubyCloud={isSalamRubyCloud}
+                isFeedyRubyCloud={isFeedyRubyCloud}
                 isCollapsed={false}
                 isTextVisible={false}
                 workspaces={workspaces}
@@ -624,11 +624,11 @@ export const MainNavigation = ({
                 {!isCollapsed &&
                   isOwnerOrManager &&
                   latestVersion &&
-                  !isSalamRubyCloud &&
+                  !isFeedyRubyCloud &&
                   !isDevelopment &&
                   !HIDE_VERSION_UPDATE_PROMPT && (
                     <Link
-                      href="https://github.com/salamruby/salamruby/releases"
+                      href="https://github.com/feedyruby/feedyruby/releases"
                       target="_blank"
                       className="m-2 flex items-center gap-x-4 rounded-lg border border-slate-200 bg-slate-100 p-2 text-sm text-slate-800 hover:border-slate-300 hover:bg-slate-200">
                       <p className="flex items-center justify-center gap-x-2 text-xs">
@@ -640,7 +640,7 @@ export const MainNavigation = ({
 
                 {/* Trial Days Remaining */}
                 {!isCollapsed &&
-                  isSalamRubyCloud &&
+                  isFeedyRubyCloud &&
                   trialDaysRemaining !== null &&
                   (newTrialBannerVariant === "new-trial-banner" ? (
                     <TrialBannerNew

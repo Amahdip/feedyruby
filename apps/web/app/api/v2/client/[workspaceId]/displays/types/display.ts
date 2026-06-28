@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { ZDisplayCreateInput } from "@salamruby/types/displays";
+import { ZId } from "@feedyruby/types/common";
+import { ZDisplayCreateInput } from "@feedyruby/types/displays";
 
 export const ZDisplayCreateInputV2 = ZDisplayCreateInput.omit({ userId: true }).extend({
   contactId: ZId.optional(),

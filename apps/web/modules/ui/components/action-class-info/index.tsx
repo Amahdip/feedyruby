@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { TActionClass } from "@salamruby/types/action-classes";
+import { TActionClass } from "@feedyruby/types/action-classes";
 
 interface ActionClassInfoProps {
   actionClass: TActionClass;

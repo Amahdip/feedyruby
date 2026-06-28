@@ -1,8 +1,8 @@
 "use server";
 
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { ZIntegrationInput } from "@salamruby/types/integration";
+import { ZId } from "@feedyruby/types/common";
+import { ZIntegrationInput } from "@feedyruby/types/integration";
 import { createOrUpdateIntegration, deleteIntegration } from "@/lib/integration/service";
 import { capturePostHogEvent } from "@/lib/posthog";
 import { authenticatedActionClient } from "@/lib/utils/action-client";

@@ -1,5 +1,5 @@
-import { InvalidInputError } from "@salamruby/types/errors";
-import { TBaseFilters } from "@salamruby/types/segment";
+import { InvalidInputError } from "@feedyruby/types/errors";
+import { TBaseFilters } from "@feedyruby/types/segment";
 import { getSegment } from "@/modules/ee/contacts/segments/lib/segments";
 import { isResourceFilter } from "@/modules/ee/contacts/segments/lib/utils";
 

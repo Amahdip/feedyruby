@@ -1,8 +1,8 @@
 import "server-only";
 import cubejs, { type Query } from "@cubejs-client/core";
 import { randomUUID } from "node:crypto";
-import { logger } from "@salamruby/logger";
-import type { TChartQuery } from "@salamruby/types/analysis";
+import { logger } from "@feedyruby/logger";
+import type { TChartQuery } from "@feedyruby/types/analysis";
 import { expandPresetDateRanges } from "@/modules/ee/analysis/lib/date-presets";
 import { queueAuditEventWithoutRequest } from "@/modules/ee/audit-logs/lib/handler";
 import { UNKNOWN_DATA } from "@/modules/ee/audit-logs/types/audit-log";

@@ -2,7 +2,6 @@ import { Metadata, Viewport } from "next";
 import React from "react";
 import { NoScriptWarning } from "@/app/components/NoScriptWarning";
 import { SentryProvider } from "@/app/sentry/SentryProvider";
-import { BRAND_ASSETS } from "@/lib/brand-assets";
 import { APP_NAME, APP_NAME_LATIN } from "@/lib/brand-color";
 import { cn } from "@/lib/cn";
 import {
@@ -20,7 +19,7 @@ import { loadLocaleResources } from "@/lingodotdev/load-locale";
 import "../modules/ui/globals.css";
 
 export const viewport: Viewport = {
-  themeColor: "#8B1D3B",
+  themeColor: "#EC4899",
   width: "device-width",
   initialScale: 1,
 };
@@ -48,8 +47,8 @@ export const metadata: Metadata = {
     "فرم‌ساز رایگان",
   ],
   icons: {
-    icon: BRAND_ASSETS.iconRubyTilePng,
-    apple: BRAND_ASSETS.iconRubyTilePng,
+    icon: "/favicon/favicon-32x32.png",
+    apple: "/favicon/apple-touch-icon.png",
   },
   applicationName: APP_NAME_LATIN,
   robots: {

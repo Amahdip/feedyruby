@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 import { syncSsoIdentityForUser } from "./account-linking";
 import { OAUTH_ACCOUNT_NOT_LINKED_ERROR } from "./constants";
 
@@ -11,7 +11,7 @@ const mocks = vi.hoisted(() => ({
   userUpdate: vi.fn(),
 }));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     $transaction: vi.fn(),
     account: {

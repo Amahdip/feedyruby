@@ -1,9 +1,9 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { ALLOWED_FILE_EXTENSIONS, TAllowedFileExtension } from "@salamruby/types/storage";
-import { TSurveyElement } from "@salamruby/types/surveys/elements";
-import { TValidationRule, TValidationRuleType } from "@salamruby/types/surveys/validation-rules";
+import { ALLOWED_FILE_EXTENSIONS, TAllowedFileExtension } from "@feedyruby/types/storage";
+import { TSurveyElement } from "@feedyruby/types/surveys/elements";
+import { TValidationRule, TValidationRuleType } from "@feedyruby/types/surveys/validation-rules";
 import { Input } from "@/modules/ui/components/input";
 import { MultiSelect } from "@/modules/ui/components/multi-select";
 import {

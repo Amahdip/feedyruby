@@ -1,5 +1,5 @@
-import { OrganizationAccessType } from "@salamruby/types/api-key";
-import { TAPIKeyWorkspacePermission, TAuthenticationApiKey } from "@salamruby/types/auth";
+import { OrganizationAccessType } from "@feedyruby/types/api-key";
+import { TAPIKeyWorkspacePermission, TAuthenticationApiKey } from "@feedyruby/types/auth";
 
 // Permission level required for different HTTP methods
 const methodPermissionMap = {

@@ -1,4 +1,4 @@
-export const SALAMRUBY_SURVEYS_FILTERS_KEY_LS = "salamruby-surveys-filters";
-export const SALAMRUBY_ENVIRONMENT_ID_LS = "salamruby-environment-id";
-export const SALAMRUBY_WORKSPACE_ID_LS = "salamruby-workspace-id";
-export const SALAMRUBY_LOGGED_IN_WITH_LS = "salamruby-logged-in-with";
+export const FEEDYRUBY_SURVEYS_FILTERS_KEY_LS = "feedyruby-surveys-filters";
+export const FEEDYRUBY_ENVIRONMENT_ID_LS = "feedyruby-environment-id";
+export const FEEDYRUBY_WORKSPACE_ID_LS = "feedyruby-workspace-id";
+export const FEEDYRUBY_LOGGED_IN_WITH_LS = "feedyruby-logged-in-with";

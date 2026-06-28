@@ -2,8 +2,8 @@
 
 import { FileDigitIcon, FileType2Icon } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { TResponseVariables } from "@salamruby/types/responses";
-import { TSurveyVariables } from "@salamruby/types/surveys/types";
+import { TResponseVariables } from "@feedyruby/types/responses";
+import { TSurveyVariables } from "@feedyruby/types/surveys/types";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/modules/ui/components/tooltip";
 
 interface HiddenFieldsProps {

@@ -1,4 +1,4 @@
-import { TUserLocale } from "@salamruby/types/user";
+import { TUserLocale } from "@feedyruby/types/user";
 import { getApiKeysWithEnvironmentPermissions } from "@/modules/organization/settings/api-keys/lib/api-key";
 import { TOrganizationWorkspace } from "@/modules/organization/settings/api-keys/types/api-keys";
 import { EditAPIKeys } from "./edit-api-keys";

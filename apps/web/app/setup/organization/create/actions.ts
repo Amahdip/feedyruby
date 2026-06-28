@@ -1,9 +1,9 @@
 "use server";
 
 import { z } from "zod";
-import { logger } from "@salamruby/logger";
-import { OperationNotAllowedError } from "@salamruby/types/errors";
-import { IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { logger } from "@feedyruby/logger";
+import { OperationNotAllowedError } from "@feedyruby/types/errors";
+import { IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { getHasNoOrganizations } from "@/lib/instance/service";
 import { createMembership } from "@/lib/membership/service";
 import { createOrganization } from "@/lib/organization/service";
@@ -40,7 +40,7 @@ export const createOrganizationAction = authenticatedActionClient
       });
 
       // Stripe setup must run AFTER membership is created so the owner email is available
-      if (IS_SALAMRUBY_CLOUD) {
+      if (IS_FEEDYRUBY_CLOUD) {
         ensureCloudStripeSetupForOrganization(newOrganization.id).catch((error) => {
           logger.error(
             { error, organizationId: newOrganization.id },

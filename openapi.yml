@@ -1,11 +1,11 @@
 openapi: 3.1.0
 info:
-  title: SalamRuby API
-  description: Manage SalamRuby ressources programmatically.
+  title: FeedyRuby API
+  description: Manage FeedyRuby ressources programmatically.
   version: 2.0.0
 servers:
-  - url: https://app.salamruby.com/api
-    description: SalamRuby Cloud
+  - url: https://app.feedyruby.com/api
+    description: FeedyRuby Cloud
 tags:
   - name: responses
     description: Operations for managing responses.

@@ -1,13 +1,13 @@
 import { createId } from "@paralleldrive/cuid2";
 import { TFunction } from "i18next";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { TSurveyQuotaLogic } from "@salamruby/types/quota";
+import { TSurveyQuotaLogic } from "@feedyruby/types/quota";
 import {
   TConditionGroup,
   TSingleCondition,
   TSurveyLogicConditionsOperator,
-} from "@salamruby/types/surveys/logic";
-import { TSurvey, TSurveyQuestionTypeEnum } from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/surveys/logic";
+import { TSurvey, TSurveyQuestionTypeEnum } from "@feedyruby/types/surveys/types";
 import {
   ConditionsUpdateCallbacks,
   SharedConditionsFactoryParams,

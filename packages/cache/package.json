@@ -1,18 +1,18 @@
 {
-  "name": "@salamruby/cache",
+  "name": "@feedyruby/cache",
   "private": true,
   "type": "module",
   "version": "0.1.0",
-  "homepage": "https://salamruby.com",
-  "description": "Unified Redis cache for SalamRuby",
+  "homepage": "https://feedyruby.com",
+  "description": "Unified Redis cache for FeedyRuby",
   "main": "./dist/index.js",
   "types": "./dist/src/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/salamruby/salamruby"
+    "url": "https://github.com/feedyruby/feedyruby"
   },
   "keywords": [
-    "SalamRuby",
+    "FeedyRuby",
     "cache",
     "redis",
     "caching"
@@ -36,15 +36,15 @@
     "test:coverage": "vitest run --coverage",
     "go": "vite build --watch --mode dev"
   },
-  "author": "SalamRuby <hola@salamruby.com>",
+  "author": "FeedyRuby <hola@feedyruby.com>",
   "dependencies": {
-    "@salamruby/logger": "workspace:*",
+    "@feedyruby/logger": "workspace:*",
     "redis": "5.11.0",
     "zod": "4.3.6"
   },
   "devDependencies": {
-    "@salamruby/config-typescript": "workspace:*",
-    "@salamruby/eslint-config": "workspace:*",
+    "@feedyruby/config-typescript": "workspace:*",
+    "@feedyruby/eslint-config": "workspace:*",
     "@vitest/coverage-v8": "4.1.6",
     "vite": "7.3.3",
     "vite-plugin-dts": "4.5.4",

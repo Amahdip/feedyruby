@@ -1,12 +1,12 @@
 "use server";
 
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { OrganizationRole } from "@salamruby/database/prisma";
-import { ZId, ZUuid } from "@salamruby/types/common";
-import { AuthenticationError, OperationNotAllowedError, ValidationError } from "@salamruby/types/errors";
-import { TOrganizationRole, ZOrganizationRole } from "@salamruby/types/memberships";
-import { INVITE_DISABLED, IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { prisma } from "@feedyruby/database";
+import { OrganizationRole } from "@feedyruby/database/prisma";
+import { ZId, ZUuid } from "@feedyruby/types/common";
+import { AuthenticationError, OperationNotAllowedError, ValidationError } from "@feedyruby/types/errors";
+import { TOrganizationRole, ZOrganizationRole } from "@feedyruby/types/memberships";
+import { INVITE_DISABLED, IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { createInviteToken } from "@/lib/jwt";
 import { getMembershipByUserIdOrganizationId } from "@/lib/membership/service";
 import { getAccessFlags } from "@/lib/membership/utils";
@@ -248,7 +248,7 @@ export const inviteUserAction = authenticatedActionClient.inputSchema(ZInviteUse
       throw new AuthenticationError("Invite disabled");
     }
 
-    if (!IS_SALAMRUBY_CLOUD && parsedInput.role === OrganizationRole.billing) {
+    if (!IS_FEEDYRUBY_CLOUD && parsedInput.role === OrganizationRole.billing) {
       throw new ValidationError("Billing role is not allowed");
     }
 

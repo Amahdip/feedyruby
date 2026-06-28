@@ -5,7 +5,7 @@ import {
   TFeedbackSourceStatus,
   TFeedbackSourceType,
   TFeedbackSourceWithMappings,
-} from "@salamruby/types/feedback-source";
+} from "@feedyruby/types/feedback-source";
 import { Badge } from "@/modules/ui/components/badge";
 import { getFeedbackSourceIcon, getFeedbackSourceTypeLabelKey } from "./feedback-source-display";
 import { FeedbackSourceRowDropdown } from "./feedback-source-row-dropdown";

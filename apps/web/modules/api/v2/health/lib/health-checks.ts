@@ -1,7 +1,7 @@
-import { getCacheService } from "@salamruby/cache";
-import { prisma } from "@salamruby/database";
-import { logger } from "@salamruby/logger";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
+import { getCacheService } from "@feedyruby/cache";
+import { prisma } from "@feedyruby/database";
+import { logger } from "@feedyruby/logger";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
 import { type OverallHealthStatus } from "@/modules/api/v2/health/types/health-status";
 import { type ApiErrorResponseV2 } from "@/modules/api/v2/types/api-error";
 

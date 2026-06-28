@@ -1,14 +1,14 @@
 import { MOCK_IDS, MOCK_INVITE, MOCK_TEAM_USER } from "./__mocks__/team-mocks";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { OrganizationRole } from "@salamruby/database/prisma";
+import { prisma } from "@feedyruby/database";
+import { OrganizationRole } from "@feedyruby/database/prisma";
 import { CreateMembershipInvite } from "@/modules/auth/signup/types/invites";
 import { createTeamMembership, getTeamForOrganization } from "../team";
 
 // Setup all mocks
 const setupMocks = () => {
   // Mock dependencies
-  vi.mock("@salamruby/database", () => ({
+  vi.mock("@feedyruby/database", () => ({
     prisma: {
       team: {
         findUnique: vi.fn(),
@@ -28,7 +28,7 @@ const setupMocks = () => {
     getMembershipByUserIdOrganizationId: vi.fn(),
   }));
 
-  vi.mock("@salamruby/logger", () => ({
+  vi.mock("@feedyruby/logger", () => ({
     logger: {
       error: vi.fn(),
       warn: vi.fn(),

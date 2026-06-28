@@ -8,13 +8,13 @@ import { shouldRenderEnterpriseSection } from "@/lib/brand-color";
 import { UpgradePrompt } from "@/modules/ui/components/upgrade-prompt";
 
 interface TargetingLockedCardProps {
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   workspaceId: string;
   enterpriseLicenseRequestFormUrl: string;
 }
 
 export const TargetingLockedCard = ({
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   workspaceId,
   enterpriseLicenseRequestFormUrl,
 }: TargetingLockedCardProps) => {
@@ -56,16 +56,16 @@ export const TargetingLockedCard = ({
             feature="targeting"
             buttons={[
               {
-                text: isSalamRubyCloud ? t("common.upgrade_plan") : t("common.request_trial_license"),
-                href: isSalamRubyCloud
+                text: isFeedyRubyCloud ? t("common.upgrade_plan") : t("common.request_trial_license"),
+                href: isFeedyRubyCloud
                   ? `${workspaceBasePath}/settings/organization/billing`
                   : enterpriseLicenseRequestFormUrl,
               },
               {
                 text: t("common.learn_more"),
-                href: isSalamRubyCloud
+                href: isFeedyRubyCloud
                   ? `${workspaceBasePath}/settings/organization/billing`
-                  : "https://salamruby.com/learn-more-self-hosting-license",
+                  : "https://feedyruby.com/learn-more-self-hosting-license",
               },
             ]}
           />

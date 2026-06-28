@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ZTeam } from "@salamruby/database/zod/teams";
+import { ZTeam } from "@feedyruby/database/zod/teams";
 
 export const ZTeamIdSchema = z
   .cuid2()

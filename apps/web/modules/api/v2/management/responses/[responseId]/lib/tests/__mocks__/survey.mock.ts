@@ -1,6 +1,6 @@
-import { Survey } from "@salamruby/database/prisma";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurveyQuestionTypeEnum } from "@salamruby/types/surveys/types";
+import { Survey } from "@feedyruby/database/prisma";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurveyQuestionTypeEnum } from "@feedyruby/types/surveys/types";
 
 export const survey: Pick<Survey, "id" | "questions" | "blocks"> = {
   id: "rp2di001zicbm3mk8je1ue9u",

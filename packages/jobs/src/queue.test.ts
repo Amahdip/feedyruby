@@ -78,7 +78,7 @@ const surveySchedulingJobData = {
   scope: "global" as const,
 };
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: mockLoggerError,
     info: vi.fn(),
@@ -107,7 +107,7 @@ vi.mock("bullmq", () => ({
   }),
 }));
 
-describe("@salamruby/jobs queue helpers", () => {
+describe("@feedyruby/jobs queue helpers", () => {
   beforeEach(async () => {
     await resetJobsQueueFactory();
     vi.clearAllMocks();
@@ -133,7 +133,7 @@ describe("@salamruby/jobs queue helpers", () => {
   });
 
   test("uses a Redis Cluster hash-tagged prefix for BullMQ keys", () => {
-    expect(JOBS_PREFIX).toBe("{salamruby:jobs}");
+    expect(JOBS_PREFIX).toBe("{feedyruby:jobs}");
   });
 
   test("memoizes the producer queue", async () => {

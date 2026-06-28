@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from "vitest";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { convertResponseValue, getElementResponseMapping, processResponseData } from "./responses";
 
 // Mock the recall and i18n utils

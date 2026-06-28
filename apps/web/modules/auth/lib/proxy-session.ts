@@ -1,4 +1,4 @@
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 import { getSessionTokenFromCookieStore } from "./session-cookie";
 
 type TCookieStore = {

@@ -13,7 +13,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TFeedbackSourceWithMappings } from "@salamruby/types/feedback-source";
+import { TFeedbackSourceWithMappings } from "@feedyruby/types/feedback-source";
 import { DeleteDialog } from "@/modules/ui/components/delete-dialog";
 import {
   DropdownMenu,
@@ -49,7 +49,7 @@ export function FeedbackSourceRowDropdown({
 
   const isActive = feedbackSource.status === "active";
   const linkedSurveyId =
-    feedbackSource.type === "salamruby_survey" ? feedbackSource.salamrubyMappings[0]?.surveyId : undefined;
+    feedbackSource.type === "feedyruby_survey" ? feedbackSource.feedyrubyMappings[0]?.surveyId : undefined;
 
   const handleDelete = async () => {
     setIsDeleting(true);

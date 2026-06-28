@@ -27,7 +27,7 @@ vi.mock("@/lib/utils/action-client", () => ({
 }));
 
 vi.mock("@/lib/constants", () => ({
-  WEBAPP_URL: "https://app.salamruby.com",
+  WEBAPP_URL: "https://app.feedyruby.com",
   POSTHOG_KEY: undefined,
 }));
 
@@ -205,7 +205,7 @@ describe("billing actions", () => {
     expect(mocks.createSetupCheckoutSession).toHaveBeenCalledWith(
       "cus_1",
       "sub_1",
-      "https://app.salamruby.com/workspaces/ws_1/settings/organization/billing",
+      "https://app.feedyruby.com/workspaces/ws_1/settings/organization/billing",
       "org_1",
       {
         targetPlan: "pro",
@@ -239,7 +239,7 @@ describe("billing actions", () => {
     expect(mocks.createSetupCheckoutSession).toHaveBeenCalledWith(
       "cus_1",
       "sub_1",
-      "https://app.salamruby.com/workspaces/ws_1/settings/organization/billing",
+      "https://app.feedyruby.com/workspaces/ws_1/settings/organization/billing",
       "org_1",
       undefined
     );

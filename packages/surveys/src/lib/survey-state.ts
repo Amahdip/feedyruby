@@ -1,4 +1,4 @@
-import { TResponseUpdate } from "@salamruby/types/responses";
+import { TResponseUpdate } from "@feedyruby/types/responses";
 
 export class SurveyState {
   responseId: string | null = null;

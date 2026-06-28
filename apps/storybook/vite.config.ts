@@ -11,7 +11,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@salamruby/survey-ui": path.resolve(__dirname, "../../packages/survey-ui/src"),
+      "@feedyruby/survey-ui": path.resolve(__dirname, "../../packages/survey-ui/src"),
     },
   },
 });

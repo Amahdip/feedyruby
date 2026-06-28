@@ -5,7 +5,7 @@ import ICU from "i18next-icu";
 import resourcesToBackend from "i18next-resources-to-backend";
 import { ReactNode, useEffect, useRef, useState } from "react";
 import { I18nextProvider, initReactI18next } from "react-i18next";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { isRtlLocale } from "@/lib/i18n/rtl";
 import { importLocaleResources } from "@/lingodotdev/load-locale";
 

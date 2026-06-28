@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { ZResponse } from "@salamruby/types/responses";
-import { ZTag } from "@salamruby/types/tags";
+import { ZResponse } from "@feedyruby/types/responses";
+import { ZTag } from "@feedyruby/types/tags";
 
 export const ZTestLogJobData = z.object({
   message: z.string().min(1),

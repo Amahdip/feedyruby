@@ -1,14 +1,14 @@
-import { OrganizationRole } from "@salamruby/database/prisma";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
-import { IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { OrganizationRole } from "@feedyruby/database/prisma";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
+import { IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { ApiErrorResponseV2 } from "@/modules/api/v2/types/api-error";
 
 export const getRoles = (): Result<{ data: string[] }, ApiErrorResponseV2> => {
   try {
     const roles = Object.values(OrganizationRole);
 
-    // Filter out the billing role if not in SalamRuby Cloud
-    const filteredRoles = roles.filter((role) => !(role === "billing" && !IS_SALAMRUBY_CLOUD));
+    // Filter out the billing role if not in FeedyRuby Cloud
+    const filteredRoles = roles.filter((role) => !(role === "billing" && !IS_FEEDYRUBY_CLOUD));
     return ok({
       data: filteredRoles,
     });

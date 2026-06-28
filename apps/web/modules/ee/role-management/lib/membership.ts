@@ -1,10 +1,10 @@
 import "server-only";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ZString } from "@salamruby/types/common";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
-import { TMembership, TMembershipUpdateInput, ZMembershipUpdateInput } from "@salamruby/types/memberships";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ZString } from "@feedyruby/types/common";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
+import { TMembership, TMembershipUpdateInput, ZMembershipUpdateInput } from "@feedyruby/types/memberships";
 import { validateInputs } from "@/lib/utils/validate";
 
 export const updateMembership = async (

@@ -44,7 +44,7 @@ vi.mock("@/lib/utils/url", () => ({
   },
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },

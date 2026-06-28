@@ -1,8 +1,8 @@
 import type { Account } from "next-auth";
-import { prisma } from "@salamruby/database";
-import type { IdentityProvider, Organization } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import type { TUser, TUserNotificationSettings } from "@salamruby/types/user";
+import { prisma } from "@feedyruby/database";
+import type { IdentityProvider, Organization } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import type { TUser, TUserNotificationSettings } from "@feedyruby/types/user";
 import { DEFAULT_TEAM_ID, SKIP_INVITE_FOR_SSO } from "@/lib/constants";
 import { getIsFreshInstance } from "@/lib/instance/service";
 import { verifyInviteToken } from "@/lib/jwt";
@@ -477,7 +477,7 @@ export const handleSsoCallback = async ({
 }): Promise<boolean | string> => {
   const contextLogger = logger.withContext({
     correlationId: crypto.randomUUID(),
-    name: "salamruby",
+    name: "feedyruby",
   });
 
   contextLogger.debug(

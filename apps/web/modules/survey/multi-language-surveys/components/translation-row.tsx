@@ -2,7 +2,7 @@
 
 import DOMPurify from "isomorphic-dompurify";
 import { useTranslation } from "react-i18next";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { Input } from "@/modules/ui/components/input";
 import { type TranslatableString } from "../lib/types";
 import { RichTextTranslationInput } from "./rich-text-translation-input";

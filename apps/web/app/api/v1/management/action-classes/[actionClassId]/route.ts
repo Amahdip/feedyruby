@@ -1,6 +1,6 @@
-import { logger } from "@salamruby/logger";
-import { TActionClass, ZActionClassInput } from "@salamruby/types/action-classes";
-import { TAuthenticationApiKey } from "@salamruby/types/auth";
+import { logger } from "@feedyruby/logger";
+import { TActionClass, ZActionClassInput } from "@feedyruby/types/action-classes";
+import { TAuthenticationApiKey } from "@feedyruby/types/auth";
 import { handleErrorResponse } from "@/app/api/v1/auth";
 import { resolveBodyIds } from "@/app/api/v1/management/lib/workspace-resolver";
 import { RequestBodyTooLargeError, parseJsonBodyWithLimit } from "@/app/lib/api/request-body";

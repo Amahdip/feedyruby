@@ -1,5 +1,5 @@
 {
-  "name": "@salamruby/jobs",
+  "name": "@feedyruby/jobs",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -23,16 +23,16 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@salamruby/database": "workspace:*",
-    "@salamruby/logger": "workspace:*",
-    "@salamruby/types": "workspace:*",
+    "@feedyruby/database": "workspace:*",
+    "@feedyruby/logger": "workspace:*",
+    "@feedyruby/types": "workspace:*",
     "bullmq": "5.61.0",
     "ioredis": "5.8.1",
     "zod": "4.3.6"
   },
   "devDependencies": {
-    "@salamruby/config-typescript": "workspace:*",
-    "@salamruby/eslint-config": "workspace:*",
+    "@feedyruby/config-typescript": "workspace:*",
+    "@feedyruby/eslint-config": "workspace:*",
     "@vitest/coverage-v8": "4.1.6",
     "vite": "7.3.2",
     "vite-plugin-dts": "4.5.4",

@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { InvalidInputError } from "@salamruby/types/errors";
-import { TJsWorkspaceStateSurvey } from "@salamruby/types/js";
-import { TSegment } from "@salamruby/types/segment";
-import { TSurveyBlock } from "@salamruby/types/surveys/blocks";
-import { TSurveyElement, TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurvey, TSurveyQuestion, TSurveyQuestionTypeEnum } from "@salamruby/types/surveys/types";
+import { InvalidInputError } from "@feedyruby/types/errors";
+import { TJsWorkspaceStateSurvey } from "@feedyruby/types/js";
+import { TSegment } from "@feedyruby/types/segment";
+import { TSurveyBlock } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElement, TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurvey, TSurveyQuestion, TSurveyQuestionTypeEnum } from "@feedyruby/types/surveys/types";
 import * as videoValidation from "@/lib/utils/video-upload";
 import * as fileValidation from "@/modules/storage/utils";
 import {

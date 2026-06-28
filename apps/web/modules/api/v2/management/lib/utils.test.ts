@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { Prisma } from "@salamruby/database/prisma";
+import { Prisma } from "@feedyruby/database/prisma";
 import { buildCommonFilterQuery } from "./utils";
 
 describe("buildCommonFilterQuery", () => {

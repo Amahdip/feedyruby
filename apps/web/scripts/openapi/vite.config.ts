@@ -11,7 +11,7 @@ export default defineConfig({
       formats: ["cjs"],
     },
     rollupOptions: {
-      external: ["@salamruby/database/prisma", "yaml", "zod", "zod-openapi"],
+      external: ["@feedyruby/database/prisma", "yaml", "zod", "zod-openapi"],
       output: {
         exports: "named",
       },

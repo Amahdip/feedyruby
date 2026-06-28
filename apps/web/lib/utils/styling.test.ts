@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { TJsWorkspaceStateSurvey, TJsWorkspaceStateWorkspaceSetting } from "@salamruby/types/js";
+import { TJsWorkspaceStateSurvey, TJsWorkspaceStateWorkspaceSetting } from "@feedyruby/types/js";
 import { getStyling } from "./styling";
 
 describe("Styling Utilities", () => {

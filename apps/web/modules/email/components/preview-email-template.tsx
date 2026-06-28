@@ -19,14 +19,14 @@ import {
   Tailwind,
   Text,
   render,
-} from "@salamruby/email";
+} from "@feedyruby/email";
 import {
   type TSurveyAddressElement,
   type TSurveyCTAElement,
   type TSurveyContactInfoElement,
   TSurveyElementTypeEnum,
-} from "@salamruby/types/surveys/elements";
-import { type TSurvey, type TSurveyStyling } from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/surveys/elements";
+import { type TSurvey, type TSurveyStyling } from "@feedyruby/types/surveys/types";
 import { WEBAPP_URL } from "@/lib/constants";
 import { getLocalizedValue } from "@/lib/i18n/utils";
 import { getElementsFromBlocks } from "@/lib/survey/utils";
@@ -1046,7 +1046,7 @@ function EmailFooter({
         href={`${WEBAPP_URL}?utm_source=email_branding`}
         style={{ ...getForcedColorStyle(signatureColor), fontFamily }}
         target={PREVIEW_LINK_TARGET}>
-        {t("common.powered_by_salamruby")}
+        {t("common.powered_by_feedyruby")}
       </Link>
     </Container>
   );

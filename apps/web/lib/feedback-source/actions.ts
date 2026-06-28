@@ -1,10 +1,10 @@
 "use server";
 
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { logger } from "@salamruby/logger";
-import { ZId } from "@salamruby/types/common";
-import { AuthorizationError, InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { logger } from "@feedyruby/logger";
+import { ZId } from "@feedyruby/types/common";
+import { AuthorizationError, InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import {
   TFeedbackSourceWithMappings,
   THubFieldType,
@@ -12,7 +12,7 @@ import {
   ZFeedbackSourceFieldMappingCreateInput,
   ZFeedbackSourceUpdateInput,
   getHubFieldTypeFromElementType,
-} from "@salamruby/types/feedback-source";
+} from "@feedyruby/types/feedback-source";
 import { getResponseCountBySurveyId } from "@/lib/response/service";
 import { getSurvey } from "@/lib/survey/service";
 import { getElementsFromBlocks } from "@/lib/survey/utils";
@@ -114,7 +114,7 @@ const resolveSurveyMappings = async (
   });
 };
 
-const resolveSalamRubyMappingsInput = async (
+const resolveFeedyRubyMappingsInput = async (
   entries: { surveyId: string; elementIds: string[] }[]
 ): Promise<TMappingsInput> => {
   const allMappings = await Promise.all(
@@ -125,10 +125,10 @@ const resolveSalamRubyMappingsInput = async (
     throw new InvalidInputError("No supported survey questions selected for feedbackSource mapping");
   }
 
-  return { type: "salamruby_survey", mappings: flattenedMappings };
+  return { type: "feedyruby_survey", mappings: flattenedMappings };
 };
 
-const ZSalamRubySurveyMapping = z.object({
+const ZFeedyRubySurveyMapping = z.object({
   surveyId: ZId,
   elementIds: z.array(z.string()).min(1),
 });
@@ -150,16 +150,16 @@ const ZCreateFeedbackSourceWithMappingsAction = z
   .object({
     workspaceId: ZId,
     feedbackSourceInput: ZFeedbackSourceCreateInput,
-    salamrubyMappings: z.array(ZSalamRubySurveyMapping).optional(),
+    feedyrubyMappings: z.array(ZFeedyRubySurveyMapping).optional(),
     fieldMappings: z.array(ZFeedbackSourceFieldMappingCreateInput).optional(),
   })
   .superRefine((data, ctx) => {
-    if (data.feedbackSourceInput.type === "salamruby_survey") {
-      if (!data.salamrubyMappings?.length) {
+    if (data.feedbackSourceInput.type === "feedyruby_survey") {
+      if (!data.feedyrubyMappings?.length) {
         ctx.addIssue({
           code: "custom",
-          path: ["salamrubyMappings"],
-          message: "At least one survey mapping is required for SalamRuby feedbackSources",
+          path: ["feedyrubyMappings"],
+          message: "At least one survey mapping is required for FeedyRuby feedbackSources",
         });
       }
     } else if (data.feedbackSourceInput.type === "csv") {
@@ -204,11 +204,11 @@ export const createFeedbackSourceWithMappingsAction = authenticatedActionClient
 
     let mappingsInput: TMappingsInput | undefined;
 
-    const { salamrubyMappings, fieldMappings } = parsedInput;
+    const { feedyrubyMappings, fieldMappings } = parsedInput;
 
-    if (salamrubyMappings?.length) {
+    if (feedyrubyMappings?.length) {
       await Promise.all(
-        salamrubyMappings.map(async ({ surveyId }) => {
+        feedyrubyMappings.map(async ({ surveyId }) => {
           const orgId = await getOrganizationIdFromSurveyId(surveyId);
           if (orgId !== organizationId) {
             throw new AuthorizationError("You are not authorized to access this survey");
@@ -216,7 +216,7 @@ export const createFeedbackSourceWithMappingsAction = authenticatedActionClient
         })
       );
 
-      mappingsInput = await resolveSalamRubyMappingsInput(salamrubyMappings);
+      mappingsInput = await resolveFeedyRubyMappingsInput(feedyrubyMappings);
     } else if (fieldMappings?.length) {
       mappingsInput = {
         type: "field",
@@ -238,7 +238,7 @@ const ZUpdateFeedbackSourceWithMappingsAction = z.object({
   feedbackSourceId: ZId,
   workspaceId: ZId,
   feedbackSourceInput: ZFeedbackSourceUpdateInput,
-  salamrubyMappings: z.array(ZSalamRubySurveyMapping).min(1).optional(),
+  feedyrubyMappings: z.array(ZFeedyRubySurveyMapping).min(1).optional(),
   fieldMappings: z.array(ZFeedbackSourceFieldMappingCreateInput).optional(),
 });
 
@@ -271,9 +271,9 @@ export const updateFeedbackSourceWithMappingsAction = authenticatedActionClient
 
       let mappingsInput: TMappingsInput | undefined;
 
-      if (parsedInput.salamrubyMappings?.length) {
+      if (parsedInput.feedyrubyMappings?.length) {
         await Promise.all(
-          parsedInput.salamrubyMappings.map(async ({ surveyId }) => {
+          parsedInput.feedyrubyMappings.map(async ({ surveyId }) => {
             const orgId = await getOrganizationIdFromSurveyId(surveyId);
             if (orgId !== organizationId) {
               throw new AuthorizationError("You are not authorized to access this survey");
@@ -281,7 +281,7 @@ export const updateFeedbackSourceWithMappingsAction = authenticatedActionClient
           })
         );
 
-        mappingsInput = await resolveSalamRubyMappingsInput(parsedInput.salamrubyMappings);
+        mappingsInput = await resolveFeedyRubyMappingsInput(parsedInput.feedyrubyMappings);
       } else if (parsedInput.fieldMappings && parsedInput.fieldMappings.length > 0) {
         const feedbackSource = await prisma.feedbackSource.findUnique({
           where: { id: parsedInput.feedbackSourceId, workspaceId: parsedInput.workspaceId },
@@ -351,10 +351,10 @@ export const duplicateFeedbackSourceAction = authenticatedActionClient
 
       let mappingsInput: TMappingsInput | undefined;
 
-      if (source.type === "salamruby_survey" && source.salamrubyMappings.length > 0) {
+      if (source.type === "feedyruby_survey" && source.feedyrubyMappings.length > 0) {
         mappingsInput = {
-          type: "salamruby_survey",
-          mappings: source.salamrubyMappings.map((m) => ({
+          type: "feedyruby_survey",
+          mappings: source.feedyrubyMappings.map((m) => ({
             surveyId: m.surveyId,
             elementId: m.elementId,
             hubFieldType: m.hubFieldType,

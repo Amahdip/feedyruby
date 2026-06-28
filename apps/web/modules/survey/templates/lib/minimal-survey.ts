@@ -1,5 +1,5 @@
 import { TFunction } from "i18next";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { getDefaultEndingCard, getDefaultWelcomeCard } from "@/app/lib/survey-builder";
 
 export const getMinimalSurvey = (t: TFunction): TSurvey => ({

@@ -17,7 +17,7 @@ import {
   UnknownError,
   ValidationError,
   isExpectedError,
-} from "@salamruby/types/errors";
+} from "@feedyruby/types/errors";
 import { RequestBodyTooLargeError } from "@/app/lib/api/request-body";
 
 // Mock Sentry
@@ -26,7 +26,7 @@ vi.mock("@sentry/nextjs", () => ({
 }));
 
 // Mock logger — use plain functions for chained calls so vi.resetAllMocks() doesn't break them
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     withContext: () => ({ error: vi.fn() }),
     warn: vi.fn(),

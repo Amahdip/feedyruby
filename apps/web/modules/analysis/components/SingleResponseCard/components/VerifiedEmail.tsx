@@ -2,7 +2,7 @@
 
 import { MailIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { TResponseData } from "@salamruby/types/responses";
+import { TResponseData } from "@feedyruby/types/responses";
 
 interface VerifiedEmailProps {
   responseData: TResponseData;

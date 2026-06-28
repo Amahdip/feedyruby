@@ -3,8 +3,8 @@
 import { PlusIcon } from "lucide-react";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TSurvey, TSurveyEndScreenCard, TSurveyRedirectUrlCard } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+import { TSurvey, TSurveyEndScreenCard, TSurveyRedirectUrlCard } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { createI18nString, extractLanguageCodes, getLocalizedValue } from "@/lib/i18n/utils";
 import { headlineToRecall, recallToHeadline } from "@/lib/utils/recall";
 import { ElementFormInput } from "@/modules/survey/components/element-form-input";
@@ -189,7 +189,7 @@ export const EndScreenForm = ({
                           id="buttonLink"
                           name="buttonLink"
                           className={`relative text-black caret-black ${!isExternalUrlsAllowed ? "cursor-not-allowed opacity-50" : ""}`}
-                          placeholder="https://salamruby.com"
+                          placeholder="https://feedyruby.com"
                           value={
                             recallToHeadline(
                               {

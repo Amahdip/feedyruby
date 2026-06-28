@@ -1,9 +1,9 @@
 "use server";
 
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { AuthenticationError } from "@salamruby/types/errors";
-import { ZUserEmail, ZUserName } from "@salamruby/types/user";
+import { ZId } from "@feedyruby/types/common";
+import { AuthenticationError } from "@feedyruby/types/errors";
+import { ZUserEmail, ZUserName } from "@feedyruby/types/user";
 import { INVITE_DISABLED } from "@/lib/constants";
 import { authenticatedActionClient } from "@/lib/utils/action-client";
 import { checkAuthorizationUpdated } from "@/lib/utils/action-client/action-client-middleware";

@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { IntegrationType, Prisma } from "@salamruby/database/prisma";
-import { DatabaseError } from "@salamruby/types/errors";
-import { TIntegrationInput } from "@salamruby/types/integration";
+import { prisma } from "@feedyruby/database";
+import { IntegrationType, Prisma } from "@feedyruby/database/prisma";
+import { DatabaseError } from "@feedyruby/types/errors";
+import { TIntegrationInput } from "@feedyruby/types/integration";
 import { ITEMS_PER_PAGE } from "../constants";
 import {
   createOrUpdateIntegration,
@@ -12,7 +12,7 @@ import {
   getIntegrations,
 } from "./service";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     integration: {
       upsert: vi.fn(),

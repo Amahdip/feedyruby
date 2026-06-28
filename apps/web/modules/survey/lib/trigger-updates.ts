@@ -1,4 +1,4 @@
-import { InvalidInputError } from "@salamruby/types/errors";
+import { InvalidInputError } from "@feedyruby/types/errors";
 
 interface TriggerActionClass {
   id: string;

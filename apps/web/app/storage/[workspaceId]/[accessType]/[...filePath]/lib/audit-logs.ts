@@ -1,4 +1,4 @@
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { getOrganizationIdFromWorkspaceId } from "@/lib/utils/helper";
 import { queueAuditEvent } from "@/modules/ee/audit-logs/lib/handler";
 import { TAuditStatus, UNKNOWN_DATA } from "@/modules/ee/audit-logs/types/audit-log";

@@ -1,4 +1,4 @@
-import type { TSurvey as TInternalSurvey } from "@salamruby/types/surveys/types";
+import type { TSurvey as TInternalSurvey } from "@feedyruby/types/surveys/types";
 
 export type TV3SurveyResolverLanguage = {
   code: string;

@@ -6,7 +6,7 @@ import {
   workspaceIds,
 } from "./__mocks__/organization.mock";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 import {
   getAllWorkspaceIdsFromOrganizationId,
   getMonthlyOrganizationResponseCount,
@@ -17,7 +17,7 @@ import {
 type OrgFindUnique = Awaited<ReturnType<typeof prisma.organization.findUnique>>;
 type ResponseAggregate = Awaited<ReturnType<typeof prisma.response.aggregate>>;
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     organization: {
       findFirst: vi.fn(),

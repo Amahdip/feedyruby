@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ZResponse } from "@salamruby/database/zod/responses";
+import { ZResponse } from "@feedyruby/database/zod/responses";
 import { ZGetFilter } from "@/modules/api/v2/types/api-filter";
 
 export const ZGetResponsesFilter = ZGetFilter.extend({

@@ -43,7 +43,7 @@ export function FeedbackSourceTypeSelector({
       <div className="space-y-2">
         {feedbackSourceOptions.map((option) => {
           const showNoSurveysAlert =
-            surveyCount === 0 && option.id === "salamruby_survey" && selectedType === "salamruby_survey";
+            surveyCount === 0 && option.id === "feedyruby_survey" && selectedType === "feedyruby_survey";
           const showApiIngestionSetupAlert =
             option.id === "api_ingestion" && selectedType === "api_ingestion";
           return (
@@ -75,7 +75,7 @@ export function FeedbackSourceTypeSelector({
                   )}
                 </div>
               </button>
-              {showNoSurveysAlert && <NoSalamRubySurveysAlert workspaceId={workspaceId} />}
+              {showNoSurveysAlert && <NoFeedyRubySurveysAlert workspaceId={workspaceId} />}
               {showApiIngestionSetupAlert && <ApiIngestionSetupAlert />}
             </div>
           );
@@ -85,7 +85,7 @@ export function FeedbackSourceTypeSelector({
         <AlertTitle>{t("workspace.unify.missing_feedback_source_title")}</AlertTitle>
         <AlertButton asChild>
           <Link
-            href="https://app.salamruby.com/s/cmob8tub9s2ndu5010ei4it0g"
+            href="https://app.feedyruby.com/s/cmob8tub9s2ndu5010ei4it0g"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-900 hover:underline">
@@ -111,12 +111,12 @@ const ApiIngestionSetupAlert = () => {
   );
 };
 
-const NoSalamRubySurveysAlert = ({ workspaceId }: Readonly<{ workspaceId: string }>) => {
+const NoFeedyRubySurveysAlert = ({ workspaceId }: Readonly<{ workspaceId: string }>) => {
   return (
     <Alert variant="info" size="small">
       <AlertDescription className="overflow-visible whitespace-normal">
         <Trans
-          i18nKey="workspace.unify.no_salamruby_surveys_available_description"
+          i18nKey="workspace.unify.no_feedyruby_surveys_available_description"
           components={{
             surveyLink: (
               <Link href={`/workspaces/${workspaceId}/surveys/templates`} className="font-medium underline" />

@@ -1,4 +1,4 @@
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import type { CacheKey } from "@/types/keys";
 
 /**

@@ -1,7 +1,7 @@
 import "server-only";
 import type { RedisClientType } from "redis";
-import { getCacheService } from "@salamruby/cache";
-import { logger } from "@salamruby/logger";
+import { getCacheService } from "@feedyruby/cache";
+import { logger } from "@feedyruby/logger";
 
 type CacheResult<T, E = { code: string }> = { ok: true; data: T } | { ok: false; error: E };
 

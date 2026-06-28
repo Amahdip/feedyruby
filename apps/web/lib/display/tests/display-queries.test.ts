@@ -1,9 +1,9 @@
 import { mockDisplayId, mockSurveyId } from "./__mocks__/data.mock";
 import { prisma } from "@/lib/__mocks__/database";
 import { describe, expect, test, vi } from "vitest";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { DatabaseError, InvalidInputError, ValidationError } from "@salamruby/types/errors";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { DatabaseError, InvalidInputError, ValidationError } from "@feedyruby/types/errors";
 import {
   assertDisplayOwnership,
   getDisplayCountBySurveyId,

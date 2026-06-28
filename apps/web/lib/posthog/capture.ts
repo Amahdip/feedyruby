@@ -1,5 +1,5 @@
 import "server-only";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { posthogServerClient } from "./server";
 
 type PostHogEventProperties = Record<string, string | number | boolean | null | undefined>;

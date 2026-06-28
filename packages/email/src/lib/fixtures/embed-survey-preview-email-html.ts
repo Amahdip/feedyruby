@@ -50,7 +50,7 @@ export const embedSurveyPreviewEmailHtml = `
                     <tr>
                       <td>
                         <a
-                          href="https://app.salamruby.com/s/embed-survey-preview?preview=true&amp;embed-survey-preview-question=embed-survey-preview-choice-apples&amp;skipPrefilled=true"
+                          href="https://app.feedyruby.ir/s/embed-survey-preview?preview=true&amp;embed-survey-preview-question=embed-survey-preview-choice-apples&amp;skipPrefilled=true"
                           style="color:#1f2937 !important;text-decoration-line:none;background-color:#ffffff !important;border-color:rgb(214,228,220);display:block;border-radius:8px;border-style:solid;border-width:1px;padding-right:16px;padding-left:16px;padding-bottom:16px;padding-top:16px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:1.25rem;background:#ffffff !important;color-scheme:only light;border:1px solid #d6e4dc !important;text-decoration:none"
                           target="_blank"
                           ><span
@@ -74,7 +74,7 @@ export const embedSurveyPreviewEmailHtml = `
                     <tr>
                       <td>
                         <a
-                          href="https://app.salamruby.com/s/embed-survey-preview?preview=true&amp;embed-survey-preview-question=embed-survey-preview-choice-bananas&amp;skipPrefilled=true"
+                          href="https://app.feedyruby.ir/s/embed-survey-preview?preview=true&amp;embed-survey-preview-question=embed-survey-preview-choice-bananas&amp;skipPrefilled=true"
                           style="color:#1f2937 !important;text-decoration-line:none;background-color:#ffffff !important;border-color:rgb(214,228,220);display:block;border-radius:8px;border-style:solid;border-width:1px;padding-right:16px;padding-left:16px;padding-bottom:16px;padding-top:16px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:1.25rem;background:#ffffff !important;color-scheme:only light;border:1px solid #d6e4dc !important;text-decoration:none"
                           target="_blank"
                           ><span
@@ -98,7 +98,7 @@ export const embedSurveyPreviewEmailHtml = `
                     <tr>
                       <td>
                         <a
-                          href="https://app.salamruby.com/s/embed-survey-preview?preview=true&amp;embed-survey-preview-question=embed-survey-preview-choice-pineapples&amp;skipPrefilled=true"
+                          href="https://app.feedyruby.ir/s/embed-survey-preview?preview=true&amp;embed-survey-preview-question=embed-survey-preview-choice-pineapples&amp;skipPrefilled=true"
                           style="color:#1f2937 !important;text-decoration-line:none;background-color:#ffffff !important;border-color:rgb(214,228,220);display:block;border-radius:8px;border-style:solid;border-width:1px;padding-right:16px;padding-left:16px;padding-bottom:16px;padding-top:16px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:1.25rem;background:#ffffff !important;color-scheme:only light;border:1px solid #d6e4dc !important;text-decoration:none"
                           target="_blank"
                           ><span
@@ -131,7 +131,7 @@ export const embedSurveyPreviewEmailHtml = `
                   href="${WEBAPP_URL}?utm_source=email_branding"
                   style="color:#4c545f !important;text-decoration-line:none;font-size:0.75rem;line-height:1.3333333333333333;color-scheme:only light;font-family:Inter, Helvetica, Arial, sans-serif"
                   target="_blank"
-                  >Powered by salamruby</a
+                  >Powered by FeedyRuby</a
                 >
               </td>
             </tr>

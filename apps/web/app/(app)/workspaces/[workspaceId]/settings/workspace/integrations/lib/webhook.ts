@@ -1,8 +1,8 @@
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { Prisma, Webhook } from "@salamruby/database/prisma";
-import { ZId } from "@salamruby/types/common";
-import { DatabaseError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma, Webhook } from "@feedyruby/database/prisma";
+import { ZId } from "@feedyruby/types/common";
+import { DatabaseError } from "@feedyruby/types/errors";
 import { validateInputs } from "@/lib/utils/validate";
 
 export const getWebhookCountBySource = async (

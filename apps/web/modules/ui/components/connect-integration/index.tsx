@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Trans, useTranslation } from "react-i18next";
-import { TIntegrationType } from "@salamruby/types/integration";
+import { TIntegrationType } from "@feedyruby/types/integration";
 import { Button } from "@/modules/ui/components/button";
 import { FeedyRubyMark } from "@/modules/ui/components/feedyruby-brand";
 import { getIntegrationDetails } from "./lib/utils";

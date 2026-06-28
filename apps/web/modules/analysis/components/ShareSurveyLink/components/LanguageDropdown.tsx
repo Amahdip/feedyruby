@@ -1,8 +1,8 @@
 import { Languages } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { getLanguageLabel } from "@salamruby/i18n-utils/src/utils";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+import { getLanguageLabel } from "@feedyruby/i18n-utils/src/utils";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { getEnabledLanguages } from "@/lib/i18n/utils";
 import { Button } from "@/modules/ui/components/button";
 import {

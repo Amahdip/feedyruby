@@ -1,9 +1,9 @@
 "use server";
 
 import { z } from "zod";
-import { ZChartQuery } from "@salamruby/types/analysis";
-import { ZId } from "@salamruby/types/common";
-import { OperationNotAllowedError } from "@salamruby/types/errors";
+import { ZChartQuery } from "@feedyruby/types/analysis";
+import { ZId } from "@feedyruby/types/common";
+import { OperationNotAllowedError } from "@feedyruby/types/errors";
 import { authenticatedActionClient } from "@/lib/utils/action-client";
 import { AuthenticatedActionClientCtx } from "@/lib/utils/action-client/types/context";
 import { executeTenantScopedQuery } from "@/modules/ee/analysis/api/lib/cube-client";

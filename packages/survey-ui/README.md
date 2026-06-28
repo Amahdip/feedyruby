@@ -1,13 +1,13 @@
-# @salamruby/survey-ui
+# @feedyruby/survey-ui
 
 React UI components for building surveys and forms. Includes NPS, rating scales, multi-select, file upload, and more.
 
-![Survey UI Preview](https://cdn.jsdelivr.net/gh/salamruby/salamruby@main/packages/survey-ui/images/survey-preview.png)
+![Survey UI Preview](https://cdn.jsdelivr.net/gh/feedyruby/feedyruby@main/packages/survey-ui/images/survey-preview.png)
 
 ## Installation
 
 ```bash
-npm install @salamruby/survey-ui
+npm install @feedyruby/survey-ui
 ```
 
 **Requirements:** React 19 (`react@^19.0.0`)
@@ -15,8 +15,8 @@ npm install @salamruby/survey-ui
 ## Quick Start
 
 ```tsx
-import { OpenText, Rating } from "@salamruby/survey-ui";
-import "@salamruby/survey-ui/styles";
+import { OpenText, Rating } from "@feedyruby/survey-ui";
+import "@feedyruby/survey-ui/styles";
 
 function Survey() {
   return (
@@ -217,9 +217,9 @@ import {
   SingleSelect,
   type SingleSelectOption,
   type SingleSelectProps,
-} from "@salamruby/survey-ui";
+} from "@feedyruby/survey-ui";
 ```
 
 ## License
 
-MIT — [SalamRuby](https://salamruby.com)
+MIT — [FeedyRuby](https://feedyruby.com)

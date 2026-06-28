@@ -1,4 +1,4 @@
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import type { JobHandler } from "@/src/contracts";
 import type { TTestLogJobData } from "@/src/types";
 

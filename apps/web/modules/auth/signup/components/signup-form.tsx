@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import Turnstile, { useTurnstile } from "react-turnstile";
 import { z } from "zod";
-import { TUserLocale, ZUserName, ZUserPassword } from "@salamruby/types/user";
+import { TUserLocale, ZUserName, ZUserPassword } from "@feedyruby/types/user";
 import { getFormattedErrorMessage } from "@/lib/utils/helper";
 import { buildVerificationRequestedPath } from "@/modules/auth/lib/verification-links";
 import { createUserAction } from "@/modules/auth/signup/actions";
@@ -50,7 +50,7 @@ interface SignupFormProps {
   samlTenant: string;
   samlProduct: string;
   turnstileSiteKey?: string;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
 }
 
 export const SignupForm = ({
@@ -72,7 +72,7 @@ export const SignupForm = ({
   samlTenant,
   samlProduct,
   turnstileSiteKey,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
 }: SignupFormProps) => {
   const [showLogin, setShowLogin] = useState(false);
   const searchParams = useSearchParams();
@@ -176,11 +176,12 @@ export const SignupForm = ({
                               value={field.value}
                               name="name"
                               autoFocus
+                              dir="auto"
                               onChange={(e) => field.onChange(e.target.value)}
                               placeholder="Full name"
                               className="bg-white"
                             />
-                            {error?.message && <FormError className="text-left">{error.message}</FormError>}
+                            {error?.message && <FormError className="text-start">{error.message}</FormError>}
                           </div>
                         </FormControl>
                       </FormItem>
@@ -197,11 +198,12 @@ export const SignupForm = ({
                               data-testid="signup-email"
                               value={field.value}
                               name="email"
+                              dir="ltr"
                               onChange={(e) => field.onChange(e.target.value)}
                               placeholder="work@email.com"
                               className="bg-white"
                             />
-                            {error?.message && <FormError className="text-left">{error.message}</FormError>}
+                            {error?.message && <FormError className="text-start">{error.message}</FormError>}
                           </div>
                         </FormControl>
                       </FormItem>
@@ -226,7 +228,7 @@ export const SignupForm = ({
                               required
                               className="block w-full rounded-md shadow-sm focus:border-brand-dark focus:ring-brand-dark sm:text-sm"
                             />
-                            {error?.message && <FormError className="text-left">{error.message}</FormError>}
+                            {error?.message && <FormError className="text-start">{error.message}</FormError>}
                           </div>
                         </FormControl>
                       </FormItem>
@@ -250,10 +252,10 @@ export const SignupForm = ({
             )}
 
             {showLogin &&
-              (isSalamRubyCloud ? (
+              (isFeedyRubyCloud ? (
                 <label
                   htmlFor="product-updates"
-                  className="my-4 flex cursor-pointer gap-x-2 rounded-md border border-slate-200 bg-slate-100 p-2 text-left">
+                  className="my-4 flex cursor-pointer gap-x-2 rounded-md border border-slate-200 bg-slate-100 p-2 text-start">
                   <Checkbox
                     id="product-updates"
                     checked={subscribeToProductUpdates}
@@ -270,7 +272,7 @@ export const SignupForm = ({
               ) : (
                 <label
                   htmlFor="security-updates"
-                  className="my-4 flex cursor-pointer gap-x-2 rounded-md border border-slate-200 bg-slate-100 p-2 text-left">
+                  className="my-4 flex cursor-pointer gap-x-2 rounded-md border border-slate-200 bg-slate-100 p-2 text-start">
                   <Checkbox
                     id="security-updates"
                     checked={subscribeToSecurityUpdates}

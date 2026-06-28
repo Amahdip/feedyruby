@@ -1,7 +1,7 @@
-import { Prisma } from "@salamruby/database/prisma";
-import { DatabaseError, UnknownError } from "@salamruby/types/errors";
-import { TIntegration, TIntegrationItem } from "@salamruby/types/integration";
-import { TIntegrationSlackCredential } from "@salamruby/types/integration/slack";
+import { Prisma } from "@feedyruby/database/prisma";
+import { DatabaseError, UnknownError } from "@feedyruby/types/errors";
+import { TIntegration, TIntegrationItem } from "@feedyruby/types/integration";
+import { TIntegrationSlackCredential } from "@feedyruby/types/integration/slack";
 import { SLACK_MESSAGE_LIMIT } from "../constants";
 import { deleteIntegration, getIntegrationByType } from "../integration/service";
 import { truncateText } from "../utils/strings";

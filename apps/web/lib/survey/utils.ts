@@ -1,15 +1,15 @@
 import "server-only";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
-import { InvalidInputError } from "@salamruby/types/errors";
-import { TJsWorkspaceStateSurvey } from "@salamruby/types/js";
-import { TSegment } from "@salamruby/types/segment";
-import { TSurveyBlock } from "@salamruby/types/surveys/blocks";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
+import { InvalidInputError } from "@feedyruby/types/errors";
+import { TJsWorkspaceStateSurvey } from "@feedyruby/types/js";
+import { TSegment } from "@feedyruby/types/segment";
+import { TSurveyBlock } from "@feedyruby/types/surveys/blocks";
 import {
   TSurveyElement,
   TSurveyElementTypeEnum,
   TSurveyPictureChoice,
-} from "@salamruby/types/surveys/elements";
-import { TSurvey, TSurveyQuestion, TSurveyQuestionTypeEnum } from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/surveys/elements";
+import { TSurvey, TSurveyQuestion, TSurveyQuestionTypeEnum } from "@feedyruby/types/surveys/types";
 import { isValidVideoUrl } from "@/lib/utils/video-upload";
 import { isValidImageFile } from "@/modules/storage/utils";
 

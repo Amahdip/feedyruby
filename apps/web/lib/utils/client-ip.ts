@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 
 export async function getClientIpFromHeaders(): Promise<string> {
   let headersList: Headers;

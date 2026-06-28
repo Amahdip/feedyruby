@@ -1,6 +1,6 @@
 import { ZodRawShape, z } from "zod";
-import { logger } from "@salamruby/logger";
-import { TAuthenticationApiKey } from "@salamruby/types/auth";
+import { logger } from "@feedyruby/logger";
+import { TAuthenticationApiKey } from "@feedyruby/types/auth";
 import { RequestBodyTooLargeError, parseJsonBodyWithLimit } from "@/app/lib/api/request-body";
 import { TApiAuditLog } from "@/app/lib/api/with-api-logging";
 import { formatZodError, handleApiError } from "@/modules/api/v2/lib/utils";

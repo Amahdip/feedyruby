@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { TContactAttributeKey } from "@salamruby/types/contact-attribute-key";
+import { TContactAttributeKey } from "@feedyruby/types/contact-attribute-key";
 import {
   TIntegrationNotion,
   TIntegrationNotionConfigData,
   TIntegrationNotionDatabase,
-} from "@salamruby/types/integration/notion";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+} from "@feedyruby/types/integration/notion";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { AddIntegrationModal } from "@/app/(app)/workspaces/[workspaceId]/settings/workspace/integrations/notion/components/AddIntegrationModal";
 import { ManageIntegration } from "@/app/(app)/workspaces/[workspaceId]/settings/workspace/integrations/notion/components/ManageIntegration";
 import notionLogo from "@/images/notion.png";

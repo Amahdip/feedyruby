@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { verifyPassword } from "@/modules/auth/lib/utils";
 import { getUserAuthenticationData, verifyUserPassword } from "./password";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     user: {
       findUnique: vi.fn(),

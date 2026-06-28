@@ -3,11 +3,11 @@
 import { ArrowDownUpIcon } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TDisplay } from "@salamruby/types/displays";
-import { TResponseWithQuotas } from "@salamruby/types/responses";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TTag } from "@salamruby/types/tags";
-import { TUser, TUserLocale } from "@salamruby/types/user";
+import { TDisplay } from "@feedyruby/types/displays";
+import { TResponseWithQuotas } from "@feedyruby/types/responses";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TTag } from "@feedyruby/types/tags";
+import { TUser, TUserLocale } from "@feedyruby/types/user";
 import { useMembershipRole } from "@/lib/membership/hooks/useMembershipRole";
 import { getAccessFlags } from "@/lib/membership/utils";
 import { getTeamPermissionFlags } from "@/modules/ee/teams/utils/teams";

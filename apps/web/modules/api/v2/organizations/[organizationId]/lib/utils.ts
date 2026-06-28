@@ -1,6 +1,6 @@
-import { logger } from "@salamruby/logger";
-import { OrganizationAccessType } from "@salamruby/types/api-key";
-import { TAuthenticationApiKey } from "@salamruby/types/auth";
+import { logger } from "@feedyruby/logger";
+import { OrganizationAccessType } from "@feedyruby/types/api-key";
+import { TAuthenticationApiKey } from "@feedyruby/types/auth";
 import { hasOrganizationAccess } from "@/modules/organization/settings/api-keys/lib/utils";
 
 export const hasOrganizationIdAndAccess = (

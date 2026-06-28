@@ -1,6 +1,6 @@
 # Accessibility
 
-SalamRuby is committed to making our platform usable by everyone, including people who rely on assistive technologies.
+FeedyRuby is committed to making our platform usable by everyone, including people who rely on assistive technologies.
 
 ## Standards
 
@@ -12,8 +12,8 @@ We aim to conform to:
 
 ## Priorities
 
-1. **End-user surveys** (`packages/surveys`) — everything respondents see and interact with. This is our highest priority because survey takers don't choose SalamRuby; the organisations running surveys choose for them.
-2. **Admin app** (`apps/web`) — survey creation, response analysis, and team management used by SalamRuby customers.
+1. **End-user surveys** (`packages/surveys`) — everything respondents see and interact with. This is our highest priority because survey takers don't choose FeedyRuby; the organisations running surveys choose for them.
+2. **Admin app** (`apps/web`) — survey creation, response analysis, and team management used by FeedyRuby customers.
 
 In both areas we focus on:
 
@@ -38,7 +38,7 @@ When contributing UI changes:
 
 ## Reporting Accessibility Issues
 
-If you encounter an accessibility barrier, please [open an issue](https://github.com/salamruby/salamruby/issues/new?labels=accessibility&template=accessibility.yml) using the accessibility template. For blocking issues in a procurement or compliance context, email **[hola@salamruby.com](mailto:hola@salamruby.com)**.
+If you encounter an accessibility barrier, please [open an issue](https://github.com/feedyruby/feedyruby/issues/new?labels=accessibility&template=accessibility.yml) using the accessibility template. For blocking issues in a procurement or compliance context, email **[hola@feedyruby.com](mailto:hola@feedyruby.com)**.
 
 ## Resources
 

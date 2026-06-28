@@ -1,19 +1,19 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@salamruby/ai",
+  "name": "@feedyruby/ai",
   "private": true,
   "type": "module",
   "version": "0.1.0",
-  "homepage": "https://salamruby.com",
-  "description": "Shared AI provider configuration and model resolution for SalamRuby",
+  "homepage": "https://feedyruby.com",
+  "description": "Shared AI provider configuration and model resolution for FeedyRuby",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/salamruby/salamruby"
+    "url": "https://github.com/feedyruby/feedyruby"
   },
   "keywords": [
-    "SalamRuby",
+    "FeedyRuby",
     "ai",
     "llm",
     "providers"
@@ -35,20 +35,20 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage"
   },
-  "author": "SalamRuby <hola@salamruby.com>",
+  "author": "FeedyRuby <hola@feedyruby.com>",
   "dependencies": {
     "@ai-sdk/amazon-bedrock": "4.0.104",
     "@ai-sdk/azure": "3.0.64",
     "@ai-sdk/google-vertex": "4.0.126",
     "@ai-sdk/openai-compatible": "2.0.48",
     "@aws-sdk/credential-providers": "3.1017.0",
-    "@salamruby/logger": "workspace:*",
-    "@salamruby/types": "workspace:*",
+    "@feedyruby/logger": "workspace:*",
+    "@feedyruby/types": "workspace:*",
     "ai": "6.0.177"
   },
   "devDependencies": {
-    "@salamruby/config-typescript": "workspace:*",
-    "@salamruby/eslint-config": "workspace:*",
+    "@feedyruby/config-typescript": "workspace:*",
+    "@feedyruby/eslint-config": "workspace:*",
     "@vitest/coverage-v8": "4.1.6",
     "vite": "8.0.12",
     "vitest": "4.1.6"

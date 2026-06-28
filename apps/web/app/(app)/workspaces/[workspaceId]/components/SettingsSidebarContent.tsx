@@ -23,7 +23,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import { TOrganizationRole } from "@salamruby/types/memberships";
+import { TOrganizationRole } from "@feedyruby/types/memberships";
 import { HIDE_APP_SURVEY_TYPE, HIDE_ENTERPRISE_SETTINGS, HIDE_UNIFY_FEEDBACK } from "@/lib/brand-color";
 import { cn } from "@/lib/cn";
 import { getAccessFlags } from "@/lib/membership/utils";
@@ -43,7 +43,7 @@ interface SettingsSidebarContentProps {
   organizationId: string;
   organizationName: string;
   membershipRole?: TOrganizationRole;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   isCollapsed: boolean;
   isTextVisible: boolean;
   // Workspace switcher
@@ -225,7 +225,7 @@ export const SettingsSidebarContent = ({
   organizationId,
   organizationName,
   membershipRole,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   isCollapsed,
   isTextVisible,
   workspaces,
@@ -348,21 +348,21 @@ export const SettingsSidebarContent = ({
       label: t("common.domain"),
       href: `${basePath}/organization/domain`,
       icon: <GlobeIcon className={iconClassName} />,
-      hidden: isSalamRubyCloud,
+      hidden: isFeedyRubyCloud,
     },
     {
       id: "org-billing",
       label: t("common.billing"),
       href: `${basePath}/organization/billing`,
       icon: <CreditCardIcon className={iconClassName} />,
-      hidden: !isSalamRubyCloud,
+      hidden: !isFeedyRubyCloud,
     },
     {
       id: "org-enterprise",
       label: t("common.enterprise_license"),
       href: `${basePath}/organization/enterprise`,
       icon: <ShieldIcon className={iconClassName} />,
-      hidden: isSalamRubyCloud || HIDE_ENTERPRISE_SETTINGS,
+      hidden: isFeedyRubyCloud || HIDE_ENTERPRISE_SETTINGS,
       disabled: isMember || isBilling,
     },
   ];

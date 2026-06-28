@@ -1,6 +1,6 @@
-import { logger } from "@salamruby/logger";
-import { ZId } from "@salamruby/types/common";
-import { TUserEmail, ZUserEmail } from "@salamruby/types/user";
+import { logger } from "@feedyruby/logger";
+import { ZId } from "@feedyruby/types/common";
+import { TUserEmail, ZUserEmail } from "@feedyruby/types/user";
 import { BREVO_API_KEY, BREVO_LIST_ID } from "@/lib/constants";
 import { validateInputs } from "@/lib/utils/validate";
 

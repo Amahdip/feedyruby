@@ -1,14 +1,14 @@
 ---
 title: "Google Tag Manager"
-description: "Deploy SalamRuby surveys through GTM without modifying your website code."
+description: "Deploy FeedyRuby surveys through GTM without modifying your website code."
 icon: "tags"
 ---
 
 ## Prerequisites
 
 - [Google Tag Manager](https://tagmanager.google.com/) installed on your website
-- Your SalamRuby **Workspace ID** (Settings > Connect Your App)
-- Your **App URL**: `https://app.salamruby.com` (or your self-hosted URL)
+- Your FeedyRuby **Workspace ID** (Settings > Connect Your App)
+- Your **App URL**: `https://app.feedyruby.com` (or your self-hosted URL)
 
 <Note>
  Use PUBLIC_URL for multi-domain setups, WEBAPP_URL for single-domain setups.
@@ -18,7 +18,7 @@ icon: "tags"
 
 <Steps>
   <Step title="Create a Custom HTML tag in GTM">
-    1. Create a new tag with preferred name e.g. "SalamRuby Intercept Surveys"
+    1. Create a new tag with preferred name e.g. "FeedyRuby Intercept Surveys"
     2. Tag Type: Custom HTML
     3. Paste the code from Step 2. Make sure to replace `<your-workspace-id>` and if you self-host, replace `<your-app-url>`
   </Step>
@@ -28,14 +28,14 @@ icon: "tags"
 ```html
 <script type="text/javascript">
 !function(){
-    var appUrl = "https://app.salamruby.com"; // REPLACE ONLY IF YOUR SELF-HOST
+    var appUrl = "https://app.feedyruby.com"; // REPLACE ONLY IF YOUR SELF-HOST
     var workspaceId = "<your-workspace-id>"; // REPLACE
     var t=document.createElement("script");
     t.type="text/javascript";
     t.async=!0;
-    t.src=appUrl+"/js/salamruby.umd.cjs";
+    t.src=appUrl+"/js/feedyruby.umd.cjs";
     t.onload=function(){
-        window.salamruby && window.salamruby.setup({
+        window.feedyruby && window.feedyruby.setup({
             workspaceId: workspaceId,
             appUrl: appUrl
         });
@@ -60,7 +60,7 @@ icon: "tags"
   <Step title="Test">
     1. Use GTM Preview mode
     2. Verify the tag fires
-    3. Add `?salamrubyDebug=true` to the URL to see test logs in browser console (see [Debugging Mode](/xm-and-surveys/surveys/website-app-surveys/framework-guides#debugging-salamruby-integration) for more details)
+    3. Add `?feedyrubyDebug=true` to the URL to see test logs in browser console (see [Debugging Mode](/xm-and-surveys/surveys/website-app-surveys/framework-guides#debugging-feedyruby-integration) for more details)
   </Step>
 </Steps>
 
@@ -70,7 +70,7 @@ icon: "tags"
 Identify users to enable targeting and attributes. Learn more about [user identification](/xm-and-surveys/surveys/website-app-surveys/user-identification).
 
 <Note>
-  User identification is part of the SalamRuby [Enterprise Edition](/self-hosting/advanced/license). 
+  User identification is part of the FeedyRuby [Enterprise Edition](/self-hosting/advanced/license). 
 </Note>
 
 <Steps>
@@ -87,22 +87,22 @@ Identify users to enable targeting and attributes. Learn more about [user identi
   </Step>
 
   <Step title="Create identification tag">
-    New Custom HTML tag named "SalamRuby - User":
+    New Custom HTML tag named "FeedyRuby - User":
 
 ```html
 <script>
 (function() {
     var check = setInterval(function() {
-        if (window.salamruby && window.salamruby.setUserId) {
+        if (window.feedyruby && window.feedyruby.setUserId) {
             clearInterval(check);
             var userId = {{User ID}};
             if (userId) {
-                window.salamruby.setUserId(userId);
+                window.feedyruby.setUserId(userId);
                 var attrs = {};
                 if ({{User Email}}) attrs.email = {{User Email}};
                 if ({{User Plan}}) attrs.plan = {{User Plan}};
                 if (Object.keys(attrs).length) {
-                    window.salamruby.setAttributes(attrs);
+                    window.feedyruby.setAttributes(attrs);
                 }
             }
         }
@@ -118,7 +118,7 @@ Identify users to enable targeting and attributes. Learn more about [user identi
     1. Create a custom event trigger in GTM
     2. Trigger Type: Custom Event
     3. Event name: `user-login` (or your preferred event name)
-    4. Attach this trigger to your "SalamRuby - User" tag
+    4. Attach this trigger to your "FeedyRuby - User" tag
     5. Save and publish
 
     ![User Login Trigger](/images/xm-and-surveys/surveys/website-app-surveys/google-tag-manager/user-login-trigger.webp)
@@ -141,8 +141,8 @@ window.dataLayer.push({
 ## Track Custom Events
 
 <Steps>
-  <Step title="Create code action in SalamRuby">
-    Add code action via SalamRuby UI
+  <Step title="Create code action in FeedyRuby">
+    Add code action via FeedyRuby UI
 
     ![Add a code action to open source in app survey](/images/xm-and-surveys/surveys/website-app-surveys/actions/code-action.webp "Add a code action to open source in app survey")
   </Step>
@@ -164,8 +164,8 @@ window.dataLayer.push({
 
 ```html
 <script>
-if (window.salamruby && window.salamruby.track) {
-    window.salamruby.track({{Event Name}});
+if (window.feedyruby && window.feedyruby.track) {
+    window.feedyruby.track({{Event Name}});
 }
 </script>
 ```
@@ -200,7 +200,7 @@ window.dataLayer.push({
 
 **Surveys not showing?**
 - Use GTM Preview mode to check tag firing
-- Add `?salamrubyDebug=true` to your URL
+- Add `?feedyrubyDebug=true` to your URL
 - Check browser console for errors
 - Wait 1 minute for the Server Cache to refresh
 
@@ -210,13 +210,13 @@ window.dataLayer.push({
 - Ensure user tag fires after initialization
 
 **Events not tracking?**
-- Confirm `window.salamruby` exists before calling track
-- Match event names exactly with SalamRuby action names
-- Check timing - SalamRuby must be initialized first
+- Confirm `window.feedyruby` exists before calling track
+- Match event names exactly with FeedyRuby action names
+- Check timing - FeedyRuby must be initialized first
 
 ## Need Help?
 
-- [GitHub Discussions](https://github.com/salamruby/salamruby/discussions)
+- [GitHub Discussions](https://github.com/feedyruby/feedyruby/discussions)
 - [Framework Guides](/xm-and-surveys/surveys/website-app-surveys/framework-guides)
 - [Actions](/xm-and-surveys/surveys/website-app-surveys/actions)
 - [User Identification](/xm-and-surveys/surveys/website-app-surveys/user-identification)

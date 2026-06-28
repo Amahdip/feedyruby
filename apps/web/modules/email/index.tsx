@@ -11,15 +11,15 @@ import {
   renderPasswordResetNotifyEmail,
   renderResponseFinishedEmail,
   renderVerificationEmail,
-} from "@salamruby/email";
-import { TEmailTemplateLegalProps } from "@salamruby/email/src/types/email";
-import { logger } from "@salamruby/logger";
-import type { TLinkSurveyEmailData } from "@salamruby/types/email";
-import { InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
-import type { TResponse } from "@salamruby/types/responses";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import type { TSurvey } from "@salamruby/types/surveys/types";
-import { TUserEmail, TUserLocale } from "@salamruby/types/user";
+} from "@feedyruby/email";
+import { TEmailTemplateLegalProps } from "@feedyruby/email/src/types/email";
+import { logger } from "@feedyruby/logger";
+import type { TLinkSurveyEmailData } from "@feedyruby/types/email";
+import { InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import type { TResponse } from "@feedyruby/types/responses";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import type { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUserEmail, TUserLocale } from "@feedyruby/types/user";
 import {
   DEBUG,
   IMPRINT_ADDRESS,
@@ -98,7 +98,7 @@ export const sendEmail = async (emailData: SendEmailDataProps): Promise<boolean>
     } as SMTPTransport.Options);
 
     const emailDefaults = {
-      from: `${MAIL_FROM_NAME ?? "SalamRuby"} <${MAIL_FROM ?? "noreply@salamruby.com"}>`,
+      from: `${MAIL_FROM_NAME ?? "FeedyRuby"} <${MAIL_FROM ?? "noreply@feedyruby.com"}>`,
     };
     await transporter.sendMail({ ...emailDefaults, ...emailData });
 

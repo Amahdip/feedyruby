@@ -1157,7 +1157,7 @@ describe("utils.ts", () => {
 
     test("returns true if debug parameter is set", () => {
       Object.defineProperty(window, "location", {
-        value: { search: "?salamrubyDebug=true" },
+        value: { search: "?feedyrubyDebug=true" },
         writable: true,
       });
       expect(getIsDebug()).toBe(true);

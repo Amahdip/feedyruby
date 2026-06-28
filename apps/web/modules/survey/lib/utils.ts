@@ -1,8 +1,8 @@
 import "server-only";
-import { Prisma } from "@salamruby/database/prisma";
-import { TJsWorkspaceStateSurvey } from "@salamruby/types/js";
-import { TSegment } from "@salamruby/types/segment";
-import { TSurvey, TSurveyFilterCriteria } from "@salamruby/types/surveys/types";
+import { Prisma } from "@feedyruby/database/prisma";
+import { TJsWorkspaceStateSurvey } from "@feedyruby/types/js";
+import { TSegment } from "@feedyruby/types/segment";
+import { TSurvey, TSurveyFilterCriteria } from "@feedyruby/types/surveys/types";
 
 export const transformPrismaSurvey = <T extends TSurvey | TJsWorkspaceStateSurvey>(surveyPrisma: any): T => {
   let segment: TSegment | null = null;

@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import type { JSX } from "react";
-import { type TPlacement } from "@salamruby/types/common";
-import { type TJsWorkspaceStateSurvey } from "@salamruby/types/js";
-import { type TCardArrangementOptions } from "@salamruby/types/styling";
-import { TSurveyStyling } from "@salamruby/types/surveys/types";
-import { type TWorkspaceStyling } from "@salamruby/types/workspace";
+import { type TPlacement } from "@feedyruby/types/common";
+import { type TJsWorkspaceStateSurvey } from "@feedyruby/types/js";
+import { type TCardArrangementOptions } from "@feedyruby/types/styling";
+import { TSurveyStyling } from "@feedyruby/types/surveys/types";
+import { type TWorkspaceStyling } from "@feedyruby/types/workspace";
 import { cn } from "@/lib/utils";
 import { StackedCard } from "./stacked-card";
 

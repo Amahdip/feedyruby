@@ -12,12 +12,12 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: "salamrubyJobs",
+      name: "feedyrubyJobs",
       fileName: "index",
       formats: ["es", "cjs"],
     },
     rollupOptions: {
-      external: ["@salamruby/logger", "bullmq", "ioredis", "zod"],
+      external: ["@feedyruby/logger", "bullmq", "ioredis", "zod"],
     },
   },
   test: {

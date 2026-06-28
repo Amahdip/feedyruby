@@ -8,7 +8,7 @@ vi.mock("@/lib/ai/service", () => ({
   generateOrganizationAIObject: (...args: unknown[]) => mockGenerateOrganizationAIObject(...args),
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: { error: vi.fn(), info: vi.fn(), warn: vi.fn() },
 }));
 

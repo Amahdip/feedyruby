@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from "vitest";
-import { TSurveyElement } from "@salamruby/types/surveys/elements";
-import { TSurveyQuestionChoice, TSurveyQuestionTypeEnum } from "@salamruby/types/surveys/types";
+import { TSurveyElement } from "@feedyruby/types/surveys/elements";
+import { TSurveyQuestionChoice, TSurveyQuestionTypeEnum } from "@feedyruby/types/surveys/types";
 import { MAX_OTHER_OPTION_LENGTH } from "@/lib/constants";
 import { validateOtherOptionLength, validateOtherOptionLengthForMultipleChoice } from "../element";
 
@@ -25,7 +25,7 @@ vi.mock("@/modules/ee/license-check/lib/utils", () => ({
   getIsSpamProtectionEnabled: vi.fn(),
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },

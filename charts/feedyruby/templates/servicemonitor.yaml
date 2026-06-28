@@ -1,0 +1,26 @@
+{{- if and (.Values.serviceMonitor).enabled (.Capabilities.APIVersions.Has "monitoring.coreos.com/v1") }}
+---
+apiVersion: "monitoring.coreos.com/v1"
+kind: ServiceMonitor
+metadata:
+  name: {{ template "feedyruby.name" . }}-svc-monitor
+  namespace: {{ include "feedyruby.namespace" . }}
+  labels:
+  {{- include "feedyruby.labels" $ | nindent 4 }}
+  {{- if .Values.serviceMonitor.additionalLabels }}
+  {{- toYaml .Values.serviceMonitor.additionalLabels | nindent 4 }}
+  {{- end }}
+  {{- if .Values.serviceMonitor.annotations }}
+  annotations:
+  {{- toYaml .Values.serviceMonitor.annotations | nindent 4 }}
+  {{- end }}
+spec:
+  selector:
+    matchLabels:
+{{ include "feedyruby.labels" $ | indent 6 }}
+  namespaceSelector:
+    matchNames:
+      - {{ include "feedyruby.namespace" . }}
+  endpoints:
+{{ toYaml .Values.serviceMonitor.endpoints | indent 4 }}
+{{- end }}

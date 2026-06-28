@@ -16,19 +16,19 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
       setShowPassword((prevShowPassword) => !prevShowPassword);
     };
     return (
-      <div className={cn("relative", containerClassName)}>
+      <div className={cn("relative", containerClassName)} dir="ltr">
         <input
           ref={ref}
           type={showPassword ? "text" : "password"}
           className={cn(
-            "flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+            "flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 pe-10 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
             className
           )}
           {...rest}
         />
         <button
           type="button"
-          className={cn("absolute right-3 top-1/2 -translate-y-1/2 transform")}
+          className={cn("absolute end-3 top-1/2 -translate-y-1/2 transform")}
           onClick={togglePasswordVisibility}>
           {showPassword ? (
             <EyeOff className="size-5 text-slate-400" />

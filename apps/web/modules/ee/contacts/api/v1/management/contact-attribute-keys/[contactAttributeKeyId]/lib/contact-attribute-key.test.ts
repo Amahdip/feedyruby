@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { ContactAttributeKey, Prisma } from "@salamruby/database/prisma";
-import { TContactAttributeKey, TContactAttributeKeyType } from "@salamruby/types/contact-attribute-key";
-import { DatabaseError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { ContactAttributeKey, Prisma } from "@feedyruby/database/prisma";
+import { TContactAttributeKey, TContactAttributeKeyType } from "@feedyruby/types/contact-attribute-key";
+import { DatabaseError } from "@feedyruby/types/errors";
 import { TContactAttributeKeyUpdateInput } from "../types/contact-attribute-keys";
 import {
   deleteContactAttributeKey,
@@ -11,7 +11,7 @@ import {
 } from "./contact-attribute-key";
 
 // Mock dependencies
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     contactAttributeKey: {
       findUnique: vi.fn(),

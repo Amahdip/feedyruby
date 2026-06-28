@@ -1,7 +1,7 @@
 import { PlusIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Language } from "@salamruby/database/prisma-browser";
-import { TWorkspace } from "@salamruby/types/workspace";
+import { Language } from "@feedyruby/database/prisma-browser";
+import { TWorkspace } from "@feedyruby/types/workspace";
 import { Button } from "@/modules/ui/components/button";
 
 interface AddLanguageButtonProps {

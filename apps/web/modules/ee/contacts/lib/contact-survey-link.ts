@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import { logger } from "@salamruby/logger";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
+import { logger } from "@feedyruby/logger";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
 import { ENCRYPTION_KEY } from "@/lib/constants";
 import { symmetricDecrypt, symmetricEncrypt } from "@/lib/crypto";
 import { getPublicDomain } from "@/lib/getPublicUrl";

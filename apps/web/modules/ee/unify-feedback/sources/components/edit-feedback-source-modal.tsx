@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { TFeedbackSourceWithMappings } from "@salamruby/types/feedback-source";
+import { TFeedbackSourceWithMappings } from "@feedyruby/types/feedback-source";
 import { Button } from "@/modules/ui/components/button";
 import {
   Dialog,
@@ -36,11 +36,11 @@ import {
   CSV_HIDDEN_STATIC_MAPPINGS,
   CSV_PROTECTED_TARGET_IDS,
   SAMPLE_CSV_COLUMNS,
+  TFeedyRubyFeedbackSourceForm,
   TFieldMapping,
-  TSalamRubyFeedbackSourceForm,
   TSourceField,
   TUnifySurvey,
-  ZSalamRubyFeedbackSourceForm,
+  ZFeedyRubyFeedbackSourceForm,
   getTranslatedFeedbackSourceError,
 } from "../types";
 import {
@@ -50,8 +50,8 @@ import {
   toggleQuestionId,
 } from "../utils";
 import { getFeedbackSourceIcon, getFeedbackSourceTypeLabelKey } from "./feedback-source-display";
+import { FeedyRubyQuestionList } from "./feedyruby-question-list";
 import { MappingUI } from "./mapping-ui";
-import { SalamRubyQuestionList } from "./salamruby-question-list";
 
 interface EditFeedbackSourceModalProps {
   feedbackSource: TFeedbackSourceWithMappings | null;
@@ -84,8 +84,8 @@ export const EditFeedbackSourceModal = ({
   const [sourceFields, setSourceFields] = useState<TSourceField[]>([]);
   const [isUpdating, setIsUpdating] = useState(false);
 
-  const salamrubyForm = useForm<TSalamRubyFeedbackSourceForm>({
-    resolver: zodResolver(ZSalamRubyFeedbackSourceForm),
+  const feedyrubyForm = useForm<TFeedyRubyFeedbackSourceForm>({
+    resolver: zodResolver(ZFeedyRubyFeedbackSourceForm),
     defaultValues: {
       sourceName: "",
       surveyId: "",
@@ -95,9 +95,9 @@ export const EditFeedbackSourceModal = ({
     mode: "onChange",
   });
 
-  const salamrubyValues = salamrubyForm.watch();
-  const selectedSurveyId = salamrubyValues.surveyId;
-  const selectedQuestionIds = salamrubyValues.selectedQuestionIds ?? [];
+  const feedyrubyValues = feedyrubyForm.watch();
+  const selectedSurveyId = feedyrubyValues.surveyId;
+  const selectedQuestionIds = feedyrubyValues.selectedQuestionIds ?? [];
   const selectedSurvey = useMemo(
     () => surveys.find((survey) => survey.id === selectedSurveyId) ?? null,
     [surveys, selectedSurveyId]
@@ -105,13 +105,13 @@ export const EditFeedbackSourceModal = ({
 
   useEffect(() => {
     if (feedbackSource) {
-      if (feedbackSource.type === "salamruby_survey") {
-        const mappedSurveyId = feedbackSource.salamrubyMappings[0]?.surveyId ?? "";
-        const mappedQuestionIds = feedbackSource.salamrubyMappings
+      if (feedbackSource.type === "feedyruby_survey") {
+        const mappedSurveyId = feedbackSource.feedyrubyMappings[0]?.surveyId ?? "";
+        const mappedQuestionIds = feedbackSource.feedyrubyMappings
           .filter((mapping) => mapping.surveyId === mappedSurveyId)
           .map((mapping) => mapping.elementId);
 
-        salamrubyForm.reset({
+        feedyrubyForm.reset({
           sourceName: feedbackSource.name,
           surveyId: mappedSurveyId,
           selectedQuestionIds: mappedQuestionIds,
@@ -137,7 +137,7 @@ export const EditFeedbackSourceModal = ({
             staticValue: m.staticValue ?? undefined,
           }))
         );
-        salamrubyForm.reset({
+        feedyrubyForm.reset({
           sourceName: "",
           surveyId: "",
           selectedQuestionIds: [],
@@ -147,7 +147,7 @@ export const EditFeedbackSourceModal = ({
         setCsvFeedbackSourceName("");
         setSourceFields([]);
         setMappings([]);
-        salamrubyForm.reset({
+        feedyrubyForm.reset({
           sourceName: "",
           surveyId: "",
           selectedQuestionIds: [],
@@ -155,13 +155,13 @@ export const EditFeedbackSourceModal = ({
         });
       }
     }
-  }, [feedbackSource, salamrubyForm]);
+  }, [feedbackSource, feedyrubyForm]);
 
   const resetForm = () => {
     setCsvFeedbackSourceName("");
     setMappings([]);
     setSourceFields([]);
-    salamrubyForm.reset({
+    feedyrubyForm.reset({
       sourceName: "",
       surveyId: "",
       selectedQuestionIds: [],
@@ -177,8 +177,8 @@ export const EditFeedbackSourceModal = ({
     onOpenChange(newOpen);
   };
 
-  const handleUpdateSalamRubyFeedbackSource = async (values: TSalamRubyFeedbackSourceForm) => {
-    if (feedbackSource?.type !== "salamruby_survey") return;
+  const handleUpdateFeedyRubyFeedbackSource = async (values: TFeedyRubyFeedbackSourceForm) => {
+    if (feedbackSource?.type !== "feedyruby_survey") return;
     setIsUpdating(true);
     const success = await onUpdateFeedbackSource({
       feedbackSourceId: feedbackSource.id,
@@ -223,9 +223,9 @@ export const EditFeedbackSourceModal = ({
     }
   };
 
-  const handleSalamRubyQuestionToggle = (questionId: string) => {
-    const nextSelection = toggleQuestionId(salamrubyForm.getValues("selectedQuestionIds"), questionId);
-    salamrubyForm.setValue("selectedQuestionIds", nextSelection, {
+  const handleFeedyRubyQuestionToggle = (questionId: string) => {
+    const nextSelection = toggleQuestionId(feedyrubyForm.getValues("selectedQuestionIds"), questionId);
+    feedyrubyForm.setValue("selectedQuestionIds", nextSelection, {
       shouldDirty: true,
       shouldValidate: true,
     });
@@ -235,11 +235,11 @@ export const EditFeedbackSourceModal = ({
     if (!feedbackSource) return true;
     if (isUpdating) return true;
 
-    if (feedbackSource.type === "salamruby_survey") {
+    if (feedbackSource.type === "feedyruby_survey") {
       return (
-        !isFeedbackSourceNameValid(salamrubyValues.sourceName ?? "") ||
-        !salamrubyValues.surveyId ||
-        !salamrubyValues.selectedQuestionIds?.length
+        !isFeedbackSourceNameValid(feedyrubyValues.sourceName ?? "") ||
+        !feedyrubyValues.surveyId ||
+        !feedyrubyValues.selectedQuestionIds?.length
       );
     }
 
@@ -250,7 +250,7 @@ export const EditFeedbackSourceModal = ({
     }
 
     return true;
-  }, [feedbackSource, csvFeedbackSourceName, salamrubyValues, isUpdating, mappings]);
+  }, [feedbackSource, csvFeedbackSourceName, feedyrubyValues, isUpdating, mappings]);
 
   if (!feedbackSource) return null;
 
@@ -263,13 +263,13 @@ export const EditFeedbackSourceModal = ({
         </DialogHeader>
 
         <div className="space-y-4 py-4">
-          {feedbackSource.type === "salamruby_survey" ? (
-            <FormProvider {...salamrubyForm}>
+          {feedbackSource.type === "feedyruby_survey" ? (
+            <FormProvider {...feedyrubyForm}>
               <form
                 className="space-y-4"
-                onSubmit={salamrubyForm.handleSubmit(handleUpdateSalamRubyFeedbackSource)}>
+                onSubmit={feedyrubyForm.handleSubmit(handleUpdateFeedyRubyFeedbackSource)}>
                 <FormField
-                  control={salamrubyForm.control}
+                  control={feedyrubyForm.control}
                   name="sourceName"
                   render={({ field, fieldState: { error } }) => (
                     <FormItem>
@@ -290,7 +290,7 @@ export const EditFeedbackSourceModal = ({
                 />
 
                 <FormField
-                  control={salamrubyForm.control}
+                  control={feedyrubyForm.control}
                   name="surveyId"
                   render={({ field, fieldState: { error } }) => (
                     <FormItem>
@@ -320,17 +320,17 @@ export const EditFeedbackSourceModal = ({
                 />
 
                 <FormField
-                  control={salamrubyForm.control}
+                  control={feedyrubyForm.control}
                   name="selectedQuestionIds"
                   render={({ fieldState: { error } }) => (
                     <FormItem>
                       <FormLabel>{t("workspace.unify.select_questions")}</FormLabel>
                       <FormControl>
                         <fieldset className={isReadOnly ? "opacity-70" : undefined} disabled={isReadOnly}>
-                          <SalamRubyQuestionList
+                          <FeedyRubyQuestionList
                             survey={selectedSurvey}
                             selectedQuestionIds={selectedQuestionIds}
-                            onQuestionToggle={handleSalamRubyQuestionToggle}
+                            onQuestionToggle={handleFeedyRubyQuestionToggle}
                           />
                         </fieldset>
                       </FormControl>
@@ -402,8 +402,8 @@ export const EditFeedbackSourceModal = ({
               )}
               <Button
                 onClick={
-                  feedbackSource.type === "salamruby_survey"
-                    ? () => void salamrubyForm.handleSubmit(handleUpdateSalamRubyFeedbackSource)()
+                  feedbackSource.type === "feedyruby_survey"
+                    ? () => void feedyrubyForm.handleSubmit(handleUpdateFeedyRubyFeedbackSource)()
                     : handleUpdateCsvFeedbackSource
                 }
                 disabled={saveChangesDisabled}>

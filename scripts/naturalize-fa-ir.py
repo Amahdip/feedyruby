@@ -109,7 +109,7 @@ PATH_OVERRIDES: dict[str, str] = {
     "auth.login.login_to_your_account": "ورود به حساب",
     "auth.login.create_an_account": "ثبت‌نام",
     "auth.login.forgot_your_password": "رمز عبور را فراموش کرده‌اید؟",
-    "auth.login.new_to_salamruby": "تازه‌وارد فیدی‌روبی هستید؟",
+    "auth.login.new_to_feedyruby": "تازه‌وارد فیدی‌روبی هستید؟",
     "auth.login.lost_access": "دسترسی را از دست داده‌اید؟",
     "auth.login.oauth_account_not_linked_title": "این ورود SSO به حسابی وصل نشد",
     "auth.login.oauth_account_not_linked_description": (
@@ -168,7 +168,7 @@ PATH_OVERRIDES: dict[str, str] = {
     "common.time_to_finish": "زمان تقریبی",
     "common.show_response_count": "نمایش تعداد پاسخ‌ها",
     "common.copied_to_clipboard": "در کلیپ‌بورد کپی شد",
-    "common.connect_salamruby": "اتصال به فیدی‌روبی",
+    "common.connect_feedyruby": "اتصال به فیدی‌روبی",
     "common.app_version": "نسخهٔ فیدی‌روبی",
     "common.javascript_required_description": (
         "برای کارکرد درست فیدی‌روبی، JavaScript را در مرورگر فعال کنید."
@@ -196,12 +196,12 @@ PATH_OVERRIDES: dict[str, str] = {
     "common.link_survey": "نظرسنجی لینکی",
     "common.app_survey": "نظرسنجی درون‌برنامه‌ای",
     "common.add": "افزودن",
-    "common.powered_by_salamruby": "قدرت‌گرفته از فیدی‌روبی",
+    "common.powered_by_feedyruby": "قدرت‌گرفته از فیدی‌روبی",
     "setup.signup.title": "راه‌اندازی فیدی‌روبی",
     "workspace.surveys.edit.welcome_message": "پیام خوش‌آمد",
     "workspace.surveys.edit.company_logo": "لوگوی سازمان",
     "workspace.surveys.edit.next_button_label": "برچسب دکمه «بعدی»",
-    "workspace.surveys.edit.connect_salamruby_and_launch_surveys": (
+    "workspace.surveys.edit.connect_feedyruby_and_launch_surveys": (
         "سلام‌روبی را متصل کنید و نظرسنجی‌ها را در وب‌سایت یا برنامهٔ خود اجرا کنید."
     ),
     "workspace.surveys.edit.confirm_default_language": "تأیید زبان پیش‌فرض",

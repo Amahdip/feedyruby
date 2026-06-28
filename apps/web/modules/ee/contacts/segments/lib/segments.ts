@@ -1,14 +1,14 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { ZId, ZString } from "@salamruby/types/common";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { ZId, ZString } from "@feedyruby/types/common";
 import {
   DatabaseError,
   OperationNotAllowedError,
   ResourceNotFoundError,
   ValidationError,
-} from "@salamruby/types/errors";
+} from "@feedyruby/types/errors";
 import {
   DATE_OPERATORS,
   TAllOperators,
@@ -30,7 +30,7 @@ import {
   ZSegmentCreateInput,
   ZSegmentFilters,
   ZSegmentUpdateInput,
-} from "@salamruby/types/segment";
+} from "@feedyruby/types/segment";
 import { getSurvey } from "@/lib/survey/service";
 import { validateInputs } from "@/lib/utils/validate";
 import { isResourceFilter, searchForAttributeKeyInSegment } from "@/modules/ee/contacts/segments/lib/utils";

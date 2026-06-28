@@ -13,8 +13,8 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { TSurveyBlock, TSurveyBlockLogic } from "@salamruby/types/surveys/blocks";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TSurveyBlock, TSurveyBlockLogic } from "@feedyruby/types/surveys/blocks";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { duplicateLogicItem } from "@/lib/surveyLogic/utils";
 import { replaceHeadlineRecall } from "@/lib/utils/recall";
 import { LogicEditor } from "@/modules/survey/editor/components/logic-editor";

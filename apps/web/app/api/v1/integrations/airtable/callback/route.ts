@@ -1,5 +1,5 @@
 import * as z from "zod";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { responses } from "@/app/lib/api/response";
 import { withV1ApiWrapper } from "@/app/lib/api/with-api-logging";
 import { fetchAirtableAuthToken } from "@/lib/airtable/service";

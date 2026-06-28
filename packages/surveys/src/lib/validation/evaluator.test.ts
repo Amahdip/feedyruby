@@ -1,7 +1,7 @@
 import type { TFunction } from "i18next";
 import { describe, expect, test, vi } from "vitest";
-import type { TResponseData } from "@salamruby/types/responses";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
+import type { TResponseData } from "@feedyruby/types/responses";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
 import type {
   TSurveyAddressElement,
   TSurveyContactInfoElement,
@@ -9,7 +9,7 @@ import type {
   TSurveyMatrixElement,
   TSurveyOpenTextElement,
   TSurveyRankingElement,
-} from "@salamruby/types/surveys/elements";
+} from "@feedyruby/types/surveys/elements";
 import { getFirstErrorMessage, validateBlockResponses, validateElementResponse } from "./evaluator";
 
 // Mock translation function

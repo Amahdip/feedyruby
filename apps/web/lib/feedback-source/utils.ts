@@ -1,5 +1,5 @@
-import type { TFeedbackSourceFieldMappingCreateInput, THubFieldType } from "@salamruby/types/feedback-source";
-import { ZHubFieldType } from "@salamruby/types/feedback-source";
+import type { TFeedbackSourceFieldMappingCreateInput, THubFieldType } from "@feedyruby/types/feedback-source";
+import { ZHubFieldType } from "@feedyruby/types/feedback-source";
 import {
   CSV_HIDDEN_STATIC_MAPPINGS,
   CSV_PROTECTED_TARGET_IDS,

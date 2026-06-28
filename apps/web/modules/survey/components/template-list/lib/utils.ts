@@ -1,6 +1,6 @@
 import { TFunction } from "i18next";
-import { TTemplateRole } from "@salamruby/types/templates";
-import { TWorkspaceConfigChannel, TWorkspaceConfigIndustry } from "@salamruby/types/workspace";
+import { TTemplateRole } from "@feedyruby/types/templates";
+import { TWorkspaceConfigChannel, TWorkspaceConfigIndustry } from "@feedyruby/types/workspace";
 
 export const getChannelMapping = (t: TFunction): { value: TWorkspaceConfigChannel; label: string }[] => [
   { value: "website", label: t("common.website_survey") },

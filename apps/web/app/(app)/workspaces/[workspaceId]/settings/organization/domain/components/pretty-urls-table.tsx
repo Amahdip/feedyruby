@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { TSurveyStatus } from "@salamruby/types/surveys/types";
+import { TSurveyStatus } from "@feedyruby/types/surveys/types";
 import { IdBadge } from "@/modules/ui/components/id-badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/modules/ui/components/table";
 

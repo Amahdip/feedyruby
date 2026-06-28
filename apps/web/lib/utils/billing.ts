@@ -1,4 +1,4 @@
-import { TOrganizationBilling } from "@salamruby/types/organizations";
+import { TOrganizationBilling } from "@feedyruby/types/organizations";
 
 type TBillingInput = Pick<TOrganizationBilling, "usageCycleAnchor">;
 

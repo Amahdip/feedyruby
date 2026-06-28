@@ -1,10 +1,10 @@
 "use server";
 
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { ZId } from "@salamruby/types/common";
-import { ZContactAttributesInput } from "@salamruby/types/contact-attribute";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { ZId } from "@feedyruby/types/common";
+import { ZContactAttributesInput } from "@feedyruby/types/contact-attribute";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import { capturePostHogEvent } from "@/lib/posthog";
 import { authenticatedActionClient } from "@/lib/utils/action-client";
 import { checkAuthorizationUpdated } from "@/lib/utils/action-client/action-client-middleware";

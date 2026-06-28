@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
-import { type Response } from "@salamruby/database/prisma-browser";
-import { TSurvey, TSurveyStyling } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
-import { TWorkspaceStyling } from "@salamruby/types/workspace";
+import { type Response } from "@feedyruby/database/prisma-browser";
+import { TSurvey, TSurveyStyling } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
+import { TWorkspaceStyling } from "@feedyruby/types/workspace";
 import {
   IMPRINT_URL,
+  IS_FEEDYRUBY_CLOUD,
   IS_RECAPTCHA_CONFIGURED,
-  IS_SALAMRUBY_CLOUD,
   PRIVACY_URL,
   RECAPTCHA_SITE_KEY,
   TERMS_URL,
@@ -149,7 +149,7 @@ export const renderSurvey = async ({
         IMPRINT_URL={IMPRINT_URL}
         PRIVACY_URL={PRIVACY_URL}
         TERMS_URL={TERMS_URL}
-        IS_SALAMRUBY_CLOUD={IS_SALAMRUBY_CLOUD}
+        IS_FEEDYRUBY_CLOUD={IS_FEEDYRUBY_CLOUD}
         verifiedEmail={verifiedEmail}
         languageCode={languageCode}
         isEmbed={isEmbed}
@@ -184,7 +184,7 @@ export const renderSurvey = async ({
       IMPRINT_URL={IMPRINT_URL}
       PRIVACY_URL={PRIVACY_URL}
       TERMS_URL={TERMS_URL}
-      IS_SALAMRUBY_CLOUD={IS_SALAMRUBY_CLOUD}
+      IS_FEEDYRUBY_CLOUD={IS_FEEDYRUBY_CLOUD}
     />
   );
 };

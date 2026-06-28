@@ -1,9 +1,9 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { TSurveyBlock, TSurveyBlockLogic } from "@salamruby/types/surveys/blocks";
-import { TConditionGroup } from "@salamruby/types/surveys/logic";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TSurveyBlock, TSurveyBlockLogic } from "@feedyruby/types/surveys/blocks";
+import { TConditionGroup } from "@feedyruby/types/surveys/logic";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { createSharedConditionsFactory } from "@/modules/survey/editor/lib/shared-conditions-factory";
 import { getDefaultOperatorForElement } from "@/modules/survey/editor/lib/utils";
 import { ConditionsEditor } from "@/modules/ui/components/conditions-editor";

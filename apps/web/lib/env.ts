@@ -1,6 +1,6 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
-import { AI_PROVIDERS } from "@salamruby/types/ai";
+import { AI_PROVIDERS } from "@feedyruby/types/ai";
 import { DISABLE_CUBE_ANALYTICS } from "./brand-color";
 import { throwEnvValidationError } from "./env-validation-error";
 
@@ -223,7 +223,7 @@ const parsedEnv = createEnv({
     DANGEROUSLY_ALLOW_WEBHOOK_INTERNAL_URLS: z.enum(["1", "0"]).optional(),
     DEBUG_SHOW_RESET_LINK: z.enum(["1", "0"]).optional(),
     // DEBUG is a common ambient env var in CI/tooling, so we accept arbitrary strings here
-    // and only treat "1" as enabling SalamRuby-specific debug behavior downstream.
+    // and only treat "1" as enabling FeedyRuby-specific debug behavior downstream.
     DEBUG: z.string().optional(),
     AUTH_DEFAULT_TEAM_ID: z.string().optional(),
     AUTH_SKIP_INVITE_FOR_SSO: z.enum(["1", "0"]).optional(),
@@ -278,7 +278,7 @@ const parsedEnv = createEnv({
     INVITE_DISABLED: z.enum(["1", "0"]).optional(),
     CHATWOOT_WEBSITE_TOKEN: z.string().optional(),
     CHATWOOT_BASE_URL: z.url().optional(),
-    IS_SALAMRUBY_CLOUD: z.enum(["1", "0"]).optional(),
+    IS_FEEDYRUBY_CLOUD: z.enum(["1", "0"]).optional(),
     POSTHOG_KEY: z.string().optional(),
     LOG_LEVEL: z.enum(["debug", "info", "warn", "error", "fatal"]).optional(),
     MAIL_FROM: z.email().optional(),
@@ -441,7 +441,7 @@ const parsedEnv = createEnv({
     INVITE_DISABLED: process.env.INVITE_DISABLED,
     CHATWOOT_WEBSITE_TOKEN: process.env.CHATWOOT_WEBSITE_TOKEN,
     CHATWOOT_BASE_URL: process.env.CHATWOOT_BASE_URL,
-    IS_SALAMRUBY_CLOUD: process.env.IS_SALAMRUBY_CLOUD,
+    IS_FEEDYRUBY_CLOUD: process.env.IS_FEEDYRUBY_CLOUD,
     POSTHOG_KEY: process.env.POSTHOG_KEY,
     LOG_LEVEL: process.env.LOG_LEVEL,
     MAIL_FROM: process.env.MAIL_FROM,

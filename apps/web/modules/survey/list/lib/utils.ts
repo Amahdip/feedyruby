@@ -1,4 +1,4 @@
-import { TWorkspaceConfigChannel } from "@salamruby/types/workspace";
+import { TWorkspaceConfigChannel } from "@feedyruby/types/workspace";
 import { initialFilters } from "@/modules/survey/list/lib/constants";
 import {
   TSurveyOverviewFilters,

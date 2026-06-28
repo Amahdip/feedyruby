@@ -17,8 +17,8 @@ import { VisibilityState, flexRender, getCoreRowModel, useReactTable } from "@ta
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TContactAttributeKey } from "@salamruby/types/contact-attribute-key";
-import { TUserLocale } from "@salamruby/types/user";
+import { TContactAttributeKey } from "@feedyruby/types/contact-attribute-key";
+import { TUserLocale } from "@feedyruby/types/user";
 import { cn } from "@/lib/cn";
 import { getFormattedErrorMessage } from "@/lib/utils/helper";
 import {

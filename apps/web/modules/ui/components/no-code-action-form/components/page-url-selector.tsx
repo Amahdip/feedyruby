@@ -17,7 +17,7 @@ import {
   ACTION_CLASS_PAGE_URL_RULES,
   TActionClassInput,
   TActionClassPageUrlRule,
-} from "@salamruby/types/action-classes";
+} from "@feedyruby/types/action-classes";
 import { cn } from "@/lib/cn";
 import { testURLmatch } from "@/lib/utils/url";
 import { Button } from "@/modules/ui/components/button";

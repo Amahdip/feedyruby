@@ -1,5 +1,5 @@
 {
-  "name": "@salamruby/types",
+  "name": "@feedyruby/types",
   "version": "0.0.0",
   "private": true,
   "main": "index.ts",
@@ -20,6 +20,6 @@
     "node-html-parser": "7.1.0"
   },
   "devDependencies": {
-    "@salamruby/config-typescript": "workspace:*"
+    "@feedyruby/config-typescript": "workspace:*"
   }
 }

@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 import { getSessionUser } from "@/app/api/v1/management/me/lib/utils";
 import { responses } from "@/app/lib/api/response";
 import { CONTROL_HASH } from "@/lib/constants";

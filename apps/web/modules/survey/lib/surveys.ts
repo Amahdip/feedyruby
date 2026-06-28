@@ -1,9 +1,9 @@
 import "server-only";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { ZId } from "@salamruby/types/common";
-import { DatabaseError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { ZId } from "@feedyruby/types/common";
+import { DatabaseError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { validateInputs } from "@/lib/utils/validate";
 
 export const deleteSurvey = async (surveyId: string) => {

@@ -22,11 +22,11 @@ const mockLogger = {
 };
 
 // Mock all dependencies before importing the module under test
-vi.mock("@salamruby/cache", () => ({
+vi.mock("@feedyruby/cache", () => ({
   getCacheService: mockGetCacheService,
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: mockLogger,
 }));
 

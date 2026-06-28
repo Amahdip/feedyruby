@@ -3,9 +3,9 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Language } from "@salamruby/database/prisma-browser";
-import { TIso639Language, iso639Languages } from "@salamruby/i18n-utils/src/utils";
-import { TUserLocale } from "@salamruby/types/user";
+import { Language } from "@feedyruby/database/prisma-browser";
+import { TIso639Language, iso639Languages } from "@feedyruby/i18n-utils/src/utils";
+import { TUserLocale } from "@feedyruby/types/user";
 import { useClickOutside } from "@/lib/utils/hooks/useClickOutside";
 import { Button } from "@/modules/ui/components/button";
 import { Input } from "@/modules/ui/components/input";

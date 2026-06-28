@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { ZodOpenApiOperationObject } from "zod-openapi";
-import { ZContactAttributeKey } from "@salamruby/database/zod/contact-attribute-keys";
+import { ZContactAttributeKey } from "@feedyruby/database/zod/contact-attribute-keys";
 import {
   ZContactAttributeKeyIdSchema,
   ZContactAttributeKeyUpdateSchema,

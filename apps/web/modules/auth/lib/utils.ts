@@ -1,7 +1,7 @@
 import * as Sentry from "@sentry/nextjs";
 import { createHash, randomUUID } from "crypto";
-import { createCacheKey } from "@salamruby/cache";
-import { logger } from "@salamruby/logger";
+import { createCacheKey } from "@feedyruby/cache";
+import { logger } from "@feedyruby/logger";
 import { cache } from "@/lib/cache";
 import { IS_PRODUCTION, SENTRY_DSN } from "@/lib/constants";
 import { hashSecret, verifySecret } from "@/lib/crypto";

@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { notFound } from "next/navigation";
-import { AuthenticationError } from "@salamruby/types/errors";
-import { DISABLE_ACCOUNT_DELETION_SSO_CONFIRMATION, IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { AuthenticationError } from "@feedyruby/types/errors";
+import { DISABLE_ACCOUNT_DELETION_SSO_CONFIRMATION, IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { getHasNoOrganizations } from "@/lib/instance/service";
 import { getOrganizationsByUserId } from "@/lib/organization/service";
 import { getUser } from "@/lib/user/service";
@@ -42,7 +42,7 @@ export const CreateOrganizationPage = async () => {
     return (
       <RemovedFromOrganization
         user={user}
-        isSalamRubyCloud={IS_SALAMRUBY_CLOUD}
+        isFeedyRubyCloud={IS_FEEDYRUBY_CLOUD}
         isSsoIdentityConfirmationDisabled={DISABLE_ACCOUNT_DELETION_SSO_CONFIRMATION}
         requiresPasswordConfirmation={requiresPasswordConfirmationForAccountDeletion(user)}
       />

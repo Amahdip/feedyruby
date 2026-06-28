@@ -1,8 +1,8 @@
 "use client";
 
 import { createContext, useContext, useMemo } from "react";
-import { TOrganization } from "@salamruby/types/organizations";
-import { TWorkspace } from "@salamruby/types/workspace";
+import { TOrganization } from "@feedyruby/types/organizations";
+import { TWorkspace } from "@feedyruby/types/workspace";
 
 export interface WorkspaceContextType {
   workspace: TWorkspace;

@@ -1,10 +1,10 @@
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { TResponse } from "@salamruby/types/responses";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TTag } from "@salamruby/types/tags";
-import { TUser, TUserLocale } from "@salamruby/types/user";
+import { TResponse } from "@feedyruby/types/responses";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TTag } from "@feedyruby/types/tags";
+import { TUser, TUserLocale } from "@feedyruby/types/user";
 import { SingleResponseCard } from "@/modules/analysis/components/SingleResponseCard";
 import { Button } from "@/modules/ui/components/button";
 import {

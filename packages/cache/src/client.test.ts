@@ -10,7 +10,7 @@ vi.mock("redis", () => ({
 }));
 
 // Mock the logger
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     info: vi.fn(),
     error: vi.fn(),
@@ -55,7 +55,7 @@ interface MockRedisClient {
 // Get typed mocks
 const mockCreateClient = vi.mocked(createClient);
 
-describe("@salamruby/cache factory", () => {
+describe("@feedyruby/cache factory", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     delete process.env.REDIS_URL;

@@ -10,7 +10,7 @@ import {
   TSegmentFilter,
   TSegmentPersonFilter,
   TSegmentSegmentFilter,
-} from "@salamruby/types/segment";
+} from "@feedyruby/types/segment";
 import {
   addFilterBelow,
   addFilterInGroup,

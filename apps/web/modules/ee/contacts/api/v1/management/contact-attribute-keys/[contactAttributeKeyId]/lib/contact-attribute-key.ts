@@ -1,9 +1,9 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { ZId } from "@salamruby/types/common";
-import { TContactAttributeKey } from "@salamruby/types/contact-attribute-key";
-import { DatabaseError, InvalidInputError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { ZId } from "@feedyruby/types/common";
+import { TContactAttributeKey } from "@feedyruby/types/contact-attribute-key";
+import { DatabaseError, InvalidInputError } from "@feedyruby/types/errors";
 import { validateInputs } from "@/lib/utils/validate";
 import {
   getReservedFutureDefaultAttributeKeyIssue,

@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import type { TSurveyStyling } from "@salamruby/types/surveys/types";
+import type { TSurveyStyling } from "@feedyruby/types/surveys/types";
 import { COLOR_DEFAULTS, STYLE_DEFAULTS } from "@/lib/styling/constants";
 import { isLight, mixColor } from "@/lib/utils/colors";
 

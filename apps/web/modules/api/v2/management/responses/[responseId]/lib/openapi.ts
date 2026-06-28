@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { ZodOpenApiOperationObject } from "zod-openapi";
-import { ZResponse } from "@salamruby/database/zod/responses";
-import { ZResponseUpdateInput } from "@salamruby/types/responses";
+import { ZResponse } from "@feedyruby/database/zod/responses";
+import { ZResponseUpdateInput } from "@feedyruby/types/responses";
 import { ZResponseIdSchema } from "@/modules/api/v2/management/responses/[responseId]/types/responses";
 import { makePartialSchema } from "@/modules/api/v2/types/openapi-response";
 

@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { ErrorCode } from "@salamruby/cache";
-import { logger } from "@salamruby/logger";
+import { ErrorCode } from "@feedyruby/cache";
+import { logger } from "@feedyruby/logger";
 import { cache } from "@/lib/cache";
 import {
   IntegrationOAuthStateError,
@@ -10,7 +10,7 @@ import {
   getSafeOAuthCallbackError,
 } from "./integration-state";
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
     warn: vi.fn(),

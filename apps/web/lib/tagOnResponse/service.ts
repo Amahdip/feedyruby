@@ -1,10 +1,10 @@
 import "server-only";
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { ZId } from "@salamruby/types/common";
-import { DatabaseError } from "@salamruby/types/errors";
-import { TTagsCount, TTagsOnResponses } from "@salamruby/types/tags";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { ZId } from "@feedyruby/types/common";
+import { DatabaseError } from "@feedyruby/types/errors";
+import { TTagsCount, TTagsOnResponses } from "@feedyruby/types/tags";
 import { validateInputs } from "../utils/validate";
 
 const selectTagsOnResponse = {

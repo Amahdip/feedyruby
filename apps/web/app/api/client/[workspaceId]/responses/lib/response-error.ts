@@ -1,6 +1,6 @@
-import { Prisma } from "@salamruby/database/prisma";
-import type { PrismaClientKnownRequestError } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
+import { Prisma } from "@feedyruby/database/prisma";
+import type { PrismaClientKnownRequestError } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
 
 export const isPrismaKnownRequestError = (error: unknown): error is PrismaClientKnownRequestError =>
   error instanceof Prisma.PrismaClientKnownRequestError;

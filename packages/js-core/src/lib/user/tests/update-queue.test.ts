@@ -166,7 +166,7 @@ describe("UpdateQueue", () => {
     await updateQueue.processUpdates();
 
     expect(mockLogger.error).toHaveBeenCalledWith(
-      "SalamRuby can't set attributes without a userId! Please set a userId first with the setUserId function"
+      "FeedyRuby can't set attributes without a userId! Please set a userId first with the setUserId function"
     );
   });
 

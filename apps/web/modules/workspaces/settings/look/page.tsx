@@ -1,4 +1,4 @@
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import { SettingsCard } from "@/app/(app)/workspaces/[workspaceId]/settings/components/SettingsCard";
 import { cn } from "@/lib/cn";
 import {

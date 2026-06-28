@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-SalamRuby runs as a pnpm/turbo monorepo. `apps/web` is the Next.js product surface, with feature modules under `app/` and `modules/`, assets in `public/` and `images/`, and Playwright specs in `apps/web/playwright/`. `apps/storybook` renders reusable UI pieces for review. Shared logic lives in `packages/*`: `database` (Prisma schemas/migrations), `surveys`, `js-core`, `types`, plus linting and TypeScript presets (`config-*`). Deployment collateral is kept in `docs/`, `docker/`, and `helm-chart/`. Unit tests sit next to their source as `*.test.ts` or inside `__tests__`.
+FeedyRuby runs as a pnpm/turbo monorepo. `apps/web` is the Next.js product surface, with feature modules under `app/` and `modules/`, assets in `public/` and `images/`, and Playwright specs in `apps/web/playwright/`. `apps/storybook` renders reusable UI pieces for review. Shared logic lives in `packages/*`: `database` (Prisma schemas/migrations), `surveys`, `js-core`, `types`, plus linting and TypeScript presets (`config-*`). Deployment collateral is kept in `docs/`, `docker/`, and `helm-chart/`. Unit tests sit next to their source as `*.test.ts` or inside `__tests__`.
 
 ## Build, Test & Development Commands
 
@@ -17,20 +17,20 @@ SalamRuby runs as a pnpm/turbo monorepo. `apps/web` is the Next.js product surfa
 
 ### Survey Packages Build & Cache
 
-The `@salamruby/surveys` package is pre-compiled (Vite → UMD + ESM) and the built bundle is copied to `apps/web/public/js/`. The Next.js app imports from `dist/`, **not** the source files. This means:
+The `@feedyruby/surveys` package is pre-compiled (Vite → UMD + ESM) and the built bundle is copied to `apps/web/public/js/`. The Next.js app imports from `dist/`, **not** the source files. This means:
 
 - After any change to `packages/surveys` or its dependencies (`packages/survey-ui`, `packages/types`, etc.), you **must rebuild** for changes to take effect in the running app.
 - Turborepo caches build outputs aggressively. Always use `--force` to bypass the cache when iterating on survey packages:
   ```
   rm -rf packages/surveys/dist apps/web/public/js/surveys.* node_modules/.cache/turbo
-  pnpm build --filter=@salamruby/surveys... --force
+  pnpm build --filter=@feedyruby/surveys... --force
   ```
 - The browser also caches the UMD bundle (`surveys.umd.cjs`) served from `public/js/`. After rebuilding, do a **hard refresh** (Cmd+Shift+R / Ctrl+Shift+R) or disable the browser cache via DevTools to pick up the new bundle.
 - If changes still don't appear, restart the Next.js dev server (`pnpm dev`).
 
 ## Production Docker Image (survey server)
 
-Use this workflow when building the **custom SalamRuby app image** for self-hosting (e.g. `survey.salamruby.ir`). Do **not** use the upstream Formbricks image for production.
+Use this workflow when building the **custom FeedyRuby app image** for self-hosting (e.g. `survey.feedyruby.ir`). Do **not** use the upstream Formbricks image for production.
 
 ### Why host build?
 
@@ -42,70 +42,70 @@ Use this workflow when building the **custom SalamRuby app image** for self-host
 ### Build locally
 
 ```bash
-./scripts/build-salamruby-image-from-host.sh
+./scripts/build-feedyruby-image-from-host.sh
 ```
 
-Produces `salamruby-app:latest` (linux/amd64). Key files:
+Produces `feedyruby-app:latest` (linux/amd64). Key files:
 
 - `apps/web/Dockerfile.prebuilt` — runtime image (copies `.next/standalone`, Prisma, migrations).
 - `.dockerignore.prebuilt` — allows build artifacts and `node_modules/**/dist` (the default `.dockerignore` excludes them).
 
 ### Push to Docker Hub
 
-Registry: [amirmpa/salamruby-survey](https://hub.docker.com/r/amirmpa/salamruby-survey)
+Registry: [amirmpa/feedyruby](https://hub.docker.com/r/amirmpa/feedyruby)
 
 ```bash
 docker login -u amirmpa   # use a Docker Hub access token as password
-./scripts/push-salamruby-image-dockerhub.sh
+./scripts/push-feedyruby-image-dockerhub.sh
 ```
 
 Or build + push together:
 
 ```bash
-PUSH_TO_DOCKERHUB=true ./scripts/build-salamruby-image-from-host.sh
+PUSH_TO_DOCKERHUB=true ./scripts/build-feedyruby-image-from-host.sh
 ```
 
 Environment overrides: `DOCKERHUB_REPO`, `DOCKERHUB_TAG`, `LOCAL_IMAGE_TAG`.
 
 ### Deploy on survey VPS
 
-Server: `survey-salamruby` (`37.32.10.71`), install dir `/home/ubuntu/salamruby`, domain `https://survey.salamruby.ir` (HTTPS via Arvancloud CDN).
+Server: `survey-feedyruby` (`37.32.10.71`), install dir `/home/ubuntu/feedyruby`, domain `https://survey.feedyruby.ir` (HTTPS via Arvancloud CDN).
 
 ```bash
-ssh survey-salamruby
-sudo docker pull amirmpa/salamruby-survey:latest
-cd /home/ubuntu/salamruby
-sudo docker compose up -d salamruby-migrate salamruby
+ssh survey-feedyruby
+sudo docker pull amirmpa/feedyruby:latest
+cd /home/ubuntu/feedyruby
+sudo docker compose up -d feedyruby-migrate feedyruby
 ```
 
-Or from the repo (after SSH bootstrap): `scripts/survey-server-finish-deploy.sh` — pulls `amirmpa/salamruby-survey:latest`, falls back to `hub.hamdocker.ir/amirmpa/salamruby-survey:latest` if Docker Hub is slow from Iran.
+Or from the repo (after SSH bootstrap): `scripts/survey-server-finish-deploy.sh` — pulls `amirmpa/feedyruby:latest`, falls back to `hub.hamdocker.ir/amirmpa/feedyruby:latest` if Docker Hub is slow from Iran.
 
 Initial server bootstrap: `scripts/survey-server-bootstrap.sh`.
 
-Configure outbound email (password reset) via Mail-in-a-Box at `mail.salamruby.ir`:
+Configure outbound email (password reset) via Mail-in-a-Box at `mail.feedyruby.ir`:
 
 ```bash
-# On mail-salamruby: allow survey VPS to relay (already done for 37.32.10.71)
-# On survey-salamruby:
+# On mail-feedyruby: allow survey VPS to relay (already done for 37.32.10.71)
+# On survey-feedyruby:
 ./scripts/survey-server-configure-smtp.sh
 ```
 
-Uses `mail@salamruby.ir` as sender, port 587 STARTTLS, no SMTP auth (trusted relay from survey IP).
+Uses `mail@feedyruby.ir` as sender, port 587 STARTTLS, no SMTP auth (trusted relay from survey IP).
 
-### WordPress integration (salamruby.ir)
+### WordPress integration (feedyruby.ir)
 
-In the [WordPress plugin](https://github.com/salamruby/wordpress) settings:
+In the [WordPress plugin](https://github.com/feedyruby/wordpress) settings:
 
-- **API Host:** `https://survey.salamruby.ir`
+- **API Host:** `https://survey.feedyruby.ir`
 - **Workspace ID:** from Settings → Connect Your App in the survey app (or query the `Workspace` table)
 
-File uploads (logos, file-upload questions) need RustFS/S3 + `files.survey.salamruby.ir` DNS — optional for link-only surveys.
+File uploads (logos, file-upload questions) need RustFS/S3 + `files.survey.feedyruby.ir` DNS — optional for link-only surveys.
 
 ### Production stack (minimal)
 
 | Service | Role |
 |---------|------|
-| `amirmpa/salamruby-survey` | Web app (must be custom build) |
+| `amirmpa/feedyruby` | Web app (must be custom build) |
 | `postgres` | Database |
 | `redis` / Valkey | Cache, jobs (required in v5) |
 | `hub` | Analytics API (currently Formbricks hub image) |
@@ -115,13 +115,13 @@ File uploads (logos, file-upload questions) need RustFS/S3 + `files.survey.salam
 ### Troubleshooting
 
 - **Migrate fails (Prisma engines):** prebuilt image bundles linux-musl engines via a build-time donor stage in `Dockerfile.prebuilt`.
-- **Migrate fails (legacy `Product` table):** DB may come from Formbricks; mark obsolete SalamRuby-only migrations as applied in `_prisma_migrations` or skip `salamruby-migrate` if schema is already current.
+- **Migrate fails (legacy `Product` table):** DB may come from Formbricks; mark obsolete FeedyRuby-only migrations as applied in `_prisma_migrations` or skip `feedyruby-migrate` if schema is already current.
 - **Branding/locales wrong:** server is still on Formbricks image — rebuild and redeploy custom image.
 - **Registry pull timeout from Iran:** use HamDocker mirror or SCP `docker save | gzip` as fallback.
 
 ## Coding Style & Naming Conventions
 
-TypeScript, React, and Prisma are the primary languages. Use the shared ESLint presets (`@salamruby/eslint-config`) and Prettier preset (110-char width, semicolons, double quotes, sorted import groups). Two-space indentation is standard; prefer `PascalCase` for React components and folders under `modules/`, `camelCase` for functions/variables, and `SCREAMING_SNAKE_CASE` only for constants. When adding mocks, place them inside `__mocks__` so import ordering stays stable.
+TypeScript, React, and Prisma are the primary languages. Use the shared ESLint presets (`@feedyruby/eslint-config`) and Prettier preset (110-char width, semicolons, double quotes, sorted import groups). Two-space indentation is standard; prefer `PascalCase` for React components and folders under `modules/`, `camelCase` for functions/variables, and `SCREAMING_SNAKE_CASE` only for constants. When adding mocks, place them inside `__mocks__` so import ordering stays stable.
 We are using SonarQube to identify code smells and security hotspots.
 Always mark React component props as `Readonly<>` (e.g., `({ children }: Readonly<MyProps>)`).
 
@@ -175,7 +175,7 @@ Do:
 - Unit tests: cover stable, high-value logic in `.ts` files, such as validators, transformers,
   evaluators, calculations, and edge cases. Keep assertions on inputs and outputs, colocate specs with
   the code they exercise (`utility.test.ts`), and mock network and storage boundaries through helpers
-  from `@salamruby/*`.
+  from `@feedyruby/*`.
 - Manual QA, especially for releases: verify on staging and file bugs. If a bug is critical, backport and
   re-test.
 - Run `pnpm test` before opening a PR and `pnpm test:coverage` when touching critical flows.
@@ -216,7 +216,7 @@ Heuristic:
 
 - Keep code DRY and small; remove dead code and unused imports.
 - Follow React hooks rules, keep effects focused, and avoid unnecessary `useMemo`/`useCallback`.
-- Prefer type inference, avoid `any`, and use shared types from `@salamruby/types`.
+- Prefer type inference, avoid `any`, and use shared types from `@feedyruby/types`.
 - Keep components focused, avoid deep nesting, and ensure basic accessibility.
 
 ## Commit & Pull Request Guidelines

@@ -1,6 +1,6 @@
 "use server";
 
-import { OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { authenticatedActionClient } from "@/lib/utils/action-client";
 import { checkAuthorizationUpdated } from "@/lib/utils/action-client/action-client-middleware";
 import { AuthenticatedActionClientCtx } from "@/lib/utils/action-client/types/context";

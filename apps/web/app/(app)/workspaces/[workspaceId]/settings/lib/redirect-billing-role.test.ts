@@ -7,11 +7,11 @@ import { redirectBillingRoleFromRestrictedSettings } from "./redirect-billing-ro
 const mocks = vi.hoisted(() => ({
   getBillingFallbackPath: vi.fn(),
   getWorkspaceAuth: vi.fn(),
-  isSalamRubyCloud: false,
+  isFeedyRubyCloud: false,
 }));
 
 vi.mock("@/lib/constants", () => ({
-  IS_SALAMRUBY_CLOUD: mocks.isSalamRubyCloud,
+  IS_FEEDYRUBY_CLOUD: mocks.isFeedyRubyCloud,
 }));
 
 vi.mock("@/lib/membership/navigation", () => ({
@@ -48,7 +48,7 @@ describe("redirectBillingRoleFromRestrictedSettings", () => {
     await redirectBillingRoleFromRestrictedSettings(workspaceId);
 
     expect(getWorkspaceAuth).toHaveBeenCalledWith(workspaceId);
-    expect(getBillingFallbackPath).toHaveBeenCalledWith(workspaceId, mocks.isSalamRubyCloud);
+    expect(getBillingFallbackPath).toHaveBeenCalledWith(workspaceId, mocks.isFeedyRubyCloud);
     expect(redirect).toHaveBeenCalledWith(billingFallbackPath);
   });
 });

@@ -1,4 +1,4 @@
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 
 export const authorize = async (workspaceId: string, apiHost: string): Promise<string> => {
   const res = await fetch(`${apiHost}/api/v1/integrations/slack`, {

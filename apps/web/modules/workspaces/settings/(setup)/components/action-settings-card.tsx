@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TActionClass } from "@salamruby/types/action-classes";
-import { TUserLocale } from "@salamruby/types/user";
+import { TActionClass } from "@feedyruby/types/action-classes";
+import { TUserLocale } from "@feedyruby/types/user";
 import { SettingsCard } from "@/app/(app)/workspaces/[workspaceId]/settings/components/SettingsCard";
 import { ActionClassesTable } from "@/modules/workspaces/settings/(setup)/components/ActionClassesTable";
 import { ActionClassDataRow } from "@/modules/workspaces/settings/(setup)/components/ActionRowData";

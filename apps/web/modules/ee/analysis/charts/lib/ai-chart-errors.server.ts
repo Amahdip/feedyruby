@@ -1,6 +1,6 @@
 import "server-only";
 import { NoObjectGeneratedError } from "ai";
-import { InvalidInputError } from "@salamruby/types/errors";
+import { InvalidInputError } from "@feedyruby/types/errors";
 import { AI_CHART_PROMPT_ERROR_CODE } from "./ai-chart-errors";
 
 /**

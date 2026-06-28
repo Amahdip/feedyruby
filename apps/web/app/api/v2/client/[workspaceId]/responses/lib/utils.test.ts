@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { logger } from "@salamruby/logger";
-import { TOrganizationBilling } from "@salamruby/types/organizations";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { logger } from "@feedyruby/logger";
+import { TOrganizationBilling } from "@feedyruby/types/organizations";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { getOrganizationBillingByWorkspaceId } from "@/app/api/v2/client/[workspaceId]/responses/lib/organization";
 import { verifyRecaptchaToken } from "@/app/api/v2/client/[workspaceId]/responses/lib/recaptcha";
 import { checkSurveyValidity } from "@/app/api/v2/client/[workspaceId]/responses/lib/utils";
@@ -42,7 +42,7 @@ vi.mock("@/lib/utils/helper", () => ({
   getOrganizationIdFromWorkspaceId: vi.fn(),
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },

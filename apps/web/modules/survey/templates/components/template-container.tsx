@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import type { Workspace } from "@salamruby/database/prisma-browser";
-import type { TTemplate } from "@salamruby/types/templates";
-import type { TUserLocale } from "@salamruby/types/user";
+import type { Workspace } from "@feedyruby/database/prisma-browser";
+import type { TTemplate } from "@feedyruby/types/templates";
+import type { TUserLocale } from "@feedyruby/types/user";
 import { customSurveyTemplate } from "@/app/lib/templates";
 import type { TAIUnavailableReason } from "@/modules/ee/analysis/charts/lib/ai-availability";
 import { TemplateList } from "@/modules/survey/components/template-list";

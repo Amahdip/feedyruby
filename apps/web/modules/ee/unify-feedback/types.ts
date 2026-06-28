@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
+import { ZId } from "@feedyruby/types/common";
 
 export const ZFeedbackRecordId = z.uuid();
 

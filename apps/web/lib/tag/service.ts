@@ -1,11 +1,11 @@
 import "server-only";
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ZId, ZOptionalNumber, ZString } from "@salamruby/types/common";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
-import { TTag } from "@salamruby/types/tags";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ZId, ZOptionalNumber, ZString } from "@feedyruby/types/common";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
+import { TTag } from "@feedyruby/types/tags";
 import { TagError } from "../../modules/workspaces/settings/types/tag";
 import { ITEMS_PER_PAGE } from "../constants";
 import { validateInputs } from "../utils/validate";

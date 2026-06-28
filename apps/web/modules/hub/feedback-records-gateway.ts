@@ -1,11 +1,11 @@
 import "server-only";
 import { NextRequest } from "next/server";
 import { z } from "zod";
-import { ApiKeyPermission } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { TAuthenticationApiKey } from "@salamruby/types/auth";
-import { ZId } from "@salamruby/types/common";
-import { AuthorizationError } from "@salamruby/types/errors";
+import { ApiKeyPermission } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { TAuthenticationApiKey } from "@feedyruby/types/auth";
+import { ZId } from "@feedyruby/types/common";
+import { AuthorizationError } from "@feedyruby/types/errors";
 import { RequestBodyTooLargeError, readRequestBodyWithLimit } from "@/app/lib/api/request-body";
 import { verifyFeedbackRecordsGatewayToken } from "@/lib/jwt";
 import { checkAuthorizationUpdated } from "@/lib/utils/action-client/action-client-middleware";

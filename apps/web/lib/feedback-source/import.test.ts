@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { InvalidInputError } from "@salamruby/types/errors";
-import { TFeedbackSourceWithMappings } from "@salamruby/types/feedback-source";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { InvalidInputError } from "@feedyruby/types/errors";
+import { TFeedbackSourceWithMappings } from "@feedyruby/types/feedback-source";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { importHistoricalResponses } from "./import";
 
 vi.mock("../response/service", () => ({
@@ -30,13 +30,13 @@ const mockFeedbackSource: TFeedbackSourceWithMappings = {
   createdAt: NOW,
   updatedAt: NOW,
   name: "Test FeedbackSource",
-  type: "salamruby_survey",
+  type: "feedyruby_survey",
   status: "active",
   workspaceId: ENV_ID,
   lastSyncAt: null,
   createdBy: null,
   creatorName: null,
-  salamrubyMappings: [
+  feedyrubyMappings: [
     {
       id: "mapping-1",
       createdAt: NOW,
@@ -58,7 +58,7 @@ describe("importHistoricalResponses", () => {
     vi.clearAllMocks();
   });
 
-  test("throws InvalidInputError for non-salamruby feedbackSource", async () => {
+  test("throws InvalidInputError for non-feedyruby feedbackSource", async () => {
     const csvFeedbackSource = { ...mockFeedbackSource, type: "csv" as const };
 
     await expect(importHistoricalResponses(csvFeedbackSource, mockSurvey)).rejects.toThrow(InvalidInputError);

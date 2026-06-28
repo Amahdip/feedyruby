@@ -4,7 +4,7 @@ import {
   InvalidInputError,
   OperationNotAllowedError,
   ResourceNotFoundError,
-} from "@salamruby/types/errors";
+} from "@feedyruby/types/errors";
 import {
   DELETE_WORKSPACE_CONFIRMATION_REQUIRED_ERROR,
   deleteWorkspaceWithConfirmation,

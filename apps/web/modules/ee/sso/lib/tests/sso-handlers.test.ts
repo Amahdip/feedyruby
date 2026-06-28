@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Organization } from "@salamruby/database/prisma";
+import { prisma } from "@feedyruby/database";
+import { Organization } from "@feedyruby/database/prisma";
 import { getIsFreshInstance } from "@/lib/instance/service";
 import { verifyInviteToken } from "@/lib/jwt";
 import { createMembership } from "@/lib/membership/service";
@@ -49,7 +49,7 @@ vi.mock("@/modules/ee/license-check/lib/utils", () => ({
   getIsMultiOrgEnabled: vi.fn(),
 }));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     $transaction: vi.fn(
       async (callback: (tx: any) => unknown) =>
@@ -108,7 +108,7 @@ vi.mock("@/modules/ee/sso/lib/sso-recovery", () => ({
   startSsoRecovery: vi.fn(),
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
     debug: vi.fn(),

@@ -5,7 +5,7 @@ import { Building2Icon, ChevronDownIcon, ChevronRightIcon, Loader2, SettingsIcon
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import { useTranslation } from "react-i18next";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { getOrganizationsForSwitcherAction } from "@/app/(app)/workspaces/[workspaceId]/actions";
 import { getFormattedErrorMessage } from "@/lib/utils/helper";
 import { BreadcrumbItem } from "@/modules/ui/components/breadcrumb";

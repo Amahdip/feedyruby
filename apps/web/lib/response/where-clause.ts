@@ -1,7 +1,7 @@
 import "server-only";
-import { Prisma } from "@salamruby/database/prisma";
-import { TResponseFilterCriteria } from "@salamruby/types/responses";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { Prisma } from "@feedyruby/database/prisma";
+import { TResponseFilterCriteria } from "@feedyruby/types/responses";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { getElementsFromBlocks } from "@/modules/survey/lib/client-utils";
 import { generateAllPermutationsOfSubsets } from "./utils";
 

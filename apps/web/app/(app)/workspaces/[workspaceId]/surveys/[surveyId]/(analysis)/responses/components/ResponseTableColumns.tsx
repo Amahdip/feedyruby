@@ -4,11 +4,11 @@ import { ColumnDef } from "@tanstack/react-table";
 import { TFunction } from "i18next";
 import { CircleHelpIcon, EyeOffIcon, MailIcon, TagIcon } from "lucide-react";
 import Link from "next/link";
-import { TResponseTableData } from "@salamruby/types/responses";
-import { TSurveyElement, TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { getTextContent } from "@salamruby/types/surveys/validation";
-import { TUserLocale } from "@salamruby/types/user";
+import { TResponseTableData } from "@feedyruby/types/responses";
+import { TSurveyElement, TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { getTextContent } from "@feedyruby/types/surveys/validation";
+import { TUserLocale } from "@feedyruby/types/user";
 import { getLocalizedValue } from "@/lib/i18n/utils";
 import { extractChoiceIdsFromResponse } from "@/lib/response/utils";
 import { getContactIdentifier } from "@/lib/utils/contact";
@@ -296,7 +296,7 @@ export const generateResponseTableColumns = (
               <span>{t("workspace.surveys.responses.how_to_identify_users")}</span>
               <Link
                 className="underline underline-offset-2 hover:text-slate-900"
-                href="https://salamruby.com/docs/app-surveys/user-identification"
+                href="https://feedyruby.com/docs/app-surveys/user-identification"
                 target="_blank"
                 rel="noopener noreferrer">
                 {t("common.app_survey")}

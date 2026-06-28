@@ -1,16 +1,16 @@
-import { Prisma } from "@salamruby/database/prisma";
-import { TActionClass } from "@salamruby/types/action-classes";
-import { TContactAttributeKey } from "@salamruby/types/contact-attribute-key";
-import { TOrganization } from "@salamruby/types/organizations";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
+import { Prisma } from "@feedyruby/database/prisma";
+import { TActionClass } from "@feedyruby/types/action-classes";
+import { TContactAttributeKey } from "@feedyruby/types/contact-attribute-key";
+import { TOrganization } from "@feedyruby/types/organizations";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
 import {
   TSurvey,
   TSurveyCreateInput,
   TSurveyLanguage,
   TSurveyWelcomeCard,
-} from "@salamruby/types/surveys/types";
-import { TUser } from "@salamruby/types/user";
-import { TWorkspace } from "@salamruby/types/workspace";
+} from "@feedyruby/types/surveys/types";
+import { TUser } from "@feedyruby/types/user";
+import { TWorkspace } from "@feedyruby/types/workspace";
 import { selectSurvey } from "../service";
 
 const selectContact = {
@@ -196,7 +196,7 @@ const baseSurveyProperties = {
   autoComplete: 7,
   publishOn: null,
   closeOn: null,
-  redirectUrl: "https://github.com/salamruby/salamruby",
+  redirectUrl: "https://github.com/feedyruby/feedyruby",
   recontactDays: 3,
   displayLimit: 3,
   welcomeCard: mockWelcomeCard,

@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { logger } from "@salamruby/logger";
-import { ValidationError } from "@salamruby/types/errors";
+import { logger } from "@feedyruby/logger";
+import { ValidationError } from "@feedyruby/types/errors";
 
 type ValidationPair<T> = [T, z.ZodType<T>];
 

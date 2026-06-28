@@ -1,4 +1,4 @@
-import { TUserNotificationSettings } from "@salamruby/types/user";
+import { TUserNotificationSettings } from "@feedyruby/types/user";
 
 export interface Membership {
   organization: {

@@ -1,6 +1,6 @@
 import "server-only";
-import { createCacheKey } from "@salamruby/cache";
-import { logger } from "@salamruby/logger";
+import { createCacheKey } from "@feedyruby/cache";
+import { logger } from "@feedyruby/logger";
 import { cache } from "@/lib/cache";
 import { getHubClient } from "./hub-client";
 import type {

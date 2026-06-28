@@ -1,12 +1,12 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import type { RedisClient } from "../types/client";
 import { ErrorCode } from "../types/error";
 import type { CacheKey } from "../types/keys";
 import { CacheService } from "./service";
 
 // Mock logger
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
     warn: vi.fn(),

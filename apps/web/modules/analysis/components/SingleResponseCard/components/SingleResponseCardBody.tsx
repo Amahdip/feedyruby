@@ -2,11 +2,11 @@
 
 import { CheckCircle2Icon } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { TResponseWithQuotas } from "@salamruby/types/responses";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/constants";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { getTextContent } from "@salamruby/types/surveys/validation";
-import { TUserLocale } from "@salamruby/types/user";
+import { TResponseWithQuotas } from "@feedyruby/types/responses";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/constants";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { getTextContent } from "@feedyruby/types/surveys/validation";
+import { TUserLocale } from "@feedyruby/types/user";
 import { getLocalizedValue } from "@/lib/i18n/utils";
 import { getSurveyDateFormatMap } from "@/lib/utils/date-display";
 import { parseRecallInfo } from "@/lib/utils/recall";

@@ -1,8 +1,8 @@
-import { prisma } from "@salamruby/database";
-import { ActionClass, Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { TActionClassInput } from "@salamruby/types/action-classes";
-import { DatabaseError, UniqueConstraintError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { ActionClass, Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { TActionClassInput } from "@feedyruby/types/action-classes";
+import { DatabaseError, UniqueConstraintError } from "@feedyruby/types/errors";
 
 export const createActionClass = async (
   workspaceId: string,

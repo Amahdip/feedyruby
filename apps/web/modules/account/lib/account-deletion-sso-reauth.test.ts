@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { ErrorCode } from "@salamruby/cache";
-import { prisma } from "@salamruby/database";
-import { AuthorizationError, InvalidInputError } from "@salamruby/types/errors";
+import { ErrorCode } from "@feedyruby/cache";
+import { prisma } from "@feedyruby/database";
+import { AuthorizationError, InvalidInputError } from "@feedyruby/types/errors";
 import { cache } from "@/lib/cache";
 import { createAccountDeletionSsoReauthIntent, verifyAccountDeletionSsoReauthIntent } from "@/lib/jwt";
 import { getUserAuthenticationData } from "@/lib/user/password";
@@ -18,7 +18,7 @@ import {
   validateAccountDeletionSsoReauthenticationCallback,
 } from "./account-deletion-sso-reauth";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     account: {
       findUnique: vi.fn(),
@@ -29,7 +29,7 @@ vi.mock("@salamruby/database", () => ({
   },
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
     info: vi.fn(),
@@ -50,8 +50,8 @@ vi.mock("@/lib/constants", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/lib/constants")>();
   return {
     ...actual,
-    SAML_PRODUCT: "salamruby",
-    SAML_TENANT: "salamruby.com",
+    SAML_PRODUCT: "feedyruby",
+    SAML_TENANT: "feedyruby.com",
     WEBAPP_URL: "http://localhost:3000",
   };
 });
@@ -220,9 +220,9 @@ describe("account deletion SSO identity confirmation", () => {
     expect(result).toEqual({
       authorizationParams: {
         forceAuthn: "true",
-        product: "salamruby",
+        product: "feedyruby",
         provider: "saml",
-        tenant: "salamruby.com",
+        tenant: "feedyruby.com",
       },
       callbackUrl: "http://localhost:3000/auth/account-deletion/sso/complete?intent=intent-token",
       provider: "saml",

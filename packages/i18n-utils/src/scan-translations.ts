@@ -479,7 +479,7 @@ async function validatePackage(
 async function main(): Promise<void> {
   console.log("\n");
   console.log("╔══════════════════════════════════════════════════════════╗");
-  console.log("║         Translation Key Validation for SalamRuby        ║");
+  console.log("║         Translation Key Validation for FeedyRuby        ║");
   console.log("╚══════════════════════════════════════════════════════════╝");
   console.log();
 

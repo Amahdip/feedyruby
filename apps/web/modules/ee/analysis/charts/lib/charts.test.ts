@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
 
 vi.mock("server-only", () => ({}));
 
@@ -12,7 +12,7 @@ var mockTxChart: {
   delete: ReturnType<typeof vi.fn>;
 };
 
-vi.mock("@salamruby/database", () => {
+vi.mock("@feedyruby/database", () => {
   const tx = {
     findFirst: vi.fn(),
     update: vi.fn(),

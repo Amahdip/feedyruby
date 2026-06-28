@@ -1,10 +1,10 @@
 import { describe, expect, test, vi } from "vitest";
-import { type TJsWorkspaceStateSurvey } from "@salamruby/types/js";
-import { type TResponseData, type TResponseVariables } from "@salamruby/types/responses";
-import { type TSurveyBlockLogicAction } from "@salamruby/types/surveys/blocks";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/constants";
-import { type TConditionGroup, type TSingleCondition } from "@salamruby/types/surveys/logic";
-import { type TSurveyVariable } from "@salamruby/types/surveys/types";
+import { type TJsWorkspaceStateSurvey } from "@feedyruby/types/js";
+import { type TResponseData, type TResponseVariables } from "@feedyruby/types/responses";
+import { type TSurveyBlockLogicAction } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/constants";
+import { type TConditionGroup, type TSingleCondition } from "@feedyruby/types/surveys/logic";
+import { type TSurveyVariable } from "@feedyruby/types/surveys/types";
 import { evaluateLogic, isConditionGroup, performActions } from "./logic";
 
 // Mock the imported function

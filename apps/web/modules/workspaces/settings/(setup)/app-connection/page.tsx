@@ -16,17 +16,17 @@ export const AppConnectionPage = async ({ params }: { params: Promise<{ workspac
   const t = await getTranslate();
   const { workspaceId } = await params;
   const workspaceIdMigrationUrl =
-    "https://salamruby.com/docs/surveys/website-app-surveys/workspace-id-migration";
+    "https://feedyruby.com/docs/surveys/website-app-surveys/workspace-id-migration";
 
   const { workspace } = await getWorkspaceAuth(workspaceId);
-  const htmlSnippet = `<!-- START SalamRuby Surveys -->
+  const htmlSnippet = `<!-- START FeedyRuby Surveys -->
 <script type="text/javascript">
 !function(){
     var appUrl = "${WEBAPP_URL}";
     var workspaceId = "${workspace.id}";
-var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=appUrl+"/js/salamruby.umd.cjs";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e),setTimeout(function(){window.salamruby.setup({workspaceId: workspaceId, appUrl: appUrl})},500)}();
+var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=appUrl+"/js/feedyruby.umd.cjs";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e),setTimeout(function(){window.feedyruby.setup({workspaceId: workspaceId, appUrl: appUrl})},500)}();
 </script>
-<!-- END SalamRuby Surveys -->`;
+<!-- END FeedyRuby Surveys -->`;
 
   return (
     <PageContentWrapper>

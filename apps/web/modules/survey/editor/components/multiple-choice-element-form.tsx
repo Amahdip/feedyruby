@@ -8,16 +8,16 @@ import { PlusIcon } from "lucide-react";
 import { type JSX, useEffect, useMemo, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { getLanguageLabel } from "@salamruby/i18n-utils/src/utils";
+import { getLanguageLabel } from "@feedyruby/i18n-utils/src/utils";
 import {
   TMultipleChoiceOptionDisplayType,
   TSurveyElement,
   TSurveyElementChoice,
   TSurveyElementTypeEnum,
   TSurveyMultipleChoiceElement,
-} from "@salamruby/types/surveys/elements";
-import { TShuffleOption, TSurvey } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+} from "@feedyruby/types/surveys/elements";
+import { TShuffleOption, TSurvey } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { createI18nString, extractLanguageCodes } from "@/lib/i18n/utils";
 import { ElementFormInput } from "@/modules/survey/components/element-form-input";
 import { BulkEditOptionsModal } from "@/modules/survey/editor/components/bulk-edit-options-modal";

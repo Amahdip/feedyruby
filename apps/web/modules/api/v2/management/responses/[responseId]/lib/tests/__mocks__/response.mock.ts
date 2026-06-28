@@ -1,5 +1,5 @@
-import { Response, Survey } from "@salamruby/database/prisma";
-import { TSurveyQuestionTypeEnum } from "@salamruby/types/surveys/types";
+import { Response, Survey } from "@feedyruby/database/prisma";
+import { TSurveyQuestionTypeEnum } from "@feedyruby/types/surveys/types";
 
 export const responseId = "goy9hd7uautij04aosslsplb";
 

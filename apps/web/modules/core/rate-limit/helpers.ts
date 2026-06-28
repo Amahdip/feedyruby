@@ -1,5 +1,5 @@
-import { logger } from "@salamruby/logger";
-import { TooManyRequestsError } from "@salamruby/types/errors";
+import { logger } from "@feedyruby/logger";
+import { TooManyRequestsError } from "@feedyruby/types/errors";
 import { hashString } from "@/lib/hash-string";
 import { getClientIpFromHeaders } from "@/lib/utils/client-ip";
 import { checkRateLimit } from "./rate-limit";

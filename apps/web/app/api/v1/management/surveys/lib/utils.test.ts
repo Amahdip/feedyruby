@@ -1,11 +1,11 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
-import { TOrganization } from "@salamruby/types/organizations";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/constants";
+import { TOrganization } from "@feedyruby/types/organizations";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/constants";
 import {
   TSurvey,
   TSurveyCreateInputWithWorkspaceId,
   TSurveyQuestionTypeEnum,
-} from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/surveys/types";
 import { responses } from "@/app/lib/api/response";
 import { getIsSpamProtectionEnabled } from "@/modules/ee/license-check/lib/utils";
 import { getSurveyFollowUpsPermission } from "@/modules/survey/follow-ups/lib/utils";

@@ -1,7 +1,7 @@
 import { randomUUID } from "crypto";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { StorageErrorCode } from "@salamruby/storage";
-import { TAccessType } from "@salamruby/types/storage";
+import { StorageErrorCode } from "@feedyruby/storage";
+import { TAccessType } from "@feedyruby/types/storage";
 import {
   deleteFile,
   deleteFilesByWorkspaceId,
@@ -14,13 +14,13 @@ vi.mock("crypto", () => ({
   randomUUID: vi.fn(),
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },
 }));
 
-vi.mock("@salamruby/storage", () => ({
+vi.mock("@feedyruby/storage", () => ({
   StorageErrorCode: {
     Unknown: "unknown",
     S3ClientError: "s3_client_error",
@@ -36,8 +36,8 @@ vi.mock("@salamruby/storage", () => ({
 }));
 
 // Import mocked dependencies
-const { logger } = await import("@salamruby/logger");
-const storageModule = await import("@salamruby/storage");
+const { logger } = await import("@feedyruby/logger");
+const storageModule = await import("@feedyruby/storage");
 const {
   deleteFile: deleteFileFromS3,
   deleteFilesByPrefix,

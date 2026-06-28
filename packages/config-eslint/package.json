@@ -1,5 +1,5 @@
 {
-  "name": "@salamruby/eslint-config",
+  "name": "@feedyruby/eslint-config",
   "version": "0.0.0",
   "private": true,
   "devDependencies": {

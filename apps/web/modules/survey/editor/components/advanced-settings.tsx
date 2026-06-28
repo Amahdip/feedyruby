@@ -1,6 +1,6 @@
-import { TSurveyBlockLogic } from "@salamruby/types/surveys/blocks";
-import { TSurveyElement, TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TSurveyBlockLogic } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElement, TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { OptionIds } from "@/modules/survey/editor/components/option-ids";
 import { UpdateElementId } from "@/modules/survey/editor/components/update-element-id";
 

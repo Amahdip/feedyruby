@@ -1,4 +1,4 @@
-import { TUser } from "@salamruby/types/user";
+import { TUser } from "@feedyruby/types/user";
 
 export type AuditLoggingCtx = {
   organizationId?: string;

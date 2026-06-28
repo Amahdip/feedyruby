@@ -6,11 +6,11 @@ import { useRouter } from "next/navigation";
 import { type ComponentProps, useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import type { TSurveyType } from "@salamruby/types/surveys/types";
-import type { TUserLocale } from "@salamruby/types/user";
-import type { TWorkspaceConfigChannel } from "@salamruby/types/workspace";
+import type { TSurveyType } from "@feedyruby/types/surveys/types";
+import type { TUserLocale } from "@feedyruby/types/user";
+import type { TWorkspaceConfigChannel } from "@feedyruby/types/workspace";
 import { CUSTOM_SURVEY_TEMPLATE_ID } from "@/app/lib/templates";
-import { SALAMRUBY_SURVEYS_FILTERS_KEY_LS } from "@/lib/localStorage";
+import { FEEDYRUBY_SURVEYS_FILTERS_KEY_LS } from "@/lib/localStorage";
 import { getV3ApiErrorMessage } from "@/modules/api/lib/v3-client";
 import type { TAIUnavailableReason } from "@/modules/ee/analysis/charts/lib/ai-availability";
 import { useCreateSurveyFromTemplate } from "@/modules/survey/components/template-list/hooks/use-create-survey-from-template";
@@ -145,11 +145,11 @@ export const SurveysList = ({
       return;
     }
 
-    const storedFilters = globalThis.window.localStorage.getItem(SALAMRUBY_SURVEYS_FILTERS_KEY_LS);
+    const storedFilters = globalThis.window.localStorage.getItem(FEEDYRUBY_SURVEYS_FILTERS_KEY_LS);
     const parsedFilters = parseStoredSurveyFilters(storedFilters, currentWorkspaceChannel);
 
     if (storedFilters && !parsedFilters) {
-      globalThis.window.localStorage.removeItem(SALAMRUBY_SURVEYS_FILTERS_KEY_LS);
+      globalThis.window.localStorage.removeItem(FEEDYRUBY_SURVEYS_FILTERS_KEY_LS);
       setSurveyFilters(initialFilters);
     } else if (parsedFilters) {
       setSurveyFilters(parsedFilters);
@@ -169,7 +169,7 @@ export const SurveysList = ({
     }
 
     globalThis.window.localStorage.setItem(
-      SALAMRUBY_SURVEYS_FILTERS_KEY_LS,
+      FEEDYRUBY_SURVEYS_FILTERS_KEY_LS,
       JSON.stringify(normalizedFilters)
     );
   }, [normalizedFilters, isFilterInitialized]);

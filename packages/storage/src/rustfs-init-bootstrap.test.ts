@@ -5,13 +5,13 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { afterEach, describe, expect, test } from "vitest";
 
-const salamrubyScriptPath = fileURLToPath(new URL("../../../docker/salamruby.sh", import.meta.url));
+const feedyrubyScriptPath = fileURLToPath(new URL("../../../docker/feedyruby.sh", import.meta.url));
 const rustfsInitTemplatePath = fileURLToPath(new URL("../../../docker/rustfs-init.sh", import.meta.url));
 
 const tempDirs: string[] = [];
 
 const createTempDir = (): string => {
-  const tempDir = mkdtempSync(join(tmpdir(), "salamruby-rustfs-init-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "feedyruby-rustfs-init-"));
   tempDirs.push(tempDir);
   return tempDir;
 };
@@ -42,11 +42,11 @@ if [ "$1" = "ls" ] && [ "$2" = "rustfs" ]; then
   exit 0
 fi
 
-if [ "$1" = "mb" ] && [ "$2" = "rustfs/salamruby" ] && [ "$3" = "--ignore-existing" ]; then
+if [ "$1" = "mb" ] && [ "$2" = "rustfs/feedyruby" ] && [ "$3" = "--ignore-existing" ]; then
   exit 0
 fi
 
-if [ "$1" = "cors" ] && [ "$2" = "set" ] && [ "$3" = "rustfs/salamruby" ]; then
+if [ "$1" = "cors" ] && [ "$2" = "set" ] && [ "$3" = "rustfs/feedyruby" ]; then
   cp "$4" "$capture_dir/cors.xml"
   exit 0
 fi
@@ -99,7 +99,7 @@ exit 0
 const writeRustfsInitScript = (targetPath: string): void => {
   execFileSync(
     "bash",
-    ["-lc", 'source "$1"; write_rustfs_init_script "$2"', "bash", salamrubyScriptPath, targetPath],
+    ["-lc", 'source "$1"; write_rustfs_init_script "$2"', "bash", feedyrubyScriptPath, targetPath],
     { encoding: "utf8" }
   );
 };
@@ -108,11 +108,11 @@ afterEach(() => {
   for (const tempDir of tempDirs.splice(0)) {
     rmSync(tempDir, { recursive: true, force: true });
   }
-  rmSync("/tmp/salamruby-cors.xml", { force: true });
-  rmSync("/tmp/salamruby-policy.json", { force: true });
+  rmSync("/tmp/feedyruby-cors.xml", { force: true });
+  rmSync("/tmp/feedyruby-policy.json", { force: true });
 });
 
-describe("docker/salamruby.sh RustFS bootstrap", () => {
+describe("docker/feedyruby.sh RustFS bootstrap", () => {
   test("generated init script stays in sync with the checked-in dev bootstrap script", () => {
     const tempDir = createTempDir();
     const generatedScriptPath = join(tempDir, "rustfs-init.sh");
@@ -144,8 +144,8 @@ describe("docker/salamruby.sh RustFS bootstrap", () => {
         RUSTFS_ADMIN_PASSWORD: "admin-password",
         RUSTFS_SERVICE_USER: "service-user",
         RUSTFS_SERVICE_PASSWORD: "service-password",
-        RUSTFS_BUCKET_NAME: "salamruby",
-        RUSTFS_POLICY_NAME: "salamruby-app-policy",
+        RUSTFS_BUCKET_NAME: "feedyruby",
+        RUSTFS_POLICY_NAME: "feedyruby-app-policy",
         RUSTFS_CORS_ALLOWED_ORIGINS: "http://localhost:3000,http://127.0.0.1:3000",
       },
     });
@@ -155,13 +155,13 @@ describe("docker/salamruby.sh RustFS bootstrap", () => {
     expect(mcCalls).toEqual([
       "alias set rustfs http://rustfs:9000 admin-user admin-password",
       "ls rustfs",
-      "mb rustfs/salamruby --ignore-existing",
-      "cors set rustfs/salamruby /tmp/salamruby-cors.xml",
-      "admin policy info rustfs salamruby-app-policy",
-      "admin policy create rustfs salamruby-app-policy /tmp/salamruby-policy.json",
+      "mb rustfs/feedyruby --ignore-existing",
+      "cors set rustfs/feedyruby /tmp/feedyruby-cors.xml",
+      "admin policy info rustfs feedyruby-app-policy",
+      "admin policy create rustfs feedyruby-app-policy /tmp/feedyruby-policy.json",
       "admin user info rustfs service-user",
       "admin user add rustfs service-user service-password",
-      "admin policy attach rustfs salamruby-app-policy --user service-user",
+      "admin policy attach rustfs feedyruby-app-policy --user service-user",
     ]);
 
     const policy = JSON.parse(readFileSync(join(captureDir, "policy.json"), "utf8")) as {
@@ -175,12 +175,12 @@ describe("docker/salamruby.sh RustFS bootstrap", () => {
         {
           Effect: "Allow",
           Action: ["s3:DeleteObject", "s3:GetObject", "s3:PutObject"],
-          Resource: ["arn:aws:s3:::salamruby/*"],
+          Resource: ["arn:aws:s3:::feedyruby/*"],
         },
         {
           Effect: "Allow",
           Action: ["s3:ListBucket"],
-          Resource: ["arn:aws:s3:::salamruby"],
+          Resource: ["arn:aws:s3:::feedyruby"],
         },
       ],
     });
@@ -225,15 +225,15 @@ describe("docker/salamruby.sh RustFS bootstrap", () => {
         RUSTFS_ADMIN_PASSWORD: "admin-password",
         RUSTFS_SERVICE_USER: "service-user",
         RUSTFS_SERVICE_PASSWORD: "service-password",
-        RUSTFS_BUCKET_NAME: "salamruby",
-        RUSTFS_POLICY_NAME: "salamruby-app-policy",
+        RUSTFS_BUCKET_NAME: "feedyruby",
+        RUSTFS_POLICY_NAME: "feedyruby-app-policy",
       },
     });
 
     const mcCalls = readFileSync(logFile, "utf8").trim().split("\n");
 
-    expect(mcCalls).toContain("admin policy create rustfs salamruby-app-policy /tmp/salamruby-policy.json");
-    expect(mcCalls).toContain("admin policy add rustfs salamruby-app-policy /tmp/salamruby-policy.json");
+    expect(mcCalls).toContain("admin policy create rustfs feedyruby-app-policy /tmp/feedyruby-policy.json");
+    expect(mcCalls).toContain("admin policy add rustfs feedyruby-app-policy /tmp/feedyruby-policy.json");
   });
 
   test("generated init script exits non-zero when RustFS never becomes ready", () => {
@@ -260,8 +260,8 @@ describe("docker/salamruby.sh RustFS bootstrap", () => {
           RUSTFS_ADMIN_PASSWORD: "admin-password",
           RUSTFS_SERVICE_USER: "service-user",
           RUSTFS_SERVICE_PASSWORD: "service-password",
-          RUSTFS_BUCKET_NAME: "salamruby",
-          RUSTFS_POLICY_NAME: "salamruby-app-policy",
+          RUSTFS_BUCKET_NAME: "feedyruby",
+          RUSTFS_POLICY_NAME: "feedyruby-app-policy",
         },
       })
     ).toThrow();

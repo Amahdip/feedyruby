@@ -1,5 +1,5 @@
-import { logger } from "@salamruby/logger";
-import { OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { logger } from "@feedyruby/logger";
+import { OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { withV3ApiWrapper } from "@/app/api/v3/lib/api-wrapper";
 import { requireV3WorkspaceAccess } from "@/app/api/v3/lib/auth";
 import {
@@ -22,7 +22,7 @@ import {
 const AI_UNAVAILABLE_DETAILS: Record<TAIErrorCode, string> = {
   [AI_ERROR_CODES.FEATURES_NOT_ENABLED]: "AI smart tools are not available for this organization.",
   [AI_ERROR_CODES.SMART_TOOLS_DISABLED]: "AI smart tools are disabled for this organization.",
-  [AI_ERROR_CODES.INSTANCE_NOT_CONFIGURED]: "AI is not configured for this SalamRuby instance.",
+  [AI_ERROR_CODES.INSTANCE_NOT_CONFIGURED]: "AI is not configured for this FeedyRuby instance.",
 };
 
 function isAIErrorCode(value: string): value is TAIErrorCode {

@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import { AuthenticationError } from "@salamruby/types/errors";
+import { AuthenticationError } from "@feedyruby/types/errors";
 import { SettingsCard } from "@/app/(app)/workspaces/[workspaceId]/settings/components/SettingsCard";
 import { redirectBillingRoleFromRestrictedSettings } from "@/app/(app)/workspaces/[workspaceId]/settings/lib/redirect-billing-role";
 import { PrettyUrlsTable } from "@/app/(app)/workspaces/[workspaceId]/settings/organization/domain/components/pretty-urls-table";
 import {
-  IS_SALAMRUBY_CLOUD,
+  IS_FEEDYRUBY_CLOUD,
   IS_STORAGE_CONFIGURED,
   SHOW_STORAGE_NOT_CONFIGURED_WARNING,
 } from "@/lib/constants";
@@ -22,7 +22,7 @@ const Page = async (props: Readonly<{ params: Promise<{ workspaceId: string }> }
   await redirectBillingRoleFromRestrictedSettings(params.workspaceId);
   const t = await getTranslate();
 
-  if (IS_SALAMRUBY_CLOUD) {
+  if (IS_FEEDYRUBY_CLOUD) {
     return notFound();
   }
 

@@ -16,11 +16,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurveyFollowUpAction, TSurveyFollowUpTrigger } from "@salamruby/types/surveys/follow-up";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { getTextContent } from "@salamruby/types/surveys/validation";
-import { TUserLocale } from "@salamruby/types/user";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurveyFollowUpAction, TSurveyFollowUpTrigger } from "@feedyruby/types/surveys/follow-up";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { getTextContent } from "@feedyruby/types/surveys/validation";
+import { TUserLocale } from "@feedyruby/types/user";
 import { recallToHeadline } from "@/lib/utils/recall";
 import { getSurveyFollowUpActionDefaultBody } from "@/modules/survey/editor/lib/utils";
 import {

@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from "preact/hooks";
 import { useTranslation } from "react-i18next";
-import { MultiSelect, type MultiSelectOption } from "@salamruby/survey-ui";
-import { type TResponseData, type TResponseTtc } from "@salamruby/types/responses";
-import type { TSurveyMultipleChoiceElement } from "@salamruby/types/surveys/elements";
+import { MultiSelect, type MultiSelectOption } from "@feedyruby/survey-ui";
+import { type TResponseData, type TResponseTtc } from "@feedyruby/types/responses";
+import type { TSurveyMultipleChoiceElement } from "@feedyruby/types/surveys/elements";
 import { getLocalizedValue } from "@/lib/i18n";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 import { getShuffledChoicesIds } from "@/lib/utils";

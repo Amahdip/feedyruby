@@ -1,5 +1,5 @@
-import { TJsWorkspaceStateSurvey } from "@salamruby/types/js";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TJsWorkspaceStateSurvey } from "@feedyruby/types/js";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 
 /**
  * Adapts a full management-side `TSurvey` into the minimal

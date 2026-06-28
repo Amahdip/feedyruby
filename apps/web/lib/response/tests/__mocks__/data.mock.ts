@@ -1,10 +1,10 @@
 import { isAfter, isBefore, isSameDay } from "date-fns";
-import { Prisma } from "@salamruby/database/prisma";
-import { TDisplay } from "@salamruby/types/displays";
-import { TSurveyQuota } from "@salamruby/types/quota";
-import { TResponse, TResponseFilterCriteria, TResponseUpdateInput } from "@salamruby/types/responses";
-import { TSurvey, TSurveyQuestionTypeEnum } from "@salamruby/types/surveys/types";
-import { TTag } from "@salamruby/types/tags";
+import { Prisma } from "@feedyruby/database/prisma";
+import { TDisplay } from "@feedyruby/types/displays";
+import { TSurveyQuota } from "@feedyruby/types/quota";
+import { TResponse, TResponseFilterCriteria, TResponseUpdateInput } from "@feedyruby/types/responses";
+import { TSurvey, TSurveyQuestionTypeEnum } from "@feedyruby/types/surveys/types";
+import { TTag } from "@feedyruby/types/tags";
 import { mockWelcomeCard } from "@/lib/i18n/i18n.mock";
 import { responseSelection } from "../../service";
 import { constantsForTests } from "../constants";
@@ -506,7 +506,7 @@ export const mockSurvey: TSurvey = {
       subheader: {
         default: "We appreciate your feedback.",
       },
-      buttonLink: "https://salamruby.com",
+      buttonLink: "https://feedyruby.com",
       buttonLabel: { default: "Create your own Survey" },
     },
   ],

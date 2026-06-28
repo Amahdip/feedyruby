@@ -1,14 +1,14 @@
 import { createId } from "@paralleldrive/cuid2";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
-import { InvalidInputError } from "@salamruby/types/errors";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
+import { InvalidInputError } from "@feedyruby/types/errors";
 import {
   type TSurveyBlock,
   type TSurveyBlockLogic,
   type TSurveyBlockLogicAction,
-} from "@salamruby/types/surveys/blocks";
-import { type TConditionGroup, type TSingleCondition } from "@salamruby/types/surveys/logic";
-import { type TSurveyEnding, TSurveyLogicAction, type TSurveyQuestion } from "@salamruby/types/surveys/types";
-import { isConditionGroup, isSingleCondition } from "@salamruby/types/surveys/validation";
+} from "@feedyruby/types/surveys/blocks";
+import { type TConditionGroup, type TSingleCondition } from "@feedyruby/types/surveys/logic";
+import { type TSurveyEnding, TSurveyLogicAction, type TSurveyQuestion } from "@feedyruby/types/surveys/types";
+import { isConditionGroup, isSingleCondition } from "@feedyruby/types/surveys/validation";
 import { structuredClone } from "@/lib/pollyfills/structuredClone";
 
 type Condition = TSingleCondition | TConditionGroup;

@@ -17,8 +17,8 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TSurveyElement, TSurveyElementId, TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurvey, TSurveyHiddenFields, TSurveyRecallItem } from "@salamruby/types/surveys/types";
+import { TSurveyElement, TSurveyElementId, TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurvey, TSurveyHiddenFields, TSurveyRecallItem } from "@feedyruby/types/surveys/types";
 import { getTextContentWithRecallTruncated } from "@/lib/utils/recall";
 import { getElementsFromBlocks } from "@/modules/survey/lib/client-utils";
 import {

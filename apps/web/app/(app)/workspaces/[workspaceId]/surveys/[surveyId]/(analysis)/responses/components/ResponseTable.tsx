@@ -18,11 +18,11 @@ import { VisibilityState, getCoreRowModel, useReactTable } from "@tanstack/react
 import { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { TSurveyQuota } from "@salamruby/types/quota";
-import { TResponseTableData, TResponseWithQuotas } from "@salamruby/types/responses";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TTag } from "@salamruby/types/tags";
-import { TUser, TUserLocale } from "@salamruby/types/user";
+import { TSurveyQuota } from "@feedyruby/types/quota";
+import { TResponseTableData, TResponseWithQuotas } from "@feedyruby/types/responses";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TTag } from "@feedyruby/types/tags";
+import { TUser, TUserLocale } from "@feedyruby/types/user";
 import { ResponseCardModal } from "@/app/(app)/workspaces/[workspaceId]/surveys/[surveyId]/(analysis)/responses/components/ResponseCardModal";
 import { ResponseTableCell } from "@/app/(app)/workspaces/[workspaceId]/surveys/[surveyId]/(analysis)/responses/components/ResponseTableCell";
 import { generateResponseTableColumns } from "@/app/(app)/workspaces/[workspaceId]/surveys/[surveyId]/(analysis)/responses/components/ResponseTableColumns";

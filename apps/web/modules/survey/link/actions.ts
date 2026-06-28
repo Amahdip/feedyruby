@@ -1,8 +1,8 @@
 "use server";
 
 import { z } from "zod";
-import { ZLinkSurveyEmailData } from "@salamruby/types/email";
-import { InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { ZLinkSurveyEmailData } from "@feedyruby/types/email";
+import { InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { actionClient } from "@/lib/utils/action-client";
 import { getOrganizationIdFromSurveyId } from "@/lib/utils/helper";
 import { applyIPRateLimit } from "@/modules/core/rate-limit/helpers";

@@ -1,18 +1,18 @@
 import { prisma } from "@/lib/__mocks__/database";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 import { testInputValidation } from "vitestSetup";
-import { ActionClass, Prisma, Survey } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { TActionClass } from "@salamruby/types/action-classes";
+import { ActionClass, Prisma, Survey } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { TActionClass } from "@feedyruby/types/action-classes";
 import {
   DatabaseError,
   InvalidInputError,
   ResourceNotFoundError,
   ValidationError,
-} from "@salamruby/types/errors";
-import { TSegment } from "@salamruby/types/segment";
-import { TSurveyFollowUp } from "@salamruby/types/surveys/follow-up";
-import { TSurvey, TSurveyCreateInput, TSurveyQuestionTypeEnum } from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/errors";
+import { TSegment } from "@feedyruby/types/segment";
+import { TSurveyFollowUp } from "@feedyruby/types/surveys/follow-up";
+import { TSurvey, TSurveyCreateInput, TSurveyQuestionTypeEnum } from "@feedyruby/types/surveys/types";
 import { getActionClasses } from "@/lib/actionClass/service";
 import {
   getOrganizationByWorkspaceId,

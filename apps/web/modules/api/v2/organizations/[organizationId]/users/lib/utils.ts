@@ -1,4 +1,4 @@
-import { Prisma } from "@salamruby/database/prisma";
+import { Prisma } from "@feedyruby/database/prisma";
 import { buildCommonFilterQuery, pickCommonFilter } from "@/modules/api/v2/management/lib/utils";
 import { TGetUsersFilter } from "@/modules/api/v2/organizations/[organizationId]/users/types/users";
 

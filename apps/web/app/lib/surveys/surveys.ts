@@ -1,14 +1,14 @@
-import { TSurveyQuota } from "@salamruby/types/quota";
+import { TSurveyQuota } from "@feedyruby/types/quota";
 import {
   TResponseFilterCriteria,
   TResponseHiddenFieldsFilter,
   TSurveyContactAttributes,
   TSurveyMetaFieldFilter,
-} from "@salamruby/types/responses";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { getTextContent } from "@salamruby/types/surveys/validation";
-import { TTag } from "@salamruby/types/tags";
+} from "@feedyruby/types/responses";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { getTextContent } from "@feedyruby/types/surveys/validation";
+import { TTag } from "@feedyruby/types/tags";
 import {
   DateRange,
   FilterValue,

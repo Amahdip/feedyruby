@@ -4,20 +4,20 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { ImagePlusIcon, TrashIcon } from "lucide-react";
 import { type Dispatch, type SetStateAction, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { type TI18nString } from "@salamruby/types/i18n";
+import { type TI18nString } from "@feedyruby/types/i18n";
 import {
   TSurveyElement,
   TSurveyElementChoice,
   TSurveyElementTypeEnum,
-} from "@salamruby/types/surveys/elements";
+} from "@feedyruby/types/surveys/elements";
 import {
   TSurvey,
   TSurveyEndScreenCard,
   TSurveyRecallItem,
   TSurveyRedirectUrlCard,
   TSurveyWelcomeCard,
-} from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+} from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { createI18nString, extractLanguageCodes } from "@/lib/i18n/utils";
 import { debounce } from "@/lib/utils/debounce";
 import { useSyncScroll } from "@/lib/utils/hooks/useSyncScroll";

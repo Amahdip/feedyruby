@@ -1,6 +1,6 @@
 import { type Job, type Queue, Worker } from "bullmq";
 import type IORedis from "ioredis";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { closeRedisConnection, createProducerConnection, createWorkerConnection } from "@/src/connection";
 import { JOBS_PREFIX, JOBS_QUEUE_NAME } from "@/src/constants";
 import type { JobHandlerOverrides } from "@/src/contracts";
@@ -82,7 +82,7 @@ export const startJobsRuntime = async ({
   const resolvedWorkerCount = getPositiveInteger(workerCount, "BullMQ worker count");
   const producerConnection = createProducerConnection({
     redisUrl,
-    connectionName: "salamruby-jobs-runtime-producer",
+    connectionName: "feedyruby-jobs-runtime-producer",
   });
 
   let queue: Queue | undefined;
@@ -160,7 +160,7 @@ export const startJobsRuntime = async ({
     for (let workerIndex = 0; workerIndex < resolvedWorkerCount; workerIndex++) {
       const workerConnection = createWorkerConnection({
         redisUrl,
-        connectionName: `salamruby-jobs-runtime-worker-${(workerIndex + 1).toString()}`,
+        connectionName: `feedyruby-jobs-runtime-worker-${(workerIndex + 1).toString()}`,
       });
       workerConnections.push(workerConnection);
       const worker = new Worker(

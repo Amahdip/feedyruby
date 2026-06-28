@@ -1,10 +1,10 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Segment } from "@salamruby/database/prisma";
+import { prisma } from "@feedyruby/database";
+import { Segment } from "@feedyruby/database/prisma";
 import { getSegment } from "../segment";
 
 // Mock dependencies
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     segment: {
       findUnique: vi.fn(),

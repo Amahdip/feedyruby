@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { type TFeedbackSourceFieldMappingCreateInput, ZHubFieldType } from "@salamruby/types/feedback-source";
+import { type TFeedbackSourceFieldMappingCreateInput, ZHubFieldType } from "@feedyruby/types/feedback-source";
 import {
   formatCsvMissingMappedSourceColumns,
   formatMissingRequiredCsvFieldMappingsMessage,

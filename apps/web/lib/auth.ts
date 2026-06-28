@@ -1,6 +1,6 @@
 import { compare, hash } from "bcryptjs";
-import { prisma } from "@salamruby/database";
-import { AuthenticationError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { AuthenticationError } from "@feedyruby/types/errors";
 
 export const hashPassword = async (password: string) => {
   const hashedPassword = await hash(password, 12);

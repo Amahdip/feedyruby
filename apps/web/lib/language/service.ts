@@ -1,16 +1,16 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { ZId } from "@salamruby/types/common";
-import { DatabaseError, ResourceNotFoundError, ValidationError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { ZId } from "@feedyruby/types/common";
+import { DatabaseError, ResourceNotFoundError, ValidationError } from "@feedyruby/types/errors";
 import {
   TLanguage,
   TLanguageInput,
   TLanguageUpdate,
   ZLanguageInput,
   ZLanguageUpdate,
-} from "@salamruby/types/workspace";
+} from "@feedyruby/types/workspace";
 import { validateInputs } from "../utils/validate";
 import { getWorkspace } from "../workspace/service";
 

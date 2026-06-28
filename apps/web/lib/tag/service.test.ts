@@ -1,14 +1,14 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { TTag } from "@salamruby/types/tags";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { TTag } from "@feedyruby/types/tags";
 import { TagError } from "../../modules/workspaces/settings/types/tag";
 import { createTag, getTag, getTagsByWorkspaceId } from "./service";
 
 vi.mock("server-only", () => ({}));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     tag: {
       findMany: vi.fn(),

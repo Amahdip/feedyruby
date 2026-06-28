@@ -1,11 +1,11 @@
 import "server-only";
 import { createHash } from "node:crypto";
-import { prisma } from "@salamruby/database";
-import { PipelineTriggers, Prisma, type Webhook } from "@salamruby/database/prisma";
-import { type JobHandler, type TResponsePipelineJobData, UnrecoverableError } from "@salamruby/jobs";
-import { logger } from "@salamruby/logger";
-import { DatabaseError } from "@salamruby/types/errors";
-import { type TUserLocale, ZUserLocale } from "@salamruby/types/user";
+import { prisma } from "@feedyruby/database";
+import { PipelineTriggers, Prisma, type Webhook } from "@feedyruby/database/prisma";
+import { type JobHandler, type TResponsePipelineJobData, UnrecoverableError } from "@feedyruby/jobs";
+import { logger } from "@feedyruby/logger";
+import { DatabaseError } from "@feedyruby/types/errors";
+import { type TUserLocale, ZUserLocale } from "@feedyruby/types/user";
 import { DANGEROUSLY_ALLOW_WEBHOOK_INTERNAL_URLS, POSTHOG_KEY } from "@/lib/constants";
 import { generateStandardWebhookSignature } from "@/lib/crypto";
 import { handleFeedbackSourcePipeline } from "@/lib/feedback-source/pipeline-handler";

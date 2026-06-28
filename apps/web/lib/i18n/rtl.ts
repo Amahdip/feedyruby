@@ -1,4 +1,4 @@
-import { TUserLocale } from "@salamruby/types/user";
+import { TUserLocale } from "@feedyruby/types/user";
 
 export const RTL_LOCALES = ["fa-IR"] as const satisfies readonly TUserLocale[];
 

@@ -1,7 +1,7 @@
 import "server-only";
 import crypto from "node:crypto";
-import { createCacheKey } from "@salamruby/cache";
-import { logger } from "@salamruby/logger";
+import { createCacheKey } from "@feedyruby/cache";
+import { logger } from "@feedyruby/logger";
 import { cache } from "@/lib/cache";
 
 const INTEGRATION_OAUTH_STATE_TTL_MS = 10 * 60 * 1000;

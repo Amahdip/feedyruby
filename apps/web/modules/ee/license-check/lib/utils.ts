@@ -1,6 +1,6 @@
 import "server-only";
 import { HIDE_ENTERPRISE_UPSELL } from "@/lib/brand-color";
-import { AUDIT_LOG_ENABLED, IS_RECAPTCHA_CONFIGURED, IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { AUDIT_LOG_ENABLED, IS_FEEDYRUBY_CLOUD, IS_RECAPTCHA_CONFIGURED } from "@/lib/constants";
 import { CLOUD_STRIPE_FEATURE_LOOKUP_KEYS } from "@/modules/billing/lib/stripe-catalog";
 import type { TEnterpriseLicenseFeatures } from "@/modules/ee/license-check/types/enterprise-license";
 import { hasOrganizationEntitlementWithLicenseGuard } from "@/modules/entitlements/lib/checks";
@@ -14,7 +14,7 @@ const getFeaturePermission = async (
   organizationId: string,
   featureKey: keyof Pick<TEnterpriseLicenseFeatures, "removeBranding" | "whitelabel">
 ): Promise<boolean> => {
-  if (IS_SALAMRUBY_CLOUD) {
+  if (IS_FEEDYRUBY_CLOUD) {
     return hasOrganizationEntitlementWithLicenseGuard(
       organizationId,
       CLOUD_STRIPE_FEATURE_LOOKUP_KEYS.HIDE_BRANDING
@@ -35,7 +35,7 @@ const getCustomPlanFeaturePermission = async (
     "accessControl" | "quotas" | "contacts" | "aiSmartTools" | "feedbackDirectories" | "dashboards"
   >
 ): Promise<boolean> => {
-  if (IS_SALAMRUBY_CLOUD) {
+  if (IS_FEEDYRUBY_CLOUD) {
     const featureLookupKeyMap: Record<string, string> = {
       accessControl: CLOUD_STRIPE_FEATURE_LOOKUP_KEYS.RBAC,
       quotas: CLOUD_STRIPE_FEATURE_LOOKUP_KEYS.QUOTA_MANAGEMENT,
@@ -77,7 +77,7 @@ export const getRemoveBrandingPermission = async (organizationId: string): Promi
 };
 
 export const getWhiteLabelPermission = async (organizationId: string): Promise<boolean> => {
-  if (!IS_SALAMRUBY_CLOUD && HIDE_ENTERPRISE_UPSELL) {
+  if (!IS_FEEDYRUBY_CLOUD && HIDE_ENTERPRISE_UPSELL) {
     return true;
   }
 
@@ -87,7 +87,7 @@ export const getWhiteLabelPermission = async (organizationId: string): Promise<b
 export const getBiggerUploadFileSizePermission = async (organizationId: string): Promise<boolean> => {
   const entitlementsContext = await getOrganizationEntitlementsContext(organizationId);
 
-  if (!IS_SALAMRUBY_CLOUD) {
+  if (!IS_FEEDYRUBY_CLOUD) {
     return entitlementsContext.licenseStatus === "active";
   }
 
@@ -130,7 +130,7 @@ export const getIsAuditLogsEnabled = async (): Promise<boolean> => {
 };
 
 export const getIsSamlSsoEnabled = async (): Promise<boolean> => {
-  if (IS_SALAMRUBY_CLOUD) {
+  if (IS_FEEDYRUBY_CLOUD) {
     return false;
   }
   const licenseFeatures = await getLicenseFeatures();
@@ -141,7 +141,7 @@ export const getIsSamlSsoEnabled = async (): Promise<boolean> => {
 export const getIsSpamProtectionEnabled = async (organizationId: string): Promise<boolean> => {
   if (!IS_RECAPTCHA_CONFIGURED) return false;
 
-  if (IS_SALAMRUBY_CLOUD) {
+  if (IS_FEEDYRUBY_CLOUD) {
     return hasOrganizationEntitlementWithLicenseGuard(
       organizationId,
       CLOUD_STRIPE_FEATURE_LOOKUP_KEYS.SPAM_PROTECTION
@@ -153,7 +153,7 @@ export const getIsSpamProtectionEnabled = async (organizationId: string): Promis
 };
 
 export const getAccessControlPermission = async (organizationId: string): Promise<boolean> => {
-  if (!IS_SALAMRUBY_CLOUD && HIDE_ENTERPRISE_UPSELL) {
+  if (!IS_FEEDYRUBY_CLOUD && HIDE_ENTERPRISE_UPSELL) {
     return true;
   }
 
@@ -171,7 +171,7 @@ export const getIsDashboardsEnabled = async (organizationId: string): Promise<bo
 export const getOrganizationWorkspacesLimit = async (organizationId: string): Promise<number> => {
   const entitlementsContext = await getOrganizationEntitlementsContext(organizationId);
 
-  if (IS_SALAMRUBY_CLOUD) {
+  if (IS_FEEDYRUBY_CLOUD) {
     const cloudLicenseAllowsLimits =
       entitlementsContext.licenseStatus === "active" || entitlementsContext.licenseStatus === "no-license";
     if (!cloudLicenseAllowsLimits) return 3;

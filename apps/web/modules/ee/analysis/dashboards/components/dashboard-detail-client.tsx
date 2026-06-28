@@ -8,7 +8,7 @@ import "react-grid-layout/css/styles.css";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import "react-resizable/css/styles.css";
-import type { TChartQuery } from "@salamruby/types/analysis";
+import type { TChartQuery } from "@feedyruby/types/analysis";
 import { getFormattedErrorMessage } from "@/lib/utils/helper";
 import { CreateChartDialog } from "@/modules/ee/analysis/charts/components/create-chart-dialog";
 import type { TAIUnavailableReason } from "@/modules/ee/analysis/charts/lib/ai-availability";
@@ -262,7 +262,7 @@ export function DashboardDetailClient({
               <span>{t("workspace.analysis.dashboards.chart_removed")}</span>
               <button
                 type="button"
-                className="text-sm font-medium text-brand-dark underline hover:text-brand-dark/80"
+                className="hover:text-brand-dark/80 text-sm font-medium text-brand-dark underline"
                 onClick={() => {
                   toast.dismiss(toastInstance.id);
                   void handleUndoRemoveWidget(snapshot);

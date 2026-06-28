@@ -1,6 +1,6 @@
-import { logger } from "@salamruby/logger";
-import { DatabaseError, InvalidInputError } from "@salamruby/types/errors";
-import { TResponse, TResponseInput, ZResponseInput } from "@salamruby/types/responses";
+import { logger } from "@feedyruby/logger";
+import { DatabaseError, InvalidInputError } from "@feedyruby/types/errors";
+import { TResponse, TResponseInput, ZResponseInput } from "@feedyruby/types/responses";
 import { resolveBodyIds } from "@/app/api/v1/management/lib/workspace-resolver";
 import { RequestBodyTooLargeError, parseJsonBodyWithLimit } from "@/app/lib/api/request-body";
 import { responses } from "@/app/lib/api/response";

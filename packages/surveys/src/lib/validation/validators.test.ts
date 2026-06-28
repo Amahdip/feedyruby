@@ -1,7 +1,7 @@
 import type { TFunction } from "i18next";
 import { describe, expect, test, vi } from "vitest";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import type { TSurveyElement } from "@salamruby/types/surveys/elements";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import type { TSurveyElement } from "@feedyruby/types/surveys/elements";
 import { validators } from "./validators";
 
 // Mock translation function - just return the key for testing

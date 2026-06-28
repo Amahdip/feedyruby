@@ -1,9 +1,9 @@
 import "server-only";
 import type { AuthInfo } from "@modelcontextprotocol/sdk/server/auth/types.js";
 import type { NextRequest } from "next/server";
-import { logger } from "@salamruby/logger";
-import type { TAuthenticationApiKey } from "@salamruby/types/auth";
-import { TooManyRequestsError } from "@salamruby/types/errors";
+import { logger } from "@feedyruby/logger";
+import type { TAuthenticationApiKey } from "@feedyruby/types/auth";
+import { TooManyRequestsError } from "@feedyruby/types/errors";
 import {
   problemBadRequest,
   problemForbidden,
@@ -27,7 +27,7 @@ const QUERY_CREDENTIAL_PARAMS = new Set([
 
 export type TMcpAuthInfo = AuthInfo & {
   extra: {
-    salamrubyAuthentication: TAuthenticationApiKey;
+    feedyrubyAuthentication: TAuthenticationApiKey;
     requestId: string;
   };
 };
@@ -88,14 +88,14 @@ function createMcpAuthInfo(authentication: TAuthenticationApiKey, requestId: str
     clientId: authentication.apiKeyId,
     scopes: getMcpScopes(authentication),
     extra: {
-      salamrubyAuthentication: authentication,
+      feedyrubyAuthentication: authentication,
       requestId,
     },
   };
 }
 
 export function getMcpAuthentication(authInfo?: AuthInfo): TAuthenticationApiKey | null {
-  const authentication = authInfo?.extra?.salamrubyAuthentication;
+  const authentication = authInfo?.extra?.feedyrubyAuthentication;
   if (!authentication || typeof authentication !== "object" || !("apiKeyId" in authentication)) {
     return null;
   }

@@ -1,4 +1,4 @@
-import { Invite, User } from "@salamruby/database/prisma";
+import { Invite, User } from "@feedyruby/database/prisma";
 
 export interface InviteWithCreator extends Pick<Invite, "id" | "organizationId" | "role" | "teamIds"> {
   creator: Pick<User, "name" | "email" | "locale">;

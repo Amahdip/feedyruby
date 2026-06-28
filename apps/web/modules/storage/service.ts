@@ -1,5 +1,5 @@
 import { randomUUID } from "crypto";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import {
   type FileStreamResult,
   type StorageError,
@@ -8,9 +8,9 @@ import {
   deleteFilesByPrefix,
   getFileStream,
   getSignedUploadUrl,
-} from "@salamruby/storage";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
-import { type TAccessType } from "@salamruby/types/storage";
+} from "@feedyruby/storage";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
+import { type TAccessType } from "@feedyruby/types/storage";
 import { sanitizeFileName } from "./utils";
 
 const SAFE_FILE_PATH_SEGMENT = /^[A-Za-z0-9_-]+$/;

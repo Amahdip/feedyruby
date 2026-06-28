@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { TOrganization } from "@salamruby/types/organizations";
-import { TResponse } from "@salamruby/types/responses";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TOrganization } from "@feedyruby/types/organizations";
+import { TResponse } from "@feedyruby/types/responses";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { getOrganizationByWorkspaceId } from "@/lib/organization/service";
 import { getResponse } from "@/lib/response/service";
 import { getSurvey } from "@/lib/survey/service";

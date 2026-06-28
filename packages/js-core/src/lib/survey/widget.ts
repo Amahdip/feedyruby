@@ -108,9 +108,9 @@ export const renderWidget = async (
   const placement = workspaceOverwrites.placement ?? settings.placement;
   const isBrandingEnabled = settings.inAppSurveyBranding;
 
-  let salamrubySurveys: TSalamRubySurveys;
+  let feedyrubySurveys: TFeedyRubySurveys;
   try {
-    salamrubySurveys = await loadSalamRubySurveysExternally();
+    feedyrubySurveys = await loadFeedyRubySurveysExternally();
   } catch (error) {
     logger.error(`Failed to load surveys library: ${String(error)}`);
     setIsSurveyRunning(false);
@@ -129,7 +129,7 @@ export const renderWidget = async (
   }
 
   const timeoutId = setTimeout(() => {
-    salamrubySurveys.renderSurvey({
+    feedyrubySurveys.renderSurvey({
       appUrl: config.get().appUrl,
       workspaceId: config.get().workspaceId,
       contactId: config.get().user.data.contactId ?? undefined,
@@ -230,26 +230,26 @@ export const removeWidgetContainer = (): void => {
 const SURVEYS_LOAD_TIMEOUT_MS = 10000;
 const SURVEYS_POLL_INTERVAL_MS = 200;
 
-type TSalamRubySurveys = NonNullable<typeof globalThis.window.salamrubySurveys>;
+type TFeedyRubySurveys = NonNullable<typeof globalThis.window.feedyrubySurveys>;
 
-let surveysLoadPromise: Promise<TSalamRubySurveys> | null = null;
+let surveysLoadPromise: Promise<TFeedyRubySurveys> | null = null;
 
-const waitForSurveysGlobal = (): Promise<TSalamRubySurveys> => {
+const waitForSurveysGlobal = (): Promise<TFeedyRubySurveys> => {
   return new Promise((resolve, reject) => {
     const startTime = Date.now();
 
     const check = (): void => {
-      if (globalThis.window.salamrubySurveys) {
-        const storedNonce = globalThis.window.__salamrubyNonce;
+      if (globalThis.window.feedyrubySurveys) {
+        const storedNonce = globalThis.window.__feedyrubyNonce;
         if (storedNonce) {
-          globalThis.window.salamrubySurveys.setNonce(storedNonce);
+          globalThis.window.feedyrubySurveys.setNonce(storedNonce);
         }
-        resolve(globalThis.window.salamrubySurveys);
+        resolve(globalThis.window.feedyrubySurveys);
         return;
       }
 
       if (Date.now() - startTime >= SURVEYS_LOAD_TIMEOUT_MS) {
-        reject(new Error("SalamRuby Surveys library did not become available within timeout"));
+        reject(new Error("FeedyRuby Surveys library did not become available within timeout"));
         return;
       }
 
@@ -260,16 +260,16 @@ const waitForSurveysGlobal = (): Promise<TSalamRubySurveys> => {
   });
 };
 
-const loadSalamRubySurveysExternally = (): Promise<TSalamRubySurveys> => {
-  if (globalThis.window.salamrubySurveys) {
-    return Promise.resolve(globalThis.window.salamrubySurveys);
+const loadFeedyRubySurveysExternally = (): Promise<TFeedyRubySurveys> => {
+  if (globalThis.window.feedyrubySurveys) {
+    return Promise.resolve(globalThis.window.feedyrubySurveys);
   }
 
   if (surveysLoadPromise) {
     return surveysLoadPromise;
   }
 
-  surveysLoadPromise = new Promise<TSalamRubySurveys>((resolve, reject: (error: unknown) => void) => {
+  surveysLoadPromise = new Promise<TFeedyRubySurveys>((resolve, reject: (error: unknown) => void) => {
     const config = Config.getInstance();
     const script = document.createElement("script");
     script.src = `${config.get().appUrl}/js/surveys.umd.cjs`;
@@ -279,14 +279,14 @@ const loadSalamRubySurveysExternally = (): Promise<TSalamRubySurveys> => {
         .then(resolve)
         .catch((error: unknown) => {
           surveysLoadPromise = null;
-          console.error("Failed to load SalamRuby Surveys library:", error);
-          reject(new Error(`Failed to load SalamRuby Surveys library`));
+          console.error("Failed to load FeedyRuby Surveys library:", error);
+          reject(new Error(`Failed to load FeedyRuby Surveys library`));
         });
     };
     script.onerror = (error) => {
       surveysLoadPromise = null;
-      console.error("Failed to load SalamRuby Surveys library:", error);
-      reject(new Error(`Failed to load SalamRuby Surveys library`));
+      console.error("Failed to load FeedyRuby Surveys library:", error);
+      reject(new Error(`Failed to load FeedyRuby Surveys library`));
     };
     document.head.appendChild(script);
   });
@@ -298,7 +298,7 @@ let isPreloaded = false;
 
 export const preloadSurveysScript = (appUrl: string): void => {
   // Don't preload if already loaded or already preloading
-  if (globalThis.window.salamrubySurveys) return;
+  if (globalThis.window.feedyrubySurveys) return;
   if (isPreloaded) return;
 
   isPreloaded = true;

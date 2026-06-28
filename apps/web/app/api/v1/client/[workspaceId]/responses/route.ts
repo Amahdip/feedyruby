@@ -1,10 +1,10 @@
 import { headers } from "next/headers";
 import { UAParser } from "ua-parser-js";
-import { logger } from "@salamruby/logger";
-import { InvalidInputError, UniqueConstraintError } from "@salamruby/types/errors";
-import { TResponseWithQuotaFull } from "@salamruby/types/quota";
-import { TResponseInput, ZResponseInput } from "@salamruby/types/responses";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { logger } from "@feedyruby/logger";
+import { InvalidInputError, UniqueConstraintError } from "@feedyruby/types/errors";
+import { TResponseWithQuotaFull } from "@feedyruby/types/quota";
+import { TResponseInput, ZResponseInput } from "@feedyruby/types/responses";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { validateSingleUseResponseInput } from "@/app/api/client/[workspaceId]/responses/lib/single-use";
 import { RequestBodyTooLargeError, parseJsonBodyWithLimit } from "@/app/lib/api/request-body";
 import { responses } from "@/app/lib/api/response";

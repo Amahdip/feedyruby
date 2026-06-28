@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
-import { logger } from "@salamruby/logger";
-import { ZUserEmail } from "@salamruby/types/user";
+import { logger } from "@feedyruby/logger";
+import { ZUserEmail } from "@feedyruby/types/user";
 import { WEBAPP_URL } from "@/lib/constants";
 import { getEmailFromEmailToken } from "@/lib/jwt";
 import { getTranslate } from "@/lingodotdev/server";

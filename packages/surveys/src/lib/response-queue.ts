@@ -1,7 +1,7 @@
-import { Result, err, ok } from "@salamruby/types/error-handlers";
-import { ApiErrorResponse } from "@salamruby/types/errors";
-import { TQuotaFullResponse } from "@salamruby/types/quota";
-import { TResponseUpdate } from "@salamruby/types/responses";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
+import { ApiErrorResponse } from "@feedyruby/types/errors";
+import { TQuotaFullResponse } from "@feedyruby/types/quota";
+import { TResponseUpdate } from "@feedyruby/types/responses";
 import { RECAPTCHA_VERIFICATION_ERROR_CODE } from "@/lib/constants";
 import { TResponseErrorCodesEnum } from "@/types/response-error-codes";
 import { ApiClient } from "./api-client";
@@ -314,21 +314,21 @@ export class ResponseQueue {
         }
 
         if (attempts > 0) {
-          console.log(`SalamRuby: Response sent successfully after ${attempts + 1} attempts`);
+          console.log(`FeedyRuby: Response sent successfully after ${attempts + 1} attempts`);
         }
 
         return { success: true, quotaFullResponse: quotaFullResponse ?? undefined };
       }
 
       if (this.isRecaptchaError(res.error)) {
-        console.error("SalamRuby: Recaptcha verification failed", {
+        console.error("FeedyRuby: Recaptcha verification failed", {
           error: res.error,
           responseId: this.surveyState.responseId,
         });
         return { success: false, isRecaptchaError: true };
       }
 
-      console.error(`SalamRuby: Response send failed`, {
+      console.error(`FeedyRuby: Response send failed`, {
         attempt: attempts + 1,
         maxAttempts: this.config.retryAttempts,
         error: res.error,
@@ -342,7 +342,7 @@ export class ResponseQueue {
       attempts++;
     }
 
-    console.error(`SalamRuby: Failed to send response after ${this.config.retryAttempts} attempts`, {
+    console.error(`FeedyRuby: Failed to send response after ${this.config.retryAttempts} attempts`, {
       queueLength: this.queue.length,
       responseId: this.surveyState.responseId,
       surveyId: this.surveyState.surveyId,
@@ -465,7 +465,7 @@ export class ResponseQueue {
 
       return ok(true);
     } catch (error) {
-      console.error("SalamRuby: Error sending response", error);
+      console.error("FeedyRuby: Error sending response", error);
       return err({
         code: "internal_server_error",
         message: "An error occurred while sending the response.",

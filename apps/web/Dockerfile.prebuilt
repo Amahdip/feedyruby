@@ -1,5 +1,5 @@
-# Runtime image for SalamRuby when the Next.js app is already built on the host.
-# Build: scripts/build-salamruby-image-from-host.sh
+# Runtime image for FeedyRuby when the Next.js app is already built on the host.
+# Build: scripts/build-feedyruby-image-from-host.sh
 
 # Build-time only: produce Prisma linux-musl (Alpine) engines in a throwaway stage.
 # Host builds on macOS/glibc cannot emit musl binaries, so instead of borrowing them from a

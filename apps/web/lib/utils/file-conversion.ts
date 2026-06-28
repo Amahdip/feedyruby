@@ -1,6 +1,6 @@
 import { AsyncParser } from "@json2csv/node";
 import * as xlsx from "xlsx";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 
 // Defang spreadsheet formula injection. Cell values starting with
 // =, +, -, @, tab, or CR are evaluated as formulas by Excel/Sheets/Numbers.

@@ -26,11 +26,11 @@ export const APP_VERSION_I18N_KEY = "common.app_version";
 export const getDisplayAppVersion = (version: string): string | null =>
   version && version !== "0.0.0" ? version : null;
 
-/** salamruby self-host: hide SalamRuby Cloud upsells and vendor trial/license links */
+/** feedyruby self-host: hide FeedyRuby Cloud upsells and vendor trial/license links */
 export const HIDE_ENTERPRISE_UPSELL = true;
 
-/** Remove docs, GitHub, security mailing list, and other salamruby.com links from the UI */
-export const HIDE_SALAMRUBY_EXTERNAL_LINKS = true;
+/** Remove docs, GitHub, security mailing list, and other feedyruby.com links from the UI */
+export const HIDE_FEEDYRUBY_EXTERNAL_LINKS = true;
 
 /** EE features hidden from navigation (use surveys + WordPress embed instead) */
 export const HIDE_CONTACTS_FEATURE = true;
@@ -49,7 +49,7 @@ export const HIDE_QUOTAS_FEATURE = true;
 /** Hide enterprise license settings page and related sidebar entry */
 export const HIDE_ENTERPRISE_SETTINGS = true;
 
-/** Hide "new version available" banner linking to SalamRuby GitHub releases */
+/** Hide "new version available" banner linking to FeedyRuby GitHub releases */
 export const HIDE_VERSION_UPDATE_PROMPT = true;
 
 /** Hide global "storage not configured" banners when RustFS/S3 is not set up */

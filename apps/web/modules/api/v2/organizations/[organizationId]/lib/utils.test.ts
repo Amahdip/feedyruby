@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { logger } from "@salamruby/logger";
-import { OrganizationAccessType } from "@salamruby/types/api-key";
+import { logger } from "@feedyruby/logger";
+import { OrganizationAccessType } from "@feedyruby/types/api-key";
 import { hasOrganizationIdAndAccess } from "./utils";
 
 describe("hasOrganizationIdAndAccess", () => {

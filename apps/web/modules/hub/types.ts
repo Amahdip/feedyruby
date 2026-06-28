@@ -1,14 +1,14 @@
-import type SalamRubyHub from "@salamruby/hub";
+import type FeedyRubyHub from "@feedyruby/hub";
 
-export type FeedbackRecordCreateParams = SalamRubyHub.FeedbackRecordCreateParams;
-export type FeedbackRecordData = SalamRubyHub.FeedbackRecordData;
-export type FeedbackRecordListParams = SalamRubyHub.FeedbackRecordListParams;
-export type FeedbackRecordListResponse = SalamRubyHub.FeedbackRecordListResponse;
-export type FeedbackRecordUpdateParams = SalamRubyHub.FeedbackRecordUpdateParams;
+export type FeedbackRecordCreateParams = FeedyRubyHub.FeedbackRecordCreateParams;
+export type FeedbackRecordData = FeedyRubyHub.FeedbackRecordData;
+export type FeedbackRecordListParams = FeedyRubyHub.FeedbackRecordListParams;
+export type FeedbackRecordListResponse = FeedyRubyHub.FeedbackRecordListResponse;
+export type FeedbackRecordUpdateParams = FeedyRubyHub.FeedbackRecordUpdateParams;
 
-export type SemanticSearchInput = SalamRubyHub.FeedbackRecords.SearchPerformSemanticSearchParams;
-export type SemanticSearchResponse = SalamRubyHub.FeedbackRecords.SearchPerformSemanticSearchResponse;
-export type SemanticSearchResultItem = SalamRubyHub.FeedbackRecords.SearchPerformSemanticSearchResponse.Data;
+export type SemanticSearchInput = FeedyRubyHub.FeedbackRecords.SearchPerformSemanticSearchParams;
+export type SemanticSearchResponse = FeedyRubyHub.FeedbackRecords.SearchPerformSemanticSearchResponse;
+export type SemanticSearchResultItem = FeedyRubyHub.FeedbackRecords.SearchPerformSemanticSearchResponse.Data;
 
 export type TaxonomyScope = {
   tenant_id: string;

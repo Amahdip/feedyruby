@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from "vitest";
-import { TSurveyBlock } from "@salamruby/types/surveys/blocks";
-import { TSurveyElement, TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TSurveyBlock } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElement, TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import {
   addBlock,
   addElementToBlock,

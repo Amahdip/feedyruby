@@ -1,13 +1,13 @@
 import "server-only";
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { ZId, ZOptionalNumber } from "@salamruby/types/common";
-import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
-import { ZSegmentFilters } from "@salamruby/types/segment";
-import { TSurveyBlock } from "@salamruby/types/surveys/blocks";
-import { TSurvey, TSurveyCreateInput, ZSurvey, ZSurveyCreateInput } from "@salamruby/types/surveys/types";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { ZId, ZOptionalNumber } from "@feedyruby/types/common";
+import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import { ZSegmentFilters } from "@feedyruby/types/segment";
+import { TSurveyBlock } from "@feedyruby/types/surveys/blocks";
+import { TSurvey, TSurveyCreateInput, ZSurvey, ZSurveyCreateInput } from "@feedyruby/types/surveys/types";
 import {
   getOrganizationByWorkspaceId,
   subscribeOrganizationMembersToSurveyResponses,

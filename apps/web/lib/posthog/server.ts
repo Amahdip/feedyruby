@@ -1,6 +1,6 @@
 import "server-only";
 import { PostHog } from "posthog-node";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { POSTHOG_KEY } from "@/lib/constants";
 
 const POSTHOG_HOST = "https://eu.i.posthog.com";

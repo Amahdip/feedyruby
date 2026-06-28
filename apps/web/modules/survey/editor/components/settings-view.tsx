@@ -1,10 +1,10 @@
 import { type Dispatch, type SetStateAction } from "react";
-import { ActionClass, OrganizationRole } from "@salamruby/database/prisma-browser";
-import { TContactAttributeKey } from "@salamruby/types/contact-attribute-key";
-import { TSurveyQuota } from "@salamruby/types/quota";
-import { TSegment } from "@salamruby/types/segment";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+import { ActionClass, OrganizationRole } from "@feedyruby/database/prisma-browser";
+import { TContactAttributeKey } from "@feedyruby/types/contact-attribute-key";
+import { TSurveyQuota } from "@feedyruby/types/quota";
+import { TSegment } from "@feedyruby/types/segment";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { HIDE_QUOTAS_FEATURE } from "@/lib/brand-color";
 import { TargetingCard } from "@/modules/ee/contacts/segments/components/targeting-card";
 import { QuotasCard } from "@/modules/ee/quotas/components/quotas-card";
@@ -27,7 +27,7 @@ interface SettingsViewProps {
   isUserTargetingAllowed?: boolean;
   isSpamProtectionAllowed: boolean;
   workspacePermission: TTeamPermission | null;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   isQuotasAllowed: boolean;
   quotas: TSurveyQuota[];
   locale: TUserLocale;
@@ -47,7 +47,7 @@ export const SettingsView = ({
   isSpamProtectionAllowed,
   isQuotasAllowed,
   workspacePermission,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   quotas,
   locale,
   appSetupCompleted,
@@ -80,7 +80,7 @@ export const SettingsView = ({
             </div>
           ) : (
             <TargetingLockedCard
-              isSalamRubyCloud={isSalamRubyCloud}
+              isFeedyRubyCloud={isFeedyRubyCloud}
               workspaceId={localSurvey.workspaceId}
               enterpriseLicenseRequestFormUrl={enterpriseLicenseRequestFormUrl}
             />
@@ -100,7 +100,7 @@ export const SettingsView = ({
         <QuotasCard
           localSurvey={localSurvey}
           isQuotasAllowed={isQuotasAllowed}
-          isSalamRubyCloud={isSalamRubyCloud}
+          isFeedyRubyCloud={isFeedyRubyCloud}
           quotas={quotas}
           hasResponses={responseCount > 0}
           enterpriseLicenseRequestFormUrl={enterpriseLicenseRequestFormUrl}

@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import { TSurveyStyling } from "@salamruby/types/surveys/types";
-import { getTextContent } from "@salamruby/types/surveys/validation";
-import { TWorkspaceStyling } from "@salamruby/types/workspace";
-import { IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { TSurveyStyling } from "@feedyruby/types/surveys/types";
+import { getTextContent } from "@feedyruby/types/surveys/validation";
+import { TWorkspaceStyling } from "@feedyruby/types/workspace";
+import { IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { getPublicDomain } from "@/lib/getPublicUrl";
 import { getLocalizedValue } from "@/lib/i18n/utils";
 import { COLOR_DEFAULTS } from "@/lib/styling/constants";
@@ -83,8 +83,8 @@ export const getBasicSurveyMetadata = async (
   const ogImage = metadata?.ogImage;
 
   if (!titleFromMetadata) {
-    if (IS_SALAMRUBY_CLOUD) {
-      title = `${title} | SalamRuby`;
+    if (IS_FEEDYRUBY_CLOUD) {
+      title = `${title} | FeedyRuby`;
     }
   }
 

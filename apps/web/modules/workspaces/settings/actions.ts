@@ -1,9 +1,9 @@
 "use server";
 
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
-import { ZWorkspaceUpdateInput } from "@salamruby/types/workspace";
+import { ZId } from "@feedyruby/types/common";
+import { OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import { ZWorkspaceUpdateInput } from "@feedyruby/types/workspace";
 import { getOrganization } from "@/lib/organization/service";
 import { capturePostHogEvent } from "@/lib/posthog";
 import { authenticatedActionClient } from "@/lib/utils/action-client";

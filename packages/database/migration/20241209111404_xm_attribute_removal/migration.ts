@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition -- Required for a while loop here */
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { Prisma } from "../../src/prisma";
 import type { MigrationScript } from "../../src/scripts/migration-runner";
 

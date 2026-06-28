@@ -1,7 +1,7 @@
-import { iso639Languages } from "@salamruby/i18n-utils/src/utils";
-import { TI18nString } from "@salamruby/types/i18n";
-import { TSurveyLanguage } from "@salamruby/types/surveys/types";
-import { TLanguage } from "@salamruby/types/workspace";
+import { iso639Languages } from "@feedyruby/i18n-utils/src/utils";
+import { TI18nString } from "@feedyruby/types/i18n";
+import { TSurveyLanguage } from "@feedyruby/types/surveys/types";
+import { TLanguage } from "@feedyruby/types/workspace";
 import { structuredClone } from "@/lib/pollyfills/structuredClone";
 
 // Helper function to create an i18nString from a regular string.

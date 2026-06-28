@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ZResponse } from "@salamruby/database/zod/responses";
+import { ZResponse } from "@feedyruby/database/zod/responses";
 
 export const ZResponseIdSchema = z
   .cuid2()

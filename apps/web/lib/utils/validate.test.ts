@@ -1,10 +1,10 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { z } from "zod";
-import { logger } from "@salamruby/logger";
-import { ValidationError } from "@salamruby/types/errors";
+import { logger } from "@feedyruby/logger";
+import { ValidationError } from "@feedyruby/types/errors";
 import { validateInputs } from "./validate";
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },

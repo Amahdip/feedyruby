@@ -3,11 +3,11 @@
 import { TFunction } from "i18next";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { TSurveyQuota } from "@salamruby/types/quota";
-import { TResponseDataValue, TResponseTableData, TResponseWithQuotas } from "@salamruby/types/responses";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TTag } from "@salamruby/types/tags";
-import { TUser, TUserLocale } from "@salamruby/types/user";
+import { TSurveyQuota } from "@feedyruby/types/quota";
+import { TResponseDataValue, TResponseTableData, TResponseWithQuotas } from "@feedyruby/types/responses";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TTag } from "@feedyruby/types/tags";
+import { TUser, TUserLocale } from "@feedyruby/types/user";
 import { ResponseTable } from "@/app/(app)/workspaces/[workspaceId]/surveys/[surveyId]/(analysis)/responses/components/ResponseTable";
 import { getElementsFromBlocks } from "@/modules/survey/lib/client-utils";
 

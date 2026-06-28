@@ -1,9 +1,9 @@
 import { createId } from "@paralleldrive/cuid2";
 import { TFunction } from "i18next";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
-import { TSurveyBlock } from "@salamruby/types/surveys/blocks";
-import { TSurveyElement } from "@salamruby/types/surveys/elements";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
+import { TSurveyBlock } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElement } from "@feedyruby/types/surveys/elements";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { createI18nString } from "@/lib/i18n/utils";
 
 // ============================================

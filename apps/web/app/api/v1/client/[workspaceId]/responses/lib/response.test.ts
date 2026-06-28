@@ -1,14 +1,14 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
 import {
   DatabaseError,
   InvalidInputError,
   ResourceNotFoundError,
   UniqueConstraintError,
-} from "@salamruby/types/errors";
-import { TSurveyQuota } from "@salamruby/types/quota";
-import { TResponseInput } from "@salamruby/types/responses";
+} from "@feedyruby/types/errors";
+import { TSurveyQuota } from "@feedyruby/types/quota";
+import { TResponseInput } from "@feedyruby/types/responses";
 import { getOrganization } from "@/lib/organization/service";
 import { calculateTtcTotal } from "@/lib/response/utils";
 import { getOrganizationIdFromWorkspaceId } from "@/lib/utils/helper";
@@ -17,11 +17,11 @@ import { createResponse, createResponseWithQuotaEvaluation } from "./response";
 
 vi.mock("server-only", () => ({}));
 
-let mockIsSalamRubyCloud = false;
+let mockIsFeedyRubyCloud = false;
 
 vi.mock("@/lib/constants", () => ({
-  get IS_SALAMRUBY_CLOUD() {
-    return mockIsSalamRubyCloud;
+  get IS_FEEDYRUBY_CLOUD() {
+    return mockIsFeedyRubyCloud;
   },
   ENCRYPTION_KEY: "test",
 }));
@@ -42,7 +42,7 @@ vi.mock("@/lib/utils/validate", () => ({
   validateInputs: vi.fn(),
 }));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     response: {
       create: vi.fn(),
@@ -51,7 +51,7 @@ vi.mock("@salamruby/database", () => ({
   },
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },
@@ -122,7 +122,7 @@ describe("createResponse", () => {
   });
 
   afterEach(() => {
-    mockIsSalamRubyCloud = false;
+    mockIsFeedyRubyCloud = false;
   });
 
   test("should handle finished response and calculate TTC", async () => {
@@ -193,7 +193,7 @@ describe("createResponseWithQuotaEvaluation", () => {
   });
 
   afterEach(() => {
-    mockIsSalamRubyCloud = false;
+    mockIsFeedyRubyCloud = false;
   });
 
   test("should return response without quotaFull when no quota violations", async () => {

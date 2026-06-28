@@ -56,13 +56,13 @@ vi.mock("@/lib/constants", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/lib/constants")>();
   return {
     ...actual,
-    get IS_SALAMRUBY_CLOUD() {
+    get IS_FEEDYRUBY_CLOUD() {
       return mocks.isCloud;
     },
   };
 });
 
-vi.mock("@salamruby/cache", () => ({
+vi.mock("@feedyruby/cache", () => ({
   createCacheKey: {
     organization: {
       billing: mocks.getBillingCacheKey,
@@ -71,7 +71,7 @@ vi.mock("@salamruby/cache", () => ({
   },
 }));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     organization: {
       findUnique: mocks.prismaOrganizationFindUnique,
@@ -96,7 +96,7 @@ vi.mock("@/lib/cache", () => ({
   },
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     warn: mocks.loggerWarn,
     info: mocks.loggerInfo,
@@ -169,7 +169,7 @@ describe("organization-billing", () => {
       data: [
         {
           id: "prod_hobby",
-          metadata: { salamruby_plan: "hobby" },
+          metadata: { feedyruby_plan: "hobby" },
           active: true,
           default_price: null,
         },
@@ -180,11 +180,11 @@ describe("organization-billing", () => {
       active: true,
       metadata:
         productId === "prod_hobby"
-          ? { salamruby_plan: "hobby" }
+          ? { feedyruby_plan: "hobby" }
           : productId === "prod_pro"
-            ? { salamruby_plan: "pro" }
+            ? { feedyruby_plan: "pro" }
             : productId === "prod_scale"
-              ? { salamruby_plan: "scale" }
+              ? { feedyruby_plan: "scale" }
               : {},
     }));
     mocks.pricesList.mockResolvedValue({
@@ -195,12 +195,12 @@ describe("organization-billing", () => {
           currency: "usd",
           unit_amount: 0,
           metadata: {
-            salamruby_plan: "hobby",
-            salamruby_price_kind: "base",
-            salamruby_interval: "monthly",
+            feedyruby_plan: "hobby",
+            feedyruby_price_kind: "base",
+            feedyruby_interval: "monthly",
           },
           recurring: { usage_type: "licensed", interval: "month" },
-          product: { id: "prod_hobby", active: true, metadata: { salamruby_plan: "hobby" } },
+          product: { id: "prod_hobby", active: true, metadata: { feedyruby_plan: "hobby" } },
         },
         {
           id: "price_pro_monthly",
@@ -208,12 +208,12 @@ describe("organization-billing", () => {
           currency: "usd",
           unit_amount: 8900,
           metadata: {
-            salamruby_plan: "pro",
-            salamruby_price_kind: "base",
-            salamruby_interval: "monthly",
+            feedyruby_plan: "pro",
+            feedyruby_price_kind: "base",
+            feedyruby_interval: "monthly",
           },
           recurring: { usage_type: "licensed", interval: "month" },
-          product: { id: "prod_pro", active: true, metadata: { salamruby_plan: "pro" } },
+          product: { id: "prod_pro", active: true, metadata: { feedyruby_plan: "pro" } },
         },
         {
           id: "price_pro_yearly",
@@ -221,12 +221,12 @@ describe("organization-billing", () => {
           currency: "usd",
           unit_amount: 89000,
           metadata: {
-            salamruby_plan: "pro",
-            salamruby_price_kind: "base",
-            salamruby_interval: "yearly",
+            feedyruby_plan: "pro",
+            feedyruby_price_kind: "base",
+            feedyruby_interval: "yearly",
           },
           recurring: { usage_type: "licensed", interval: "year" },
-          product: { id: "prod_pro", active: true, metadata: { salamruby_plan: "pro" } },
+          product: { id: "prod_pro", active: true, metadata: { feedyruby_plan: "pro" } },
         },
         {
           id: "price_pro_responses",
@@ -234,12 +234,12 @@ describe("organization-billing", () => {
           currency: "usd",
           unit_amount: 0,
           metadata: {
-            salamruby_plan: "pro",
-            salamruby_price_kind: "responses",
-            salamruby_interval: "monthly",
+            feedyruby_plan: "pro",
+            feedyruby_price_kind: "responses",
+            feedyruby_interval: "monthly",
           },
           recurring: { usage_type: "metered", interval: "month" },
-          product: { id: "prod_pro", active: true, metadata: { salamruby_plan: "pro" } },
+          product: { id: "prod_pro", active: true, metadata: { feedyruby_plan: "pro" } },
         },
         {
           id: "price_scale_monthly",
@@ -247,12 +247,12 @@ describe("organization-billing", () => {
           currency: "usd",
           unit_amount: 39000,
           metadata: {
-            salamruby_plan: "scale",
-            salamruby_price_kind: "base",
-            salamruby_interval: "monthly",
+            feedyruby_plan: "scale",
+            feedyruby_price_kind: "base",
+            feedyruby_interval: "monthly",
           },
           recurring: { usage_type: "licensed", interval: "month" },
-          product: { id: "prod_scale", active: true, metadata: { salamruby_plan: "scale" } },
+          product: { id: "prod_scale", active: true, metadata: { feedyruby_plan: "scale" } },
         },
         {
           id: "price_scale_yearly",
@@ -260,12 +260,12 @@ describe("organization-billing", () => {
           currency: "usd",
           unit_amount: 390000,
           metadata: {
-            salamruby_plan: "scale",
-            salamruby_price_kind: "base",
-            salamruby_interval: "yearly",
+            feedyruby_plan: "scale",
+            feedyruby_price_kind: "base",
+            feedyruby_interval: "yearly",
           },
           recurring: { usage_type: "licensed", interval: "year" },
-          product: { id: "prod_scale", active: true, metadata: { salamruby_plan: "scale" } },
+          product: { id: "prod_scale", active: true, metadata: { feedyruby_plan: "scale" } },
         },
         {
           id: "price_scale_responses",
@@ -273,12 +273,12 @@ describe("organization-billing", () => {
           currency: "usd",
           unit_amount: 0,
           metadata: {
-            salamruby_plan: "scale",
-            salamruby_price_kind: "responses",
-            salamruby_interval: "monthly",
+            feedyruby_plan: "scale",
+            feedyruby_price_kind: "responses",
+            feedyruby_interval: "monthly",
           },
           recurring: { usage_type: "metered", interval: "month" },
-          product: { id: "prod_scale", active: true, metadata: { salamruby_plan: "scale" } },
+          product: { id: "prod_scale", active: true, metadata: { feedyruby_plan: "scale" } },
         },
       ],
       has_more: false,
@@ -291,12 +291,12 @@ describe("organization-billing", () => {
           currency: "usd",
           unit_amount: 0,
           metadata: {
-            salamruby_plan: "hobby",
-            salamruby_price_kind: "base",
-            salamruby_interval: "monthly",
+            feedyruby_plan: "hobby",
+            feedyruby_price_kind: "base",
+            feedyruby_interval: "monthly",
           },
           recurring: { usage_type: "licensed", interval: "month" },
-          product: { id: "prod_hobby", active: true, metadata: { salamruby_plan: "hobby" } },
+          product: { id: "prod_hobby", active: true, metadata: { feedyruby_plan: "hobby" } },
         },
         price_pro_monthly: {
           id: "price_pro_monthly",
@@ -304,12 +304,12 @@ describe("organization-billing", () => {
           currency: "usd",
           unit_amount: 8900,
           metadata: {
-            salamruby_plan: "pro",
-            salamruby_price_kind: "base",
-            salamruby_interval: "monthly",
+            feedyruby_plan: "pro",
+            feedyruby_price_kind: "base",
+            feedyruby_interval: "monthly",
           },
           recurring: { usage_type: "licensed", interval: "month" },
-          product: { id: "prod_pro", active: true, metadata: { salamruby_plan: "pro" } },
+          product: { id: "prod_pro", active: true, metadata: { feedyruby_plan: "pro" } },
         },
         price_pro_responses: {
           id: "price_pro_responses",
@@ -317,12 +317,12 @@ describe("organization-billing", () => {
           currency: "usd",
           unit_amount: 0,
           metadata: {
-            salamruby_plan: "pro",
-            salamruby_price_kind: "responses",
-            salamruby_interval: "monthly",
+            feedyruby_plan: "pro",
+            feedyruby_price_kind: "responses",
+            feedyruby_interval: "monthly",
           },
           recurring: { usage_type: "metered", interval: "month" },
-          product: { id: "prod_pro", active: true, metadata: { salamruby_plan: "pro" } },
+          product: { id: "prod_pro", active: true, metadata: { feedyruby_plan: "pro" } },
         },
       };
       const price = pricesById[priceId];
@@ -590,7 +590,7 @@ describe("organization-billing", () => {
               {
                 price: {
                   metadata: {},
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" } },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" } },
                   recurring: { usage_type: "licensed", interval: "year" },
                 },
               },
@@ -676,11 +676,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_monthly",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -690,11 +690,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_responses",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "responses",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "responses",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "metered", interval: "month" },
                 },
               },
@@ -801,11 +801,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_monthly",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -815,11 +815,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_responses",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "responses",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "responses",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "metered", interval: "month" },
                 },
               },
@@ -882,11 +882,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_scale_monthly",
                   metadata: {
-                    salamruby_plan: "scale",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "scale",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_scale", metadata: { salamruby_plan: "scale" }, active: true },
+                  product: { id: "prod_scale", metadata: { feedyruby_plan: "scale" }, active: true },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -896,11 +896,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_scale_responses",
                   metadata: {
-                    salamruby_plan: "scale",
-                    salamruby_price_kind: "responses",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "scale",
+                    feedyruby_price_kind: "responses",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_scale", metadata: { salamruby_plan: "scale" }, active: true },
+                  product: { id: "prod_scale", metadata: { feedyruby_plan: "scale" }, active: true },
                   recurring: { usage_type: "metered", interval: "month" },
                 },
               },
@@ -972,11 +972,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_monthly",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1016,11 +1016,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_monthly",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1030,11 +1030,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_responses",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "responses",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "responses",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "metered", interval: "month" },
                 },
               },
@@ -1096,11 +1096,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_scale_monthly",
                   metadata: {
-                    salamruby_plan: "scale",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "scale",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_scale", metadata: { salamruby_plan: "scale" }, active: true },
+                  product: { id: "prod_scale", metadata: { feedyruby_plan: "scale" }, active: true },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1110,11 +1110,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_scale_responses",
                   metadata: {
-                    salamruby_plan: "scale",
-                    salamruby_price_kind: "responses",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "scale",
+                    feedyruby_price_kind: "responses",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_scale", metadata: { salamruby_plan: "scale" }, active: true },
+                  product: { id: "prod_scale", metadata: { feedyruby_plan: "scale" }, active: true },
                   recurring: { usage_type: "metered", interval: "month" },
                 },
               },
@@ -1180,11 +1180,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_monthly",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1194,11 +1194,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_responses",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "responses",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "responses",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "metered", interval: "month" },
                 },
               },
@@ -1262,11 +1262,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_monthly",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1276,11 +1276,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_responses",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "responses",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "responses",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "metered", interval: "month" },
                 },
               },
@@ -1322,11 +1322,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_monthly",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1386,11 +1386,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_monthly",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1463,7 +1463,7 @@ describe("organization-billing", () => {
               {
                 price: {
                   metadata: {},
-                  product: { id: "prod_scale", metadata: { salamruby_plan: "scale" } },
+                  product: { id: "prod_scale", metadata: { feedyruby_plan: "scale" } },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1532,11 +1532,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_monthly",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" } },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" } },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1625,7 +1625,7 @@ describe("organization-billing", () => {
               {
                 price: {
                   metadata: {},
-                  product: { id: "prod_scale", metadata: { salamruby_plan: "scale" } },
+                  product: { id: "prod_scale", metadata: { feedyruby_plan: "scale" } },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1671,7 +1671,7 @@ describe("organization-billing", () => {
               {
                 price: {
                   metadata: {},
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" } },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" } },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1693,9 +1693,9 @@ describe("organization-billing", () => {
 
   test("syncOrganizationBillingFromStripe prefers higher-tier active subscription over hobby", async () => {
     mocks.getCloudPlanFromProduct.mockImplementation(
-      (product: { metadata?: { salamruby_plan?: string } }) => {
-        if (product.metadata?.salamruby_plan === "hobby") return "hobby";
-        if (product.metadata?.salamruby_plan === "pro") return "pro";
+      (product: { metadata?: { feedyruby_plan?: string } }) => {
+        if (product.metadata?.feedyruby_plan === "hobby") return "hobby";
+        if (product.metadata?.feedyruby_plan === "pro") return "pro";
         return "unknown";
       }
     );
@@ -1722,7 +1722,7 @@ describe("organization-billing", () => {
               {
                 price: {
                   metadata: {},
-                  product: { id: "prod_hobby", metadata: { salamruby_plan: "hobby" } },
+                  product: { id: "prod_hobby", metadata: { feedyruby_plan: "hobby" } },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1739,7 +1739,7 @@ describe("organization-billing", () => {
               {
                 price: {
                   metadata: {},
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" } },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" } },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -1928,9 +1928,9 @@ describe("organization-billing", () => {
 
   test("reconcileCloudStripeSubscriptionsForOrganization cancels hobby when paid subscription is active", async () => {
     mocks.getCloudPlanFromProduct.mockImplementation(
-      (product: { metadata?: { salamruby_plan?: string } }) => {
-        if (product.metadata?.salamruby_plan === "hobby") return "hobby";
-        if (product.metadata?.salamruby_plan === "pro") return "pro";
+      (product: { metadata?: { feedyruby_plan?: string } }) => {
+        if (product.metadata?.feedyruby_plan === "hobby") return "hobby";
+        if (product.metadata?.feedyruby_plan === "pro") return "pro";
         return "unknown";
       }
     );
@@ -1956,7 +1956,7 @@ describe("organization-billing", () => {
               {
                 price: {
                   metadata: {},
-                  product: { id: "prod_hobby", metadata: { salamruby_plan: "hobby" } },
+                  product: { id: "prod_hobby", metadata: { feedyruby_plan: "hobby" } },
                 },
               },
             ],
@@ -1971,7 +1971,7 @@ describe("organization-billing", () => {
               {
                 price: {
                   metadata: {},
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" } },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" } },
                 },
               },
             ],
@@ -2085,11 +2085,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_hobby_monthly",
                   metadata: {
-                    salamruby_plan: "hobby",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "hobby",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_hobby", metadata: { salamruby_plan: "hobby" }, active: true },
+                  product: { id: "prod_hobby", metadata: { feedyruby_plan: "hobby" }, active: true },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },
@@ -2162,11 +2162,11 @@ describe("organization-billing", () => {
                 price: {
                   id: "price_pro_monthly",
                   metadata: {
-                    salamruby_plan: "pro",
-                    salamruby_price_kind: "base",
-                    salamruby_interval: "monthly",
+                    feedyruby_plan: "pro",
+                    feedyruby_price_kind: "base",
+                    feedyruby_interval: "monthly",
                   },
-                  product: { id: "prod_pro", metadata: { salamruby_plan: "pro" }, active: true },
+                  product: { id: "prod_pro", metadata: { feedyruby_plan: "pro" }, active: true },
                   recurring: { usage_type: "licensed", interval: "month" },
                 },
               },

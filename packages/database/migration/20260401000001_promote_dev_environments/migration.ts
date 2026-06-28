@@ -1,5 +1,5 @@
 import { createId } from "@paralleldrive/cuid2";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import type { DataMigrationContext, MigrationScript } from "../../src/scripts/migration-runner";
 
 type TxClient = DataMigrationContext["tx"];

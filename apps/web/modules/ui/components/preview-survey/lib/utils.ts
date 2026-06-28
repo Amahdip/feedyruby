@@ -1,4 +1,4 @@
-import { TPlacement } from "@salamruby/types/common";
+import { TPlacement } from "@feedyruby/types/common";
 
 export const getPlacementStyle = (placement: TPlacement) => {
   switch (placement) {

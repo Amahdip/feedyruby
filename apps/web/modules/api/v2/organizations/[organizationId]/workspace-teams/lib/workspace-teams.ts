@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { WorkspaceTeam } from "@salamruby/database/prisma";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
+import { prisma } from "@feedyruby/database";
+import { WorkspaceTeam } from "@feedyruby/database/prisma";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
 import { getWorkspaceTeamsQuery } from "@/modules/api/v2/organizations/[organizationId]/workspace-teams/lib/utils";
 import {
   TGetWorkspaceTeamsFilter,

@@ -1,7 +1,7 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { logger } from "@salamruby/logger";
-import { err, ok } from "@salamruby/types/error-handlers";
+import { prisma } from "@feedyruby/database";
+import { logger } from "@feedyruby/logger";
+import { err, ok } from "@feedyruby/types/error-handlers";
 import { ApiErrorResponseV2 } from "@/modules/api/v2/types/api-error";
 import { segmentFilterToPrismaQuery } from "@/modules/ee/contacts/segments/lib/filter/prisma-query";
 import { getContactAttributeKeys } from "./contact-attribute-key";

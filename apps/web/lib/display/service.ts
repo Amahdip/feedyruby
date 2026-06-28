@@ -1,11 +1,11 @@
 import "server-only";
 import { cache as reactCache } from "react";
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { ZId } from "@salamruby/types/common";
-import { TDisplay, TDisplayFilters, TDisplayWithContact, ZDisplayFilters } from "@salamruby/types/displays";
-import { DatabaseError, InvalidInputError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { ZId } from "@feedyruby/types/common";
+import { TDisplay, TDisplayFilters, TDisplayWithContact, ZDisplayFilters } from "@feedyruby/types/displays";
+import { DatabaseError, InvalidInputError } from "@feedyruby/types/errors";
 import { validateInputs } from "../utils/validate";
 
 export const selectDisplay = {

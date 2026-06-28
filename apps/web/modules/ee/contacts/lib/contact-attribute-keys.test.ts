@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { ContactAttributeKey } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { InvalidInputError, OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { ContactAttributeKey } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { InvalidInputError, OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import {
   createContactAttributeKey,
   deleteContactAttributeKey,
@@ -11,7 +11,7 @@ import {
   updateContactAttributeKey,
 } from "./contact-attribute-keys";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     contactAttributeKey: {
       findMany: vi.fn(),

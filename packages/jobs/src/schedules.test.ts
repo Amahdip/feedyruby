@@ -6,7 +6,7 @@ import {
   getRecurringJobSchedulerId,
 } from "./schedules";
 
-describe("@salamruby/jobs schedules", () => {
+describe("@feedyruby/jobs schedules", () => {
   test("clamps small past drift to immediate execution", () => {
     const now = new Date("2026-04-07T10:00:00.000Z");
 

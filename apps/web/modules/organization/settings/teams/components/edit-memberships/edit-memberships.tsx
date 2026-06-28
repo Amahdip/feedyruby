@@ -1,6 +1,6 @@
-import { TOrganizationRole } from "@salamruby/types/memberships";
-import { TOrganization } from "@salamruby/types/organizations";
-import { IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { TOrganizationRole } from "@feedyruby/types/memberships";
+import { TOrganization } from "@feedyruby/types/organizations";
+import { IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { getTranslate } from "@/lingodotdev/server";
 import { MembersInfo } from "@/modules/organization/settings/teams/components/edit-memberships/members-info";
 import { getInvitesByOrganizationId } from "@/modules/organization/settings/teams/lib/invite";
@@ -49,7 +49,7 @@ export const EditMemberships = async ({
             members={members ?? []}
             currentUserRole={role}
             isAccessControlAllowed={isAccessControlAllowed}
-            isSalamRubyCloud={IS_SALAMRUBY_CLOUD}
+            isFeedyRubyCloud={IS_FEEDYRUBY_CLOUD}
             isUserManagementDisabledFromUi={isUserManagementDisabledFromUi}
           />
         )}

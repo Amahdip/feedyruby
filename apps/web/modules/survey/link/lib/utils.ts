@@ -1,7 +1,7 @@
-import { TJsWorkspaceStateSurvey } from "@salamruby/types/js";
-import { TSurveyBlock } from "@salamruby/types/surveys/blocks";
-import { TSurveyElement } from "@salamruby/types/surveys/elements";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TJsWorkspaceStateSurvey } from "@feedyruby/types/js";
+import { TSurveyBlock } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElement } from "@feedyruby/types/surveys/elements";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 
 export function isRTL(text: string): boolean {
   const rtlCharRegex = /[\u0591-\u07FF\uFB1D-\uFDFD\uFE70-\uFEFC]/;

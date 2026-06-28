@@ -9,9 +9,9 @@ import {
 import { prisma } from "@/lib/__mocks__/database";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { testInputValidation } from "vitestSetup";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { DatabaseError } from "@salamruby/types/errors";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { DatabaseError } from "@feedyruby/types/errors";
 import { createDisplay } from "@/app/api/v1/client/[workspaceId]/displays/lib/display";
 import { deleteDisplay } from "../service";
 

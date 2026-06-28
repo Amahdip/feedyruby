@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { logger } from "@salamruby/logger";
-import { TIntegrationAirtableTables } from "@salamruby/types/integration/airtable";
+import { logger } from "@feedyruby/logger";
+import { TIntegrationAirtableTables } from "@feedyruby/types/integration/airtable";
 import { authorize, fetchTables } from "./airtable";
 
 // Mock the logger
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },

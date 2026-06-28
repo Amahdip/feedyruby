@@ -1,4 +1,4 @@
-import { TTimeUnit } from "@salamruby/types/segment";
+import { TTimeUnit } from "@feedyruby/types/segment";
 
 /**
  * Subtracts a time unit from a date

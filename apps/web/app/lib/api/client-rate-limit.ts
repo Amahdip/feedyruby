@@ -1,4 +1,4 @@
-import { TooManyRequestsError } from "@salamruby/types/errors";
+import { TooManyRequestsError } from "@feedyruby/types/errors";
 import { reportApiError } from "@/app/lib/api/api-error-reporter";
 import { responses } from "@/app/lib/api/response";
 

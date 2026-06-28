@@ -6,48 +6,64 @@ import { cn } from "@/lib/cn";
 interface BrandImageProps {
   className?: string;
   priority?: boolean;
+  isRtl?: boolean;
+  isDark?: boolean;
 }
 
 export const FeedyRubyIcon = ({ className, priority = false }: Readonly<BrandImageProps>) => (
   <Image
-    src={BRAND_ASSETS.iconRubyTile}
+    src={BRAND_ASSETS.icon}
     alt={APP_NAME}
-    width={200}
-    height={200}
+    width={80}
+    height={80}
     priority={priority}
-    className={cn("size-8 rounded-lg", className)}
+    className={cn("size-8", className)}
   />
 );
 
 export const FeedyRubyIconLight = ({ className, priority = false }: Readonly<BrandImageProps>) => (
   <Image
-    src={BRAND_ASSETS.iconWhiteTile}
+    src={BRAND_ASSETS.iconSimple}
     alt={APP_NAME}
-    width={200}
-    height={200}
+    width={80}
+    height={80}
     priority={priority}
-    className={cn("size-8 rounded-lg", className)}
+    className={cn("size-8", className)}
   />
 );
 
 export const FeedyRubyMark = ({ className, priority = false }: Readonly<BrandImageProps>) => (
   <Image
-    src={BRAND_ASSETS.mark}
+    src={BRAND_ASSETS.icon}
     alt={APP_NAME}
-    width={200}
-    height={226}
+    width={80}
+    height={80}
     priority={priority}
     className={cn("h-auto w-full max-w-[5rem]", className)}
   />
 );
 
-export const FeedyRubyWordmark = ({ className, priority = false }: Readonly<BrandImageProps>) => (
-  <Image
-    src={BRAND_ASSETS.wordmark}
-    alt={APP_NAME_LATIN}
-    width={560}
-    height={200}
-    priority={priority}
-    className={cn("h-8 w-auto max-w-[10rem]", className)}
-  />
-);
+export const FeedyRubyWordmark = ({
+  className,
+  priority = false,
+  isRtl = false,
+  isDark = false,
+}: Readonly<BrandImageProps>) => {
+  let src: string = BRAND_ASSETS.wordmarkLight;
+  if (isRtl) {
+    src = isDark ? BRAND_ASSETS.wordmarkFaDark : BRAND_ASSETS.wordmarkFaLight;
+  } else {
+    src = isDark ? BRAND_ASSETS.wordmarkDark : BRAND_ASSETS.wordmarkLight;
+  }
+
+  return (
+    <Image
+      src={src}
+      alt={isRtl ? "فیدی‌روبی" : APP_NAME_LATIN}
+      width={isRtl ? 290 : 256}
+      height={isRtl ? 60 : 56}
+      priority={priority}
+      className={cn("h-8 w-auto max-w-[10rem]", className)}
+    />
+  );
+};

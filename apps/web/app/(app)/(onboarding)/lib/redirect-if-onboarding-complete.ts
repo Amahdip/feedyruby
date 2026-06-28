@@ -1,7 +1,7 @@
 import "server-only";
 import { redirect } from "next/navigation";
-import { TWorkspace } from "@salamruby/types/workspace";
-import { IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { TWorkspace } from "@feedyruby/types/workspace";
+import { IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { getSurveyCount } from "@/lib/survey/service";
 
 export const redirectIfOnboardingComplete = async (workspaceId: string): Promise<void> => {
@@ -26,7 +26,7 @@ export const getOnboardingRedirectPath = async ({
   const surveyCount = await getSurveyCount(workspace.id);
 
   if (surveyCount === 0) {
-    if (IS_SALAMRUBY_CLOUD) {
+    if (IS_FEEDYRUBY_CLOUD) {
       return `/organizations/${organizationId}/workspaces/new/plan`;
     }
 

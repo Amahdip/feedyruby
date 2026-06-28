@@ -1,12 +1,12 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import SalamRubyHub from "@salamruby/hub";
+import FeedyRubyHub from "@feedyruby/hub";
 
 vi.mock("server-only", () => ({}));
 
-vi.mock("@salamruby/hub", () => {
+vi.mock("@feedyruby/hub", () => {
   // Must use `function` (not arrow) so it's valid as a `new` target.
-  const MockSalamRubyHub = vi.fn(function () {});
-  return { default: MockSalamRubyHub };
+  const MockFeedyRubyHub = vi.fn(function () {});
+  return { default: MockFeedyRubyHub };
 });
 
 vi.mock("@/lib/env", () => ({
@@ -21,13 +21,13 @@ const { env } = await import("@/lib/env");
 const mutableEnv = env as unknown as Record<string, string>;
 
 const globalForHub = globalThis as unknown as {
-  salamrubyHubClient: SalamRubyHub | undefined;
+  feedyrubyHubClient: FeedyRubyHub | undefined;
 };
 
 describe("getHubClient", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    globalForHub.salamrubyHubClient = undefined;
+    globalForHub.feedyrubyHubClient = undefined;
   });
 
   test("returns null when HUB_API_KEY is not set", async () => {
@@ -37,33 +37,33 @@ describe("getHubClient", () => {
     const client = getHubClient();
 
     expect(client).toBeNull();
-    expect(SalamRubyHub).not.toHaveBeenCalled();
+    expect(FeedyRubyHub).not.toHaveBeenCalled();
   });
 
   test("creates and caches a new client when HUB_API_KEY is set", async () => {
     mutableEnv.HUB_API_KEY = "test-key";
-    const mockInstance = { feedbackRecords: {} } as unknown as SalamRubyHub;
-    vi.mocked(SalamRubyHub).mockImplementation(function () {
+    const mockInstance = { feedbackRecords: {} } as unknown as FeedyRubyHub;
+    vi.mocked(FeedyRubyHub).mockImplementation(function () {
       return mockInstance as any;
     });
 
     const { getHubClient } = await import("./hub-client");
     const client = getHubClient();
 
-    expect(SalamRubyHub).toHaveBeenCalledWith({ apiKey: "test-key", baseURL: "https://hub.test" });
+    expect(FeedyRubyHub).toHaveBeenCalledWith({ apiKey: "test-key", baseURL: "https://hub.test" });
     expect(client).toBe(mockInstance);
-    expect(globalForHub.salamrubyHubClient).toBe(mockInstance);
+    expect(globalForHub.feedyrubyHubClient).toBe(mockInstance);
   });
 
   test("returns cached client on subsequent calls", async () => {
-    const cachedInstance = { feedbackRecords: {} } as unknown as SalamRubyHub;
-    globalForHub.salamrubyHubClient = cachedInstance;
+    const cachedInstance = { feedbackRecords: {} } as unknown as FeedyRubyHub;
+    globalForHub.feedyrubyHubClient = cachedInstance;
 
     const { getHubClient } = await import("./hub-client");
     const client = getHubClient();
 
     expect(client).toBe(cachedInstance);
-    expect(SalamRubyHub).not.toHaveBeenCalled();
+    expect(FeedyRubyHub).not.toHaveBeenCalled();
   });
 
   test("does not cache null result so a later call with the key set can create the client", async () => {
@@ -72,16 +72,16 @@ describe("getHubClient", () => {
     const { getHubClient } = await import("./hub-client");
     const first = getHubClient();
     expect(first).toBeNull();
-    expect(globalForHub.salamrubyHubClient).toBeUndefined();
+    expect(globalForHub.feedyrubyHubClient).toBeUndefined();
 
     mutableEnv.HUB_API_KEY = "now-set";
-    const mockInstance = { feedbackRecords: {} } as unknown as SalamRubyHub;
-    vi.mocked(SalamRubyHub).mockImplementation(function () {
+    const mockInstance = { feedbackRecords: {} } as unknown as FeedyRubyHub;
+    vi.mocked(FeedyRubyHub).mockImplementation(function () {
       return mockInstance as any;
     });
 
     const second = getHubClient();
     expect(second).toBe(mockInstance);
-    expect(globalForHub.salamrubyHubClient).toBe(mockInstance);
+    expect(globalForHub.feedyrubyHubClient).toBe(mockInstance);
   });
 });

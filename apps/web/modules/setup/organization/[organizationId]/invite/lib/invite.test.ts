@@ -1,12 +1,12 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Invite, Prisma } from "@salamruby/database/prisma";
-import { DatabaseError, InvalidInputError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Invite, Prisma } from "@feedyruby/database/prisma";
+import { DatabaseError, InvalidInputError } from "@feedyruby/types/errors";
 import { getMembershipByUserIdOrganizationId } from "@/lib/membership/service";
 import { TInvitee } from "@/modules/setup/organization/[organizationId]/invite/types/invites";
 import { inviteUser } from "./invite";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     invite: {
       findFirst: vi.fn(),

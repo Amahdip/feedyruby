@@ -3,13 +3,13 @@
  * Keeps HTTP parsing separate from the route handler and shared survey list service.
  */
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
+import { ZId } from "@feedyruby/types/common";
 import {
   type TSurveyFilterCriteria,
   ZSurveyFilters,
   ZSurveyStatus,
   ZSurveyType,
-} from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/surveys/types";
 import {
   type TSurveyListPageCursor,
   type TSurveyListSort,

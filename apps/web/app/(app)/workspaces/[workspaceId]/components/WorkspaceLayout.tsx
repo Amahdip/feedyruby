@@ -1,7 +1,7 @@
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import { MainNavigation } from "@/app/(app)/workspaces/[workspaceId]/components/MainNavigation";
 import { TopControlBar } from "@/app/(app)/workspaces/[workspaceId]/components/TopControlBar";
-import { IS_DEVELOPMENT, IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { IS_DEVELOPMENT, IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { getPublicDomain } from "@/lib/getPublicUrl";
 import { getAccessFlags } from "@/lib/membership/utils";
 import { getPostHogFeatureFlag } from "@/lib/posthog/get-feature-flag";
@@ -48,7 +48,7 @@ export const WorkspaceLayout = async ({ layoutData, children }: WorkspaceLayoutP
 
   return (
     <div className="flex h-screen min-h-screen flex-col overflow-hidden">
-      {IS_SALAMRUBY_CLOUD && (
+      {IS_FEEDYRUBY_CLOUD && (
         <LimitsReachedBanner organization={organization} responseCount={responseCount} />
       )}
 
@@ -65,7 +65,7 @@ export const WorkspaceLayout = async ({ layoutData, children }: WorkspaceLayoutP
           organization={organization}
           user={user}
           workspace={{ id: workspace.id, name: workspace.name }}
-          isSalamRubyCloud={IS_SALAMRUBY_CLOUD}
+          isFeedyRubyCloud={IS_FEEDYRUBY_CLOUD}
           isDevelopment={IS_DEVELOPMENT}
           membershipRole={membership.role}
           publicDomain={publicDomain}
@@ -80,7 +80,7 @@ export const WorkspaceLayout = async ({ layoutData, children }: WorkspaceLayoutP
             currentOrganizationId={organization.id}
             isMultiOrgEnabled={isMultiOrgEnabled}
             organizationWorkspacesLimit={organizationWorkspacesLimit}
-            isSalamRubyCloud={IS_SALAMRUBY_CLOUD}
+            isFeedyRubyCloud={IS_FEEDYRUBY_CLOUD}
             isLicenseActive={active}
             isOwnerOrManager={isOwnerOrManager}
             isAccessControlAllowed={isAccessControlAllowed}

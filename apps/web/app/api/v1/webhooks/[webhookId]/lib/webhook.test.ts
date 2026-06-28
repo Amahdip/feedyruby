@@ -1,11 +1,11 @@
 import { cleanup } from "@testing-library/react";
 import { afterEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma, Webhook } from "@salamruby/database/prisma";
-import { DatabaseError, ResourceNotFoundError, ValidationError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma, Webhook } from "@feedyruby/database/prisma";
+import { DatabaseError, ResourceNotFoundError, ValidationError } from "@feedyruby/types/errors";
 import { deleteWebhook, getWebhook } from "./webhook";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     webhook: {
       delete: vi.fn(),

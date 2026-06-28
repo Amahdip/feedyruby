@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { TSurveyQuota } from "@salamruby/types/quota";
-import { TResponse } from "@salamruby/types/responses";
+import { prisma } from "@feedyruby/database";
+import { TSurveyQuota } from "@feedyruby/types/quota";
+import { TResponse } from "@feedyruby/types/responses";
 import { updateResponse } from "@/lib/response/service";
 import { evaluateResponseQuotas } from "@/modules/ee/quotas/lib/evaluation-service";
 import { updateResponseWithQuotaEvaluation } from "./response";

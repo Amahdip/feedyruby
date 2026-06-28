@@ -1,4 +1,4 @@
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { type TAuditLogEvent, ZAuditLogEventSchema } from "@/modules/ee/audit-logs/types/audit-log";
 
 const validateEvent = (event: TAuditLogEvent): void => {

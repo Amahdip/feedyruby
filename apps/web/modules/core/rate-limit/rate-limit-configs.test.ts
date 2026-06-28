@@ -24,7 +24,7 @@ vi.mock("@/lib/cache", () => ({
   },
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     debug: vi.fn(),
     warn: vi.fn(),
@@ -37,7 +37,7 @@ vi.mock("@sentry/nextjs", () => ({
   captureException: vi.fn(),
 }));
 
-vi.mock("@salamruby/cache", () => ({
+vi.mock("@feedyruby/cache", () => ({
   createCacheKey: {
     rateLimit: {
       core: vi.fn(

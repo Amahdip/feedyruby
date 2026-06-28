@@ -1,9 +1,9 @@
 "use server";
 
 import { z } from "zod";
-import { logger } from "@salamruby/logger";
-import { OperationNotAllowedError } from "@salamruby/types/errors";
-import { ZUserEmail } from "@salamruby/types/user";
+import { logger } from "@feedyruby/logger";
+import { OperationNotAllowedError } from "@feedyruby/types/errors";
+import { ZUserEmail } from "@feedyruby/types/user";
 import { PASSWORD_RESET_DISABLED } from "@/lib/constants";
 import { actionClient } from "@/lib/utils/action-client";
 import { requestPasswordReset } from "@/modules/auth/forgot-password/lib/password-reset-service";

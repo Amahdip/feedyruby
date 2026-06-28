@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
-import { prisma } from "@salamruby/database";
-import { AuthenticationError, ResourceNotFoundError } from "@salamruby/types/errors";
-import { TUserNotificationSettings } from "@salamruby/types/user";
+import { prisma } from "@feedyruby/database";
+import { AuthenticationError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import { TUserNotificationSettings } from "@feedyruby/types/user";
 import { EditAlerts } from "@/app/(app)/workspaces/[workspaceId]/settings/account/notifications/components/EditAlerts";
 import { IntegrationsTip } from "@/app/(app)/workspaces/[workspaceId]/settings/account/notifications/components/IntegrationsTip";
 import type { Membership } from "@/app/(app)/workspaces/[workspaceId]/settings/account/notifications/types";

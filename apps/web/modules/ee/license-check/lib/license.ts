@@ -2,9 +2,9 @@ import "server-only";
 import { cache as reactCache } from "react";
 import { ProxyAgent } from "undici";
 import { z } from "zod";
-import { createCacheKey } from "@salamruby/cache";
-import { prisma } from "@salamruby/database";
-import { logger } from "@salamruby/logger";
+import { createCacheKey } from "@feedyruby/cache";
+import { prisma } from "@feedyruby/database";
+import { logger } from "@feedyruby/logger";
 import { cache } from "@/lib/cache";
 import { E2E_TESTING } from "@/lib/constants";
 import { env } from "@/lib/env";
@@ -35,8 +35,8 @@ const CONFIG = {
   API: {
     ENDPOINT:
       env.ENVIRONMENT === "staging"
-        ? "https://staging.ee.salamruby.com/api/licenses/check"
-        : "https://ee.salamruby.com/api/licenses/check",
+        ? "https://staging.ee.feedyruby.com/api/licenses/check"
+        : "https://ee.feedyruby.com/api/licenses/check",
     TIMEOUT_MS: 5000,
   },
 } as const;

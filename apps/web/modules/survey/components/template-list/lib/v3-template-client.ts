@@ -1,5 +1,5 @@
-import type { TSurveyType } from "@salamruby/types/surveys/types";
-import type { TUserLocale } from "@salamruby/types/user";
+import type { TSurveyType } from "@feedyruby/types/surveys/types";
+import type { TUserLocale } from "@feedyruby/types/user";
 import { parseV3ApiError } from "@/modules/api/lib/v3-client";
 
 type TV3SurveyCreateResponse = {

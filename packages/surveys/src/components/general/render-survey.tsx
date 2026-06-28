@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { SurveyContainerProps } from "@salamruby/types/salamruby-surveys";
+import { SurveyContainerProps } from "@feedyruby/types/feedyruby-surveys";
 import { isRTLLanguage } from "@/lib/utils";
 import { SurveyContainer } from "../wrappers/survey-container";
 import { Survey } from "./survey";

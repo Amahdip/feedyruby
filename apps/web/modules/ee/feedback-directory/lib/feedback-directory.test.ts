@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import {
   createFeedbackDirectory,
   getFeedbackDirectories,
@@ -19,7 +19,7 @@ vi.mock("@/lib/utils/validate", () => ({
   validateInputs: vi.fn(),
 }));
 
-vi.mock("@salamruby/database", () => {
+vi.mock("@feedyruby/database", () => {
   const prismaMock = {
     feedbackDirectory: {
       findMany: vi.fn(),
@@ -151,7 +151,7 @@ describe("FeedbackDirectory Service", () => {
           {
             id: "conn-1",
             name: "My Connector",
-            type: "salamruby_survey",
+            type: "feedyruby_survey",
             workspaceId: mockWorkspaceId1,
             workspace: { name: "Workspace A" },
           },
@@ -165,7 +165,7 @@ describe("FeedbackDirectory Service", () => {
         {
           id: "conn-1",
           name: "My Connector",
-          type: "salamruby_survey",
+          type: "feedyruby_survey",
           workspaceId: mockWorkspaceId1,
           workspaceName: "Workspace A",
         },

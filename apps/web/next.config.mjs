@@ -82,7 +82,7 @@ const nextConfig = {
   },
   turbopack: {},
   experimental: {},
-  transpilePackages: ["@salamruby/database"],
+  transpilePackages: ["@feedyruby/database"],
   images: {
     // Optimize image processing to reduce CPU time and prevent timeouts
     deviceSizes: [640, 750, 828, 1080, 1200, 1920], // Removed 3840 to avoid processing huge images
@@ -113,11 +113,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "app.salamruby.com",
+        hostname: "app.feedyruby.com",
       },
       {
         protocol: "https",
-        hostname: "salamruby-cdn.s3.eu-central-1.amazonaws.com",
+        hostname: "feedyruby-cdn.s3.eu-central-1.amazonaws.com",
       },
       {
         protocol: "https",
@@ -469,8 +469,8 @@ nextConfig.images.remotePatterns.push({
 const sentryOptions = {
   // For all available options, see:
   // https://www.npmjs.com/package/@sentry/webpack-plugin#options
-  project: "salamruby-cloud",
-  org: "salamruby",
+  project: "feedyruby-cloud",
+  org: "feedyruby",
 
   // Enable logging to debug sourcemap generation issues
   silent: false,

@@ -1,19 +1,19 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { DatabaseError, UnknownError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { DatabaseError, UnknownError } from "@feedyruby/types/errors";
 import { validateInputs } from "@/lib/utils/validate";
 import { getTeamRoleByTeamIdUserId, getTeamsWhereUserIsAdmin, getWorkspacePermissionByUserId } from "./roles";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     workspaceTeam: { findMany: vi.fn() },
     teamUser: { findUnique: vi.fn(), findMany: vi.fn() },
   },
 }));
 
-vi.mock("@salamruby/logger", () => ({ logger: { error: vi.fn() } }));
+vi.mock("@feedyruby/logger", () => ({ logger: { error: vi.fn() } }));
 vi.mock("@/lib/utils/validate", () => ({ validateInputs: vi.fn() }));
 
 const mockUserId = "user-1";

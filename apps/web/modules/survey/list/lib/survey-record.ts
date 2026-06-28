@@ -1,5 +1,5 @@
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
 import type { TSurvey } from "@/modules/survey/list/types/surveys";
 
 export const surveySelect = {

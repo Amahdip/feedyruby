@@ -2,11 +2,11 @@
 
 import "server-only";
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { TActionClass } from "@salamruby/types/action-classes";
-import { ZId } from "@salamruby/types/common";
-import { DatabaseError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { TActionClass } from "@feedyruby/types/action-classes";
+import { ZId } from "@feedyruby/types/common";
+import { DatabaseError } from "@feedyruby/types/errors";
 import { validateInputs } from "@/lib/utils/validate";
 
 const selectActionClass = {

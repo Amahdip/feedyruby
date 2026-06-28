@@ -8,12 +8,12 @@ import {
   TSurveyBlockLogic,
   TSurveyBlockLogicAction,
   TSurveyBlockLogicActionObjective,
-} from "@salamruby/types/surveys/blocks";
+} from "@feedyruby/types/surveys/blocks";
 import {
   TActionNumberVariableCalculateOperator,
   TActionTextVariableCalculateOperator,
-} from "@salamruby/types/surveys/logic";
-import { TSurvey } from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/surveys/logic";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { getUpdatedActionBody } from "@/lib/surveyLogic/utils";
 import {
   getActionObjectiveOptions,

@@ -28,7 +28,7 @@ const loadAccountDeletionModule = async ({
 } = {}) => {
   vi.resetModules();
 
-  vi.doMock("@salamruby/logger", () => ({
+  vi.doMock("@feedyruby/logger", () => ({
     logger: {
       warn: mocks.loggerWarn,
     },

@@ -19,7 +19,7 @@
  * - Organization: whitelabel
  * - Response: data (file upload responses)
  */
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { Prisma } from "../../src/prisma";
 import type { MigrationScript } from "../../src/scripts/migration-runner";
 import type {

@@ -1,8 +1,8 @@
 import { useState } from "preact/hooks";
 import { useTranslation } from "react-i18next";
-import { NPS as Nps } from "@salamruby/survey-ui";
-import { type TResponseData, type TResponseTtc } from "@salamruby/types/responses";
-import type { TSurveyNPSElement } from "@salamruby/types/surveys/elements";
+import { NPS as Nps } from "@feedyruby/survey-ui";
+import { type TResponseData, type TResponseTtc } from "@feedyruby/types/responses";
+import type { TSurveyNPSElement } from "@feedyruby/types/surveys/elements";
 // Import as Nps to fix sonar issue - "Imported JSX component NPS must be in PascalCase"
 import { getLocalizedValue } from "@/lib/i18n";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";

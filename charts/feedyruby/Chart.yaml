@@ -1,0 +1,44 @@
+apiVersion: v2
+name: feedyruby
+description: A Helm chart for FeedyRuby with PostgreSQL, Valkey
+
+type: application
+
+# Helm chart Version
+version: 0.0.0-dev
+
+# This is the version number of the application being deployed.
+appVersion: "5.0.0-rc.1"
+
+icon: https://feedyruby.com/favicon.ico
+
+keywords:
+  - feedyruby
+  - postgresql
+  - valkey
+
+home: https://feedyruby.com/docs/self-hosting/setup/kubernetes
+maintainers:
+  - name: FeedyRuby
+    email: info@feedyruby.com
+
+dependencies:
+  - name: postgresql
+    version: "16.4.16"
+    repository: "oci://registry-1.docker.io/bitnamicharts"
+    condition: postgresql.enabled
+  - name: gateway-helm
+    alias: envoy
+    version: "v1.7.1"
+    repository: "oci://docker.io/envoyproxy"
+    condition: envoy.controller.enabled
+  - name: redis
+    alias: envoyRedis
+    version: 20.11.2
+    repository: "oci://registry-1.docker.io/bitnamicharts"
+    condition: envoyRedis.enabled
+  - name: vllm-stack
+    alias: llm
+    version: "0.1.11"
+    repository: "https://vllm-project.github.io/production-stack"
+    condition: llm.enabled

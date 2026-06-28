@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ok } from "@salamruby/types/error-handlers";
-import { TTag } from "@salamruby/types/tags";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ok } from "@feedyruby/types/error-handlers";
+import { TTag } from "@feedyruby/types/tags";
 import { TagError } from "@/modules/workspaces/settings/types/tag";
 import { deleteTag, mergeTags, updateTagName } from "./tag";
 
@@ -21,7 +21,7 @@ const newTag: TTag = {
   name: "Tag2",
 };
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     tag: {
       delete: vi.fn(),
@@ -41,7 +41,7 @@ vi.mock("@salamruby/database", () => ({
   },
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
     info: vi.fn(),

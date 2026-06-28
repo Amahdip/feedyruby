@@ -1,4 +1,4 @@
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import {
   getActionClass,
   getApiKey,

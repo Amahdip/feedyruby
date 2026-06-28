@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { AuthenticationError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { AuthenticationError } from "@feedyruby/types/errors";
 import {
   hasOrganizationAccess,
   hasOrganizationAuthority,
@@ -14,7 +14,7 @@ import {
 const PASSWORD_TEST_TIMEOUT_MS = 30_000;
 
 // Mock prisma
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     membership: {
       findUnique: vi.fn(),

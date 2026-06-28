@@ -1,12 +1,12 @@
 import "server-only";
-import { TUserLocale } from "@salamruby/types/user";
+import { TUserLocale } from "@feedyruby/types/user";
 import { RTL_LOCALES, isRtlLocale } from "@/lib/i18n/rtl";
 import { DEFAULT_BRAND_COLOR, HIDE_STORAGE_NOT_CONFIGURED_WARNING } from "./brand-color";
 import { env } from "./env";
 
 export { DEFAULT_BRAND_COLOR, HIDE_STORAGE_NOT_CONFIGURED_WARNING };
 
-export const IS_SALAMRUBY_CLOUD = env.IS_SALAMRUBY_CLOUD === "1";
+export const IS_FEEDYRUBY_CLOUD = env.IS_FEEDYRUBY_CLOUD === "1";
 
 export const IS_PRODUCTION = env.NODE_ENV === "production";
 
@@ -67,7 +67,7 @@ export const SAML_PRODUCT = "feedyruby";
 export const SAML_AUDIENCE = "https://saml.feedyruby.ir";
 export const SAML_PATH = "/api/auth/saml/callback";
 
-export const SIGNUP_ENABLED = IS_SALAMRUBY_CLOUD || IS_DEVELOPMENT || E2E_TESTING;
+export const SIGNUP_ENABLED = IS_FEEDYRUBY_CLOUD || IS_DEVELOPMENT || E2E_TESTING;
 export const EMAIL_AUTH_ENABLED = env.EMAIL_AUTH_DISABLED !== "1";
 export const INVITE_DISABLED = env.INVITE_DISABLED === "1";
 
@@ -163,7 +163,7 @@ export const DEBUG = env.DEBUG === "1";
 export const ENTERPRISE_LICENSE_KEY = env.ENTERPRISE_LICENSE_KEY;
 
 export const ENTERPRISE_LICENSE_REQUEST_FORM_URL =
-  "https://app.salamruby.com/s/trvp8tzy5uvsps9rc9qi9l9w?delivery=onpremise&source=ce";
+  "https://app.feedyruby.com/s/trvp8tzy5uvsps9rc9qi9l9w?delivery=onpremise&source=ce";
 
 export const REDIS_URL = env.REDIS_URL;
 export const RATE_LIMITING_DISABLED = env.RATE_LIMITING_DISABLED === "1";

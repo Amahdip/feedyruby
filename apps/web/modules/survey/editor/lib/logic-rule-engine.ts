@@ -1,6 +1,6 @@
 import { TFunction } from "i18next";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { ZSurveyLogicConditionsOperator } from "@salamruby/types/surveys/logic";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { ZSurveyLogicConditionsOperator } from "@feedyruby/types/surveys/logic";
 
 const getNumericScaleOptions = (t: TFunction) => ({
   options: [

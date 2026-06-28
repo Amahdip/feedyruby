@@ -1,9 +1,9 @@
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { Prisma, Webhook } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
-import { InvalidInputError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma, Webhook } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
+import { InvalidInputError } from "@feedyruby/types/errors";
 import { validateWebhookUrl } from "@/lib/utils/validate-webhook-url";
 import { ZWebhookUpdateSchema } from "@/modules/api/v2/management/webhooks/[webhookId]/types/webhooks";
 import { ApiErrorResponseV2 } from "@/modules/api/v2/types/api-error";

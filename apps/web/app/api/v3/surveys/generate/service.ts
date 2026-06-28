@@ -1,6 +1,6 @@
 import "server-only";
 import { createId } from "@paralleldrive/cuid2";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/constants";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/constants";
 import type { InvalidParam } from "@/app/api/v3/lib/response";
 import { generateOrganizationAIObject } from "@/lib/ai/service";
 import { type TV3SurveyPrepareResult, prepareV3SurveyCreateInput } from "../prepare";
@@ -379,8 +379,8 @@ export async function generateV3SurveyCreatePayloadFromPrompt(params: {
   const generation = await generateOrganizationAIObject({
     organizationId: params.organizationId,
     schema: ZGeneratedSurveyDraftForAI,
-    schemaName: "SalamRubySurveyDraft",
-    schemaDescription: "A concise SalamRuby survey draft that can be converted to a v3 create payload.",
+    schemaName: "FeedyRubySurveyDraft",
+    schemaDescription: "A concise FeedyRuby survey draft that can be converted to a v3 create payload.",
     system: buildV3SurveyGenerationSystemPrompt(V3_SURVEY_GENERATE_ALLOWED_LOCALES, params.input.type),
     prompt: buildV3SurveyGenerationPrompt(
       params.input.prompt,

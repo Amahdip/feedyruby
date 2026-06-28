@@ -158,8 +158,8 @@ describe("formatSourceType", () => {
   const t = ((key: string) => key) as any;
 
   test("maps known source types", () => {
-    expect(formatSourceType("salamruby", t)).toBe("workspace.unify.salamruby_surveys");
-    expect(formatSourceType("salamruby_survey", t)).toBe("workspace.unify.salamruby_surveys");
+    expect(formatSourceType("feedyruby", t)).toBe("workspace.unify.feedyruby_surveys");
+    expect(formatSourceType("feedyruby_survey", t)).toBe("workspace.unify.feedyruby_surveys");
     expect(formatSourceType("csv", t)).toBe("workspace.unify.csv_import");
   });
 

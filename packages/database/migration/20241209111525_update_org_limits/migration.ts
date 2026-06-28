@@ -1,4 +1,4 @@
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import type { MigrationScript } from "../../src/scripts/migration-runner";
 
 type Plan = "free" | "startup" | "scale";

@@ -1,8 +1,8 @@
 import { useState } from "preact/hooks";
 import { useTranslation } from "react-i18next";
-import { FormField, type FormFieldConfig } from "@salamruby/survey-ui";
-import { type TResponseData, type TResponseTtc } from "@salamruby/types/responses";
-import type { TSurveyAddressElement } from "@salamruby/types/surveys/elements";
+import { FormField, type FormFieldConfig } from "@feedyruby/survey-ui";
+import { type TResponseData, type TResponseTtc } from "@feedyruby/types/responses";
+import type { TSurveyAddressElement } from "@feedyruby/types/surveys/elements";
 import { getLocalizedValue } from "@/lib/i18n";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 

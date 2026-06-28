@@ -1,14 +1,14 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { PipelineTriggers } from "@salamruby/database/prisma";
-import { TResponsePipelineJobData, getBackgroundJobProducer } from "@salamruby/jobs";
-import { logger } from "@salamruby/logger";
-import { TResponse } from "@salamruby/types/responses";
+import { PipelineTriggers } from "@feedyruby/database/prisma";
+import { TResponsePipelineJobData, getBackgroundJobProducer } from "@feedyruby/jobs";
+import { logger } from "@feedyruby/logger";
+import { TResponse } from "@feedyruby/types/responses";
 import { sendToPipeline } from "@/app/lib/pipelines";
 import { getJobsQueueingConfig } from "@/lib/jobs/config";
 
 const mockEnqueueResponsePipeline = vi.fn();
 
-vi.mock("@salamruby/jobs", () => ({
+vi.mock("@feedyruby/jobs", () => ({
   getBackgroundJobProducer: vi.fn(() => ({
     enqueueResponsePipeline: mockEnqueueResponsePipeline,
   })),
@@ -18,7 +18,7 @@ vi.mock("@/lib/jobs/config", () => ({
   getJobsQueueingConfig: vi.fn(),
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },

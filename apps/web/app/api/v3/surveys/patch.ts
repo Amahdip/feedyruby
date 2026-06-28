@@ -1,8 +1,8 @@
 import "server-only";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { DatabaseError, ResourceNotFoundError } from "@salamruby/types/errors";
-import type { TSurvey } from "@salamruby/types/surveys/types";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { DatabaseError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import type { TSurvey } from "@feedyruby/types/surveys/types";
 import { selectSurvey } from "@/lib/survey/service";
 import { stripIsDraftFromBlocks, transformPrismaSurvey } from "@/lib/survey/utils";
 import {

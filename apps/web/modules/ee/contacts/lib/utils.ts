@@ -1,4 +1,4 @@
-import { TContactAttributes } from "@salamruby/types/contact-attribute";
+import { TContactAttributes } from "@feedyruby/types/contact-attribute";
 import { TContactWithAttributes, TTransformPersonInput } from "@/modules/ee/contacts/types/contact";
 import { readAttributeValue } from "./attribute-storage";
 

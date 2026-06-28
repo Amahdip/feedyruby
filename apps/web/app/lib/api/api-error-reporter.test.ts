@@ -21,7 +21,7 @@ vi.mock("@sentry/nextjs", () => ({
   withScope: vi.fn(),
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     withContext: loggerMocks.withContext,
     error: loggerMocks.rootError,

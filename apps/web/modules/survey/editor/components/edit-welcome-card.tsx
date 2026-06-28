@@ -5,14 +5,14 @@ import { Hand } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { TI18nString } from "@salamruby/types/i18n";
+import { TI18nString } from "@feedyruby/types/i18n";
 import {
   TSurvey,
   TSurveyEndScreenCard,
   TSurveyRedirectUrlCard,
   TSurveyWelcomeCard,
-} from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+} from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { getDefaultWelcomeCard } from "@/app/lib/survey-builder";
 import { cn } from "@/lib/cn";
 import { getLanguageCode } from "@/lib/i18n/utils";

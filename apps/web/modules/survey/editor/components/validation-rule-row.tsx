@@ -2,18 +2,18 @@
 
 import { PlusIcon, TrashIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { TAllowedFileExtension } from "@salamruby/types/storage";
+import { TAllowedFileExtension } from "@feedyruby/types/storage";
 import {
   TSurveyElement,
   TSurveyElementTypeEnum,
   TSurveyOpenTextElementInputType,
-} from "@salamruby/types/surveys/elements";
+} from "@feedyruby/types/surveys/elements";
 import {
   TAddressField,
   TContactInfoField,
   TValidationRule,
   TValidationRuleType,
-} from "@salamruby/types/surveys/validation-rules";
+} from "@feedyruby/types/surveys/validation-rules";
 import { Button } from "@/modules/ui/components/button";
 import { RULE_TYPE_CONFIG } from "../lib/validation-rules-config";
 import { getAvailableRuleTypes, getRuleValue } from "../lib/validation-rules-utils";

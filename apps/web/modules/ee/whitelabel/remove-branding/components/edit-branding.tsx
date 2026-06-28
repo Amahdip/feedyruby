@@ -36,8 +36,8 @@ export const EditBranding = ({ type, isEnabled, workspaceId, isReadOnly }: EditB
     if (updateBrandingResponse?.data) {
       toast.success(
         newBrandingState
-          ? t("workspace.look.salamruby_branding_shown")
-          : t("workspace.look.salamruby_branding_hidden")
+          ? t("workspace.look.feedyruby_branding_shown")
+          : t("workspace.look.feedyruby_branding_hidden")
       );
       router.refresh();
     } else {
@@ -56,7 +56,7 @@ export const EditBranding = ({ type, isEnabled, workspaceId, isReadOnly }: EditB
         disabled={updatingBranding || isReadOnly}
       />
       <Label htmlFor={`branding-${type}`}>
-        {t("workspace.look.show_salamruby_branding_in", {
+        {t("workspace.look.show_feedyruby_branding_in", {
           type: type === "linkSurvey" ? t("common.link") : t("common.app"),
         })}
       </Label>

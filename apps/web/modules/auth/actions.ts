@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import { InvalidInputError } from "@salamruby/types/errors";
+import { InvalidInputError } from "@feedyruby/types/errors";
 import { createEmailToken } from "@/lib/jwt";
 import { getUserByEmail } from "@/lib/user/service";
 import { actionClient } from "@/lib/utils/action-client";

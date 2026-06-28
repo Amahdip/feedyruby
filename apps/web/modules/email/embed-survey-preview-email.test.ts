@@ -1,10 +1,10 @@
 import type { TFunction } from "i18next";
 import { describe, expect, test } from "vitest";
-import { renderEmbedSurveyPreviewEmail } from "@salamruby/email";
-import { exampleData } from "@salamruby/email/src/lib/example-data";
-import { embedSurveyPreviewEmailHtml } from "@salamruby/email/src/lib/fixtures/embed-survey-preview-email-html";
-import { t as mockT } from "@salamruby/email/src/lib/mock-translate";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
+import { renderEmbedSurveyPreviewEmail } from "@feedyruby/email";
+import { exampleData } from "@feedyruby/email/src/lib/example-data";
+import { embedSurveyPreviewEmailHtml } from "@feedyruby/email/src/lib/fixtures/embed-survey-preview-email-html";
+import { t as mockT } from "@feedyruby/email/src/lib/mock-translate";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
 import { extractEmailBodyFragment } from "@/app/(app)/workspaces/[workspaceId]/surveys/[surveyId]/(analysis)/summary/lib/emailTemplateFragment";
 import { mixColor } from "@/lib/utils/colors";
 import { getPreviewEmailTemplateHtml } from "@/modules/email/components/preview-email-template";

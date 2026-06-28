@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { StorageErrorCode } from "@salamruby/storage";
-import { TResponseData } from "@salamruby/types/responses";
-import { ZAllowedFileExtension } from "@salamruby/types/storage";
-import { TSurveyBlock } from "@salamruby/types/surveys/blocks";
-import { TSurveyQuestion } from "@salamruby/types/surveys/types";
+import { StorageErrorCode } from "@feedyruby/storage";
+import { TResponseData } from "@feedyruby/types/responses";
+import { ZAllowedFileExtension } from "@feedyruby/types/storage";
+import { TSurveyBlock } from "@feedyruby/types/surveys/blocks";
+import { TSurveyQuestion } from "@feedyruby/types/surveys/types";
 import {
   isAllowedFileExtension,
   isValidImageFile,

@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 import { test } from "./lib/fixtures";
 
 const getUserIdForEmail = async (email: string) => {

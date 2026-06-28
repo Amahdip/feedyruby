@@ -3,8 +3,8 @@ import type { AdapterAccount } from "next-auth/adapters";
 import { createRequire } from "node:module";
 import path from "node:path";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import type { PrismaClient } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
+import type { PrismaClient } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
 import { getNextAuthAdapter } from "./adapter";
 
 type TCallbackHandler = (params: unknown) => Promise<unknown>;
@@ -18,7 +18,7 @@ const mocks = vi.hoisted(() => ({
   createSession: vi.fn(),
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
     warn: vi.fn(),

@@ -9,7 +9,7 @@ import { createTrustedTemplateSurveyResponse } from "./template-create";
 
 vi.mock("server-only", () => ({}));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     withContext: vi.fn(() => ({
       error: vi.fn(),

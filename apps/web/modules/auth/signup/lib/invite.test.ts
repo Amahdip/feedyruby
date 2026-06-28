@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { logger } from "@salamruby/logger";
-import { DatabaseError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { logger } from "@feedyruby/logger";
+import { DatabaseError } from "@feedyruby/types/errors";
 import { deleteInvite, getInvite, getIsValidInviteToken } from "./invite";
 
 // Mock data
@@ -29,7 +29,7 @@ const mockInvite = {
 };
 
 // Mock prisma methods
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     invite: {
       delete: vi.fn(),
@@ -39,7 +39,7 @@ vi.mock("@salamruby/database", () => ({
 }));
 
 // Mock logger
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
   },

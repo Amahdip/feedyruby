@@ -1,6 +1,6 @@
 import { UAParser } from "ua-parser-js";
-import { InvalidInputError, UniqueConstraintError } from "@salamruby/types/errors";
-import { TResponseWithQuotaFull } from "@salamruby/types/quota";
+import { InvalidInputError, UniqueConstraintError } from "@feedyruby/types/errors";
+import { TResponseWithQuotaFull } from "@feedyruby/types/quota";
 import { checkSurveyValidity } from "@/app/api/v2/client/[workspaceId]/responses/lib/utils";
 import { reportApiError } from "@/app/lib/api/api-error-reporter";
 import { parseAndValidateJsonBody } from "@/app/lib/api/parse-and-validate-json-body";

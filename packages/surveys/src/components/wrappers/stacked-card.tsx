@@ -2,9 +2,9 @@ import { MutableRef } from "preact/hooks";
 import { useEffect, useMemo, useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
 import React from "react";
-import { type TPlacement } from "@salamruby/types/common";
-import { TJsWorkspaceStateSurvey } from "@salamruby/types/js";
-import { TCardArrangementOptions } from "@salamruby/types/styling";
+import { type TPlacement } from "@feedyruby/types/common";
+import { TJsWorkspaceStateSurvey } from "@feedyruby/types/js";
+import { TCardArrangementOptions } from "@feedyruby/types/styling";
 
 interface StackedCardProps {
   cardRefs: MutableRef<(HTMLDivElement | null)[]>;

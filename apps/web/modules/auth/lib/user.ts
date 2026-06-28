@@ -1,10 +1,10 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma, PrismaClient } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ZId } from "@salamruby/types/common";
-import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
-import { TUserCreateInput, TUserUpdateInput, ZUserEmail, ZUserUpdateInput } from "@salamruby/types/user";
+import { prisma } from "@feedyruby/database";
+import { Prisma, PrismaClient } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ZId } from "@feedyruby/types/common";
+import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import { TUserCreateInput, TUserUpdateInput, ZUserEmail, ZUserUpdateInput } from "@feedyruby/types/user";
 import { validateInputs } from "@/lib/utils/validate";
 
 type TUserDbClient = PrismaClient | Prisma.TransactionClient;

@@ -1,7 +1,7 @@
 import { TFunction } from "i18next";
 import { describe, expect, test, vi } from "vitest";
-import { ZSurveyLogicConditionsOperator } from "@salamruby/types/surveys/logic";
-import { TSurveyQuestionTypeEnum } from "@salamruby/types/surveys/types";
+import { ZSurveyLogicConditionsOperator } from "@feedyruby/types/surveys/logic";
+import { TSurveyQuestionTypeEnum } from "@feedyruby/types/surveys/types";
 import { TLogicRuleOption, getLogicRules } from "./logic-rule-engine";
 
 // Mock the translation function

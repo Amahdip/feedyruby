@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { type Control, Controller } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { TOrganizationRole } from "@salamruby/types/memberships";
+import { TOrganizationRole } from "@feedyruby/types/memberships";
 import { getAccessFlags } from "@/lib/membership/utils";
 import { Label } from "@/modules/ui/components/label";
 import {
@@ -19,14 +19,14 @@ import { Muted, P } from "@/modules/ui/components/typography";
 interface AddMemberRoleProps {
   control: Control<{ name: string; email: string; role: TOrganizationRole; teamIds: string[] }>;
   isAccessControlAllowed: boolean;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   membershipRole?: TOrganizationRole;
 }
 
 export function AddMemberRole({
   control,
   isAccessControlAllowed,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   membershipRole,
 }: AddMemberRoleProps) {
   const { isMember, isOwner } = getAccessFlags(membershipRole);
@@ -38,12 +38,12 @@ export function AddMemberRole({
 
     if (isOwner) {
       rolesArray.push("manager", "owner");
-      if (isSalamRubyCloud) {
+      if (isFeedyRubyCloud) {
         rolesArray.push("billing");
       }
     }
     return rolesArray;
-  }, [isOwner, isSalamRubyCloud]);
+  }, [isOwner, isFeedyRubyCloud]);
 
   if (isMember) return null;
 

@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { InvalidInputError, OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { ZId } from "@feedyruby/types/common";
+import { InvalidInputError, OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { checkAuthorizationUpdated } from "@/lib/utils/action-client/action-client-middleware";
 import { getUserWorkspaces, getWorkspace } from "@/lib/workspace/service";
 import { deleteWorkspace } from "@/modules/workspaces/settings/lib/workspace";

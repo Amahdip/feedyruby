@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 import { findWorkspaceByIdOrLegacyEnvId, resolveClientApiIds } from "./resolve-client-id";
 
 vi.mock("server-only", () => ({}));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     workspace: {
       findFirst: vi.fn(),

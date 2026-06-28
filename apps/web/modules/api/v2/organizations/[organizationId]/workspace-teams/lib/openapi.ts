@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { ZodOpenApiOperationObject, ZodOpenApiPathsObject } from "zod-openapi";
-import { ZWorkspaceTeam } from "@salamruby/database/zod/workspace-teams";
+import { ZWorkspaceTeam } from "@feedyruby/database/zod/workspace-teams";
 import { ZOrganizationIdSchema } from "@/modules/api/v2/organizations/[organizationId]/types/organizations";
 import {
   ZGetWorkspaceTeamUpdateFilter,

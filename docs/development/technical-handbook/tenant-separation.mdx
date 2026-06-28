@@ -1,18 +1,18 @@
 ---
 title: "Tenant Separation"
-description: "How SalamRuby handles tenant separation on SalamRuby Cloud"
+description: "How FeedyRuby handles tenant separation on FeedyRuby Cloud"
 icon: "people-arrows"
 ---
 
-SalamRuby Cloud is designed to support multiple tenants, each with their own set of surveys and data. This page describes the different ways to configure and use SalamRuby for multi-tenancy.
+FeedyRuby Cloud is designed to support multiple tenants, each with their own set of surveys and data. This page describes the different ways to configure and use FeedyRuby for multi-tenancy.
 
 <Note>
-This documentation only applies to SalamRuby Cloud instances. On-premise deployments handle tenant separation differently based on your specific setup and requirements.
+This documentation only applies to FeedyRuby Cloud instances. On-premise deployments handle tenant separation differently based on your specific setup and requirements.
 </Note>
 
-## Multi-Tenancy in SalamRuby Cloud
+## Multi-Tenancy in FeedyRuby Cloud
 
-SalamRuby Cloud is architected as a true multi-tenant system where each organization contains one or more isolated Workspaces while sharing the underlying infrastructure. This approach allows multiple organizations to use the platform independently without visibility into each other's data.
+FeedyRuby Cloud is architected as a true multi-tenant system where each organization contains one or more isolated Workspaces while sharing the underlying infrastructure. This approach allows multiple organizations to use the platform independently without visibility into each other's data.
 
 ### Organizational Structure
 
@@ -39,7 +39,7 @@ graph TD
     Workspace2 --> Segment2[Segments]
 ```
 
-The multi-tenant architecture in SalamRuby Cloud is built around three key levels of isolation:
+The multi-tenant architecture in FeedyRuby Cloud is built around three key levels of isolation:
 
 ### 1. Organization-Level Isolation
 
@@ -79,7 +79,7 @@ Team access is scoped per Workspace:
 
 ## Data Security in the Multi-Tenant Model
 
-SalamRuby ensures data security in its multi-tenant Workspace model through:
+FeedyRuby ensures data security in its multi-tenant Workspace model through:
 
 - **Database Layer Isolation**: 
   - Foreign key constraints enforce data isolation
@@ -100,5 +100,5 @@ SalamRuby ensures data security in its multi-tenant Workspace model through:
   - Organization-level limits based on billing plan
 
 
-This multi-layered approach to tenant separation ensures that organizations can safely use SalamRuby Cloud with complete data privacy and isolation from other tenants.
+This multi-layered approach to tenant separation ensures that organizations can safely use FeedyRuby Cloud with complete data privacy and isolation from other tenants.
 

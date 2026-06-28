@@ -4,9 +4,9 @@ import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { TDisplayWithContact } from "@salamruby/types/displays";
-import { TSurvey, TSurveySummary } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+import { TDisplayWithContact } from "@feedyruby/types/displays";
+import { TSurvey, TSurveySummary } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import {
   getDisplaysWithContactAction,
   getSurveySummaryAction,

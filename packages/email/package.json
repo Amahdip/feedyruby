@@ -1,8 +1,8 @@
 {
-  "name": "@salamruby/email",
+  "name": "@feedyruby/email",
   "version": "1.0.0",
   "private": true,
-  "description": "Email templates for SalamRuby with React Email preview server",
+  "description": "Email templates for FeedyRuby with React Email preview server",
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -18,9 +18,9 @@
     "react-email": "5.2.11"
   },
   "devDependencies": {
-    "@salamruby/config-typescript": "workspace:*",
-    "@salamruby/eslint-config": "workspace:*",
-    "@salamruby/types": "workspace:*",
+    "@feedyruby/config-typescript": "workspace:*",
+    "@feedyruby/eslint-config": "workspace:*",
+    "@feedyruby/types": "workspace:*",
     "autoprefixer": "10.4.27",
     "clsx": "2.1.1",
     "postcss": "8.5.14",

@@ -1,4 +1,4 @@
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
 
 export const TYPE_MAPPING = {
   [TSurveyElementTypeEnum.CTA]: ["checkbox"],

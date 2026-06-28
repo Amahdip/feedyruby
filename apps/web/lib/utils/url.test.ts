@@ -1,6 +1,6 @@
 import { cleanup } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
-import { TActionClassPageUrlRule } from "@salamruby/types/action-classes";
+import { TActionClassPageUrlRule } from "@feedyruby/types/action-classes";
 import { getValidatedCallbackUrl, isStringUrl, testURLmatch } from "./url";
 
 afterEach(() => {

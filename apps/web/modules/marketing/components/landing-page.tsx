@@ -17,7 +17,7 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FeedyRubyIcon } from "@/modules/ui/components/feedyruby-brand";
+import { FeedyRubyWordmark } from "@/modules/ui/components/feedyruby-brand";
 
 export const LandingPage = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -37,32 +37,32 @@ export const LandingPage = () => {
 
   const features = [
     {
-      icon: <MessageCircle className="size-6 text-rose-800" />,
+      icon: <MessageCircle className="size-6 text-fr-fuchsia" />,
       title: t("marketing.landing.features.inAppSurveys.title"),
       description: t("marketing.landing.features.inAppSurveys.description"),
     },
     {
-      icon: <Mail className="size-6 text-rose-800" />,
+      icon: <Mail className="size-6 text-fr-fuchsia" />,
       title: t("marketing.landing.features.emailLinkSurveys.title"),
       description: t("marketing.landing.features.emailLinkSurveys.description"),
     },
     {
-      icon: <BarChart3 className="size-6 text-rose-800" />,
+      icon: <BarChart3 className="size-6 text-fr-fuchsia" />,
       title: t("marketing.landing.features.realTimeResponses.title"),
       description: t("marketing.landing.features.realTimeResponses.description"),
     },
     {
-      icon: <Flame className="size-6 text-rose-800" />,
+      icon: <Flame className="size-6 text-fr-fuchsia" />,
       title: t("marketing.landing.features.advancedIntegrations.title"),
       description: t("marketing.landing.features.advancedIntegrations.description"),
     },
     {
-      icon: <ShieldAlert className="size-6 text-rose-800" />,
+      icon: <ShieldAlert className="size-6 text-fr-fuchsia" />,
       title: t("marketing.landing.features.privacyFirst.title"),
       description: t("marketing.landing.features.privacyFirst.description"),
     },
     {
-      icon: <Code className="size-6 text-rose-800" />,
+      icon: <Code className="size-6 text-fr-fuchsia" />,
       title: t("marketing.landing.features.openSource.title"),
       description: t("marketing.landing.features.openSource.description"),
     },
@@ -153,35 +153,34 @@ export const LandingPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 antialiased selection:bg-rose-800/10 selection:text-rose-800">
+    <div className="selection:bg-fr-fuchsia/10 min-h-screen bg-fr-ivory text-slate-800 antialiased selection:text-fr-fuchsia">
       {/* Sticky Header */}
       <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2">
-            <FeedyRubyIcon className="size-8" />
-            <span className="text-xl font-bold tracking-tight text-slate-900">FeedyRuby</span>
+            <FeedyRubyWordmark className="h-8 w-auto max-w-[9rem]" isRtl={isRtl} priority />
           </div>
 
           <nav className="hidden items-center gap-8 md:flex">
             <a
               href="#features"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-rose-800">
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-fr-fuchsia">
               {t("marketing.landing.nav.features")}
             </a>
             <a
               href="#pricing"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-rose-800">
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-fr-fuchsia">
               {t("marketing.landing.nav.pricing")}
             </a>
             <a
               href="#faq"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-rose-800">
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-fr-fuchsia">
               {t("marketing.landing.nav.faq")}
             </a>
             <Link
               href="https://feedyruby.ir/docs"
               target="_blank"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-rose-800">
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-fr-fuchsia">
               {t("marketing.landing.nav.docs")}
             </Link>
           </nav>
@@ -189,7 +188,7 @@ export const LandingPage = () => {
           <div className="hidden items-center gap-4 md:flex">
             <button
               onClick={toggleLanguage}
-              className="rounded border border-slate-200 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors hover:text-rose-800">
+              className="rounded border border-slate-200 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors hover:text-fr-fuchsia">
               {isRtl ? "English" : "فارسی"}
             </button>
             <Link
@@ -199,7 +198,7 @@ export const LandingPage = () => {
             </Link>
             <Link
               href="/auth/signup"
-              className="inline-flex items-center justify-center rounded-md bg-rose-800 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-rose-900">
+              className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:scale-[1.02] hover:opacity-90">
               {t("marketing.landing.nav.signUp")}
             </Link>
           </div>
@@ -246,7 +245,7 @@ export const LandingPage = () => {
                   toggleLanguage();
                   setMobileMenuOpen(false);
                 }}
-                className="text-start text-base font-semibold text-rose-800">
+                className="text-start text-base font-semibold text-fr-fuchsia">
                 {isRtl ? "Switch to English" : "تغییر به فارسی"}
               </button>
               <hr className="border-slate-100" />
@@ -259,7 +258,7 @@ export const LandingPage = () => {
               <Link
                 href="/auth/signup"
                 onClick={() => setMobileMenuOpen(false)}
-                className="inline-flex items-center justify-center rounded-md bg-rose-800 px-4 py-2.5 text-base font-medium text-white shadow-sm hover:bg-rose-900">
+                className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-4 py-2.5 text-base font-medium text-white shadow-sm transition-all hover:scale-[1.02] hover:opacity-90">
                 {t("marketing.landing.nav.signUp")}
               </Link>
             </nav>
@@ -271,13 +270,13 @@ export const LandingPage = () => {
       <section className="relative overflow-hidden py-20 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center lg:mx-auto lg:max-w-3xl">
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-rose-800/10 px-3 py-1 text-sm font-semibold text-rose-800">
-              <span className="size-1.5 animate-pulse rounded-full bg-rose-800" />
+            <div className="bg-fr-fuchsia/10 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-semibold text-fr-fuchsia">
+              <span className="size-1.5 animate-pulse rounded-full bg-fr-fuchsia" />
               {t("marketing.landing.hero.badge")}
             </div>
             <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               {t("marketing.landing.hero.title")} <br />
-              <span className="bg-gradient-to-r from-rose-800 to-rose-900 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange bg-clip-text text-transparent">
                 {t("marketing.landing.hero.titleMinutes")}
               </span>
             </h1>
@@ -287,7 +286,7 @@ export const LandingPage = () => {
             <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
               <Link
                 href="/auth/signup"
-                className="inline-flex items-center justify-center rounded-md bg-rose-800 px-6 py-3.5 text-base font-medium text-white shadow-md transition-all hover:scale-[1.02] hover:bg-rose-900">
+                className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-6 py-3.5 text-base font-medium text-white shadow-md transition-all hover:scale-[1.02] hover:opacity-90">
                 {t("marketing.landing.hero.startFree")}
                 <ArrowRight className="ms-2 size-5 rtl:rotate-180" />
               </Link>
@@ -318,7 +317,7 @@ export const LandingPage = () => {
               <div
                 key={idx}
                 className="flex flex-col rounded-xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:border-slate-300 hover:shadow-md">
-                <div className="mb-6 flex size-12 items-center justify-center rounded-lg bg-rose-800/10">
+                <div className="bg-fr-fuchsia/10 mb-6 flex size-12 items-center justify-center rounded-lg">
                   {feature.icon}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">{feature.title}</h3>
@@ -347,11 +346,11 @@ export const LandingPage = () => {
                 key={idx}
                 className={`flex flex-col rounded-xl border bg-white p-8 shadow-sm transition-all ${
                   tier.highlighted
-                    ? "relative border-rose-800 ring-2 ring-rose-800/20 md:scale-[1.05]"
+                    ? "ring-fr-fuchsia/20 relative border-fr-fuchsia ring-2 md:scale-[1.05]"
                     : "border-slate-200 hover:border-slate-300"
                 }`}>
                 {tier.highlighted && (
-                  <span className="absolute right-1/2 top-0 -translate-y-1/2 translate-x-1/2 rounded-full bg-rose-800 px-3 py-0.5 text-xs font-semibold text-white">
+                  <span className="absolute right-1/2 top-0 -translate-y-1/2 translate-x-1/2 rounded-full bg-fr-fuchsia px-3 py-0.5 text-xs font-semibold text-white">
                     {t("marketing.landing.pricing.popular")}
                   </span>
                 )}
@@ -365,7 +364,7 @@ export const LandingPage = () => {
                 <ul className="mt-8 grow space-y-4">
                   {tier.features.map((feat, fIdx) => (
                     <li key={fIdx} className="flex items-start gap-2.5 text-sm text-slate-600">
-                      <Check className="mt-0.5 size-4 shrink-0 text-rose-800" />
+                      <Check className="mt-0.5 size-4 shrink-0 text-fr-fuchsia" />
                       <span>{feat}</span>
                     </li>
                   ))}
@@ -375,7 +374,7 @@ export const LandingPage = () => {
                   href={tier.href}
                   className={`mt-8 inline-flex items-center justify-center rounded-md py-2.5 text-sm font-medium shadow-sm transition-colors ${
                     tier.highlighted
-                      ? "bg-rose-800 text-white hover:bg-rose-900"
+                      ? "bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange text-white hover:opacity-90"
                       : "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
                   }`}>
                   {tier.cta}
@@ -403,7 +402,7 @@ export const LandingPage = () => {
                   onClick={() => toggleFaq(idx)}
                   className="flex w-full items-center justify-between p-6 text-left focus:outline-none rtl:text-right">
                   <span className="flex items-center gap-2 text-base font-bold text-slate-900">
-                    <HelpCircle className="size-5 shrink-0 text-rose-800" />
+                    <HelpCircle className="size-5 shrink-0 text-fr-fuchsia" />
                     {faq.question}
                   </span>
                   <ChevronDown
@@ -425,17 +424,17 @@ export const LandingPage = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="relative overflow-hidden bg-rose-900 py-20 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rose-800 via-rose-900 to-slate-950 opacity-90" />
+      <section className="relative overflow-hidden bg-fr-void py-20 text-white">
+        <div className="from-fr-violet/20 absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] via-fr-void to-fr-void opacity-90" />
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-extrabold leading-tight sm:text-4xl">
             {t("marketing.landing.cta.title")}
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-rose-200">{t("marketing.landing.cta.subtitle")}</p>
+          <p className="text-fr-muted mx-auto mt-4 max-w-xl text-lg">{t("marketing.landing.cta.subtitle")}</p>
           <div className="mt-8 flex justify-center">
             <Link
               href="/auth/signup"
-              className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3.5 text-base font-semibold text-rose-900 shadow-lg transition-all hover:scale-[1.02] hover:bg-slate-100">
+              className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3.5 text-base font-semibold text-fr-void shadow-lg transition-all hover:scale-[1.02] hover:bg-fr-ivory">
               {t("marketing.landing.cta.signUpFree")}
             </Link>
           </div>
@@ -447,21 +446,20 @@ export const LandingPage = () => {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
             <div className="flex items-center gap-2">
-              <FeedyRubyIcon className="size-6" />
-              <span className="font-bold text-slate-900">FeedyRuby</span>
+              <FeedyRubyWordmark className="h-6 w-auto max-w-[8rem]" isRtl={isRtl} />
             </div>
 
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm">
-              <Link href="https://feedyruby.ir/terms" className="hover:text-rose-800">
+              <Link href="https://feedyruby.ir/terms" className="hover:text-fr-fuchsia">
                 {t("marketing.landing.footer.terms")}
               </Link>
-              <Link href="https://feedyruby.ir/privacy" className="hover:text-rose-800">
+              <Link href="https://feedyruby.ir/privacy" className="hover:text-fr-fuchsia">
                 {t("marketing.landing.footer.privacy")}
               </Link>
-              <Link href="https://feedyruby.ir/docs" className="hover:text-rose-800">
+              <Link href="https://feedyruby.ir/docs" className="hover:text-fr-fuchsia">
                 {t("marketing.landing.footer.docs")}
               </Link>
-              <Link href="mailto:info@feedyruby.ir" className="hover:text-rose-800">
+              <Link href="mailto:info@feedyruby.ir" className="hover:text-fr-fuchsia">
                 {t("marketing.landing.footer.contact")}
               </Link>
             </div>

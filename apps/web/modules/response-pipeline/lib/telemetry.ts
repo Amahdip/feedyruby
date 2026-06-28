@@ -1,7 +1,7 @@
-import { createCacheKey, getCacheService } from "@salamruby/cache";
-import { prisma } from "@salamruby/database";
-import { IntegrationType } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
+import { createCacheKey, getCacheService } from "@feedyruby/cache";
+import { prisma } from "@feedyruby/database";
+import { IntegrationType } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
 import { E2E_TESTING, IS_DEVELOPMENT, TELEMETRY_DISABLED } from "@/lib/constants";
 import { env } from "@/lib/env";
 import { hashString } from "@/lib/hash-string";
@@ -21,7 +21,7 @@ const TELEMETRY_LAST_SENT_KEY = createCacheKey.custom("analytics", "telemetry_la
 let nextTelemetryCheck = 0;
 
 /**
- * Sends telemetry events to SalamRuby Enterprise endpoint.
+ * Sends telemetry events to FeedyRuby Enterprise endpoint.
  * Uses a three-layer check system to prevent duplicate submissions:
  * 1. In-memory check (fast, process-local)
  * 2. Redis check (shared across instances, persists across restarts)
@@ -162,7 +162,7 @@ export const sendTelemetryEvents = async () => {
 };
 
 /**
- * Gathers telemetry data and sends it to SalamRuby Enterprise endpoint.
+ * Gathers telemetry data and sends it to FeedyRuby Enterprise endpoint.
  * @param lastSent - Timestamp of last telemetry send (used to calculate incremental metrics)
  */
 const sendTelemetry = async (lastSent: number) => {
@@ -280,7 +280,7 @@ const sendTelemetry = async (lastSent: number) => {
     },
     sso: ssoMap,
     meta: {
-      version: packageJson.version, // SalamRuby version for compatibility tracking
+      version: packageJson.version, // FeedyRuby version for compatibility tracking
     },
     temporal: {
       instanceCreatedAt: instanceCreatedAt.toISOString(), // When instance was first created
@@ -288,9 +288,9 @@ const sendTelemetry = async (lastSent: number) => {
     },
   };
 
-  // Send telemetry to SalamRuby Enterprise endpoint.
+  // Send telemetry to FeedyRuby Enterprise endpoint.
   // This endpoint collects usage statistics for enterprise license validation and analytics.
-  const url = `https://ee.salamruby.com/api/v1/instances/${instanceId}/usage-updates`;
+  const url = `https://ee.feedyruby.com/api/v1/instances/${instanceId}/usage-updates`;
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 10000); // 10 second timeout

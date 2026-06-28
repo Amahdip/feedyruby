@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 import * as storage from "./index";
 
-describe("@salamruby/storage public API", () => {
+describe("@feedyruby/storage public API", () => {
   test("exports the runtime storage entry points and error enum", () => {
     expect(storage.getSignedUploadUrl).toBeTypeOf("function");
     expect(storage.getSignedDownloadUrl).toBeTypeOf("function");

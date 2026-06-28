@@ -1,6 +1,6 @@
 import type { Account } from "next-auth";
-import type { TOrganization } from "@salamruby/types/organizations";
-import type { TUser } from "@salamruby/types/user";
+import type { TOrganization } from "@feedyruby/types/organizations";
+import type { TUser } from "@feedyruby/types/user";
 
 // Mock user data
 export const mockUser: TUser = {

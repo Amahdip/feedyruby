@@ -1,8 +1,8 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Language, Prisma, Workspace } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { DatabaseError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Language, Prisma, Workspace } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { DatabaseError, ResourceNotFoundError } from "@feedyruby/types/errors";
 
 export const getWorkspace = reactCache(async (workspaceId: string): Promise<Workspace | null> => {
   try {

@@ -7,8 +7,8 @@
   ],
   "javascript.updateImportsOnFileMove.enabled": "always",
   "sonarlint.connectedMode.project": {
-    "connectionId": "salamruby",
-    "projectKey": "salamruby_salamruby"
+    "connectionId": "feedyruby",
+    "projectKey": "feedyruby_feedyruby"
   },
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.tsdk": "node_modules/typescript/lib",

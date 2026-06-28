@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition -- field.placeholder can be undefined for surveys created before this migration */
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import type { MigrationScript } from "../../src/scripts/migration-runner";
 
 interface Field {

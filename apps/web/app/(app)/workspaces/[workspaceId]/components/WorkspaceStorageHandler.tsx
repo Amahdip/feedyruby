@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { SALAMRUBY_ENVIRONMENT_ID_LS, SALAMRUBY_WORKSPACE_ID_LS } from "@/lib/localStorage";
+import { FEEDYRUBY_ENVIRONMENT_ID_LS, FEEDYRUBY_WORKSPACE_ID_LS } from "@/lib/localStorage";
 
 interface WorkspaceStorageHandlerProps {
   workspaceId: string;
@@ -9,9 +9,9 @@ interface WorkspaceStorageHandlerProps {
 
 const WorkspaceStorageHandler = ({ workspaceId }: WorkspaceStorageHandlerProps) => {
   useEffect(() => {
-    localStorage.setItem(SALAMRUBY_WORKSPACE_ID_LS, workspaceId);
+    localStorage.setItem(FEEDYRUBY_WORKSPACE_ID_LS, workspaceId);
     // Keep legacy environment ID in sync for backward compatibility with old SDK clients
-    localStorage.setItem(SALAMRUBY_ENVIRONMENT_ID_LS, workspaceId);
+    localStorage.setItem(FEEDYRUBY_ENVIRONMENT_ID_LS, workspaceId);
   }, [workspaceId]);
 
   return null;

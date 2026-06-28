@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from "preact/hooks";
-import { type TJsWorkspaceStateSurvey } from "@salamruby/types/js";
+import { type TJsWorkspaceStateSurvey } from "@feedyruby/types/js";
 import { Progress } from "@/components/general/progress";
 
 interface ProgressBarProps {

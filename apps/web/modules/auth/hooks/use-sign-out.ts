@@ -1,6 +1,6 @@
 import { signOut } from "next-auth/react";
-import { logger } from "@salamruby/logger";
-import { SALAMRUBY_ENVIRONMENT_ID_LS, SALAMRUBY_WORKSPACE_ID_LS } from "@/lib/localStorage";
+import { logger } from "@feedyruby/logger";
+import { FEEDYRUBY_ENVIRONMENT_ID_LS, FEEDYRUBY_WORKSPACE_ID_LS } from "@/lib/localStorage";
 import { logSignOutAction } from "@/modules/auth/actions/sign-out";
 
 interface UseSignOutOptions {
@@ -48,8 +48,8 @@ export const useSignOut = (sessionUser?: SessionUser | null) => {
     }
 
     if (options?.clearWorkspaceId) {
-      localStorage.removeItem(SALAMRUBY_WORKSPACE_ID_LS);
-      localStorage.removeItem(SALAMRUBY_ENVIRONMENT_ID_LS);
+      localStorage.removeItem(FEEDYRUBY_WORKSPACE_ID_LS);
+      localStorage.removeItem(FEEDYRUBY_ENVIRONMENT_ID_LS);
     }
 
     // Call NextAuth signOut

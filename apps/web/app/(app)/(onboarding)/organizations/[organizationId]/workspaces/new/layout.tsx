@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { notFound, redirect } from "next/navigation";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
-import { IS_SALAMRUBY_CLOUD } from "@/lib/constants";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
+import { IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { getMembershipByUserIdOrganizationId } from "@/lib/membership/service";
 import { getAccessFlags } from "@/lib/membership/utils";
 import { getOrganization } from "@/lib/organization/service";
@@ -32,7 +32,7 @@ const OnboardingLayout = async (props: {
     throw new ResourceNotFoundError(t("common.organization"), params.organizationId);
   }
 
-  if (IS_SALAMRUBY_CLOUD) {
+  if (IS_FEEDYRUBY_CLOUD) {
     // Refresh trial/plan state after users return from onboarding billing actions.
     await invalidateOrganizationBillingCache(organization.id);
   }

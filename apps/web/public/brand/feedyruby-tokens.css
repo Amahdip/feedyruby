@@ -1,0 +1,29 @@
+:root {
+  /* Brand Gradient */
+  --fr-gradient:   linear-gradient(135deg, #7C3AED, #EC4899, #F97316, #FBBF24);
+
+  /* Gem Spectrum */
+  --fr-violet:     #7C3AED;
+  --fr-fuchsia:    #EC4899;
+  --fr-orange:     #F97316;
+  --fr-amber:      #FBBF24;
+
+  /* Dark Backgrounds */
+  --fr-void:       #07070E;
+  --fr-deep:       #0E0E18;
+  --fr-card:       #171728;
+  --fr-slate:      #1C1C2E;
+
+  /* Text */
+  --fr-text:       #F0EEF8;
+  --fr-muted:      rgba(240, 238, 248, 0.55);
+  --fr-subtle:     rgba(240, 238, 248, 0.27);
+
+  /* Light Mode */
+  --fr-ivory:      #F5F4F8;
+  --fr-ink:        #18182A;
+
+  /* Typography */
+  --fr-font-en:    'Space Grotesk', sans-serif;
+  --fr-font-fa:    'Vazirmatn', sans-serif;
+}

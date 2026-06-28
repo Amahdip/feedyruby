@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ZWebhook } from "@salamruby/database/zod/webhooks";
+import { ZWebhook } from "@feedyruby/database/zod/webhooks";
 
 export const ZWebhookIdSchema = z
   .cuid2()

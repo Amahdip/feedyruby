@@ -1,13 +1,13 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { ValidationError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { ValidationError } from "@feedyruby/types/errors";
 import { validateInputs } from "@/lib/utils/validate";
 import { TWorkspaceUpdateBrandingInput } from "../types/workspace";
 import { updateWorkspaceBranding } from "./workspace";
 
 vi.mock("server-only", () => ({}));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     workspace: {
       update: vi.fn(),

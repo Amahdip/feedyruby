@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { TOrganizationRole } from "@salamruby/types/memberships";
+import { TOrganizationRole } from "@feedyruby/types/memberships";
 import { getAccessFlags } from "./utils";
 
 describe("getAccessFlags", () => {

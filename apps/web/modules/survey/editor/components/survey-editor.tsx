@@ -2,12 +2,12 @@
 
 import { type Dispatch, type SetStateAction, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ActionClass, Language, OrganizationRole, Workspace } from "@salamruby/database/prisma-browser";
-import { TContactAttributeKey } from "@salamruby/types/contact-attribute-key";
-import { TSurveyQuota } from "@salamruby/types/quota";
-import { TSegment } from "@salamruby/types/segment";
-import { TSurvey, TSurveyEditorTabs, TSurveyStyling } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+import { ActionClass, Language, OrganizationRole, Workspace } from "@feedyruby/database/prisma-browser";
+import { TContactAttributeKey } from "@feedyruby/types/contact-attribute-key";
+import { TSurveyQuota } from "@feedyruby/types/quota";
+import { TSegment } from "@feedyruby/types/segment";
+import { TSurvey, TSurveyEditorTabs, TSurveyStyling } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { extractLanguageCodes, getEnabledLanguages } from "@/lib/i18n/utils";
 import { structuredClone } from "@/lib/pollyfills/structuredClone";
 import { migrateLegacySurveyContent } from "@/lib/survey/migrate-legacy-survey-content";
@@ -38,7 +38,7 @@ interface SurveyEditorProps {
   colors: string[];
   isUserTargetingAllowed?: boolean;
   isSpamProtectionAllowed?: boolean;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   isUnsplashConfigured: boolean;
   isQuotasAllowed: boolean;
   isCxMode: boolean;
@@ -68,7 +68,7 @@ export const SurveyEditor = ({
   colors,
   isUserTargetingAllowed = false,
   isSpamProtectionAllowed = false,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   isUnsplashConfigured,
   isQuotasAllowed,
   isCxMode = false,
@@ -225,7 +225,7 @@ export const SurveyEditor = ({
               invalidElements={invalidElements}
               setInvalidElements={setInvalidElements}
               selectedLanguageCode={selectedLanguageCode || "default"}
-              isSalamRubyCloud={isSalamRubyCloud}
+              isFeedyRubyCloud={isFeedyRubyCloud}
               isCxMode={isCxMode}
               locale={locale}
               responseCount={responseCount}
@@ -275,7 +275,7 @@ export const SurveyEditor = ({
               isUserTargetingAllowed={isUserTargetingAllowed}
               isSpamProtectionAllowed={isSpamProtectionAllowed}
               workspacePermission={workspacePermission}
-              isSalamRubyCloud={isSalamRubyCloud}
+              isFeedyRubyCloud={isFeedyRubyCloud}
               isQuotasAllowed={isQuotasAllowed}
               quotas={quotas}
               locale={locale}
@@ -291,7 +291,7 @@ export const SurveyEditor = ({
               selectedLanguageCode={selectedLanguageCode}
               mailFrom={mailFrom}
               isSurveyFollowUpsAllowed={isSurveyFollowUpsAllowed}
-              isSalamRubyCloud={isSalamRubyCloud}
+              isFeedyRubyCloud={isFeedyRubyCloud}
               userEmail={userEmail}
               teamMemberDetails={teamMemberDetails}
               locale={locale}

@@ -4,11 +4,11 @@ import { createId } from "@paralleldrive/cuid2";
 import { ArrowDownIcon, ArrowRightIcon, ArrowUpIcon, CopyIcon, EllipsisIcon, TrashIcon } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Workspace } from "@salamruby/database/prisma-browser";
-import { TI18nString } from "@salamruby/types/i18n";
-import { TSurveyBlockLogic } from "@salamruby/types/surveys/blocks";
-import { TSurveyElement, TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurvey, TSurveyEndScreenCard, TSurveyRedirectUrlCard } from "@salamruby/types/surveys/types";
+import { Workspace } from "@feedyruby/database/prisma-browser";
+import { TI18nString } from "@feedyruby/types/i18n";
+import { TSurveyBlockLogic } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElement, TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurvey, TSurveyEndScreenCard, TSurveyRedirectUrlCard } from "@feedyruby/types/surveys/types";
 import { getElementsFromBlocks } from "@/modules/survey/lib/client-utils";
 import {
   getCXElementNameMap,

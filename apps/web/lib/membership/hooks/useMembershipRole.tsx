@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { TOrganizationRole } from "@salamruby/types/memberships";
+import { TOrganizationRole } from "@feedyruby/types/memberships";
 import { getMembershipByUserIdOrganizationIdAction } from "./actions";
 
 export const useMembershipRole = (workspaceId: string, userId: string) => {

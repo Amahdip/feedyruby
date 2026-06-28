@@ -5,17 +5,17 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { Workspace } from "@salamruby/database/prisma-browser";
-import { getLanguageLabel } from "@salamruby/i18n-utils/src/utils";
-import { TSegment } from "@salamruby/types/segment";
-import { TSurveyBlock } from "@salamruby/types/surveys/blocks";
+import { Workspace } from "@feedyruby/database/prisma-browser";
+import { getLanguageLabel } from "@feedyruby/i18n-utils/src/utils";
+import { TSegment } from "@feedyruby/types/segment";
+import { TSurveyBlock } from "@feedyruby/types/surveys/blocks";
 import {
   TSurvey,
   TSurveyEditorTabs,
   ZSurvey,
   ZSurveyEndScreenCard,
   ZSurveyRedirectUrlCard,
-} from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/surveys/types";
 import { getFormattedErrorMessage } from "@/lib/utils/helper";
 import { isDeepEqual } from "@/lib/utils/object";
 import { createSegmentAction } from "@/modules/ee/contacts/segments/actions";
@@ -567,7 +567,7 @@ export const SurveyMenuBar = ({
               <AlertButton className="flex items-center justify-center">
                 <a
                   className="flex h-full w-full items-center justify-center !bg-white"
-                  href="https://salamruby.com/docs/self-hosting/configuration/file-uploads"
+                  href="https://feedyruby.com/docs/self-hosting/configuration/file-uploads"
                   target="_blank"
                   rel="noopener noreferrer">
                   <span>{t("common.learn_more")}</span>

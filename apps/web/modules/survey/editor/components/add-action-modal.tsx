@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ActionClass } from "@salamruby/database/prisma-browser";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { ActionClass } from "@feedyruby/database/prisma-browser";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { CreateNewActionTab } from "@/modules/survey/editor/components/create-new-action-tab";
 import { SavedActionsTab } from "@/modules/survey/editor/components/saved-actions-tab";
 import {

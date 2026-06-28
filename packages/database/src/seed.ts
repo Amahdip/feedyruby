@@ -1,7 +1,7 @@
 import { createId } from "@paralleldrive/cuid2";
 import bcryptjs from "bcryptjs";
-import { logger } from "@salamruby/logger";
-import { type TSurveyBlocks } from "@salamruby/types/surveys/blocks";
+import { logger } from "@feedyruby/logger";
+import { type TSurveyBlocks } from "@feedyruby/types/surveys/blocks";
 import { type Prisma, PrismaClient } from "./prisma";
 import { createPrismaPgAdapter } from "./prisma-adapter";
 import { SEED_CREDENTIALS, SEED_IDS } from "./seed/constants";
@@ -128,7 +128,7 @@ const KITCHEN_SINK_QUESTIONS: SurveyQuestion[] = [
   {
     id: createId(),
     type: "openText",
-    headline: { default: "What do you think of SalamRuby?" },
+    headline: { default: "What do you think of FeedyRuby?" },
     subheader: { default: "Please be honest!" },
     required: true,
     placeholder: { default: "Your feedback here..." },
@@ -137,7 +137,7 @@ const KITCHEN_SINK_QUESTIONS: SurveyQuestion[] = [
   {
     id: createId(),
     type: "multipleChoiceSingle",
-    headline: { default: "How often do you use SalamRuby?" },
+    headline: { default: "How often do you use FeedyRuby?" },
     required: true,
     choices: [
       { id: createId(), label: { default: "Daily" } },
@@ -161,7 +161,7 @@ const KITCHEN_SINK_QUESTIONS: SurveyQuestion[] = [
   {
     id: createId(),
     type: "nps",
-    headline: { default: "How likely are you to recommend SalamRuby?" },
+    headline: { default: "How likely are you to recommend FeedyRuby?" },
     required: true,
     lowerLabel: { default: "Not likely" },
     upperLabel: { default: "Very likely" },
@@ -172,7 +172,7 @@ const KITCHEN_SINK_QUESTIONS: SurveyQuestion[] = [
     headline: { default: "Check out our documentation!" },
     required: true,
     ctaButtonLabel: { default: "Go to Docs" },
-    buttonUrl: "https://salamruby.com/docs",
+    buttonUrl: "https://feedyruby.com/docs",
     buttonExternal: true,
   },
   {
@@ -195,7 +195,7 @@ const KITCHEN_SINK_QUESTIONS: SurveyQuestion[] = [
   {
     id: createId(),
     type: "date",
-    headline: { default: "When did you start using SalamRuby?" },
+    headline: { default: "When did you start using FeedyRuby?" },
     required: true,
     format: "M-d-y",
   },

@@ -1,5 +1,5 @@
 {
-  "name": "@salamruby/database",
+  "name": "@feedyruby/database",
   "packageManager": "pnpm@10.32.1",
   "private": true,
   "version": "0.1.0",
@@ -63,8 +63,8 @@
     "create-migration": "dotenv -e ../../.env -- tsx ./src/scripts/create-migration.ts"
   },
   "dependencies": {
-    "@salamruby/logger": "workspace:*",
-    "@salamruby/types": "workspace:*",
+    "@feedyruby/logger": "workspace:*",
+    "@feedyruby/types": "workspace:*",
     "@paralleldrive/cuid2": "2.3.1",
     "@prisma/adapter-pg": "7.8.0",
     "@prisma/client": "7.8.0",
@@ -75,8 +75,8 @@
     "zod-openapi": "5.4.6"
   },
   "devDependencies": {
-    "@salamruby/config-typescript": "workspace:*",
-    "@salamruby/eslint-config": "workspace:*",
+    "@feedyruby/config-typescript": "workspace:*",
+    "@feedyruby/eslint-config": "workspace:*",
     "@types/pg": "8.16.0",
     "dotenv-cli": "11.0.0",
     "glob": "13.0.6",

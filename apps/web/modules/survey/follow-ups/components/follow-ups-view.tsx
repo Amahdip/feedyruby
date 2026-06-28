@@ -3,9 +3,9 @@
 import { MailIcon } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TSurveyFollowUp } from "@salamruby/types/surveys/follow-up";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+import { TSurveyFollowUp } from "@feedyruby/types/surveys/follow-up";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { useWorkspace } from "@/app/(app)/workspaces/[workspaceId]/context/workspace-context";
 import { TFollowUpEmailToUser } from "@/modules/survey/editor/types/survey-follow-up";
 import { FollowUpItem } from "@/modules/survey/follow-ups/components/follow-up-item";
@@ -19,7 +19,7 @@ interface FollowUpsViewProps {
   selectedLanguageCode: string;
   mailFrom: string;
   isSurveyFollowUpsAllowed: boolean;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   userEmail: string;
   teamMemberDetails: TFollowUpEmailToUser[];
   locale: TUserLocale;
@@ -32,7 +32,7 @@ export const FollowUpsView = ({
   selectedLanguageCode,
   mailFrom,
   isSurveyFollowUpsAllowed,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   userEmail,
   teamMemberDetails,
   locale,
@@ -54,16 +54,16 @@ export const FollowUpsView = ({
           feature="follow_ups"
           buttons={[
             {
-              text: isSalamRubyCloud
+              text: isFeedyRubyCloud
                 ? t("workspace.settings.billing.upgrade")
                 : t("common.request_trial_license"),
-              href: isSalamRubyCloud
+              href: isFeedyRubyCloud
                 ? `${workspaceBasePath}/settings/organization/billing`
                 : enterpriseLicenseRequestFormUrl,
             },
             {
               text: t("common.learn_more"),
-              href: "https://salamruby.com/docs/xm-and-surveys/surveys/general-features/email-followups",
+              href: "https://feedyruby.com/docs/xm-and-surveys/surveys/general-features/email-followups",
             },
           ]}
         />

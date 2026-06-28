@@ -1,12 +1,12 @@
 import "server-only";
 import { cache as reactCache } from "react";
 import { z } from "zod";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ZId } from "@salamruby/types/common";
-import { DatabaseError, ResourceNotFoundError } from "@salamruby/types/errors";
-import { TUser, TUserLocale, TUserUpdateInput, ZUserUpdateInput } from "@salamruby/types/user";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ZId } from "@feedyruby/types/common";
+import { DatabaseError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import { TUser, TUserLocale, TUserUpdateInput, ZUserUpdateInput } from "@feedyruby/types/user";
 import { deleteOrganization, getOrganizationsWhereUserIsSingleOwner } from "@/lib/organization/service";
 import { deleteBrevoCustomerByEmail } from "@/modules/auth/lib/brevo";
 import { validateInputs } from "../utils/validate";

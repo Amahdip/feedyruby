@@ -1,4 +1,4 @@
-import { Display } from "@salamruby/database/prisma";
+import { Display } from "@feedyruby/database/prisma";
 
 export const mockDisplay: Display = {
   id: "jcvb2vzt7ok3ftjsds4gt1gm",

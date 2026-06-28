@@ -14,14 +14,14 @@ import { createId } from "@paralleldrive/cuid2";
 import React, { SetStateAction, useEffect, useMemo } from "react";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { Workspace } from "@salamruby/database/prisma-browser";
-import { TI18nString } from "@salamruby/types/i18n";
-import { TSurveyQuota } from "@salamruby/types/quota";
-import { TSurveyBlock, TSurveyBlockLogic, TSurveyBlockLogicAction } from "@salamruby/types/surveys/blocks";
-import { TSurveyElement } from "@salamruby/types/surveys/elements";
-import { type TConditionGroup, type TSingleCondition } from "@salamruby/types/surveys/logic";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+import { Workspace } from "@feedyruby/database/prisma-browser";
+import { TI18nString } from "@feedyruby/types/i18n";
+import { TSurveyQuota } from "@feedyruby/types/quota";
+import { TSurveyBlock, TSurveyBlockLogic, TSurveyBlockLogicAction } from "@feedyruby/types/surveys/blocks";
+import { TSurveyElement } from "@feedyruby/types/surveys/elements";
+import { type TConditionGroup, type TSingleCondition } from "@feedyruby/types/surveys/logic";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { getDefaultEndingCard } from "@/app/lib/survey-builder";
 import { addMultiLanguageLabels, createI18nString, extractLanguageCodes } from "@/lib/i18n/utils";
 import { structuredClone } from "@/lib/pollyfills/structuredClone";
@@ -66,7 +66,7 @@ interface ElementsViewProps {
   invalidElements: string[] | null;
   setInvalidElements: React.Dispatch<SetStateAction<string[] | null>>;
   selectedLanguageCode: string;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   isCxMode: boolean;
   locale: TUserLocale;
   responseCount: number;
@@ -85,7 +85,7 @@ export const ElementsView = ({
   invalidElements,
   setInvalidElements,
   selectedLanguageCode,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   isCxMode,
   locale,
   responseCount,
@@ -875,7 +875,7 @@ export const ElementsView = ({
           setActiveElementId={setActiveElementId}
           invalidElements={invalidElements}
           addElement={addElement}
-          isSalamRubyCloud={isSalamRubyCloud}
+          isFeedyRubyCloud={isFeedyRubyCloud}
           isCxMode={isCxMode}
           locale={locale}
           responseCount={responseCount}
@@ -910,7 +910,7 @@ export const ElementsView = ({
                   activeElementId={activeElementId}
                   isInvalid={invalidElements ? invalidElements.includes(ending.id) : false}
                   addEndingCard={addEndingCard}
-                  isSalamRubyCloud={isSalamRubyCloud}
+                  isFeedyRubyCloud={isFeedyRubyCloud}
                   locale={locale}
                   isStorageConfigured={isStorageConfigured}
                   quotas={quotas}

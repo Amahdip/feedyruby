@@ -1,7 +1,7 @@
 "use server";
 
 import "server-only";
-import { AuthorizationError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { AuthorizationError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { getOrganizationByWorkspaceId } from "../../organization/service";
 import { getMembershipByUserIdOrganizationId } from "../service";
 

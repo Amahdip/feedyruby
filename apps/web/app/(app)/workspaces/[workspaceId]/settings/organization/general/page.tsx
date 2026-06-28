@@ -4,7 +4,7 @@ import { APP_VERSION_I18N_KEY, getDisplayAppVersion, shouldRenderEnterpriseSecti
 import {
   ENTERPRISE_LICENSE_REQUEST_FORM_URL,
   FB_LOGO_URL,
-  IS_SALAMRUBY_CLOUD,
+  IS_FEEDYRUBY_CLOUD,
   IS_STORAGE_CONFIGURED,
   SHOW_STORAGE_NOT_CONFIGURED_WARNING,
 } from "@/lib/constants";
@@ -62,7 +62,7 @@ const Page = async (props: Readonly<{ params: Promise<{ workspaceId: string }> }
           </Alert>
         </div>
       )}
-      {!IS_SALAMRUBY_CLOUD && <SecurityListTip />}
+      {!IS_FEEDYRUBY_CLOUD && <SecurityListTip />}
       <SettingsCard
         title={t("workspace.settings.general.organization_name")}
         description={t("workspace.settings.general.organization_name_description")}>
@@ -77,7 +77,7 @@ const Page = async (props: Readonly<{ params: Promise<{ workspaceId: string }> }
             membershipRole={currentUserMembership?.role}
             isInstanceAIConfigured={isInstanceAIConfigured()}
             hasAIPermission={hasAIPermission}
-            isSalamRubyCloud={IS_SALAMRUBY_CLOUD}
+            isFeedyRubyCloud={IS_FEEDYRUBY_CLOUD}
             enterpriseLicenseRequestFormUrl={ENTERPRISE_LICENSE_REQUEST_FORM_URL}
           />
         </SettingsCard>
@@ -88,7 +88,7 @@ const Page = async (props: Readonly<{ params: Promise<{ workspaceId: string }> }
           hasWhiteLabelPermission={hasWhiteLabelPermission}
           workspaceId={params.workspaceId}
           isReadOnly={!isOwnerOrManager}
-          isSalamRubyCloud={IS_SALAMRUBY_CLOUD}
+          isFeedyRubyCloud={IS_FEEDYRUBY_CLOUD}
           fbLogoUrl={FB_LOGO_URL}
           user={user}
           isStorageConfigured={IS_STORAGE_CONFIGURED}

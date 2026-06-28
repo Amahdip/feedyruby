@@ -14,9 +14,9 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TSegment } from "@salamruby/types/segment";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUser } from "@salamruby/types/user";
+import { TSegment } from "@feedyruby/types/segment";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUser } from "@feedyruby/types/user";
 import { AnonymousLinksTab } from "@/app/(app)/workspaces/[workspaceId]/surveys/[surveyId]/(analysis)/summary/components/shareEmbedModal/anonymous-links-tab";
 import { AppTab } from "@/app/(app)/workspaces/[workspaceId]/surveys/[surveyId]/(analysis)/summary/components/shareEmbedModal/app-tab";
 import { CustomHtmlTab } from "@/app/(app)/workspaces/[workspaceId]/surveys/[surveyId]/(analysis)/summary/components/shareEmbedModal/custom-html-tab";
@@ -50,7 +50,7 @@ interface ShareSurveyModalProps {
   user: TUser;
   segments: TSegment[];
   isContactsEnabled: boolean;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   isReadOnly: boolean;
   isStorageConfigured: boolean;
   workspaceCustomScripts?: string | null;
@@ -66,7 +66,7 @@ export const ShareSurveyModal = ({
   user,
   segments,
   isContactsEnabled,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   isReadOnly,
   isStorageConfigured,
   workspaceCustomScripts,
@@ -107,7 +107,7 @@ export const ShareSurveyModal = ({
           surveyId: survey.id,
           segments,
           isContactsEnabled,
-          isSalamRubyCloud,
+          isFeedyRubyCloud,
           enterpriseLicenseRequestFormUrl,
         },
         disabled: survey.singleUse?.enabled,
@@ -198,8 +198,8 @@ export const ShareSurveyModal = ({
       },
     ];
 
-    // Filter out tabs that should not be shown on SalamRuby Cloud
-    return isSalamRubyCloud
+    // Filter out tabs that should not be shown on FeedyRuby Cloud
+    return isFeedyRubyCloud
       ? tabs.filter(
           (tab) => tab.id !== ShareSettingsType.PRETTY_URL && tab.id !== ShareSettingsType.CUSTOM_HTML
         )
@@ -214,7 +214,7 @@ export const ShareSurveyModal = ({
     survey.workspaceId,
     segments,
     isContactsEnabled,
-    isSalamRubyCloud,
+    isFeedyRubyCloud,
     email,
     isStorageConfigured,
     workspaceCustomScripts,

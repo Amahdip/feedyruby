@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
-import { AuthenticationError } from "@salamruby/types/errors";
-import { TWorkspace } from "@salamruby/types/workspace";
+import { AuthenticationError } from "@feedyruby/types/errors";
+import { TWorkspace } from "@feedyruby/types/workspace";
 import { getUserWorkspaces } from "@/lib/workspace/service";
 import { getTranslate } from "@/lingodotdev/server";
 import { authOptions } from "@/modules/auth/lib/authOptions";

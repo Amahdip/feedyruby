@@ -1,4 +1,4 @@
-import { TAPIKeyWorkspacePermission } from "@salamruby/types/auth";
+import { TAPIKeyWorkspacePermission } from "@feedyruby/types/auth";
 import { responses } from "@/app/lib/api/response";
 import { findWorkspaceByIdOrLegacyEnvId } from "@/lib/utils/resolve-client-id";
 import { hasPermission } from "@/modules/organization/settings/api-keys/lib/utils";

@@ -1,5 +1,5 @@
 import "server-only";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import {
   getDefaultOrganizationBilling,
   getOrganizationBillingWithReadThroughSync,

@@ -22,11 +22,11 @@ describe("getPublicDomain", () => {
   });
 
   test("returns trimmed WEBAPP_URL when configured", async () => {
-    envMock.WEBAPP_URL = " https://app.salamruby.com ";
+    envMock.WEBAPP_URL = " https://app.feedyruby.com ";
 
     const getPublicDomain = await loadGetPublicDomain();
 
-    expect(getPublicDomain()).toBe("https://app.salamruby.com");
+    expect(getPublicDomain()).toBe("https://app.feedyruby.com");
   });
 
   test("falls back to localhost when WEBAPP_URL is not set", async () => {
@@ -36,20 +36,20 @@ describe("getPublicDomain", () => {
   });
 
   test("returns PUBLIC_URL when set", async () => {
-    envMock.WEBAPP_URL = "https://app.salamruby.com";
-    envMock.PUBLIC_URL = "https://surveys.salamruby.com";
+    envMock.WEBAPP_URL = "https://app.feedyruby.com";
+    envMock.PUBLIC_URL = "https://surveys.feedyruby.com";
 
     const getPublicDomain = await loadGetPublicDomain();
 
-    expect(getPublicDomain()).toBe("https://surveys.salamruby.com");
+    expect(getPublicDomain()).toBe("https://surveys.feedyruby.com");
   });
 
   test("falls back to WEBAPP_URL when PUBLIC_URL is empty", async () => {
-    envMock.WEBAPP_URL = "https://app.salamruby.com";
+    envMock.WEBAPP_URL = "https://app.feedyruby.com";
     envMock.PUBLIC_URL = " ";
 
     const getPublicDomain = await loadGetPublicDomain();
 
-    expect(getPublicDomain()).toBe("https://app.salamruby.com");
+    expect(getPublicDomain()).toBe("https://app.feedyruby.com");
   });
 });

@@ -1,5 +1,5 @@
-import { logger } from "@salamruby/logger";
-import { DatabaseError } from "@salamruby/types/errors";
+import { logger } from "@feedyruby/logger";
+import { DatabaseError } from "@feedyruby/types/errors";
 import { resolveBodyIds } from "@/app/api/v1/management/lib/workspace-resolver";
 import { RequestBodyTooLargeError, parseJsonBodyWithLimit } from "@/app/lib/api/request-body";
 import { responses } from "@/app/lib/api/response";

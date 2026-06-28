@@ -1,8 +1,8 @@
 import { useState } from "preact/hooks";
 // Import as Cta to fix sonar issue - "Imported JSX component CTA must be in PascalCase"
-import { CTA as Cta } from "@salamruby/survey-ui";
-import { type TResponseData, type TResponseTtc } from "@salamruby/types/responses";
-import type { TSurveyCTAElement } from "@salamruby/types/surveys/elements";
+import { CTA as Cta } from "@feedyruby/survey-ui";
+import { type TResponseData, type TResponseTtc } from "@feedyruby/types/responses";
+import type { TSurveyCTAElement } from "@feedyruby/types/surveys/elements";
 import { getLocalizedValue } from "@/lib/i18n";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 

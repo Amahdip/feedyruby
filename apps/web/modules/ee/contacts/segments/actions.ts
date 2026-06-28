@@ -1,9 +1,9 @@
 "use server";
 
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { InvalidInputError, OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
-import { ZSegmentCreateInput, ZSegmentFilters, ZSegmentUpdateInput } from "@salamruby/types/segment";
+import { ZId } from "@feedyruby/types/common";
+import { InvalidInputError, OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import { ZSegmentCreateInput, ZSegmentFilters, ZSegmentUpdateInput } from "@feedyruby/types/segment";
 import { getOrganization } from "@/lib/organization/service";
 import { capturePostHogEvent } from "@/lib/posthog";
 import { loadNewSegmentInSurvey } from "@/lib/survey/service";

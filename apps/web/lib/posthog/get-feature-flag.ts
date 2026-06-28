@@ -1,5 +1,5 @@
 import "server-only";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { POSTHOG_KEY } from "@/lib/constants";
 import { posthogServerClient } from "./server";
 import type { TPostHogFeatureFlagContext, TPostHogFeatureFlagValue } from "./types";

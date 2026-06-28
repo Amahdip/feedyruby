@@ -1,11 +1,11 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { logger } from "@salamruby/logger";
+import { prisma } from "@feedyruby/database";
+import { logger } from "@feedyruby/logger";
 import {
   INVALID_PASSWORD_RESET_TOKEN_ERROR_CODE,
   InvalidPasswordResetTokenError,
-} from "@salamruby/types/errors";
-import type { TUser } from "@salamruby/types/user";
+} from "@feedyruby/types/errors";
+import type { TUser } from "@feedyruby/types/user";
 import { hashPassword } from "@/lib/auth";
 import { hashString } from "@/lib/hash-string";
 import { deleteSessionsByUserId } from "@/modules/auth/lib/auth-session-repository";
@@ -219,7 +219,7 @@ vi.mock("@/modules/email", () => ({
   sendPasswordResetNotifyEmail: vi.fn(async () => true),
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     error: vi.fn(),
     info: vi.fn(),
@@ -227,7 +227,7 @@ vi.mock("@salamruby/logger", () => ({
   },
 }));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     $transaction: testState.mockTransaction,
   },

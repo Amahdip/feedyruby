@@ -1,6 +1,6 @@
 import { type Job, type JobsOptions, Queue } from "bullmq";
 import type IORedis from "ioredis";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { closeRedisConnection, createProducerConnection, getRedisUrlFromEnv } from "@/src/connection";
 import {
   JOBS_DEFAULT_JOB_OPTIONS,
@@ -31,15 +31,15 @@ export interface JobsQueueHandle {
 }
 
 interface TGlobalJobsQueueState {
-  salamrubyJobsQueue: Queue | undefined;
-  salamrubyJobsProducerConnection: IORedis | undefined;
-  salamrubyJobsQueueInitializing: Promise<JobsQueueHandle> | undefined;
+  feedyrubyJobsQueue: Queue | undefined;
+  feedyrubyJobsProducerConnection: IORedis | undefined;
+  feedyrubyJobsQueueInitializing: Promise<JobsQueueHandle> | undefined;
 }
 
 const globalForJobsQueue = globalThis as unknown as TGlobalJobsQueueState;
 
-let queueSingleton = globalForJobsQueue.salamrubyJobsQueue;
-let connectionSingleton = globalForJobsQueue.salamrubyJobsProducerConnection;
+let queueSingleton = globalForJobsQueue.feedyrubyJobsQueue;
+let connectionSingleton = globalForJobsQueue.feedyrubyJobsProducerConnection;
 
 const hasActiveConnection = (connection?: IORedis): connection is IORedis =>
   connection !== undefined && connection.status !== "end";
@@ -66,23 +66,23 @@ export const getJobsQueue = async (): Promise<JobsQueueHandle> => {
   }
 
   if (
-    globalForJobsQueue.salamrubyJobsQueue &&
-    hasActiveConnection(globalForJobsQueue.salamrubyJobsProducerConnection)
+    globalForJobsQueue.feedyrubyJobsQueue &&
+    hasActiveConnection(globalForJobsQueue.feedyrubyJobsProducerConnection)
   ) {
-    queueSingleton = globalForJobsQueue.salamrubyJobsQueue;
-    connectionSingleton = globalForJobsQueue.salamrubyJobsProducerConnection;
+    queueSingleton = globalForJobsQueue.feedyrubyJobsQueue;
+    connectionSingleton = globalForJobsQueue.feedyrubyJobsProducerConnection;
 
     return {
-      queue: globalForJobsQueue.salamrubyJobsQueue,
-      connection: globalForJobsQueue.salamrubyJobsProducerConnection,
+      queue: globalForJobsQueue.feedyrubyJobsQueue,
+      connection: globalForJobsQueue.feedyrubyJobsProducerConnection,
     };
   }
 
-  if (globalForJobsQueue.salamrubyJobsQueueInitializing) {
-    return await globalForJobsQueue.salamrubyJobsQueueInitializing;
+  if (globalForJobsQueue.feedyrubyJobsQueueInitializing) {
+    return await globalForJobsQueue.feedyrubyJobsQueueInitializing;
   }
 
-  globalForJobsQueue.salamrubyJobsQueueInitializing = (async (): Promise<JobsQueueHandle> => {
+  globalForJobsQueue.feedyrubyJobsQueueInitializing = (async (): Promise<JobsQueueHandle> => {
     const connection = createProducerConnection({ redisUrl: getRedisUrlFromEnv() });
     const queue = createJobsQueue({ connection });
 
@@ -100,8 +100,8 @@ export const getJobsQueue = async (): Promise<JobsQueueHandle> => {
 
     queueSingleton = queue;
     connectionSingleton = connection;
-    globalForJobsQueue.salamrubyJobsQueue = queue;
-    globalForJobsQueue.salamrubyJobsProducerConnection = connection;
+    globalForJobsQueue.feedyrubyJobsQueue = queue;
+    globalForJobsQueue.feedyrubyJobsProducerConnection = connection;
 
     return {
       queue,
@@ -110,9 +110,9 @@ export const getJobsQueue = async (): Promise<JobsQueueHandle> => {
   })();
 
   try {
-    return await globalForJobsQueue.salamrubyJobsQueueInitializing;
+    return await globalForJobsQueue.feedyrubyJobsQueueInitializing;
   } finally {
-    globalForJobsQueue.salamrubyJobsQueueInitializing = undefined;
+    globalForJobsQueue.feedyrubyJobsQueueInitializing = undefined;
   }
 };
 
@@ -416,7 +416,7 @@ export const resetJobsQueueFactory = async (): Promise<void> => {
 
   queueSingleton = undefined;
   connectionSingleton = undefined;
-  globalForJobsQueue.salamrubyJobsQueue = undefined;
-  globalForJobsQueue.salamrubyJobsProducerConnection = undefined;
-  globalForJobsQueue.salamrubyJobsQueueInitializing = undefined;
+  globalForJobsQueue.feedyrubyJobsQueue = undefined;
+  globalForJobsQueue.feedyrubyJobsProducerConnection = undefined;
+  globalForJobsQueue.feedyrubyJobsQueueInitializing = undefined;
 };

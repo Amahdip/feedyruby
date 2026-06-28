@@ -1,11 +1,11 @@
 import { AsyncParser } from "@json2csv/node";
 import { describe, expect, test, vi } from "vitest";
 import * as xlsx from "xlsx";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { convertToCsv, convertToXlsxBuffer } from "./file-conversion";
 
 // Mock the logger to capture error calls
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: { error: vi.fn() },
 }));
 

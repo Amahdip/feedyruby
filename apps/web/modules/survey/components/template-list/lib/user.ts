@@ -1,8 +1,8 @@
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
-import { TUser, TUserUpdateInput } from "@salamruby/types/user";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
+import { TUser, TUserUpdateInput } from "@feedyruby/types/user";
 
 // function to update a user's user
 export const updateUser = async (personId: string, data: TUserUpdateInput): Promise<TUser> => {

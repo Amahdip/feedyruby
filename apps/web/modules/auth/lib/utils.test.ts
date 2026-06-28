@@ -62,12 +62,12 @@ vi.mock("@/lib/cache", () => ({
   cache: mockCache,
 }));
 
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: mockLogger,
 }));
 
-// Mock @salamruby/cache
-vi.mock("@salamruby/cache", () => ({
+// Mock @feedyruby/cache
+vi.mock("@feedyruby/cache", () => ({
   createCacheKey: {
     custom: vi.fn((namespace: string, ...parts: string[]) => `${namespace}:${parts.join(":")}`),
     rateLimit: {
@@ -278,7 +278,7 @@ describe("Auth Utils", () => {
       });
 
       test("should create consistent cache keys with bucketed timestamps", async () => {
-        const { createCacheKey } = await import("@salamruby/cache");
+        const { createCacheKey } = await import("@feedyruby/cache");
         const { createAuditIdentifier } = await import("./utils");
 
         mockCache.getRedisClient.mockResolvedValue(null);

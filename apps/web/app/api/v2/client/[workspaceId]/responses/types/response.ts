@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { ZResponseInput } from "@salamruby/types/responses";
+import { ZId } from "@feedyruby/types/common";
+import { ZResponseInput } from "@feedyruby/types/responses";
 
 export const ZResponseInputV2 = ZResponseInput.omit({ userId: true }).extend({
   contactId: ZId.nullish(),

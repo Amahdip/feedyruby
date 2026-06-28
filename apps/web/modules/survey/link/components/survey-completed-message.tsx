@@ -1,9 +1,9 @@
 import { CheckCircle2Icon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Workspace } from "@salamruby/database/prisma-browser";
-import { TSurveySingleUse } from "@salamruby/types/surveys/types";
-import { HIDE_SALAMRUBY_EXTERNAL_LINKS } from "@/lib/brand-color";
+import { Workspace } from "@feedyruby/database/prisma-browser";
+import { TSurveySingleUse } from "@feedyruby/types/surveys/types";
+import { HIDE_FEEDYRUBY_EXTERNAL_LINKS } from "@/lib/brand-color";
 import { getTranslate } from "@/lingodotdev/server";
 import footerLogo from "../lib/footerlogo.svg";
 
@@ -29,9 +29,9 @@ export const SurveyCompletedMessage = async ({
           {singleUseMessage?.subheading ?? defaultSubheading}
         </p>
       </div>
-      {!HIDE_SALAMRUBY_EXTERNAL_LINKS && (!workspace || workspace.linkSurveyBranding) && (
+      {!HIDE_FEEDYRUBY_EXTERNAL_LINKS && (!workspace || workspace.linkSurveyBranding) && (
         <div>
-          <Link href="https://salamruby.com">
+          <Link href="https://feedyruby.com">
             <Image src={footerLogo} alt="Brand logo" className="mx-auto w-40" />
           </Link>
         </div>

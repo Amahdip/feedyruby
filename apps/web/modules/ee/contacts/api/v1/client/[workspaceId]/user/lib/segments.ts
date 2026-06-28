@@ -1,11 +1,11 @@
 import { cache as reactCache } from "react";
-import { createCacheKey } from "@salamruby/cache";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { ZId, ZString } from "@salamruby/types/common";
-import { DatabaseError } from "@salamruby/types/errors";
-import { TBaseFilters } from "@salamruby/types/segment";
+import { createCacheKey } from "@feedyruby/cache";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { ZId, ZString } from "@feedyruby/types/common";
+import { DatabaseError } from "@feedyruby/types/errors";
+import { TBaseFilters } from "@feedyruby/types/segment";
 import { cache } from "@/lib/cache";
 import { validateInputs } from "@/lib/utils/validate";
 import { segmentFilterToPrismaQuery } from "@/modules/ee/contacts/segments/lib/filter/prisma-query";

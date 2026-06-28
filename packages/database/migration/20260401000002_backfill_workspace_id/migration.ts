@@ -1,4 +1,4 @@
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import type { MigrationScript } from "../../src/scripts/migration-runner";
 
 // Table names are from a hardcoded const array, not user input.

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { TOrganizationBilling } from "@salamruby/types/organizations";
+import { TOrganizationBilling } from "@feedyruby/types/organizations";
 import { getOrganizationBillingInfoAction } from "./actions";
 
 export const useGetBillingInfo = (organizationId: string) => {

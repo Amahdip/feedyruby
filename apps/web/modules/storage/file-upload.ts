@@ -1,4 +1,4 @@
-import { STORAGE_CONFIGURATION_ERROR_CODES, type TStorageApiErrorDetails } from "@salamruby/types/storage";
+import { STORAGE_CONFIGURATION_ERROR_CODES, type TStorageApiErrorDetails } from "@feedyruby/types/storage";
 
 export enum FileUploadError {
   NO_FILE = "no_file",

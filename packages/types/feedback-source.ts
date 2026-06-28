@@ -2,7 +2,7 @@ import { z } from "zod";
 import { TSurveyElementTypeEnum } from "./surveys/constants";
 
 // Feedback source type enum
-export const ZFeedbackSourceType = z.enum(["salamruby_survey", "csv"]);
+export const ZFeedbackSourceType = z.enum(["feedyruby_survey", "csv"]);
 export type TFeedbackSourceType = z.infer<typeof ZFeedbackSourceType>;
 
 // Feedback source status enum
@@ -64,8 +64,8 @@ export const ZFeedbackSource = z.object({
 });
 export type TFeedbackSource = z.infer<typeof ZFeedbackSource>;
 
-// SalamRuby element mapping
-export const ZFeedbackSourceSalamRubyMapping = z.object({
+// FeedyRuby element mapping
+export const ZFeedbackSourceFeedyRubyMapping = z.object({
   id: z.cuid2(),
   createdAt: z.date(),
   feedbackSourceId: z.cuid2(),
@@ -75,7 +75,7 @@ export const ZFeedbackSourceSalamRubyMapping = z.object({
   hubFieldType: ZHubFieldType,
   customFieldLabel: z.string().nullable(),
 });
-export type TFeedbackSourceSalamRubyMapping = z.infer<typeof ZFeedbackSourceSalamRubyMapping>;
+export type TFeedbackSourceFeedyRubyMapping = z.infer<typeof ZFeedbackSourceFeedyRubyMapping>;
 
 export const ZFeedbackSourceFieldMapping = z.object({
   id: z.cuid2(),
@@ -89,7 +89,7 @@ export const ZFeedbackSourceFieldMapping = z.object({
 export type TFeedbackSourceFieldMapping = z.infer<typeof ZFeedbackSourceFieldMapping>;
 
 export const ZFeedbackSourceWithMappings = ZFeedbackSource.extend({
-  salamrubyMappings: z.array(ZFeedbackSourceSalamRubyMapping),
+  feedyrubyMappings: z.array(ZFeedbackSourceFeedyRubyMapping),
   fieldMappings: z.array(ZFeedbackSourceFieldMapping),
   creatorName: z.string().nullable().optional(),
 });
@@ -104,15 +104,15 @@ export const ZFeedbackSourceCreateInput = z.object({
 });
 export type TFeedbackSourceCreateInput = z.infer<typeof ZFeedbackSourceCreateInput>;
 
-// Create SalamRuby mapping input
-export const ZFeedbackSourceSalamRubyMappingCreateInput = z.object({
+// Create FeedyRuby mapping input
+export const ZFeedbackSourceFeedyRubyMappingCreateInput = z.object({
   surveyId: z.cuid2(),
   elementId: z.string(),
   hubFieldType: ZHubFieldType,
   customFieldLabel: z.string().optional(),
 });
-export type TFeedbackSourceSalamRubyMappingCreateInput = z.infer<
-  typeof ZFeedbackSourceSalamRubyMappingCreateInput
+export type TFeedbackSourceFeedyRubyMappingCreateInput = z.infer<
+  typeof ZFeedbackSourceFeedyRubyMappingCreateInput
 >;
 
 // Create field mapping input

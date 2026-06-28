@@ -12,7 +12,7 @@ export const SEED_IDS = {
 } as const;
 
 export const SEED_CREDENTIALS = {
-  ADMIN: { email: "admin@salamruby.com", password: "Password#123" },
-  MANAGER: { email: "manager@salamruby.com", password: "Password#123" },
-  MEMBER: { email: "member@salamruby.com", password: "Password#123" },
+  ADMIN: { email: "admin@feedyruby.com", password: "Password#123" },
+  MANAGER: { email: "manager@feedyruby.com", password: "Password#123" },
+  MEMBER: { email: "member@feedyruby.com", password: "Password#123" },
 } as const;

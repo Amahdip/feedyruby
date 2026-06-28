@@ -1,5 +1,5 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 
 export const doesContactExistInWorkspace = reactCache(
   async (id: string, workspaceId: string): Promise<boolean> => {

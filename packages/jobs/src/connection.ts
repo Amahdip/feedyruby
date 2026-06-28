@@ -1,5 +1,5 @@
 import IORedis, { type RedisOptions } from "ioredis";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 
 export interface JobsConnectionConfig {
   redisUrl: string;
@@ -25,7 +25,7 @@ const addConnectionErrorLogging = (connection: IORedis, label: string): IORedis 
 
 export const createProducerConnection = ({
   redisUrl,
-  connectionName = "salamruby-jobs-producer",
+  connectionName = "feedyruby-jobs-producer",
 }: JobsConnectionConfig): IORedis =>
   addConnectionErrorLogging(
     new IORedis(redisUrl, {
@@ -38,7 +38,7 @@ export const createProducerConnection = ({
 
 export const createWorkerConnection = ({
   redisUrl,
-  connectionName = "salamruby-jobs-worker",
+  connectionName = "feedyruby-jobs-worker",
 }: JobsConnectionConfig): IORedis =>
   addConnectionErrorLogging(
     new IORedis(redisUrl, {

@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from "vitest";
-import { TMembership } from "@salamruby/types/memberships";
-import { TOrganization } from "@salamruby/types/organizations";
+import { TMembership } from "@feedyruby/types/memberships";
+import { TOrganization } from "@feedyruby/types/organizations";
 import { getMembershipByUserIdOrganizationId } from "../membership/service";
 import { getAccessFlags } from "../membership/utils";
 import { canUserAccessOrganization, verifyUserRoleAccess } from "./auth";

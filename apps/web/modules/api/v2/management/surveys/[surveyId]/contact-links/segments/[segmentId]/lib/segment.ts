@@ -1,6 +1,6 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { err, ok } from "@salamruby/types/error-handlers";
+import { prisma } from "@feedyruby/database";
+import { err, ok } from "@feedyruby/types/error-handlers";
 
 export const getSegment = reactCache(async (segmentId: string) => {
   try {

@@ -1,7 +1,7 @@
 import "server-only";
-import { createCacheKey } from "@salamruby/cache";
-import { prisma } from "@salamruby/database";
-import { TJsWorkspaceState } from "@salamruby/types/js";
+import { createCacheKey } from "@feedyruby/cache";
+import { prisma } from "@feedyruby/database";
+import { TJsWorkspaceState } from "@feedyruby/types/js";
 import {
   addLegacyProjectOverwritesToList,
   addLegacyProjectToEnvironmentState,

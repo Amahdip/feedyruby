@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import type { TSurveySummary } from "@salamruby/types/surveys/types";
+import type { TSurveySummary } from "@feedyruby/types/surveys/types";
 import { ProgressBar } from "@/modules/ui/components/progress-bar";
 
 interface QuotasSummaryProps {

@@ -16,7 +16,7 @@ const setItemMock = localStorage.setItem as unknown as Mock;
 
 // 2) Mock Config
 vi.mock("@/lib/common/config", () => ({
-  JS_LOCAL_STORAGE_KEY: "salamruby-js",
+  JS_LOCAL_STORAGE_KEY: "feedyruby-js",
   Config: {
     getInstance: vi.fn(() => ({
       get: vi.fn(),
@@ -243,7 +243,7 @@ describe("setup.ts", () => {
       const result = await setup({ workspaceId: "ws_123", appUrl: "https://my.url" });
       expect(result.ok).toBe(true);
       expect(mockLogger.debug).toHaveBeenCalledWith(
-        "SalamRuby is in error state, but debug mode is active. Resetting config and continuing."
+        "FeedyRuby is in error state, but debug mode is active. Resetting config and continuing."
       );
     });
 
@@ -420,7 +420,7 @@ describe("setup.ts", () => {
       });
 
       await expect(setup({ workspaceId: "ws_123", appUrl: "https://urlX" })).rejects.toThrow(
-        "Could not set up salamruby"
+        "Could not set up feedyruby"
       );
     });
 
@@ -481,7 +481,7 @@ describe("setup.ts", () => {
 
       await expect(async () => {
         await handleErrorOnFirstSetup(errorObj);
-      }).rejects.toThrow("Could not set up salamruby");
+      }).rejects.toThrow("Could not set up feedyruby");
 
       expect(setItemMock).toHaveBeenCalledWith(
         JS_LOCAL_STORAGE_KEY,

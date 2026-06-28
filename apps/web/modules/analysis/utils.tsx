@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 
 // Utility function to render hyperlinked content
 export const renderHyperlinkedContent = (data: string): JSX.Element[] => {

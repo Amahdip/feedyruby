@@ -1,9 +1,9 @@
 // extend this object in order to add more validation rules
 import { TFunction } from "i18next";
 import { toast } from "react-hot-toast";
-import { ZEndingCardUrl } from "@salamruby/types/common";
-import { TI18nString } from "@salamruby/types/i18n";
-import { ZSegmentFilters } from "@salamruby/types/segment";
+import { ZEndingCardUrl } from "@feedyruby/types/common";
+import { TI18nString } from "@feedyruby/types/i18n";
+import { ZSegmentFilters } from "@feedyruby/types/segment";
 import {
   TInputFieldConfig,
   TSurveyAddressElement,
@@ -15,20 +15,20 @@ import {
   TSurveyMultipleChoiceElement,
   TSurveyOpenTextElement,
   TSurveyPictureSelectionElement,
-} from "@salamruby/types/surveys/elements";
+} from "@feedyruby/types/surveys/elements";
 import {
   TSurvey,
   TSurveyEndScreenCard,
   TSurveyLanguage,
   TSurveyRedirectUrlCard,
   TSurveyWelcomeCard,
-} from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/surveys/types";
 import {
   TValidateIdError,
   TValidateIdErrorCode,
   findLanguageCodesForDuplicateLabels,
   getTextContent,
-} from "@salamruby/types/surveys/validation";
+} from "@feedyruby/types/surveys/validation";
 import { extractLanguageCodes, getLocalizedValue } from "@/lib/i18n/utils";
 import { checkForEmptyFallBackValue } from "@/lib/utils/recall";
 

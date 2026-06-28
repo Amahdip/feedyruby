@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { TSurvey, TSurveyElementSummaryAddress } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+import { TSurvey, TSurveyElementSummaryAddress } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { useWorkspace } from "@/app/(app)/workspaces/[workspaceId]/context/workspace-context";
 import { timeSince } from "@/lib/time";
 import { getContactIdentifier } from "@/lib/utils/contact";

@@ -1,11 +1,11 @@
 import { NextRequest } from "next/server";
-import { TAuthenticationApiKey } from "@salamruby/types/auth";
+import { TAuthenticationApiKey } from "@feedyruby/types/auth";
 import {
   DatabaseError,
   InvalidInputError,
   ResourceNotFoundError,
   UniqueConstraintError,
-} from "@salamruby/types/errors";
+} from "@feedyruby/types/errors";
 import { responses } from "@/app/lib/api/response";
 import {
   type AuthenticateApiKeyOptions,

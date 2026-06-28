@@ -2,8 +2,8 @@
 
 import { EyeOffIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { TResponseData } from "@salamruby/types/responses";
-import { TSurveyHiddenFields } from "@salamruby/types/surveys/types";
+import { TResponseData } from "@feedyruby/types/responses";
+import { TSurveyHiddenFields } from "@feedyruby/types/surveys/types";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/modules/ui/components/tooltip";
 
 interface HiddenFieldsProps {

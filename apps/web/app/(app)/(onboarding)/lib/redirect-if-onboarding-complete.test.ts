@@ -1,11 +1,11 @@
 import { redirect } from "next/navigation";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { TWorkspace } from "@salamruby/types/workspace";
+import { TWorkspace } from "@feedyruby/types/workspace";
 import { getSurveyCount } from "@/lib/survey/service";
 import { getOnboardingRedirectPath, redirectIfOnboardingComplete } from "./redirect-if-onboarding-complete";
 
 const constantsMock = vi.hoisted(() => ({
-  isSalamRubyCloud: false,
+  isFeedyRubyCloud: false,
 }));
 
 vi.mock("next/navigation", () => ({
@@ -13,8 +13,8 @@ vi.mock("next/navigation", () => ({
 }));
 
 vi.mock("@/lib/constants", () => ({
-  get IS_SALAMRUBY_CLOUD() {
-    return constantsMock.isSalamRubyCloud;
+  get IS_FEEDYRUBY_CLOUD() {
+    return constantsMock.isFeedyRubyCloud;
   },
 }));
 
@@ -57,7 +57,7 @@ describe("redirectIfOnboardingComplete", () => {
 describe("getOnboardingRedirectPath", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    constantsMock.isSalamRubyCloud = false;
+    constantsMock.isFeedyRubyCloud = false;
   });
 
   test("returns null when no onboarding workspace is provided", async () => {
@@ -83,7 +83,7 @@ describe("getOnboardingRedirectPath", () => {
   });
 
   test("returns plan onboarding path for cloud when workspace has no surveys", async () => {
-    constantsMock.isSalamRubyCloud = true;
+    constantsMock.isFeedyRubyCloud = true;
     vi.mocked(getSurveyCount).mockResolvedValue(0);
 
     const result = await getOnboardingRedirectPath({

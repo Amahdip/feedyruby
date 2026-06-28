@@ -1,6 +1,6 @@
 import "server-only";
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 
 export type TResolvedClientIds = {
   workspaceId: string;

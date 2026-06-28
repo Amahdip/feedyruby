@@ -1,8 +1,8 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { TContactAttributes } from "@salamruby/types/contact-attribute";
-import { DatabaseError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { TContactAttributes } from "@feedyruby/types/contact-attribute";
+import { DatabaseError } from "@feedyruby/types/errors";
 
 export const getContact = reactCache(async (contactId: string) => {
   try {

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import type { TSurvey } from "@salamruby/types/surveys/types";
+import type { TSurvey } from "@feedyruby/types/surveys/types";
 import { migrateLegacySurveyContent } from "./migrate-legacy-survey-content";
 
 const baseSurvey = {

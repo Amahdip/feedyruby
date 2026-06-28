@@ -1,5 +1,5 @@
 import type { Job } from "bullmq";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import type { AnyBackgroundJobDefinition, JobHandlerOverrides } from "@/src/contracts";
 import { backgroundJobDefinitions, getBackgroundJobDefinition } from "@/src/definitions";
 

@@ -1,5 +1,5 @@
-import { TAuthenticationApiKey } from "@salamruby/types/auth";
-import { Result, err, ok } from "@salamruby/types/error-handlers";
+import { TAuthenticationApiKey } from "@feedyruby/types/auth";
+import { Result, err, ok } from "@feedyruby/types/error-handlers";
 import {
   type AuthenticateApiKeyOptions,
   authenticateApiKeyFromHeaders,

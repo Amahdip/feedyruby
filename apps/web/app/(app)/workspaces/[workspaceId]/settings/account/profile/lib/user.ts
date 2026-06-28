@@ -1,5 +1,5 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 
 export const getIsEmailUnique = reactCache(async (email: string): Promise<boolean> => {
   const user = await prisma.user.findUnique({

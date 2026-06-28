@@ -1,10 +1,10 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { ZId, ZString } from "@salamruby/types/common";
-import { TContactAttributes } from "@salamruby/types/contact-attribute";
-import { DatabaseError } from "@salamruby/types/errors";
-import { ZUserEmail } from "@salamruby/types/user";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { ZId, ZString } from "@feedyruby/types/common";
+import { TContactAttributes } from "@feedyruby/types/contact-attribute";
+import { DatabaseError } from "@feedyruby/types/errors";
+import { ZUserEmail } from "@feedyruby/types/user";
 import { validateInputs } from "@/lib/utils/validate";
 import { readAttributeValue } from "./attribute-storage";
 

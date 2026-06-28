@@ -1,11 +1,11 @@
 import "server-only";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { logger } from "@salamruby/logger";
-import { ZId } from "@salamruby/types/common";
-import { DatabaseError, InvalidInputError, ValidationError } from "@salamruby/types/errors";
-import { TWorkspace, TWorkspaceUpdateInput, ZWorkspaceUpdateInput } from "@salamruby/types/workspace";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { logger } from "@feedyruby/logger";
+import { ZId } from "@feedyruby/types/common";
+import { DatabaseError, InvalidInputError, ValidationError } from "@feedyruby/types/errors";
+import { TWorkspace, TWorkspaceUpdateInput, ZWorkspaceUpdateInput } from "@feedyruby/types/workspace";
 import { DEFAULT_LOCALE } from "@/lib/constants";
 import { validateInputs } from "@/lib/utils/validate";
 import { deleteFilesByWorkspaceId } from "@/modules/storage/service";

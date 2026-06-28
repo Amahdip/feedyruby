@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 import { getContactAttributeKeys } from "../contact-attribute-key";
 
 vi.mock("react", () => ({
@@ -7,7 +7,7 @@ vi.mock("react", () => ({
 }));
 
 // Mock dependencies
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     contactAttributeKey: {
       findMany: vi.fn(),

@@ -1,5 +1,5 @@
 import { cache as reactCache } from "react";
-import { prisma } from "@salamruby/database";
+import { prisma } from "@feedyruby/database";
 import { TFollowUpEmailToUser } from "@/modules/survey/editor/types/survey-follow-up";
 
 export const getTeamMemberDetails = reactCache(async (teamIds: string[]): Promise<TFollowUpEmailToUser[]> => {

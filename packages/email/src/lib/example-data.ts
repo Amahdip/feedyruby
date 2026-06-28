@@ -1,23 +1,23 @@
 // Mock data for email templates to use in React Email preview server
-import { TOrganization } from "@salamruby/types/organizations";
-import { TResponse } from "@salamruby/types/responses";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TOrganization } from "@feedyruby/types/organizations";
+import { TResponse } from "@feedyruby/types/responses";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { embedSurveyPreviewEmailHtml } from "./fixtures/embed-survey-preview-email-html";
 
 export const exampleData = {
   verificationEmail: {
-    verifyLink: "https://app.salamruby.com/auth/verify?token=example-verification-token",
-    verificationRequestLink: "https://app.salamruby.com/auth/verification-requested",
+    verifyLink: "https://app.feedyruby.com/auth/verify?token=example-verification-token",
+    verificationRequestLink: "https://app.feedyruby.com/auth/verification-requested",
   },
 
   forgotPasswordEmail: {
-    verifyLink: "https://app.salamruby.com/auth/forgot-password/reset?token=example-reset-token",
+    verifyLink: "https://app.feedyruby.com/auth/forgot-password/reset?token=example-reset-token",
     linkValidityInMinutes: 30,
   },
 
   newEmailVerification: {
-    verifyLink: "https://app.salamruby.com/verify-email-change?token=example-email-change-token",
+    verifyLink: "https://app.feedyruby.com/verify-email-change?token=example-email-change-token",
   },
 
   passwordResetNotifyEmail: {
@@ -27,7 +27,7 @@ export const exampleData = {
   inviteEmail: {
     inviteeName: "Jane Smith",
     inviterName: "John Doe",
-    verifyLink: "https://app.salamruby.com/invite?token=example-invite-token",
+    verifyLink: "https://app.feedyruby.com/invite?token=example-invite-token",
   },
 
   inviteAcceptedEmail: {
@@ -38,7 +38,7 @@ export const exampleData = {
   linkSurveyEmail: {
     surveyName: "Customer Satisfaction Survey",
     surveyLink:
-      "https://app.salamruby.com/s/example-survey-id?verify=example-token&suId=example-single-use-id",
+      "https://app.feedyruby.com/s/example-survey-id?verify=example-token&suId=example-single-use-id",
   },
 
   embedSurveyPreviewEmail: {
@@ -113,7 +113,7 @@ export const exampleData = {
       language: "default",
       displayId: null,
     } as unknown as TResponse,
-    WEBAPP_URL: "https://app.salamruby.com",
+    WEBAPP_URL: "https://app.feedyruby.com",
     workspaceId: "workspace-123",
     organization: {
       id: "org-123",
@@ -173,10 +173,10 @@ export const exampleData = {
   },
 
   legalProps: {
-    privacyUrl: "https://salamruby.com/privacy",
-    termsUrl: "https://salamruby.com/terms",
-    imprintUrl: "https://salamruby.com/imprint",
-    imprintAddress: "SalamRuby GmbH, Example Street 123, 12345 Berlin, Germany",
+    privacyUrl: "https://feedyruby.com/privacy",
+    termsUrl: "https://feedyruby.com/terms",
+    imprintUrl: "https://feedyruby.com/imprint",
+    imprintAddress: "FeedyRuby GmbH, Example Street 123, 12345 Berlin, Germany",
   },
 };
 

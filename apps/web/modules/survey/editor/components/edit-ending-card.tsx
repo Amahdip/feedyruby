@@ -8,10 +8,10 @@ import { GripIcon, Handshake, Undo2 } from "lucide-react";
 import { useMemo, useState } from "react";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { TSurveyQuota } from "@salamruby/types/quota";
-import { TSurvey, TSurveyEndScreenCard, TSurveyRedirectUrlCard } from "@salamruby/types/surveys/types";
-import { getTextContent } from "@salamruby/types/surveys/validation";
-import { TUserLocale } from "@salamruby/types/user";
+import { TSurveyQuota } from "@feedyruby/types/quota";
+import { TSurvey, TSurveyEndScreenCard, TSurveyRedirectUrlCard } from "@feedyruby/types/surveys/types";
+import { getTextContent } from "@feedyruby/types/surveys/validation";
+import { TUserLocale } from "@feedyruby/types/user";
 import { cn } from "@/lib/cn";
 import { recallToHeadline } from "@/lib/utils/recall";
 import { EditorCardMenu } from "@/modules/survey/editor/components/editor-card-menu";
@@ -34,7 +34,7 @@ interface EditEndingCardProps {
   activeElementId: string | null;
   isInvalid: boolean;
   addEndingCard: (index: number) => void;
-  isSalamRubyCloud: boolean;
+  isFeedyRubyCloud: boolean;
   locale: TUserLocale;
   isStorageConfigured: boolean;
   quotas: TSurveyQuota[];
@@ -49,7 +49,7 @@ export const EditEndingCard = ({
   activeElementId,
   isInvalid,
   addEndingCard,
-  isSalamRubyCloud,
+  isFeedyRubyCloud,
   locale,
   isStorageConfigured,
   quotas,
@@ -63,7 +63,7 @@ export const EditEndingCard = ({
     [localSurvey.endings, endingCardIndex]
   );
 
-  const isRedirectToUrlDisabled = isSalamRubyCloud
+  const isRedirectToUrlDisabled = isFeedyRubyCloud
     ? !isExternalUrlsAllowed && endingCard.type !== "redirectToUrl"
     : false;
 

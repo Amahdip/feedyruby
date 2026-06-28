@@ -6,8 +6,8 @@ import { CheckIcon } from "lucide-react";
 import { KeyboardEventHandler, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Trans, useTranslation } from "react-i18next";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { cn } from "@/lib/cn";
 import { SURVEY_SCHEDULING_TIME_LABEL } from "@/modules/survey/scheduling/lib/constants";
 import {

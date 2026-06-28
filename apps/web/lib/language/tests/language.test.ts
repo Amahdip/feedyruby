@@ -7,14 +7,14 @@ import {
   mockWorkspaceId,
 } from "./__mocks__/data.mock";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { DatabaseError, ValidationError } from "@salamruby/types/errors";
-import { TWorkspace } from "@salamruby/types/workspace";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { DatabaseError, ValidationError } from "@feedyruby/types/errors";
+import { TWorkspace } from "@feedyruby/types/workspace";
 import { getWorkspace } from "@/lib/workspace/service";
 import { createLanguage, deleteLanguage, updateLanguage } from "../service";
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     language: {
       create: vi.fn(),

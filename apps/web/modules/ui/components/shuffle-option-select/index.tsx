@@ -5,8 +5,8 @@ import {
   TSurveyMatrixElement,
   TSurveyMultipleChoiceElement,
   TSurveyRankingElement,
-} from "@salamruby/types/surveys/elements";
-import { TShuffleOption } from "@salamruby/types/surveys/types";
+} from "@feedyruby/types/surveys/elements";
+import { TShuffleOption } from "@feedyruby/types/surveys/types";
 import {
   Select,
   SelectContent,

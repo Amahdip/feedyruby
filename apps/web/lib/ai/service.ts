@@ -6,9 +6,9 @@ import {
   generateObject,
   generateText,
   isAiConfigured,
-} from "@salamruby/ai";
-import { logger } from "@salamruby/logger";
-import { OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
+} from "@feedyruby/ai";
+import { logger } from "@feedyruby/logger";
+import { OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { env } from "@/lib/env";
 import { getOrganization } from "@/lib/organization/service";
 import { getIsAISmartToolsEnabled } from "@/modules/ee/license-check/lib/utils";

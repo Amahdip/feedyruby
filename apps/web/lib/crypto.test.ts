@@ -1,6 +1,6 @@
 import * as crypto from "node:crypto";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 // Import after unmocking
 import {
   generateStandardWebhookSignature,
@@ -20,7 +20,7 @@ const SECRET_HASH_TEST_TIMEOUT_MS = 45_000;
 vi.unmock("crypto");
 
 // Mock the logger
-vi.mock("@salamruby/logger", () => ({
+vi.mock("@feedyruby/logger", () => ({
   logger: {
     warn: vi.fn(),
   },

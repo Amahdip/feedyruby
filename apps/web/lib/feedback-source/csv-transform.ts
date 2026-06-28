@@ -3,7 +3,7 @@ import {
   THubFieldType,
   THubTargetField,
   ZHubFieldType,
-} from "@salamruby/types/feedback-source";
+} from "@feedyruby/types/feedback-source";
 import { FeedbackRecordCreateParams } from "@/modules/hub";
 import { routeResponseValueTarget } from "./utils";
 

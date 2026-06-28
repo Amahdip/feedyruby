@@ -1,14 +1,14 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { TFeedbackSourceSalamRubyMapping } from "@salamruby/types/feedback-source";
-import { TResponse } from "@salamruby/types/responses";
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TFeedbackSourceFeedyRubyMapping } from "@feedyruby/types/feedback-source";
+import { TResponse } from "@feedyruby/types/responses";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { transformResponseToFeedbackRecords } from "./transform";
 
 vi.mock("@/lib/i18n/utils", () => ({
   getLocalizedValue: (_val: Record<string, string>, _lang: string) => _val?.default ?? "",
 }));
 
-vi.mock("@salamruby/types/surveys/validation", () => ({
+vi.mock("@feedyruby/types/surveys/validation", () => ({
   getTextContent: (str: string) => str,
 }));
 
@@ -58,9 +58,9 @@ const mockResponse = {
 } as unknown as TResponse;
 
 const createMapping = (
-  overrides: Partial<TFeedbackSourceSalamRubyMapping> &
-    Pick<TFeedbackSourceSalamRubyMapping, "elementId" | "hubFieldType">
-): TFeedbackSourceSalamRubyMapping => ({
+  overrides: Partial<TFeedbackSourceFeedyRubyMapping> &
+    Pick<TFeedbackSourceFeedyRubyMapping, "elementId" | "hubFieldType">
+): TFeedbackSourceFeedyRubyMapping => ({
   id: `mapping-${overrides.elementId}`,
   createdAt: NOW,
   feedbackSourceId: "conn-1",
@@ -70,7 +70,7 @@ const createMapping = (
   ...overrides,
 });
 
-const allMappings: TFeedbackSourceSalamRubyMapping[] = [
+const allMappings: TFeedbackSourceFeedyRubyMapping[] = [
   createMapping({ elementId: "el-text", hubFieldType: "text" }),
   createMapping({ elementId: "el-nps", hubFieldType: "nps" }),
   createMapping({ elementId: "el-rating", hubFieldType: "rating" }),
@@ -130,7 +130,7 @@ describe("transformResponseToFeedbackRecords", () => {
     const result = transformResponseToFeedbackRecords(mockResponse, mockSurvey, mappings, mockTenantId);
     expect(result).toHaveLength(1);
     expect(result[0]).toMatchObject({
-      source_type: "salamruby_survey",
+      source_type: "feedyruby_survey",
       field_id: "el-text",
       field_type: "text",
       field_label: "How can we improve?",
@@ -374,7 +374,7 @@ describe("transformResponseToFeedbackRecords", () => {
       const mappings = [
         createMapping({
           elementId: "el-multi",
-          hubFieldType: "unknown-type" as TFeedbackSourceSalamRubyMapping["hubFieldType"],
+          hubFieldType: "unknown-type" as TFeedbackSourceFeedyRubyMapping["hubFieldType"],
         }),
       ];
       const result = transformResponseToFeedbackRecords(response, mockSurvey, mappings, mockTenantId);

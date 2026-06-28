@@ -1,5 +1,5 @@
 import * as Sentry from "@sentry/nextjs";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { IS_PRODUCTION, SENTRY_DSN } from "@/lib/constants";
 
 type TRequestLike = Pick<Request, "method" | "url" | "headers">;

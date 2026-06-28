@@ -1,4 +1,4 @@
-import { TSurvey } from "@salamruby/types/surveys/types";
+import { TSurvey } from "@feedyruby/types/surveys/types";
 import { updateSurveyInternal } from "@/lib/survey/service";
 
 export { checkTriggersValidity, handleTriggerUpdates } from "@/modules/survey/lib/trigger-updates";

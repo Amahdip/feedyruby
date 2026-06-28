@@ -1,6 +1,6 @@
 "use client";
 
-import { TValidationRuleType } from "@salamruby/types/surveys/validation-rules";
+import { TValidationRuleType } from "@feedyruby/types/surveys/validation-rules";
 import { capitalize } from "@/lib/utils/object";
 import {
   Select,

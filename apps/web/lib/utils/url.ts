@@ -1,4 +1,4 @@
-import { TActionClassPageUrlRule } from "@salamruby/types/action-classes";
+import { TActionClassPageUrlRule } from "@feedyruby/types/action-classes";
 
 export const testURLmatch = (
   testUrl: string,

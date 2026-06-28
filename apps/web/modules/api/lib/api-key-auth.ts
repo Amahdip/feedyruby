@@ -1,4 +1,4 @@
-import { TAuthenticationApiKey } from "@salamruby/types/auth";
+import { TAuthenticationApiKey } from "@feedyruby/types/auth";
 import { parseApiKeyV2 } from "@/lib/crypto";
 import { getApiKeyWithPermissions } from "@/modules/organization/settings/api-keys/lib/api-key";
 

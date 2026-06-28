@@ -1,7 +1,7 @@
 import { expect } from "@playwright/test";
-import { prisma } from "@salamruby/database";
-import { type Prisma } from "@salamruby/database/prisma";
-import { TSurveyElementTypeEnum } from "@salamruby/types/surveys/elements";
+import { prisma } from "@feedyruby/database";
+import { type Prisma } from "@feedyruby/database/prisma";
+import { TSurveyElementTypeEnum } from "@feedyruby/types/surveys/elements";
 import { WEBAPP_URL } from "@/lib/constants";
 import {
   EMBED_SURVEY_PREVIEW_CHOICE_IDS,
@@ -109,7 +109,7 @@ test.describe("Survey Email Preview", () => {
     await expect(firstChoiceLink).toHaveAttribute("href", /skipPrefilled=true/);
     await expect(firstChoiceLink).toHaveAttribute("target", "_blank");
 
-    const poweredByLink = previewFrame.getByRole("link", { name: "Powered by salamruby" });
+    const poweredByLink = previewFrame.getByRole("link", { name: "FeedyRuby · a TechRuby product" });
     await expect(poweredByLink).toHaveAttribute("href", `${WEBAPP_URL}?utm_source=email_branding`);
   });
 

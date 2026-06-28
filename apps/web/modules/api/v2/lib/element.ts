@@ -1,4 +1,4 @@
-import { TResponseData } from "@salamruby/types/responses";
+import { TResponseData } from "@feedyruby/types/responses";
 import { MAX_OTHER_OPTION_LENGTH } from "@/lib/constants";
 import { getLocalizedValue } from "@/lib/i18n/utils";
 

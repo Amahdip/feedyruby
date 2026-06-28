@@ -1,5 +1,5 @@
 import { createClient } from "redis";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import type { RedisClient } from "@/types/client";
 import { type CacheError, ErrorCode, type Result, err, ok } from "@/types/error";
 import { CacheService } from "./service";
@@ -57,12 +57,12 @@ export async function createRedisClientFromEnv(): Promise<Result<RedisClient, Ca
 
 // Global singleton with globalThis for cross-module sharing
 const globalForCache = globalThis as unknown as {
-  salamrubyCache: CacheService | undefined;
-  salamrubyCacheInitializing: Promise<Result<CacheService, CacheError>> | undefined;
+  feedyrubyCache: CacheService | undefined;
+  feedyrubyCacheInitializing: Promise<Result<CacheService, CacheError>> | undefined;
 };
 
 // Module-level singleton for performance
-let singleton: CacheService | null = globalForCache.salamrubyCache ?? null;
+let singleton: CacheService | null = globalForCache.feedyrubyCache ?? null;
 
 /**
  * Returns existing instance immediately if available
@@ -77,17 +77,17 @@ export async function getCacheService(): Promise<Result<CacheService, CacheError
   }
 
   // Return existing instance from globalForCache if available
-  if (globalForCache.salamrubyCache) {
-    const rc = globalForCache.salamrubyCache.getRedisClient();
+  if (globalForCache.feedyrubyCache) {
+    const rc = globalForCache.feedyrubyCache.getRedisClient();
     if (rc?.isReady && rc.isOpen) {
-      singleton = globalForCache.salamrubyCache;
-      return ok(globalForCache.salamrubyCache);
+      singleton = globalForCache.feedyrubyCache;
+      return ok(globalForCache.feedyrubyCache);
     }
   }
 
   // Prevent concurrent initialization
-  if (globalForCache.salamrubyCacheInitializing) {
-    const result = await globalForCache.salamrubyCacheInitializing;
+  if (globalForCache.feedyrubyCacheInitializing) {
+    const result = await globalForCache.feedyrubyCacheInitializing;
     if (result.ok) {
       singleton = result.data;
     }
@@ -95,7 +95,7 @@ export async function getCacheService(): Promise<Result<CacheService, CacheError
   }
 
   // Start initialization - fail fast approach
-  globalForCache.salamrubyCacheInitializing = (async (): Promise<Result<CacheService, CacheError>> => {
+  globalForCache.feedyrubyCacheInitializing = (async (): Promise<Result<CacheService, CacheError>> => {
     const clientResult = await createRedisClientFromEnv();
     if (!clientResult.ok) {
       logger.error({ error: clientResult.error }, "Redis client creation failed");
@@ -106,14 +106,14 @@ export async function getCacheService(): Promise<Result<CacheService, CacheError
     logger.debug("Redis connection established");
     const svc = new CacheService(client);
     singleton = svc;
-    globalForCache.salamrubyCache = svc;
+    globalForCache.feedyrubyCache = svc;
     logger.debug("Cache service created");
     return ok(svc);
   })();
 
-  const result = await globalForCache.salamrubyCacheInitializing;
+  const result = await globalForCache.feedyrubyCacheInitializing;
   if (!result.ok) {
-    globalForCache.salamrubyCacheInitializing = undefined; // Allow retry
+    globalForCache.feedyrubyCacheInitializing = undefined; // Allow retry
     logger.error({ error: result.error }, "Cache service creation failed");
   }
   return result;
@@ -121,6 +121,6 @@ export async function getCacheService(): Promise<Result<CacheService, CacheError
 
 export function resetCacheFactory(): void {
   singleton = null;
-  globalForCache.salamrubyCache = undefined;
-  globalForCache.salamrubyCacheInitializing = undefined;
+  globalForCache.feedyrubyCache = undefined;
+  globalForCache.feedyrubyCacheInitializing = undefined;
 }

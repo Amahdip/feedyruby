@@ -1,5 +1,5 @@
 import "server-only";
-import type { TChartQuery } from "@salamruby/types/analysis";
+import type { TChartQuery } from "@feedyruby/types/analysis";
 
 export const TENANT_MEMBER = "FeedbackRecords.tenantId";
 

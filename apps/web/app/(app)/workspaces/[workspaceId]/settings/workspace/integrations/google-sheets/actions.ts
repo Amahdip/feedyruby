@@ -1,11 +1,11 @@
 "use server";
 
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
+import { ZId } from "@feedyruby/types/common";
 import {
   TIntegrationGoogleSheets,
   ZIntegrationGoogleSheets,
-} from "@salamruby/types/integration/google-sheet";
+} from "@feedyruby/types/integration/google-sheet";
 import { getSpreadsheetNameById, validateGoogleSheetsConnection } from "@/lib/googleSheet/service";
 import { getIntegrationByType } from "@/lib/integration/service";
 import { authenticatedActionClient } from "@/lib/utils/action-client";

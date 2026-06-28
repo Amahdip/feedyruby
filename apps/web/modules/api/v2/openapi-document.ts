@@ -1,16 +1,16 @@
 import * as yaml from "yaml";
 import { createDocument } from "zod-openapi";
-import { ZApiKeyData } from "@salamruby/database/zod/api-keys";
-import { ZContact } from "@salamruby/database/zod/contact";
-import { ZContactAttributeKey } from "@salamruby/database/zod/contact-attribute-keys";
-import { ZContactAttribute } from "@salamruby/database/zod/contact-attributes";
-import { ZResponse } from "@salamruby/database/zod/responses";
-import { ZRoles } from "@salamruby/database/zod/roles";
-import { ZSurveyWithoutQuestionType } from "@salamruby/database/zod/surveys";
-import { ZTeam } from "@salamruby/database/zod/teams";
-import { ZUser } from "@salamruby/database/zod/users";
-import { ZWebhook, ZWebhookWithoutSecret } from "@salamruby/database/zod/webhooks";
-import { ZWorkspaceTeam } from "@salamruby/database/zod/workspace-teams";
+import { ZApiKeyData } from "@feedyruby/database/zod/api-keys";
+import { ZContact } from "@feedyruby/database/zod/contact";
+import { ZContactAttributeKey } from "@feedyruby/database/zod/contact-attribute-keys";
+import { ZContactAttribute } from "@feedyruby/database/zod/contact-attributes";
+import { ZResponse } from "@feedyruby/database/zod/responses";
+import { ZRoles } from "@feedyruby/database/zod/roles";
+import { ZSurveyWithoutQuestionType } from "@feedyruby/database/zod/surveys";
+import { ZTeam } from "@feedyruby/database/zod/teams";
+import { ZUser } from "@feedyruby/database/zod/users";
+import { ZWebhook, ZWebhookWithoutSecret } from "@feedyruby/database/zod/webhooks";
+import { ZWorkspaceTeam } from "@feedyruby/database/zod/workspace-teams";
 import { healthPaths } from "@/modules/api/v2/health/lib/openapi";
 import { ZOverallHealthStatus } from "@/modules/api/v2/health/types/health-status";
 import { contactAttributeKeyPaths } from "@/modules/api/v2/management/contact-attribute-keys/lib/openapi";
@@ -29,8 +29,8 @@ import { contactPaths } from "@/modules/ee/contacts/api/v2/management/contacts/l
 const document = createDocument({
   openapi: "3.1.0",
   info: {
-    title: "SalamRuby API",
-    description: "Manage SalamRuby resources programmatically.",
+    title: "FeedyRuby API",
+    description: "Manage FeedyRuby resources programmatically.",
     version: "2.0.0",
   },
   paths: {
@@ -50,8 +50,8 @@ const document = createDocument({
   },
   servers: [
     {
-      url: "https://app.salamruby.com/api/v2",
-      description: "SalamRuby Cloud",
+      url: "https://app.feedyruby.com/api/v2",
+      description: "FeedyRuby Cloud",
     },
   ],
   tags: [
@@ -114,7 +114,7 @@ const document = createDocument({
         type: "apiKey",
         in: "header",
         name: "x-api-key",
-        description: "Use your SalamRuby x-api-key to authenticate.",
+        description: "Use your FeedyRuby x-api-key to authenticate.",
       },
     },
     schemas: {

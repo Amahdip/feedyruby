@@ -1,6 +1,6 @@
 "use server";
 
-import { TCloudBillingPlan } from "@salamruby/types/organizations";
+import { TCloudBillingPlan } from "@feedyruby/types/organizations";
 import { getOrganizationsByUserId } from "@/lib/organization/service";
 import { authenticatedActionClient } from "@/lib/utils/action-client";
 

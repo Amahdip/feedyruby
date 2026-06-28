@@ -58,11 +58,11 @@ describe("Logger", () => {
 
     // debug should now appear
     expect(consoleLogSpy).toHaveBeenCalledWith(
-      expect.stringMatching(/🧱 SalamRuby.*\[DEBUG\].*Debug log after config/)
+      expect.stringMatching(/🧱 FeedyRuby.*\[DEBUG\].*Debug log after config/)
     );
     // error should appear as well
     expect(consoleErrorSpy).toHaveBeenCalledWith(
-      expect.stringMatching(/🧱 SalamRuby.*\[ERROR\].*Error log after config/)
+      expect.stringMatching(/🧱 FeedyRuby.*\[ERROR\].*Error log after config/)
     );
   });
 
@@ -70,10 +70,10 @@ describe("Logger", () => {
     logger.configure({ logLevel: "debug" });
     logger.debug("Some message");
 
-    // Check that the log includes 🧱 SalamRuby, timestamp, [DEBUG], and the message
+    // Check that the log includes 🧱 FeedyRuby, timestamp, [DEBUG], and the message
     expect(consoleLogSpy).toHaveBeenCalledWith(
       expect.stringMatching(
-        /^🧱 SalamRuby - \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z \[DEBUG\] - Some message$/
+        /^🧱 FeedyRuby - \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z \[DEBUG\] - Some message$/
       )
     );
   });

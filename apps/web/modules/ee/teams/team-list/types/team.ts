@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { ZOrganizationRole } from "@salamruby/types/memberships";
+import { ZId } from "@feedyruby/types/common";
+import { ZOrganizationRole } from "@feedyruby/types/memberships";
 import { ZTeamPermission } from "@/modules/ee/teams/workspace-teams/types/team";
 
 export const ZTeamRole = z.enum(["admin", "contributor"]);

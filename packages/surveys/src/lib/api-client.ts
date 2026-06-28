@@ -1,14 +1,14 @@
-import { TDisplayCreateInput } from "@salamruby/types/displays";
-import { Result } from "@salamruby/types/error-handlers";
-import { type ApiErrorResponse, FILE_UPLOAD_ERROR_NAMES } from "@salamruby/types/errors";
-import { TSurveyQuotaAction } from "@salamruby/types/quota";
-import { TResponseInput, TResponseUpdateInput } from "@salamruby/types/responses";
+import { TDisplayCreateInput } from "@feedyruby/types/displays";
+import { Result } from "@feedyruby/types/error-handlers";
+import { type ApiErrorResponse, FILE_UPLOAD_ERROR_NAMES } from "@feedyruby/types/errors";
+import { TSurveyQuotaAction } from "@feedyruby/types/quota";
+import { TResponseInput, TResponseUpdateInput } from "@feedyruby/types/responses";
 import {
   STORAGE_CONFIGURATION_ERROR_CODES,
   type TStorageApiErrorDetails,
   type TUploadFileConfig,
   type TUploadFileResponse,
-} from "@salamruby/types/storage";
+} from "@feedyruby/types/storage";
 import { makeRequest } from "@/lib/utils";
 
 type TResponseCreateResponseQuotaFull = {

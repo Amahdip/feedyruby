@@ -1,14 +1,14 @@
-import { SurveyContainerProps } from "./salamruby-surveys";
+import { SurveyContainerProps } from "./feedyruby-surveys";
 
 declare global {
   interface Window {
-    salamrubySurveys: {
+    feedyrubySurveys: {
       renderSurveyInline: (props: SurveyContainerProps) => void;
       renderSurveyModal: (props: SurveyContainerProps) => void;
       renderSurvey: (props: SurveyContainerProps) => void;
       onFilePick: (files: { name: string; type: string; base64: string }[]) => void;
       setNonce: (nonce: string | undefined) => void;
     };
-    __salamrubyNonce?: string;
+    __feedyrubyNonce?: string;
   }
 }

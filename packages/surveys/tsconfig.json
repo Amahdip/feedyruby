@@ -8,10 +8,10 @@
     "jsxImportSource": "preact",
     "paths": {
       "@/*": ["./src/*"],
-      "@salamruby/survey-ui": ["../survey-ui"]
+      "@feedyruby/survey-ui": ["../survey-ui"]
     },
     "resolveJsonModule": true
   },
-  "extends": "@salamruby/config-typescript/js-library.json",
+  "extends": "@feedyruby/config-typescript/js-library.json",
   "include": ["src", "../types/surveys.d.ts"]
 }

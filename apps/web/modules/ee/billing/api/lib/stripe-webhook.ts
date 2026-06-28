@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import {
   applyPendingUpgradeFromSetupCheckout,
   findOrganizationIdByStripeCustomerId,

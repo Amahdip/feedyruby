@@ -1,13 +1,13 @@
 ---
 title: "MCP Server"
-description: "Configure and use the SalamRuby v3 Surveys MCP server"
+description: "Configure and use the FeedyRuby v3 Surveys MCP server"
 icon: "robot"
 ---
 
 ## Overview
 
-The SalamRuby MCP server exposes a small v3 Surveys tool surface for AI agents. It runs inside the
-SalamRuby web app at `/api/mcp` and reuses the same v3 Surveys API authentication, authorization,
+The FeedyRuby MCP server exposes a small v3 Surveys tool surface for AI agents. It runs inside the
+FeedyRuby web app at `/api/mcp` and reuses the same v3 Surveys API authentication, authorization,
 rate limiting, response handling, and audit logging paths as the REST routes.
 
 <Note>
@@ -17,10 +17,10 @@ rate limiting, response handling, and audit logging paths as the REST routes.
 
 ## Endpoint
 
-Use the streamable HTTP MCP endpoint on the SalamRuby app:
+Use the streamable HTTP MCP endpoint on the FeedyRuby app:
 
 ```text
-https://app.salamruby.com/api/mcp
+https://app.feedyruby.com/api/mcp
 ```
 
 For local development:
@@ -30,11 +30,11 @@ http://localhost:3000/api/mcp
 ```
 
 The route supports `POST` requests, runs with the Next.js Node.js runtime, and sets private no-store
-response headers. Browser-origin MCP requests must come from the configured public SalamRuby origin.
+response headers. Browser-origin MCP requests must come from the configured public FeedyRuby origin.
 
 ## Authentication
 
-Authenticate with a SalamRuby API key in a request header:
+Authenticate with a FeedyRuby API key in a request header:
 
 ```http
 Authorization: Bearer fbk_...
@@ -67,26 +67,26 @@ API key permissions are enforced through the same workspace access checks as the
 
 ## Local Setup
 
-Start SalamRuby and prepare the database:
+Start FeedyRuby and prepare the database:
 
 ```bash
 pnpm db:up
 pnpm db:migrate:dev
-pnpm --filter @salamruby/web dev
+pnpm --filter @feedyruby/web dev
 ```
 
-Create an API key in the SalamRuby app with access to the target workspace. Use the least privileged
+Create an API key in the FeedyRuby app with access to the target workspace. Use the least privileged
 permission needed by the agent workflow.
 
 Verify that the MCP endpoint can list tools:
 
 ```bash
-export SALAMRUBY_MCP_API_KEY="fbk_..."
+export FEEDYRUBY_MCP_API_KEY="fbk_..."
 
 curl -sS -X POST http://localhost:3000/api/mcp \
   -H "Accept: application/json, text/event-stream" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $SALAMRUBY_MCP_API_KEY" \
+  -H "Authorization: Bearer $FEEDYRUBY_MCP_API_KEY" \
   --data '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
 ```
 
@@ -95,42 +95,42 @@ curl -sS -X POST http://localhost:3000/api/mcp \
 Store the API key in the shell environment:
 
 ```bash
-export SALAMRUBY_MCP_API_KEY="fbk_..."
+export FEEDYRUBY_MCP_API_KEY="fbk_..."
 ```
 
 For Codex Desktop on macOS, persist the value in the launch environment and restart Codex Desktop:
 
 ```bash
-launchctl setenv SALAMRUBY_MCP_API_KEY "fbk_..."
+launchctl setenv FEEDYRUBY_MCP_API_KEY "fbk_..."
 ```
 
 Register the local MCP server:
 
 ```bash
-codex mcp add salamruby-local \
+codex mcp add feedyruby-local \
   --url http://localhost:3000/api/mcp \
-  --bearer-token-env-var SALAMRUBY_MCP_API_KEY
+  --bearer-token-env-var FEEDYRUBY_MCP_API_KEY
 ```
 
 Equivalent Codex config:
 
 ```toml
-[mcp_servers.salamruby-local]
+[mcp_servers.feedyruby-local]
 url = "http://localhost:3000/api/mcp"
-bearer_token_env_var = "SALAMRUBY_MCP_API_KEY"
+bearer_token_env_var = "FEEDYRUBY_MCP_API_KEY"
 ```
 
 Verify the registration:
 
 ```bash
 codex mcp list
-codex mcp get salamruby-local
+codex mcp get feedyruby-local
 ```
 
 Then ask Codex to use the configured server:
 
 ```text
-Use the salamruby-local MCP server to list surveys for workspace clxx1234567890123456789012.
+Use the feedyruby-local MCP server to list surveys for workspace clxx1234567890123456789012.
 ```
 
 ## Claude Configuration
@@ -140,21 +140,21 @@ Use the salamruby-local MCP server to list surveys for workspace clxx12345678901
 Set the API key:
 
 ```bash
-export SALAMRUBY_MCP_API_KEY="fbk_..."
+export FEEDYRUBY_MCP_API_KEY="fbk_..."
 ```
 
 Add the HTTP MCP server:
 
 ```bash
-claude mcp add --transport http salamruby-local http://localhost:3000/api/mcp \
-  --header "Authorization: Bearer $SALAMRUBY_MCP_API_KEY"
+claude mcp add --transport http feedyruby-local http://localhost:3000/api/mcp \
+  --header "Authorization: Bearer $FEEDYRUBY_MCP_API_KEY"
 ```
 
 Verify it:
 
 ```bash
 claude mcp list
-claude mcp get salamruby-local
+claude mcp get feedyruby-local
 ```
 
 For a project-shared Claude Code configuration, use `.mcp.json` and keep the API key outside git:
@@ -162,9 +162,9 @@ For a project-shared Claude Code configuration, use `.mcp.json` and keep the API
 ```json
 {
   "mcpServers": {
-    "salamruby-local": {
+    "feedyruby-local": {
       "headers": {
-        "Authorization": "Bearer ${SALAMRUBY_MCP_API_KEY}"
+        "Authorization": "Bearer ${FEEDYRUBY_MCP_API_KEY}"
       },
       "type": "http",
       "url": "http://localhost:3000/api/mcp"
@@ -173,7 +173,7 @@ For a project-shared Claude Code configuration, use `.mcp.json` and keep the API
 }
 ```
 
-Claude Code will fail to parse this config if `SALAMRUBY_MCP_API_KEY` is not set.
+Claude Code will fail to parse this config if `FEEDYRUBY_MCP_API_KEY` is not set.
 
 ### Claude Desktop
 
@@ -191,9 +191,9 @@ Example config:
 ```json
 {
   "mcpServers": {
-    "salamruby-local": {
+    "feedyruby-local": {
       "headers": {
-        "Authorization": "Bearer ${SALAMRUBY_MCP_API_KEY}"
+        "Authorization": "Bearer ${FEEDYRUBY_MCP_API_KEY}"
       },
       "type": "http",
       "url": "http://localhost:3000/api/mcp"
@@ -205,7 +205,7 @@ Example config:
 Set the API key in the Desktop launch environment before opening Claude Desktop:
 
 ```bash
-launchctl setenv SALAMRUBY_MCP_API_KEY "fbk_..."
+launchctl setenv FEEDYRUBY_MCP_API_KEY "fbk_..."
 ```
 
 If a Claude Desktop version only supports stdio MCP servers, use Claude Code for the HTTP endpoint or

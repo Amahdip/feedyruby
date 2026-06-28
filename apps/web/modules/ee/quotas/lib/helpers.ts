@@ -1,4 +1,4 @@
-import { TSurveyQuota, TSurveyQuotaAction } from "@salamruby/types/quota";
+import { TSurveyQuota, TSurveyQuotaAction } from "@feedyruby/types/quota";
 
 type QuotaFull =
   | {

@@ -9,7 +9,7 @@ import {
   TFeedbackSourceType,
   TFeedbackSourceWithMappings,
   THubTargetField,
-} from "@salamruby/types/feedback-source";
+} from "@feedyruby/types/feedback-source";
 import { SettingsCard } from "@/app/(app)/workspaces/[workspaceId]/settings/components/SettingsCard";
 import {
   createFeedbackSourceWithMappingsAction,
@@ -75,10 +75,10 @@ export function FeedbackSourcesSection({
         type: data.type,
         feedbackDirectoryId: data.feedbackDirectoryId,
       },
-      salamrubyMappings:
-        data.type === "salamruby_survey" && data.surveyMappings?.length ? data.surveyMappings : undefined,
+      feedyrubyMappings:
+        data.type === "feedyruby_survey" && data.surveyMappings?.length ? data.surveyMappings : undefined,
       fieldMappings:
-        data.type !== "salamruby_survey" && data.fieldMappings?.length
+        data.type !== "feedyruby_survey" && data.fieldMappings?.length
           ? data.fieldMappings.map((m) => ({
               sourceFieldId: m.sourceFieldId || "",
               targetFieldId: m.targetFieldId as THubTargetField,
@@ -109,7 +109,7 @@ export function FeedbackSourcesSection({
       feedbackSourceInput: {
         name: data.name,
       },
-      salamrubyMappings: data.surveyMappings?.length ? data.surveyMappings : undefined,
+      feedyrubyMappings: data.surveyMappings?.length ? data.surveyMappings : undefined,
       fieldMappings: data.fieldMappings?.length
         ? data.fieldMappings.map((m) => ({
             sourceFieldId: m.sourceFieldId || "",

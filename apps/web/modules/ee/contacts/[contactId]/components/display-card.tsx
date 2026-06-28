@@ -3,9 +3,9 @@
 import { EyeIcon } from "lucide-react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { TDisplay } from "@salamruby/types/displays";
-import { TSurvey } from "@salamruby/types/surveys/types";
-import { TUserLocale } from "@salamruby/types/user";
+import { TDisplay } from "@feedyruby/types/displays";
+import { TSurvey } from "@feedyruby/types/surveys/types";
+import { TUserLocale } from "@feedyruby/types/user";
 import { timeSince } from "@/lib/time";
 
 interface DisplayCardProps {

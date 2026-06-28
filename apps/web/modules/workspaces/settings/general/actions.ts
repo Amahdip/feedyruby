@@ -1,8 +1,8 @@
 "use server";
 
 import { z } from "zod";
-import { logger } from "@salamruby/logger";
-import { isExpectedError } from "@salamruby/types/errors";
+import { logger } from "@feedyruby/logger";
+import { isExpectedError } from "@feedyruby/types/errors";
 import { authenticatedActionClient } from "@/lib/utils/action-client";
 import { withAuditLogging } from "@/modules/ee/audit-logs/lib/handler";
 import { deleteWorkspaceWithConfirmation, getWorkspaceIdForLogging } from "./lib/delete-workspace";

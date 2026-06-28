@@ -132,9 +132,9 @@ export const isPresetSourceType = (value: string): value is (typeof SOURCE_TYPE_
 
 export const formatSourceType = (sourceType: string, t: TFunction): string => {
   switch (sourceType) {
-    case "salamruby":
-    case "salamruby_survey":
-      return t("workspace.unify.salamruby_surveys");
+    case "feedyruby":
+    case "feedyruby_survey":
+      return t("workspace.unify.feedyruby_surveys");
     case "csv":
       return t("workspace.unify.csv_import");
     case "survey":

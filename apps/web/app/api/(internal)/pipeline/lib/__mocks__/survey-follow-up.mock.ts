@@ -1,5 +1,5 @@
-import { TResponse } from "@salamruby/types/responses";
-import { TSurvey, TSurveyContactInfoQuestion, TSurveyQuestionTypeEnum } from "@salamruby/types/surveys/types";
+import { TResponse } from "@feedyruby/types/responses";
+import { TSurvey, TSurveyContactInfoQuestion, TSurveyQuestionTypeEnum } from "@feedyruby/types/surveys/types";
 
 export const mockEndingId1 = "mpkt4n5krsv2ulqetle7b9e7";
 export const mockEndingId2 = "ge0h63htnmgq6kwx1suh9cyi";
@@ -129,7 +129,7 @@ export const mockSurvey: TSurvey = {
       subheader: {
         default: "We appreciate your feedback.‌‌‍‍‌‍‍‍‌‌‌‍‍‌‍‌‌‌‌‌‌‌‍‌‍‌‌",
       },
-      buttonLink: "https://salamruby.com",
+      buttonLink: "https://feedyruby.com",
       buttonLabel: {
         default: "Create your own Survey‌‌‍‍‌‍‍‍‌‌‌‍‍‌‍‌‍‌‌‌‌‌‍‌‍‌‌",
       },

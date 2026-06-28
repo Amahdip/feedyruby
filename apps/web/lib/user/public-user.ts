@@ -1,4 +1,4 @@
-import { Prisma } from "@salamruby/database/prisma";
+import { Prisma } from "@feedyruby/database/prisma";
 
 export const publicUserSelect = {
   id: true,

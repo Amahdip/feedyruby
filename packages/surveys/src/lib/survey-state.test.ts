@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test } from "vitest";
-import { TResponseUpdate } from "@salamruby/types/responses";
+import { TResponseUpdate } from "@feedyruby/types/responses";
 import { SurveyState } from "./survey-state";
 
 describe("SurveyState", () => {

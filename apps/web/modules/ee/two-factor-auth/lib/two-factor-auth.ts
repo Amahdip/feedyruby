@@ -1,8 +1,8 @@
 import crypto from "crypto";
 import { authenticator } from "otplib";
 import qrcode from "qrcode";
-import { prisma } from "@salamruby/database";
-import { InvalidInputError, ResourceNotFoundError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { InvalidInputError, ResourceNotFoundError } from "@feedyruby/types/errors";
 import { ENCRYPTION_KEY } from "@/lib/constants";
 import { symmetricDecrypt, symmetricEncrypt } from "@/lib/crypto";
 import { totpAuthenticatorCheck } from "@/modules/auth/lib/totp";
@@ -64,7 +64,7 @@ export const setupTwoFactorAuth = async (
   });
 
   const name = user.email || user.name || user.id.toString();
-  const keyUri = authenticator.keyuri(name, "SalamRuby", secret);
+  const keyUri = authenticator.keyuri(name, "FeedyRuby", secret);
   const dataUri = await qrcode.toDataURL(keyUri);
 
   return { secret, keyUri, dataUri, backupCodes };

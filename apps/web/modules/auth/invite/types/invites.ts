@@ -1,5 +1,5 @@
-import { Invite } from "@salamruby/database/prisma";
-import { TUserLocale } from "@salamruby/types/user";
+import { Invite } from "@feedyruby/database/prisma";
+import { TUserLocale } from "@feedyruby/types/user";
 
 export interface InviteWithCreator extends Pick<
   Invite,

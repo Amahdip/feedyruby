@@ -1,10 +1,10 @@
 "use server";
 
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { OperationNotAllowedError, ResourceNotFoundError } from "@salamruby/types/errors";
-import type { TOrganizationRole } from "@salamruby/types/memberships";
-import { ZOrganizationUpdateInput } from "@salamruby/types/organizations";
+import { ZId } from "@feedyruby/types/common";
+import { OperationNotAllowedError, ResourceNotFoundError } from "@feedyruby/types/errors";
+import type { TOrganizationRole } from "@feedyruby/types/memberships";
+import { ZOrganizationUpdateInput } from "@feedyruby/types/organizations";
 import { isInstanceAIConfigured } from "@/lib/ai/service";
 import { deleteOrganization, getOrganization, updateOrganization } from "@/lib/organization/service";
 import { authenticatedActionClient } from "@/lib/utils/action-client";

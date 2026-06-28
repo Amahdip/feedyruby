@@ -1,6 +1,6 @@
 "use client";
 
-import { TCardArrangementOptions } from "@salamruby/types/styling";
+import { TCardArrangementOptions } from "@feedyruby/types/styling";
 
 interface StackedCardsContainerProps {
   children: React.ReactNode;

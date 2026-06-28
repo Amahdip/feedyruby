@@ -51,10 +51,10 @@ export const PasswordChecks = ({ password }: PasswordChecksProps) => {
   }, [password]);
 
   return (
-    <div className="my-2 text-left text-slate-700 sm:text-sm">
+    <div className="my-2 text-start text-slate-700 sm:text-sm">
       <ul aria-label="Password requirements">
         {validations.map((validation) => (
-          <li key={validation.label} className="flex items-center">
+          <li key={validation.label} className="flex items-center gap-x-2">
             <ValidationIcon state={validation.state} />
             {validation.label}
           </li>

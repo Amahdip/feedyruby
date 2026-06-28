@@ -1,6 +1,6 @@
 "use client";
 
-import { TSurveyRatingQuestion } from "@salamruby/types/surveys/types";
+import { TSurveyRatingQuestion } from "@feedyruby/types/surveys/types";
 import { RatingResponse } from "@/modules/ui/components/rating-response";
 
 interface RatingScaleLegendProps {

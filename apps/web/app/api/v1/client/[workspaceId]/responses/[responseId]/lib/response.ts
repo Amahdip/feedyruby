@@ -1,6 +1,6 @@
-import { prisma } from "@salamruby/database";
-import { TResponseWithQuotaFull } from "@salamruby/types/quota";
-import { TResponseUpdateInput } from "@salamruby/types/responses";
+import { prisma } from "@feedyruby/database";
+import { TResponseWithQuotaFull } from "@feedyruby/types/quota";
+import { TResponseUpdateInput } from "@feedyruby/types/responses";
 import { updateResponse } from "@/lib/response/service";
 import { evaluateResponseQuotas } from "@/modules/ee/quotas/lib/evaluation-service";
 

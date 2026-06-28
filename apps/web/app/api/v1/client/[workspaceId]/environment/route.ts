@@ -1,6 +1,6 @@
-import { logger } from "@salamruby/logger";
-import { ZId } from "@salamruby/types/common";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { logger } from "@feedyruby/logger";
+import { ZId } from "@feedyruby/types/common";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import { getWorkspaceState } from "@/app/api/v1/client/[workspaceId]/environment/lib/environmentState";
 import { responses } from "@/app/lib/api/response";
 import { THandlerParams, withV1ApiWrapper } from "@/app/lib/api/with-api-logging";

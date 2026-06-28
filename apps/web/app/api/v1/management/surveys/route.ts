@@ -1,6 +1,6 @@
-import { logger } from "@salamruby/logger";
-import { DatabaseError } from "@salamruby/types/errors";
-import { ZSurveyCreateInputWithWorkspaceId } from "@salamruby/types/surveys/types";
+import { logger } from "@feedyruby/logger";
+import { DatabaseError } from "@feedyruby/types/errors";
+import { ZSurveyCreateInputWithWorkspaceId } from "@feedyruby/types/surveys/types";
 import { resolveBodyIds } from "@/app/api/v1/management/lib/workspace-resolver";
 import { checkFeaturePermissions } from "@/app/api/v1/management/surveys/lib/utils";
 import {

@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-import { logger } from "@salamruby/logger";
+import { logger } from "@feedyruby/logger";
 import { test } from "../../lib/fixtures";
 
 test.describe("API Tests for Management Me", () => {

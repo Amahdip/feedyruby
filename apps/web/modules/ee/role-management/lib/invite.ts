@@ -1,7 +1,7 @@
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import { type TInviteUpdateInput } from "@/modules/ee/role-management/types/invites";
 
 export const updateInvite = async (inviteId: string, data: TInviteUpdateInput): Promise<boolean> => {

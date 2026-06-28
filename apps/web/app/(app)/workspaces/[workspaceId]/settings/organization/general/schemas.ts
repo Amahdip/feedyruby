@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { ZId } from "@salamruby/types/common";
-import { ZOrganizationUpdateInput } from "@salamruby/types/organizations";
+import { ZId } from "@feedyruby/types/common";
+import { ZOrganizationUpdateInput } from "@feedyruby/types/organizations";
 
 export const ZOrganizationAISettingsInput = ZOrganizationUpdateInput.pick({
   isAISmartToolsEnabled: true,

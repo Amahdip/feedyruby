@@ -4,7 +4,7 @@
  * Workspace is the container for surveys. The workspaceId in the API
  * directly maps to the Workspace entity.
  */
-import { ResourceNotFoundError } from "@salamruby/types/errors";
+import { ResourceNotFoundError } from "@feedyruby/types/errors";
 import { getOrganizationIdFromWorkspaceId } from "@/lib/utils/helper";
 import { getWorkspace } from "@/lib/workspace/service";
 

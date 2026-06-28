@@ -1,10 +1,10 @@
 import "server-only";
-import { Prisma } from "@salamruby/database/prisma";
-import { logger } from "@salamruby/logger";
-import { ZId } from "@salamruby/types/common";
-import { TJsWorkspaceStateSurvey } from "@salamruby/types/js";
-import { TSurveyQuota } from "@salamruby/types/quota";
-import { TResponseData, TResponseVariables } from "@salamruby/types/responses";
+import { Prisma } from "@feedyruby/database/prisma";
+import { logger } from "@feedyruby/logger";
+import { ZId } from "@feedyruby/types/common";
+import { TJsWorkspaceStateSurvey } from "@feedyruby/types/js";
+import { TSurveyQuota } from "@feedyruby/types/quota";
+import { TResponseData, TResponseVariables } from "@feedyruby/types/responses";
 import { updateResponse } from "@/lib/response/service";
 import { evaluateLogic } from "@/lib/surveyLogic/utils";
 import { validateInputs } from "@/lib/utils/validate";

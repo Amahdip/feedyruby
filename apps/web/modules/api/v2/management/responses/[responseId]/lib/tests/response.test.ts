@@ -1,10 +1,10 @@
 import { response, responseId, responseInput, survey } from "./__mocks__/response.mock";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { prisma } from "@salamruby/database";
-import { Prisma } from "@salamruby/database/prisma";
-import { PrismaErrorType } from "@salamruby/database/types/error";
-import { ok, okVoid } from "@salamruby/types/error-handlers";
-import { TSurveyQuota } from "@salamruby/types/quota";
+import { prisma } from "@feedyruby/database";
+import { Prisma } from "@feedyruby/database/prisma";
+import { PrismaErrorType } from "@feedyruby/database/types/error";
+import { ok, okVoid } from "@feedyruby/types/error-handlers";
+import { TSurveyQuota } from "@feedyruby/types/quota";
 import { evaluateResponseQuotas } from "@/modules/ee/quotas/lib/evaluation-service";
 import { deleteDisplay } from "../display";
 import {
@@ -50,7 +50,7 @@ vi.mock("@/modules/ee/quotas/lib/evaluation-service", () => ({
   evaluateResponseQuotas: vi.fn(),
 }));
 
-vi.mock("@salamruby/database", () => ({
+vi.mock("@feedyruby/database", () => ({
   prisma: {
     response: {
       findUnique: vi.fn(),

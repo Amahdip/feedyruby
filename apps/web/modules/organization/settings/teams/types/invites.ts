@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { Invite } from "@salamruby/database/prisma";
-import { ZInvite } from "@salamruby/database/zod/invites";
-import { ZUserName } from "@salamruby/types/user";
+import { Invite } from "@feedyruby/database/prisma";
+import { ZInvite } from "@feedyruby/database/zod/invites";
+import { ZUserName } from "@feedyruby/types/user";
 
 export interface TInvite extends Omit<
   Invite,

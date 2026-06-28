@@ -2,7 +2,7 @@
 import "@testing-library/jest-dom/vitest";
 import ResizeObserver from "resize-observer-polyfill";
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
-import { ValidationError } from "@salamruby/types/errors";
+import { ValidationError } from "@feedyruby/types/errors";
 
 // mock next-auth EARLY to prevent SessionProvider errors
 vi.mock("next-auth/react", () => ({
@@ -98,9 +98,9 @@ vi.mock("@/modules/auth/actions/sign-out", () => ({
 
 // mock prisma client
 
-vi.mock("@salamruby/database/prisma", async () => {
-  const actual = await vi.importActual<typeof import("@salamruby/database/prisma")>(
-    "@salamruby/database/prisma"
+vi.mock("@feedyruby/database/prisma", async () => {
+  const actual = await vi.importActual<typeof import("@feedyruby/database/prisma")>(
+    "@feedyruby/database/prisma"
   );
 
   return {
@@ -191,7 +191,7 @@ vi.mock("@/lib/constants", async (importOriginal) => {
 
   return {
     ...actual,
-    IS_SALAMRUBY_CLOUD: false,
+    IS_FEEDYRUBY_CLOUD: false,
     ENCRYPTION_KEY: "mock-encryption-key",
     ENTERPRISE_LICENSE_KEY: "mock-enterprise-license-key",
     GITHUB_ID: "mock-github-id",
