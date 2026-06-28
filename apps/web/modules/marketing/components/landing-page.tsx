@@ -188,12 +188,6 @@ export const LandingPage = () => {
               className="text-sm font-medium text-slate-600 transition-colors hover:text-fr-fuchsia">
               {t("marketing.landing.nav.faq")}
             </a>
-            <Link
-              href="https://feedyruby.ir/docs"
-              target="_blank"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-fr-fuchsia">
-              {t("marketing.landing.nav.docs")}
-            </Link>
           </nav>
 
           <div className="hidden items-center gap-4 md:flex">
@@ -244,12 +238,6 @@ export const LandingPage = () => {
                 className="text-base font-medium text-slate-600">
                 {t("marketing.landing.nav.faq")}
               </a>
-              <Link
-                href="https://feedyruby.ir/docs"
-                target="_blank"
-                className="text-base font-medium text-slate-600">
-                {t("marketing.landing.nav.docs")}
-              </Link>
               <hr className="border-slate-100" />
               <button
                 onClick={() => {
@@ -488,9 +476,6 @@ export const LandingPage = () => {
               </Link>
               <Link href="https://feedyruby.ir/privacy" className="hover:text-fr-fuchsia">
                 {t("marketing.landing.footer.privacy")}
-              </Link>
-              <Link href="https://feedyruby.ir/docs" className="hover:text-fr-fuchsia">
-                {t("marketing.landing.footer.docs")}
               </Link>
               <Link href="mailto:info@feedyruby.ir" className="hover:text-fr-fuchsia">
                 {t("marketing.landing.footer.contact")}
