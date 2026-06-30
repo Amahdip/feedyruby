@@ -198,7 +198,7 @@ export default function PorslineAlternativePage() {
             مقایسه‌ی هوشمندانه‌ی فرم‌سازها
           </span>
           <h1
-            className="mt-7 text-4xl font-extrabold leading-[1.35] tracking-tight text-slate-900 md:text-5xl"
+            className="mt-7 text-4xl font-extrabold leading-[1.6] tracking-tight text-slate-900 md:text-5xl"
             style={{ textWrap: "balance" }}>
             جایگزین پرس‌لاین:{" "}
             <span className="bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange bg-clip-text text-transparent">
