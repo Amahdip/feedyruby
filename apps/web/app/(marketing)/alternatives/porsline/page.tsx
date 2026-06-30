@@ -1,9 +1,16 @@
-import { ChevronDown, Code, HelpCircle, Server, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowLeft, ChevronDown, Code, HelpCircle, Server, ShieldCheck, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/app/(marketing)/components/json-ld";
 import { marketingUrl } from "@/app/lib/marketing/template-catalog";
-import { APP_NAME } from "@/lib/brand-color";
+import {
+  APP_NAME,
+  APP_NAME_LATIN,
+  SCHOOL_NAME,
+  SCHOOL_NAME_FA,
+  SCHOOL_URL,
+  STUDIO_URL,
+} from "@/lib/brand-color";
 
 export const revalidate = 86400;
 
@@ -94,10 +101,28 @@ const ROWS: Row[] = [
 ];
 
 const EDGE_DOT: Record<Row["edge"], string> = {
-  us: "bg-brand",
-  them: "bg-gray-400",
-  tie: "bg-gray-300",
+  us: "bg-gradient-to-r from-fr-violet to-fr-fuchsia",
+  them: "bg-slate-300",
+  tie: "bg-slate-200",
 };
+
+const ADVANTAGES = [
+  {
+    icon: Code,
+    title: "۱۰۰٪ متن‌باز و آزاد",
+    body: "کدهای فیدی‌روبی کاملاً باز و عمومی در گیت‌هاب در دسترس هستند. هیچ قفل نرم‌افزاری یا پلن انحصاری پنهانی وجود ندارد.",
+  },
+  {
+    icon: Server,
+    title: "میزبانی امن در داخل ایران",
+    body: "فیدی‌روبی را به‌صورت مدیریت‌شده روی سرورهای ما در داخل ایران اجرا می‌کنید؛ بدون دردسر راه‌اندازی سرور و بدون نگرانی از تحریم‌ها، داده‌ها داخل کشور می‌مانند.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "امنیت و مالکیت مطلق داده‌ها",
+    body: "بدون نگرانی از دسترسی شخص ثالث یا مسدود شدن اکانت، داده‌های حساس پاسخ‌دهندگان را کاملاً تحت کنترل و مدیریت خود نگه دارید.",
+  },
+];
 
 const FAQ: { q: string; a: string }[] = [
   {
@@ -133,146 +158,192 @@ export default function PorslineAlternativePage() {
         acceptedAnswer: { "@type": "Answer", text: f.a },
       })),
     },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: APP_NAME_LATIN,
+      alternateName: APP_NAME,
+      url: marketingUrl("/"),
+      parentOrganization: {
+        "@type": "Organization",
+        name: SCHOOL_NAME,
+        alternateName: SCHOOL_NAME_FA,
+        url: SCHOOL_URL,
+      },
+      sameAs: [SCHOOL_URL, STUDIO_URL],
+    },
   ];
 
   return (
-    <main className="relative mx-auto max-w-5xl px-4 py-12 text-slate-800 antialiased dark:text-slate-100 md:py-20">
+    <main className="relative overflow-hidden bg-fr-ivory text-slate-800 antialiased">
       <JsonLd data={jsonLd} />
 
-      {/* Background Decorative Grid */}
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-60 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] dark:opacity-30" />
+      {/* Ambient ellipse glows — blurred brand-color blobs for depth (Aparat-style) */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div
+          className="absolute -top-40 right-[-10%] h-[36rem] w-[36rem] rounded-full opacity-30 blur-[120px]"
+          style={{ background: "radial-gradient(circle at center, #7C3AED 0%, transparent 70%)" }}
+        />
+        <div
+          className="absolute -top-20 left-[-15%] h-[32rem] w-[32rem] rounded-full opacity-25 blur-[120px]"
+          style={{ background: "radial-gradient(circle at center, #EC4899 0%, transparent 70%)" }}
+        />
+        <div
+          className="absolute left-1/2 top-[40%] h-[30rem] w-[30rem] -translate-x-1/2 rounded-full opacity-20 blur-[130px]"
+          style={{ background: "radial-gradient(circle at center, #F97316 0%, transparent 70%)" }}
+        />
+        {/* faint grid, masked to fade toward the edges */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1118270a_1px,transparent_1px),linear-gradient(to_bottom,#1118270a_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_60%,transparent_100%)]" />
+      </div>
 
-      {/* Hero Section */}
-      <header className="mb-16 text-center">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-50 px-3 py-1 text-sm font-semibold text-rose-800 ring-1 ring-inset ring-rose-600/10 dark:bg-rose-950/30 dark:text-rose-400">
-          <Sparkles className="size-4 animate-pulse" />
-          مقایسه هوشمندانه فرم‌سازها
-        </span>
-        <h1 className="mt-6 bg-gradient-to-r from-rose-800 via-rose-900 to-amber-700 bg-clip-text text-3xl font-extrabold tracking-tight text-transparent dark:from-rose-400 dark:to-amber-500 md:text-5xl">
-          جایگزین پرس‌لاین: {APP_NAME} یا پرس‌لاین؟
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
-          مقایسه‌ای منصفانه میان فیدی‌روبی و پرس‌لاین برای ساخت فرم و نظرسنجی آنلاین فارسی. هر دو راست‌چین و
-          بومی‌اند؛ تفاوت اصلی فیدی‌روبی در متن‌باز و شفاف بودن، میزبانی امن و مدیریت‌شده در داخل ایران و
-          کنترل کامل داده‌هاست. فیدی‌روبی پروژه‌ای از مدرسه‌ی برنامه‌نویسی سلام‌روبی است.
-        </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Link
-            href="/auth/signup?ref=alt-porsline"
-            className="inline-block rounded-xl bg-brand px-8 py-4 text-base font-semibold text-white shadow-lg shadow-rose-900/15 transition-all hover:scale-[1.02] hover:opacity-90 hover:shadow-rose-900/25">
-            رایگان شروع کنید — در چند دقیقه مهاجرت کنید
-          </Link>
-        </div>
-      </header>
-
-      {/* Core Advantages Grid */}
-      <section className="mb-20 grid grid-cols-1 gap-6 sm:grid-cols-3">
-        <div className="rounded-2xl border border-slate-200/80 bg-white/50 p-6 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/50">
-          <div className="mb-4 w-fit rounded-xl bg-rose-50 p-3 dark:bg-rose-950/30">
-            <Code className="size-6 text-rose-800 dark:text-rose-400" />
-          </div>
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white">۱۰۰٪ متن‌باز و آزاد</h3>
-          <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-            کدهای فیدی‌روبی کاملاً باز و عمومی در گیت‌هاب در دسترس هستند. هیچ قفل نرم‌افزاری یا پلن انحصاری
-            پنهانی وجود ندارد.
+      <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
+        {/* Hero */}
+        <header className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/60 bg-white/70 px-3.5 py-1.5 text-sm font-semibold text-fr-fuchsia shadow-sm backdrop-blur">
+            <Sparkles className="size-4 animate-pulse" />
+            مقایسه‌ی هوشمندانه‌ی فرم‌سازها
+          </span>
+          <h1
+            className="mt-7 text-4xl font-extrabold leading-[1.35] tracking-tight text-slate-900 md:text-5xl"
+            style={{ textWrap: "balance" }}>
+            جایگزین پرس‌لاین:{" "}
+            <span className="bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange bg-clip-text text-transparent">
+              {APP_NAME} یا پرس‌لاین؟
+            </span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
+            مقایسه‌ای منصفانه میان فیدی‌روبی و پرس‌لاین برای ساخت فرم و نظرسنجی آنلاین فارسی. هر دو راست‌چین و
+            بومی‌اند؛ تفاوت اصلی فیدی‌روبی در متن‌باز و شفاف بودن، میزبانی امن و مدیریت‌شده در داخل ایران و
+            کنترل کامل داده‌هاست. فیدی‌روبی پروژه‌ای از{" "}
+            <a
+              href={SCHOOL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-fr-fuchsia hover:underline">
+              مدرسه‌ی برنامه‌نویسی سلام‌روبی
+            </a>{" "}
+            است.
           </p>
-        </div>
-        <div className="rounded-2xl border border-slate-200/80 bg-white/50 p-6 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/50">
-          <div className="mb-4 w-fit rounded-xl bg-rose-50 p-3 dark:bg-rose-950/30">
-            <Server className="size-6 text-rose-800 dark:text-rose-400" />
+          <div className="mt-9 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/auth/signup?ref=alt-porsline"
+              className="shadow-fr-fuchsia/25 group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:scale-[1.02] hover:opacity-95">
+              رایگان شروع کنید — در چند دقیقه مهاجرت کنید
+              <ArrowLeft className="size-5 transition-transform group-hover:-translate-x-1" />
+            </Link>
           </div>
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white">میزبانی امن در داخل ایران</h3>
-          <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-            فیدی‌روبی را به‌صورت مدیریت‌شده روی سرورهای ما در داخل ایران اجرا می‌کنید؛ بدون دردسر راه‌اندازی
-            سرور و بدون نگرانی از تحریم‌ها، داده‌ها داخل کشور می‌مانند.
-          </p>
-        </div>
-        <div className="rounded-2xl border border-slate-200/80 bg-white/50 p-6 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/50">
-          <div className="mb-4 w-fit rounded-xl bg-rose-50 p-3 dark:bg-rose-950/30">
-            <ShieldCheck className="size-6 text-rose-800 dark:text-rose-400" />
-          </div>
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white">امنیت و مالکیت مطلق داده‌ها</h3>
-          <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-            بدون نگرانی از دسترسی شخص ثالث یا مسدود شدن اکانت، داده‌های حساس پاسخ‌دهندگان را کاملاً تحت کنترل
-            و مدیریت خود نگه دارید.
-          </p>
-        </div>
-      </section>
+        </header>
 
-      {/* Comparison Table Section */}
-      <section className="mb-20">
-        <h2 className="mb-6 text-center text-2xl font-bold text-slate-900 dark:text-white">
-          مقایسه دقیق ویژگی‌ها
-        </h2>
-
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-100/50 dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
-          <div className="overflow-x-auto">
-            <table className="w-full text-right text-sm">
-              <thead>
-                <tr className="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
-                  <th className="px-6 py-4 font-semibold text-slate-900 dark:text-white">ویژگی / قابلیت</th>
-                  <th className="bg-rose-50/20 px-6 py-4 font-bold text-brand dark:bg-rose-950/10 dark:text-rose-400">
-                    {APP_NAME}
-                  </th>
-                  <th className="px-6 py-4 font-medium text-slate-500 dark:text-slate-400">پرس‌لاین</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
-                {ROWS.map((row) => (
-                  <tr
-                    key={row.feature}
-                    className="transition-colors hover:bg-slate-50/40 dark:hover:bg-slate-800/10">
-                    <td className="px-6 py-4 font-medium text-slate-900 dark:text-white">{row.feature}</td>
-                    <td className="bg-rose-50/10 px-6 py-4 dark:bg-rose-950/5">
-                      <span className="flex items-center gap-2">
-                        <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${EDGE_DOT[row.edge]}`} />
-                        <span
-                          className={
-                            row.edge === "us"
-                              ? "font-semibold text-slate-900 dark:text-white"
-                              : "text-slate-700 dark:text-slate-300"
-                          }>
-                          {row.feedyruby}
-                        </span>
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-slate-500 dark:text-slate-400">{row.porsline}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <p className="mt-4 text-xs leading-relaxed text-slate-400">
-          * این مقایسه با هدف کمک به انتخاب آگاهانه تهیه شده و شامل مواردی است که پرس‌لاین در آن‌ها برتری
-          دارد. اطلاعات ممکن است با گذر زمان تغییر کند.
-        </p>
-      </section>
-
-      {/* FAQ Section */}
-      <section aria-labelledby="faq-heading" className="mx-auto mb-8 max-w-3xl">
-        <h2 id="faq-heading" className="mb-6 text-center text-2xl font-bold text-slate-900 dark:text-white">
-          پرسش‌های متداول درباره مهاجرت به فیدی‌روبی
-        </h2>
-        <div className="space-y-4">
-          {FAQ.map((f, index) => (
-            <details
-              key={index}
-              className="group rounded-xl border border-slate-200 bg-white p-6 transition-all duration-300 dark:border-slate-800 dark:bg-slate-900 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 focus:outline-none dark:text-white">
-                <span className="flex items-center gap-3 text-base font-semibold">
-                  <HelpCircle className="size-5 shrink-0 text-brand dark:text-rose-400" />
-                  {f.q}
-                </span>
-                <ChevronDown className="size-5 shrink-0 text-slate-500 transition-transform duration-300 group-open:-rotate-180" />
-              </summary>
-              <p className="mt-4 border-t border-slate-100 pt-4 text-sm leading-relaxed text-slate-600 dark:border-slate-800/80 dark:text-slate-300">
-                {f.a}
-              </p>
-            </details>
+        {/* Core advantages — glassmorphism cards */}
+        <section className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          {ADVANTAGES.map(({ icon: Icon, title, body }) => (
+            <div
+              key={title}
+              className="group rounded-2xl border border-white/70 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/60">
+              <div className="from-fr-violet/10 via-fr-fuchsia/10 to-fr-orange/10 mb-4 w-fit rounded-xl bg-gradient-to-br p-3">
+                <Icon className="size-6 text-fr-fuchsia" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{body}</p>
+            </div>
           ))}
-        </div>
-      </section>
+        </section>
+
+        {/* Comparison table */}
+        <section className="mt-20">
+          <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 md:text-3xl">
+            مقایسه‌ی دقیق ویژگی‌ها
+          </h2>
+
+          <div className="overflow-hidden rounded-2xl border border-white/70 bg-white/80 shadow-xl shadow-slate-200/50 backdrop-blur-md">
+            <div className="overflow-x-auto">
+              <table className="w-full text-right text-sm">
+                <thead>
+                  <tr className="border-b border-slate-200 bg-slate-50/80">
+                    <th className="px-6 py-4 font-semibold text-slate-900">ویژگی / قابلیت</th>
+                    <th className="bg-fr-fuchsia/[0.06] px-6 py-4 font-bold text-fr-fuchsia">{APP_NAME}</th>
+                    <th className="px-6 py-4 font-medium text-slate-500">پرس‌لاین</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {ROWS.map((row) => (
+                    <tr key={row.feature} className="transition-colors hover:bg-slate-50/60">
+                      <td className="px-6 py-4 font-medium text-slate-900">{row.feature}</td>
+                      <td className="bg-fr-fuchsia/[0.04] px-6 py-4">
+                        <span className="flex items-center gap-2">
+                          <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${EDGE_DOT[row.edge]}`} />
+                          <span
+                            className={row.edge === "us" ? "font-semibold text-slate-900" : "text-slate-700"}>
+                            {row.feedyruby}
+                          </span>
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 text-slate-500">{row.porsline}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p className="mt-4 text-xs leading-relaxed text-slate-400">
+            * این مقایسه با هدف کمک به انتخاب آگاهانه تهیه شده و شامل مواردی است که پرس‌لاین در آن‌ها برتری
+            دارد. اطلاعات ممکن است با گذر زمان تغییر کند.
+          </p>
+        </section>
+
+        {/* FAQ */}
+        <section aria-labelledby="faq-heading" className="mx-auto mt-20 max-w-3xl">
+          <h2 id="faq-heading" className="mb-8 text-center text-2xl font-bold text-slate-900 md:text-3xl">
+            پرسش‌های متداول درباره‌ی مهاجرت به فیدی‌روبی
+          </h2>
+          <div className="space-y-4">
+            {FAQ.map((f, index) => (
+              <details
+                key={index}
+                className="group rounded-xl border border-white/70 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 focus:outline-none">
+                  <span className="flex items-center gap-3 text-base font-semibold">
+                    <HelpCircle className="size-5 shrink-0 text-fr-fuchsia" />
+                    {f.q}
+                  </span>
+                  <ChevronDown className="size-5 shrink-0 text-slate-500 transition-transform duration-300 group-open:-rotate-180" />
+                </summary>
+                <p className="mt-4 border-t border-slate-100 pt-4 text-sm leading-relaxed text-slate-600">
+                  {f.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        {/* Closing CTA */}
+        <section className="relative mt-24 overflow-hidden rounded-3xl border border-white/10 bg-fr-void px-6 py-16 text-center text-white">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-60"
+            style={{
+              background:
+                "radial-gradient(ellipse 50% 60% at 50% 0%, rgba(236,72,153,0.35) 0%, transparent 70%)",
+            }}
+          />
+          <div className="relative z-10 mx-auto max-w-xl">
+            <h2 className="text-2xl font-extrabold leading-snug md:text-3xl" style={{ textWrap: "balance" }}>
+              آماده‌اید نظرسنجی‌هایتان را به ایران بیاورید؟
+            </h2>
+            <p className="text-fr-muted mx-auto mt-4 max-w-md">
+              در چند دقیقه ثبت‌نام کنید، قالب آماده انتخاب کنید و اولین فرم فارسی‌تان را منتشر کنید.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <Link
+                href="/auth/signup?ref=alt-porsline"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-7 py-3.5 text-base font-semibold text-fr-void shadow-lg transition-all hover:scale-[1.02] hover:bg-fr-ivory">
+                رایگان شروع کنید
+                <ArrowLeft className="size-5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
