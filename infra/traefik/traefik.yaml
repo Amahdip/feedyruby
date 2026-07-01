@@ -1,0 +1,27 @@
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+          permanent: true
+  websecure:
+    address: ":443"
+    http:
+      tls:
+        certResolver: default
+providers:
+  docker:
+    watch: true
+    exposedByDefault: false
+  file:
+    directory: /
+certificatesResolvers:
+  default:
+    acme:
+      email: admin@feedyruby.ir
+      storage: acme.json
+      caServer: "https://acme-v02.api.letsencrypt.org/directory"
+      tlsChallenge: {}

@@ -1,0 +1,40 @@
+# Reverse proxy for every site on the production host (37.32.10.71).
+#
+# Deployed to /home/ubuntu/traefik/ on the server. This file is the source of
+# truth — it replaced an ORPHANED traefik container whose original compose
+# (project "salamruby", /home/ubuntu/salamruby/) had been deleted, leaving the
+# container running only on inodes. A reboot could not have brought it back and
+# would have taken down every site at once.
+#
+# Traefik must stay attached to BOTH networks or a site goes dark:
+#   feedyruby_default -> feedyruby.ir app + files.feedyruby.ir (rustfs)
+#   rubytech_default  -> techruby.ir (techruby-web)   [renamed from salamruby_default]
+#
+# TLS: acme.json is intentionally empty. The host is in Iran and cannot reach
+# Let's Encrypt (ACME API is on Cloudflare, blocked), so Traefik falls back to
+# its built-in self-signed cert. That's fine because every site is fronted by
+# ArvanCloud, which terminates real TLS at the edge and accepts the self-signed
+# cert on the origin pull. Public HTTPS is therefore served by ArvanCloud, not
+# by this Traefik.
+services:
+  traefik:
+    image: hub.hamdocker.ir/library/traefik:v3.6.4
+    container_name: traefik
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /home/ubuntu/traefik/traefik.yaml:/traefik.yaml:ro
+      - /home/ubuntu/traefik/traefik-dynamic.yaml:/traefik-dynamic.yaml:ro
+      - /home/ubuntu/traefik/acme.json:/acme.json
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - feedyruby_default
+      - rubytech_default
+
+networks:
+  feedyruby_default:
+    external: true
+  rubytech_default:
+    external: true
