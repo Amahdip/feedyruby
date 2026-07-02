@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/app/(marketing)/components/json-ld";
+import { TemplateCard } from "@/app/(marketing)/templates/template-card";
 import {
   categoryPath,
   getAllTemplateParams,
@@ -101,7 +102,7 @@ export default async function TemplateDetailPage({ params }: TemplatePageProps) 
           <span className="inline-block rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-600 dark:bg-gray-800 dark:text-gray-300">
             {label}
           </span>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">{tpl.name}</h1>
+          <h1 className="mt-4 text-3xl font-bold !leading-[1.5] tracking-tight md:text-4xl">{tpl.name}</h1>
           <p className="mt-4 text-base leading-7 text-gray-600 dark:text-gray-300">{tpl.description}</p>
 
           <p className="mt-4 text-sm text-gray-500">
@@ -132,13 +133,12 @@ export default async function TemplateDetailPage({ params }: TemplatePageProps) 
           <h2 className="mb-5 text-xl font-semibold">قالب‌های مرتبط</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {siblings.map((p) => (
-              <Link
+              <TemplateCard
                 key={p.slug}
                 href={templatePath(p.category.slug, p.slug)}
-                className="group rounded-xl border border-gray-200 bg-white p-5 transition hover:border-gray-300 hover:shadow-sm dark:border-gray-800 dark:bg-gray-900">
-                <h3 className="font-medium group-hover:underline">{p.name}</h3>
-                <p className="mt-2 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">{p.description}</p>
-              </Link>
+                name={p.name}
+                description={p.description}
+              />
             ))}
           </div>
         </section>

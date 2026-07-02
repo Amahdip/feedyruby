@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "packageManager": "pnpm@10.32.1",
   "private": true,
+  "comment:browserslist": "Modern baseline (all ~2021/2022+) so Next/SWC stops shipping polyfills for Array.prototype.at/flat, Object.fromEntries/hasOwn, String.trimStart/End, class transforms, etc. Covers ~99% of 2026 traffic.",
+  "browserslist": [
+    "chrome >= 93",
+    "edge >= 93",
+    "firefox >= 92",
+    "safari >= 15.4"
+  ],
   "scripts": {
     "clean": "rimraf .turbo node_modules .next coverage",
     "dev": "next dev -p 3000 --turbopack",

@@ -11,10 +11,20 @@ import type { TTemplate } from "@feedyruby/types/templates";
 
 type I18n = Record<string, string> | string | undefined;
 
+// Templates carry a `$[workspaceName]` placeholder that is substituted with the
+// real workspace name at survey-creation time. On the public preview there is no
+// workspace, so we render a friendly brand stand-in instead of leaking the raw
+// token to visitors. The underlying template keeps the placeholder intact.
+const WORKSPACE_PLACEHOLDER = /\$\[workspaceName\]/g;
+const WORKSPACE_FALLBACK = "brand";
+
 function pickI18n(value: I18n): string {
   if (!value) return "";
-  if (typeof value === "string") return value;
-  return value.default ?? value["fa-IR"] ?? value["en-US"] ?? Object.values(value).find((v) => v) ?? "";
+  const raw =
+    typeof value === "string"
+      ? value
+      : (value.default ?? value["fa-IR"] ?? value["en-US"] ?? Object.values(value).find((v) => v) ?? "");
+  return raw.replace(WORKSPACE_PLACEHOLDER, WORKSPACE_FALLBACK);
 }
 
 function toPlainText(value: I18n): string {

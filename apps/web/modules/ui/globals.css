@@ -160,3 +160,68 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   background: #0f172a;
 }
+
+/* ── Aurora hover glow for marketing cards (feature + template). Two soft conic
+   gradients with TRANSPARENT gaps (the card shows through, like light between
+   the colors), counter-rotating at different speeds — organic, natural-looking
+   drift rather than a solid spinning wheel. Colors per-card via --au1/--au2.
+   Kept low-opacity so it stays gentle. Reduced-motion safe. ── */
+.fr-aurora {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.group:hover .fr-aurora { opacity: 1; }
+.fr-aurora::before,
+.fr-aurora::after {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  filter: blur(55px);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+.fr-aurora::before {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    var(--au1, #7c3aed) 55deg,
+    transparent 135deg,
+    var(--au2, #ec4899) 215deg,
+    transparent 300deg,
+    transparent 360deg
+  );
+  opacity: 0.42;
+  animation-name: fr-aurora-spin;
+  animation-duration: 4s;
+}
+.fr-aurora::after {
+  background: conic-gradient(
+    from 160deg at 50% 50%,
+    transparent 0deg,
+    var(--au2, #ec4899) 75deg,
+    transparent 155deg,
+    var(--au1, #7c3aed) 250deg,
+    transparent 335deg,
+    transparent 360deg
+  );
+  opacity: 0.3;
+  animation-name: fr-aurora-spin-rev;
+  animation-duration: 6.5s;
+}
+.group:hover .fr-aurora::before,
+.group:hover .fr-aurora::after { animation-play-state: running; }
+@keyframes fr-aurora-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes fr-aurora-spin-rev {
+  to { transform: rotate(-360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fr-aurora::before, .fr-aurora::after { animation: none; }
+}

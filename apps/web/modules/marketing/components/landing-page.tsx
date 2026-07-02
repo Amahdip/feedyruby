@@ -7,21 +7,52 @@ import {
   ChevronDown,
   Code,
   Flame,
+  GitBranch,
   HelpCircle,
+  ListChecks,
   Mail,
   Menu,
   MessageCircle,
   ShieldAlert,
+  Users,
   X,
 } from "lucide-react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SCHOOL_URL } from "@/lib/brand-color";
-import { AuroraBackground } from "@/modules/marketing/components/aurora-background";
-import { HeroAurora } from "@/modules/marketing/components/hero-aurora";
-import { TimeNetworkBackground } from "@/modules/marketing/components/time-network-section";
 import { FeedyRubyWordmark } from "@/modules/ui/components/feedyruby-brand";
+
+// Decorative, client-only backgrounds — deferred with next/dynamic (ssr:false)
+// so they stay out of the initial JS bundle and don't block first render. They
+// carry no text/content, so this doesn't affect SEO or the server HTML.
+const HeroAurora = dynamic(
+  () => import("@/modules/marketing/components/hero-aurora").then((m) => m.HeroAurora),
+  { ssr: false }
+);
+const TimeNetworkBackground = dynamic(
+  () => import("@/modules/marketing/components/time-network-section").then((m) => m.TimeNetworkBackground),
+  { ssr: false }
+);
+const AuroraBackground = dynamic(
+  () => import("@/modules/marketing/components/aurora-background").then((m) => m.AuroraBackground),
+  { ssr: false }
+);
+
+// Two-color "northern lights" pairs, one per feature card — drives the CSS
+// aurora hover glow (see .fr-aurora in globals.css) via the --au1/--au2 vars.
+const AURORA: readonly [string, string][] = [
+  ["#7c3aed", "#ec4899"],
+  ["#0ea5e9", "#6366f1"],
+  ["#f97316", "#ec4899"],
+  ["#10b981", "#06b6d4"],
+  ["#8b5cf6", "#f43f5e"],
+  ["#f59e0b", "#ef4444"],
+  ["#06b6d4", "#3b82f6"],
+  ["#ec4899", "#8b5cf6"],
+  ["#22c55e", "#14b8a6"],
+];
 
 export const LandingPage = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -77,6 +108,21 @@ export const LandingPage = () => {
       icon: <Code className="size-6 text-fr-fuchsia" />,
       title: t("marketing.landing.features.openSource.title"),
       description: t("marketing.landing.features.openSource.description"),
+    },
+    {
+      icon: <ListChecks className="size-6 text-fr-fuchsia" />,
+      title: t("marketing.landing.features.questionTypes.title"),
+      description: t("marketing.landing.features.questionTypes.description"),
+    },
+    {
+      icon: <GitBranch className="size-6 text-fr-fuchsia" />,
+      title: t("marketing.landing.features.logicPersonalization.title"),
+      description: t("marketing.landing.features.logicPersonalization.description"),
+    },
+    {
+      icon: <Users className="size-6 text-fr-fuchsia" />,
+      title: t("marketing.landing.features.teamWorkspaces.title"),
+      description: t("marketing.landing.features.teamWorkspaces.description"),
     },
   ];
 
@@ -162,6 +208,22 @@ export const LandingPage = () => {
       question: t("marketing.landing.faq.q4"),
       answer: t("marketing.landing.faq.a4"),
     },
+    {
+      question: t("marketing.landing.faq.q5"),
+      answer: t("marketing.landing.faq.a5"),
+    },
+    {
+      question: t("marketing.landing.faq.q6"),
+      answer: t("marketing.landing.faq.a6"),
+    },
+    {
+      question: t("marketing.landing.faq.q7"),
+      answer: t("marketing.landing.faq.a7"),
+    },
+    {
+      question: t("marketing.landing.faq.q8"),
+      answer: t("marketing.landing.faq.a8"),
+    },
   ];
 
   return (
@@ -189,6 +251,11 @@ export const LandingPage = () => {
               className="text-sm font-medium text-slate-600 transition-colors hover:text-fr-fuchsia">
               {t("marketing.landing.nav.faq")}
             </a>
+            <Link
+              href="/templates"
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-fr-fuchsia">
+              {t("marketing.landing.nav.templates")}
+            </Link>
           </nav>
 
           <div className="hidden items-center gap-4 md:flex">
@@ -239,6 +306,12 @@ export const LandingPage = () => {
                 className="text-base font-medium text-slate-600">
                 {t("marketing.landing.nav.faq")}
               </a>
+              <Link
+                href="/templates"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-medium text-slate-600">
+                {t("marketing.landing.nav.templates")}
+              </Link>
               <hr className="border-slate-100" />
               <button
                 onClick={() => {
@@ -276,7 +349,7 @@ export const LandingPage = () => {
               {t("marketing.landing.hero.badge")}
             </div>
             <h1
-              className="mt-6 text-4xl font-extrabold leading-[1.4] tracking-tight text-white sm:text-5xl lg:text-6xl"
+              className="mt-6 text-4xl font-extrabold !leading-[1.5] tracking-tight text-white sm:text-5xl lg:text-6xl"
               style={{ textWrap: "balance" }}>
               {t("marketing.landing.hero.title")}{" "}
               <span className="bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange bg-clip-text text-transparent">
@@ -308,7 +381,7 @@ export const LandingPage = () => {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2
-              className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+              className="text-3xl font-bold !leading-[1.5] tracking-tight text-slate-900 sm:text-4xl"
               style={{ textWrap: "balance" }}>
               {t("marketing.landing.features.title")}
             </h2>
@@ -321,12 +394,21 @@ export const LandingPage = () => {
             {features.map((feature, idx) => (
               <div
                 key={idx}
-                className="flex flex-col rounded-xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:border-slate-300 hover:shadow-md">
-                <div className="bg-fr-fuchsia/10 mb-6 flex size-12 items-center justify-center rounded-lg">
-                  {feature.icon}
+                style={
+                  {
+                    "--au1": AURORA[idx % AURORA.length][0],
+                    "--au2": AURORA[idx % AURORA.length][1],
+                  } as React.CSSProperties
+                }
+                className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-md">
+                <span aria-hidden className="fr-aurora" />
+                <div className="relative z-10 flex grow flex-col">
+                  <div className="bg-fr-fuchsia/10 mb-6 flex size-12 items-center justify-center rounded-lg">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900">{feature.title}</h3>
+                  <p className="mt-3 grow text-sm leading-relaxed text-slate-600">{feature.description}</p>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">{feature.title}</h3>
-                <p className="mt-3 grow text-sm leading-relaxed text-slate-600">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -349,7 +431,7 @@ export const LandingPage = () => {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2
-              className="text-3xl font-bold tracking-tight sm:text-4xl"
+              className="text-3xl font-bold !leading-[1.5] tracking-tight sm:text-4xl"
               style={{ textWrap: "balance", color: "var(--tn-ink, #fff)" }}>
               {t("marketing.landing.pricing.title")}
             </h2>
@@ -410,7 +492,7 @@ export const LandingPage = () => {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2
-              className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+              className="text-3xl font-bold !leading-[1.5] tracking-tight text-slate-900 sm:text-4xl"
               style={{ textWrap: "balance" }}>
               {t("marketing.landing.faq.title")}
             </h2>
@@ -434,11 +516,16 @@ export const LandingPage = () => {
                   />
                 </button>
 
-                {activeFaq === idx && (
-                  <div className="border-t border-slate-100 px-6 py-4">
-                    <p className="text-sm leading-relaxed text-slate-600">{faq.answer}</p>
+                <div
+                  className={`grid transition-all duration-300 ease-in-out ${
+                    activeFaq === idx ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}>
+                  <div className="overflow-hidden">
+                    <div className="border-t border-slate-100 px-6 py-4">
+                      <p className="text-sm leading-relaxed text-slate-600">{faq.answer}</p>
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>
@@ -449,7 +536,7 @@ export const LandingPage = () => {
       <section className="relative overflow-hidden bg-fr-void py-20 text-white">
         <AuroraBackground />
         <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold leading-tight sm:text-4xl" style={{ textWrap: "balance" }}>
+          <h2 className="text-3xl font-extrabold !leading-[1.5] sm:text-4xl" style={{ textWrap: "balance" }}>
             {t("marketing.landing.cta.title")}
           </h2>
           <p className="text-fr-muted mx-auto mt-4 max-w-xl text-lg">{t("marketing.landing.cta.subtitle")}</p>
@@ -472,13 +559,16 @@ export const LandingPage = () => {
             </div>
 
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm">
-              <Link href="https://feedyruby.ir/terms" className="hover:text-fr-fuchsia">
+              <Link href="/templates" className="hover:text-fr-fuchsia">
+                {t("marketing.landing.nav.templates")}
+              </Link>
+              <Link href="/terms" className="hover:text-fr-fuchsia">
                 {t("marketing.landing.footer.terms")}
               </Link>
-              <Link href="https://feedyruby.ir/privacy" className="hover:text-fr-fuchsia">
+              <Link href="/privacy" className="hover:text-fr-fuchsia">
                 {t("marketing.landing.footer.privacy")}
               </Link>
-              <Link href="mailto:info@feedyruby.ir" className="hover:text-fr-fuchsia">
+              <Link href="/contact" className="hover:text-fr-fuchsia">
                 {t("marketing.landing.footer.contact")}
               </Link>
             </div>

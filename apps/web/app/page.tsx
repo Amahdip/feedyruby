@@ -71,7 +71,7 @@ async function buildHomeJsonLd() {
   const faqPage = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [1, 2, 3, 4].map((i) => ({
+    mainEntity: [1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({
       "@type": "Question",
       name: t(`marketing.landing.faq.q${i}`),
       acceptedAnswer: { "@type": "Answer", text: t(`marketing.landing.faq.a${i}`) },

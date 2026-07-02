@@ -11,6 +11,7 @@ import {
 } from "@/app/lib/marketing/template-catalog";
 import { APP_NAME } from "@/lib/brand-color";
 import { DEFAULT_LOCALE } from "@/lib/constants";
+import { TemplateCard } from "./template-card";
 
 export const revalidate = 86400;
 
@@ -47,7 +48,9 @@ export default async function TemplatesHubPage() {
       <JsonLd data={jsonLd} />
 
       <header className="mb-12 text-center">
-        <h1 className="text-3xl font-bold tracking-tight md:text-4xl">قالب‌های آماده فرم و نظرسنجی</h1>
+        <h1 className="text-3xl font-bold !leading-[1.5] tracking-tight md:text-4xl">
+          قالب‌های آماده فرم و نظرسنجی
+        </h1>
         <p className="mx-auto mt-4 max-w-2xl text-base text-gray-600 dark:text-gray-300">
           از میان {all.length} قالب آماده و فارسی، قالب مناسب کسب‌وکارتان را انتخاب کنید؛ با یک کلیک آن را به
           فرم زنده تبدیل کنید.
@@ -76,15 +79,12 @@ export default async function TemplatesHubPage() {
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {items.map((p) => (
-                  <Link
+                  <TemplateCard
                     key={p.slug}
                     href={templatePath(p.category.slug, p.slug)}
-                    className="group rounded-xl border border-gray-200 bg-white p-5 transition hover:border-gray-300 hover:shadow-sm dark:border-gray-800 dark:bg-gray-900">
-                    <h3 className="font-medium group-hover:underline">{p.name}</h3>
-                    <p className="mt-2 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">
-                      {p.description}
-                    </p>
-                  </Link>
+                    name={p.name}
+                    description={p.description}
+                  />
                 ))}
               </div>
             </section>

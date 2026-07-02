@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/app/(marketing)/components/json-ld";
+import { TemplateCard } from "@/app/(marketing)/templates/template-card";
 import {
   TEMPLATE_CATEGORIES,
   getCategoryBySlug,
@@ -87,7 +88,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       </nav>
 
       <header className="mb-10">
-        <h1 className="text-3xl font-bold tracking-tight md:text-4xl">قالب‌های {label}</h1>
+        <h1 className="text-3xl font-bold !leading-[1.5] tracking-tight md:text-4xl">قالب‌های {label}</h1>
         <p className="mt-4 max-w-2xl text-base text-gray-600 dark:text-gray-300">
           {localize(cat.description, LOCALE)}
         </p>
@@ -95,13 +96,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((p) => (
-          <Link
+          <TemplateCard
             key={p.slug}
             href={templatePath(p.category.slug, p.slug)}
-            className="group rounded-xl border border-gray-200 bg-white p-5 transition hover:border-gray-300 hover:shadow-sm dark:border-gray-800 dark:bg-gray-900">
-            <h2 className="font-medium group-hover:underline">{p.name}</h2>
-            <p className="mt-2 line-clamp-3 text-sm text-gray-600 dark:text-gray-400">{p.description}</p>
-          </Link>
+            name={p.name}
+            description={p.description}
+          />
         ))}
       </div>
     </main>

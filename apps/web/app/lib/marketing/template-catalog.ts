@@ -93,6 +93,14 @@ const CATEGORY_BY_SLUG = new Map<string, TemplateCategory>(TEMPLATE_CATEGORIES.m
 /** Only ids that are safe, stable, human-readable URL segments. */
 const VALID_SLUG = /^[a-z][a-z0-9-]*$/;
 
+/**
+ * Templates embed a `$[workspaceName]` placeholder that is replaced with the
+ * real workspace name at survey-creation time. Public catalog/preview pages have
+ * no workspace, so we substitute a friendly brand stand-in for display only.
+ */
+const WORKSPACE_PLACEHOLDER = /\$\[workspaceName\]/g;
+const WORKSPACE_FALLBACK = "brand";
+
 export interface PublicTemplate {
   /** Stable id, used verbatim as the URL slug. */
   slug: string;
@@ -129,8 +137,10 @@ export async function getPublicTemplates(locale: TUserLocale = DEFAULT_LOCALE): 
 
     result.push({
       slug: template.id,
-      name: template.name,
-      description: template.description,
+      // Render a friendly brand stand-in for the `$[workspaceName]` placeholder
+      // on public pages; the underlying template keeps it for real instantiation.
+      name: template.name.replace(WORKSPACE_PLACEHOLDER, WORKSPACE_FALLBACK),
+      description: template.description.replace(WORKSPACE_PLACEHOLDER, WORKSPACE_FALLBACK),
       category,
       template,
     });

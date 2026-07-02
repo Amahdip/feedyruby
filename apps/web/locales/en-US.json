@@ -612,39 +612,59 @@
         "a2": "On the free tier, surveys will temporarily pause collection once you reach 500 responses in a month. We'll send you an email alert beforehand, and you can upgrade to a paid tier at any time to resume collecting.",
         "a3": "All your data is stored securely on our servers inside Iran and never leaves the country — with no sanctions risk and no third-party access.",
         "a4": "Yes, FeedyRuby is designed with RTL layouts in mind. Survey templates and responses support right-to-left typing (Farsi, Arabic, Hebrew) natively.",
+        "a5": "Over 16 types including NPS, CSAT, CES, star & emoji ratings, matrix, drag-ranking, single/multi choice, picture-select, file upload, Jalali date, consent and CTA — all with validation and conditional logic.",
+        "a6": "Google Sheets, Airtable, Notion, Slack and n8n — plus Webhooks and a REST API for custom integrations.",
+        "a7": "Many ways: public or personalized trackable links, email, QR code, website embed, in-app popup and social media.",
+        "a8": "Yes. Create shared workspaces with different access roles, and our ready-made Persian templates make it quick to rebuild your existing surveys in FeedyRuby.",
         "q1": "Is FeedyRuby really free to use?",
         "q2": "What happens if I exceed my monthly response limit?",
         "q3": "Where is my data stored?",
         "q4": "Do you support RTL languages like Persian?",
+        "q5": "What question types are supported?",
+        "q6": "Which tools do you integrate with?",
+        "q7": "How do I share and distribute a survey?",
+        "q8": "Do you support teams and migrating from Porsline?",
         "subtitle": "Clear answers to the most common queries about our survey platform.",
         "title": "Frequently Asked Questions"
       },
       "features": {
         "advancedIntegrations": {
-          "description": "Connect your survey data instantly to Slack, Hubspot, Webhooks, and other key business tools.",
-          "title": "Advanced Integrations"
+          "description": "Connect Google Sheets, Airtable, Notion, Slack and n8n — plus Webhooks and a REST API for custom flows.",
+          "title": "Integrations"
         },
         "emailLinkSurveys": {
-          "description": "Send beautiful surveys via email newsletters, SMS, or share simple landing links in seconds.",
-          "title": "Email & Link Surveys"
+          "description": "Share via link, email, QR code, website embed or in-app popup — with personalized, trackable links.",
+          "title": "Multi-Channel Sharing"
         },
         "inAppSurveys": {
-          "description": "Trigger clean, contextual surveys directly inside your web or mobile app based on user actions.",
+          "description": "Trigger targeted, contextual surveys right inside your website or mobile app based on user behavior — without hurting UX.",
           "title": "In-App Surveys"
         },
+        "logicPersonalization": {
+          "description": "Personalize every survey with skip paths, hidden fields, variables and response quotas.",
+          "title": "Logic & Personalization"
+        },
         "openSource": {
-          "description": "Built in Iran by the SalamRuby coding school — your data stays on local servers and our support team is right here.",
+          "description": "Built by the SalamRuby coding school in Iran — no sanctions, no foreign middleman, and Persian-speaking support.",
           "title": "Made in Iran"
         },
         "privacyFirst": {
-          "description": "Your users' response data is stored securely on our servers in Iran, and you keep full control of it.",
-          "title": "Privacy-First Analytics"
+          "description": "Response data is stored securely on servers inside Iran, and you keep full control of it.",
+          "title": "Data Security & Control"
+        },
+        "questionTypes": {
+          "description": "From NPS, CSAT and CES to matrix, drag-ranking, picture-select, file upload and Jalali dates — all with validation.",
+          "title": "16+ Question Types"
         },
         "realTimeResponses": {
-          "description": "Monitor user feedback live as it comes in with beautiful, detailed charts and exports.",
-          "title": "Real-Time Responses"
+          "description": "Watch responses live; charts, response filtering & segmentation, and CSV export in a few clicks.",
+          "title": "Real-Time Analytics"
         },
         "subtitle": "Powerful, customizable surveys and workflows designed to fit any business, university research project, or school feedback loop.",
+        "teamWorkspaces": {
+          "description": "Shared workspaces, access roles (owner to viewer) and custom branding for your team.",
+          "title": "Teams & Workspaces"
+        },
         "title": "Everything You Need to Collect Feedback"
       },
       "footer": {
@@ -671,7 +691,8 @@
         "features": "Features",
         "pricing": "Pricing",
         "signIn": "Sign In",
-        "signUp": "Sign Up"
+        "signUp": "Sign Up",
+        "templates": "Templates"
       },
       "pricing": {
         "enterprise": {
@@ -707,7 +728,7 @@
           "f5": "Priority support",
           "name": "Pro",
           "period": "/mo",
-          "price": "$79"
+          "price": "800,000 Toman"
         },
         "starter": {
           "cta": "Upgrade to Starter",
@@ -719,7 +740,7 @@
           "f5": "Email support (24h SLA)",
           "name": "Starter",
           "period": "/mo",
-          "price": "$29"
+          "price": "500,000 Toman"
         },
         "subtitle": "FeedyRuby comes with a generous free plan, and scales flexibly as your feedback grows.",
         "title": "Simple, Transparent Pricing"

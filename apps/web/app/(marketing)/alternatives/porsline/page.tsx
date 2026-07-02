@@ -57,12 +57,6 @@ const ROWS: Row[] = [
     edge: "us",
   },
   {
-    feature: "رابط کاربری مدرن و راست‌چین بومی",
-    feedyruby: "بله — طراحی نو، سریع و روان",
-    porsline: "بله",
-    edge: "us",
-  },
-  {
     feature: "قیمت‌گذاری شفاف به تومان",
     feedyruby: "بله — شفاف و مقرون‌به‌صرفه",
     porsline: "پلن‌های پولی",
@@ -75,14 +69,56 @@ const ROWS: Row[] = [
     edge: "us",
   },
   {
+    feature: "رابط کاربری مدرن و راست‌چین بومی",
+    feedyruby: "بله — طراحی نو، سریع و روان",
+    porsline: "بله",
+    edge: "us",
+  },
+  {
     feature: "پشتیبانی فارسی و بومی",
     feedyruby: "بله — تیم پشتیبانی در ایران",
     porsline: "بله",
     edge: "us",
   },
   {
+    feature: "تنوع انواع سوال",
+    feedyruby: "بیش از ۱۶ نوع — NPS، CSAT، ماتریسی، رتبه‌بندی کشیدنی، آپلود فایل و ...",
+    porsline: "بله",
+    edge: "tie",
+  },
+  {
+    feature: "منطق شرطی و مسیرهای پرش",
+    feedyruby: "بله — همراه با فیلد پنهان و متغیرها",
+    porsline: "بله",
+    edge: "tie",
+  },
+  {
+    feature: "کانال‌های انتشار متنوع",
+    feedyruby: "لینک، ایمیل، QR، امبد، پاپ‌آپ و شبکه‌های اجتماعی",
+    porsline: "بله",
+    edge: "tie",
+  },
+  {
+    feature: "اتصال به ابزارها",
+    feedyruby: "Google Sheets، Notion، Airtable، Slack، n8n",
+    porsline: "بله",
+    edge: "tie",
+  },
+  {
+    feature: "تقویم شمسی و راست‌چین کامل",
+    feedyruby: "بله — بومی",
+    porsline: "بله",
+    edge: "tie",
+  },
+  {
+    feature: "کار تیمی و فضای کاری چندنقشی",
+    feedyruby: "بله — نقش‌های دسترسی از مالک تا بازدیدکننده",
+    porsline: "بله",
+    edge: "tie",
+  },
+  {
     feature: "قالب‌های آماده‌ی فارسی",
-    feedyruby: "بله — ده‌ها قالب آماده",
+    feedyruby: "بله — ۵۲ قالب آماده",
     porsline: "بله",
     edge: "tie",
   },
@@ -198,7 +234,7 @@ export default function PorslineAlternativePage() {
             مقایسه‌ی هوشمندانه‌ی فرم‌سازها
           </span>
           <h1
-            className="mt-7 text-4xl font-extrabold leading-[1.6] tracking-tight text-slate-900 md:text-5xl"
+            className="mt-7 text-4xl font-extrabold !leading-[1.5] tracking-tight text-slate-900 md:text-5xl"
             style={{ textWrap: "balance" }}>
             جایگزین پرس‌لاین:{" "}
             <span className="bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange bg-clip-text text-transparent">
