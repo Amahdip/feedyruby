@@ -60,6 +60,9 @@ export const LandingPage = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const { t, i18n } = useTranslation();
   const authState = useIsAuthed();
+  // Primary "get started" CTAs: send logged-in users into the app (dashboard)
+  // instead of the signup page, which would just bounce an authed user back.
+  const primaryCtaHref = authState === "authed" ? "/continue" : "/auth/signup";
 
   const isRtl = i18n.language === "fa-IR" || i18n.language.startsWith("fa");
 
@@ -141,7 +144,7 @@ export const LandingPage = () => {
         t("marketing.landing.pricing.free.f5"),
       ],
       cta: t("marketing.landing.pricing.free.cta"),
-      href: "/auth/signup",
+      href: primaryCtaHref,
       highlighted: true,
       disabled: false,
     },
@@ -389,7 +392,7 @@ export const LandingPage = () => {
             </p>
             <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
               <Link
-                href="/auth/signup"
+                href={primaryCtaHref}
                 className="shadow-fr-fuchsia/20 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-6 py-3.5 text-base font-medium text-white shadow-lg transition-all hover:scale-[1.02] hover:opacity-90">
                 {t("marketing.landing.hero.startFree")}
                 <ArrowRight className="ms-2 size-5 rtl:rotate-180" />
@@ -591,7 +594,7 @@ export const LandingPage = () => {
           <p className="text-fr-muted mx-auto mt-4 max-w-xl text-lg">{t("marketing.landing.cta.subtitle")}</p>
           <div className="mt-8 flex justify-center">
             <Link
-              href="/auth/signup"
+              href={primaryCtaHref}
               className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3.5 text-base font-semibold text-fr-void shadow-lg transition-all hover:scale-[1.02] hover:bg-fr-ivory">
               {t("marketing.landing.cta.signUpFree")}
             </Link>
