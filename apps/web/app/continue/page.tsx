@@ -13,10 +13,11 @@ import { authOptions } from "@/modules/auth/lib/authOptions";
 import { ClientLogout } from "@/modules/ui/components/client-logout";
 
 /**
- * Authenticated entry resolver. The public "/" landing is now statically
- * rendered (so it's cacheable + crawlable); logged-in users are sent here
- * (client-side, see RedirectAuthedHome) to resolve their organization/workspace.
- * This holds the exact routing logic that used to live in app/page.tsx.
+ * Authenticated entry resolver. The public "/" landing is statically rendered
+ * (cacheable + crawlable) and is shown to everyone, including logged-in users.
+ * The "داشبورد" button in the marketing header points here so logged-in users
+ * can jump into the app; this resolves their organization/workspace and lands
+ * them on the right page. Holds the routing logic that used to live in page.tsx.
  */
 const ContinuePage = async () => {
   const session: Session | null = await getServerSession(authOptions);

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/app/(marketing)/components/json-ld";
 import { TemplateCard } from "@/app/(marketing)/templates/template-card";
+import { UseTemplateButton } from "@/app/(marketing)/templates/use-template-button";
 import {
   categoryPath,
   getAllTemplateParams,
@@ -110,11 +111,11 @@ export default async function TemplateDetailPage({ params }: TemplatePageProps) 
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href={`/auth/signup?template=${slug}`}
-              className="rounded-lg bg-brand px-5 py-2.5 text-sm font-medium text-white transition hover:opacity-90">
-              استفاده از این قالب
-            </Link>
+            <UseTemplateButton
+              slug={slug}
+              label="استفاده از این قالب"
+              className="rounded-lg bg-brand px-5 py-2.5 text-sm font-medium text-white transition hover:opacity-90 disabled:opacity-70"
+            />
             <Link
               href={categoryPath(category)}
               className="rounded-lg border border-gray-300 px-5 py-2.5 text-sm font-medium transition hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800">

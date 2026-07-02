@@ -686,6 +686,7 @@
         "titleMinutes": "in Minutes"
       },
       "nav": {
+        "dashboard": "Dashboard",
         "docs": "Docs",
         "faq": "FAQ",
         "features": "Features",

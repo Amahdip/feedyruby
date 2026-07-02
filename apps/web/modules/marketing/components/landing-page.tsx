@@ -22,6 +22,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SCHOOL_URL } from "@/lib/brand-color";
+import { useIsAuthed } from "@/modules/marketing/hooks/use-is-authed";
 import { FeedyRubyWordmark } from "@/modules/ui/components/feedyruby-brand";
 
 // Decorative, client-only backgrounds — deferred with next/dynamic (ssr:false)
@@ -58,6 +59,7 @@ export const LandingPage = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const { t, i18n } = useTranslation();
+  const authState = useIsAuthed();
 
   const isRtl = i18n.language === "fa-IR" || i18n.language.startsWith("fa");
 
@@ -264,16 +266,26 @@ export const LandingPage = () => {
               className="rounded border border-slate-200 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors hover:text-fr-fuchsia">
               {isRtl ? "English" : "فارسی"}
             </button>
-            <Link
-              href="/auth/login"
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">
-              {t("marketing.landing.nav.signIn")}
-            </Link>
-            <Link
-              href="/auth/signup"
-              className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:scale-[1.02] hover:opacity-90">
-              {t("marketing.landing.nav.signUp")}
-            </Link>
+            {authState === "authed" ? (
+              <Link
+                href="/continue"
+                className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:scale-[1.02] hover:opacity-90">
+                {t("marketing.landing.nav.dashboard")}
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/auth/login"
+                  className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">
+                  {t("marketing.landing.nav.signIn")}
+                </Link>
+                <Link
+                  href="/auth/signup"
+                  className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:scale-[1.02] hover:opacity-90">
+                  {t("marketing.landing.nav.signUp")}
+                </Link>
+              </>
+            )}
           </div>
 
           <button
@@ -322,18 +334,29 @@ export const LandingPage = () => {
                 {isRtl ? "Switch to English" : "تغییر به فارسی"}
               </button>
               <hr className="border-slate-100" />
-              <Link
-                href="/auth/login"
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-slate-600">
-                {t("marketing.landing.nav.signIn")}
-              </Link>
-              <Link
-                href="/auth/signup"
-                onClick={() => setMobileMenuOpen(false)}
-                className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-4 py-2.5 text-base font-medium text-white shadow-sm transition-all hover:scale-[1.02] hover:opacity-90">
-                {t("marketing.landing.nav.signUp")}
-              </Link>
+              {authState === "authed" ? (
+                <Link
+                  href="/continue"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-4 py-2.5 text-base font-medium text-white shadow-sm transition-all hover:scale-[1.02] hover:opacity-90">
+                  {t("marketing.landing.nav.dashboard")}
+                </Link>
+              ) : (
+                <>
+                  <Link
+                    href="/auth/login"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-base font-medium text-slate-600">
+                    {t("marketing.landing.nav.signIn")}
+                  </Link>
+                  <Link
+                    href="/auth/signup"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-4 py-2.5 text-base font-medium text-white shadow-sm transition-all hover:scale-[1.02] hover:opacity-90">
+                    {t("marketing.landing.nav.signUp")}
+                  </Link>
+                </>
+              )}
             </nav>
           </div>
         )}

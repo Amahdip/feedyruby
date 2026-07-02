@@ -8,6 +8,7 @@ import { getUserLocale } from "@/lib/user/service";
 import { getTranslate } from "@/lingodotdev/server";
 import { getSurveyAIAvailability } from "@/modules/survey/lib/get-survey-ai-availability";
 import { getWorkspaceWithTeamIds } from "@/modules/survey/lib/workspace";
+import { PendingTemplateApplier } from "@/modules/survey/list/components/pending-template-applier";
 import { SurveysList } from "@/modules/survey/list/components/survey-list";
 import { getWorkspaceAuth } from "@/modules/workspaces/lib/utils";
 
@@ -50,15 +51,22 @@ export const SurveysPage = async ({ params: paramsProps }: SurveyTemplateProps) 
   };
 
   return (
-    <SurveysList
-      workspace={workspaceWithRequiredProps}
-      isReadOnly={isReadOnly}
-      publicDomain={publicDomain}
-      surveysPerPage={SURVEYS_PER_PAGE}
-      currentWorkspaceChannel={currentWorkspaceChannel}
-      locale={locale}
-      isAIAvailable={isAIAvailable}
-      aiUnavailableReason={aiUnavailableReason}
-    />
+    <>
+      <PendingTemplateApplier
+        workspaceId={params.workspaceId}
+        defaultLanguage={locale}
+        isReadOnly={isReadOnly}
+      />
+      <SurveysList
+        workspace={workspaceWithRequiredProps}
+        isReadOnly={isReadOnly}
+        publicDomain={publicDomain}
+        surveysPerPage={SURVEYS_PER_PAGE}
+        currentWorkspaceChannel={currentWorkspaceChannel}
+        locale={locale}
+        isAIAvailable={isAIAvailable}
+        aiUnavailableReason={aiUnavailableReason}
+      />
+    </>
   );
 };

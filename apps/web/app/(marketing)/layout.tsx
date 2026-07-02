@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { APP_NAME, SCHOOL_NAME_FA, SCHOOL_URL } from "@/lib/brand-color";
 import { FeedyRubyWordmark } from "@/modules/ui/components/feedyruby-brand";
+import { MarketingHeaderCta } from "./marketing-header-cta";
 
 /**
  * Shared chrome for the public marketing surface (templates, comparison pages).
@@ -29,16 +30,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
               className="hidden font-medium text-slate-600 transition-colors hover:text-brand dark:text-slate-300 sm:inline">
               مقایسه با پرس‌لاین
             </Link>
-            <Link
-              href="/auth/login"
-              className="font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">
-              ورود
-            </Link>
-            <Link
-              href="/auth/signup"
-              className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-4 py-1.5 font-medium text-white shadow-sm transition-all hover:opacity-90">
-              شروع رایگان
-            </Link>
+            <MarketingHeaderCta />
           </nav>
         </div>
       </header>

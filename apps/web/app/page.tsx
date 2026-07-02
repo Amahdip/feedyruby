@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/app/(marketing)/components/json-ld";
-import RedirectAuthedHome from "@/app/RedirectAuthedHome";
 import {
   APP_NAME,
   APP_NAME_LATIN,
@@ -86,7 +85,6 @@ const Page = async () => {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <RedirectAuthedHome />
       <LandingPage />
     </>
   );
