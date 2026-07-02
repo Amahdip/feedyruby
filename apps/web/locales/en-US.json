@@ -506,6 +506,7 @@
     "verified_email": "Verified Email",
     "video": "Video",
     "view": "View",
+    "view_site": "View Site",
     "warning": "Warning",
     "we_were_unable_to_verify_your_license_because_the_license_server_is_unreachable": "We were unable to verify your license because the license server is unreachable.",
     "webhook": "Webhook",
@@ -608,8 +609,8 @@
         "title": "Ready to Collect Better Feedback?"
       },
       "faq": {
-        "a1": "Yes, getting started with FeedyRuby is completely free. We run the platform as a managed service on our servers in Iran, so your data stays local and you can get started with no technical setup.",
-        "a2": "On the free tier, surveys will temporarily pause collection once you reach 500 responses in a month. We'll send you an email alert beforehand, and you can upgrade to a paid tier at any time to resume collecting.",
+        "a1": "Yes! FeedyRuby is completely free right now — no bank card and no payment required. We run the platform as a managed service on our servers in Iran, so your data stays local and you can get started with no technical setup.",
+        "a2": "During the current free period the limits are generous. If you get close to the free-tier limit we'll let you know beforehand, and you can reach out to us for more capacity. Professional plans will be added later.",
         "a3": "All your data is stored securely on our servers inside Iran and never leaves the country — with no sanctions risk and no third-party access.",
         "a4": "Yes, FeedyRuby is designed with RTL layouts in mind. Survey templates and responses support right-to-left typing (Farsi, Arabic, Hebrew) natively.",
         "a5": "Over 16 types including NPS, CSAT, CES, star & emoji ratings, matrix, drag-ranking, single/multi choice, picture-select, file upload, Jalali date, consent and CTA — all with validation and conditional logic.",
@@ -674,14 +675,16 @@
         "privacy": "Privacy Policy",
         "rights": "© {year} FeedyRuby & SalamRuby School. All rights reserved.",
         "schoolName": "SalamRuby Coding School",
+        "studioConnector": ", the technical studio of",
+        "studioName": "TechRuby",
         "target": "Targeted for Iran-first and Global researchers.",
         "terms": "Terms of Service"
       },
       "hero": {
         "badge": "Iran's Leading Survey Platform",
-        "description": "FeedyRuby is Iran's modern survey and experience management platform. Gather customer and student feedback effortlessly — beautiful RTL-native UX and data secured on Iranian servers.",
+        "description": "FeedyRuby is Iran's modern survey and experience management platform — and it's completely free right now. Gather customer and student feedback effortlessly, with beautiful RTL-native UX and data secured on Iranian servers.",
         "learnMore": "Learn More",
-        "startFree": "Start Free (No Card Required)",
+        "startFree": "Build Your Form",
         "title": "Create Beautiful Surveys",
         "titleMinutes": "in Minutes"
       },
@@ -696,6 +699,7 @@
         "templates": "Templates"
       },
       "pricing": {
+        "comingSoon": "Coming soon",
         "enterprise": {
           "cta": "Contact Sales",
           "description": "For large organizations with strict data compliance",
@@ -743,8 +747,8 @@
           "period": "/mo",
           "price": "500,000 Toman"
         },
-        "subtitle": "FeedyRuby comes with a generous free plan, and scales flexibly as your feedback grows.",
-        "title": "Simple, Transparent Pricing"
+        "subtitle": "FeedyRuby is completely free right now — no payment required. Professional plans are coming later.",
+        "title": "Pricing — Free For Now"
       }
     },
     "porslineLanding": {

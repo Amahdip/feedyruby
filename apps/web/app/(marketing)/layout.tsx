@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { APP_NAME, SCHOOL_NAME_FA, SCHOOL_URL } from "@/lib/brand-color";
+import { APP_NAME, SCHOOL_NAME_FA, SCHOOL_URL, STUDIO_NAME_FA, STUDIO_URL } from "@/lib/brand-color";
 import { FeedyRubyWordmark } from "@/modules/ui/components/feedyruby-brand";
 import { MarketingHeaderCta } from "./marketing-header-cta";
 
@@ -53,15 +53,23 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
             </Link>
           </nav>
           <p>
-            {APP_NAME} پروژه‌ای از{" "}
+            {APP_NAME} محصولی از{" "}
+            <a
+              href={STUDIO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-slate-700 transition-colors hover:text-brand hover:underline dark:text-slate-300">
+              {STUDIO_NAME_FA}
+            </a>
+            ، استودیوی فنیِ{" "}
             <a
               href={SCHOOL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-slate-700 transition-colors hover:text-brand hover:underline dark:text-slate-300">
               {SCHOOL_NAME_FA}
-            </a>{" "}
-            است.
+            </a>
+            ، است.
           </p>
         </div>
       </footer>

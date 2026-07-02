@@ -114,19 +114,46 @@ export function TimeNetworkBackground() {
     let raf = 0;
     const origin = { x: 0, y: 0 };
     const mouse = { x: -9999, y: -9999 };
-    // bx/by = rest endpoint, x/y = live endpoint (springs back, repelled by cursor)
-    let fibers: { bx: number; by: number; x: number; y: number; dot: number }[] = [];
+    // bx/by = rest endpoint, x/y = live endpoint. Each fiber idly sways around
+    // its rest point (like a plant in a current), springs back, and is repelled
+    // by the cursor. ph/spd/sw = per-fiber sway phase, speed and amplitude —
+    // longer fibers (taller "plants") sway more at the tip.
+    let fibers: {
+      bx: number;
+      by: number;
+      x: number;
+      y: number;
+      dot: number;
+      ph: number;
+      spd: number;
+      sw: number;
+    }[] = [];
 
     const build = () => {
       fibers = [];
-      const N = Math.round(Math.min(460, W / 2.8));
+      const N = Math.round(Math.min(620, W / 2.2));
       for (let i = 0; i < N; i++) {
         const a = -Math.PI + (i / (N - 1)) * Math.PI + (Math.random() - 0.5) * 0.018;
-        // lengths span the whole radius so dots populate center → edge
-        const L = (0.1 + Math.pow(Math.random(), 0.6)) * H * 1.05;
+        // A mix of long filaments (that reach the edges) and lots of SHORT ones,
+        // so the centre near the origin is dense with glowing tips too — not just
+        // the outer rim. ~45% are short and cluster low/central.
+        const short = Math.random() < 0.45;
+        const L = short
+          ? (0.05 + Math.pow(Math.random(), 1.4) * 0.33) * H
+          : (0.12 + Math.pow(Math.random(), 0.6) * 0.95) * H * 1.05;
         const bx = origin.x + Math.cos(a) * L;
         const by = origin.y + Math.sin(a) * L;
-        fibers.push({ bx, by, x: bx, y: by, dot: Math.random() * 1.6 + 0.8 });
+        fibers.push({
+          bx,
+          by,
+          x: bx,
+          y: by,
+          dot: Math.random() * 1.6 + 0.8,
+          ph: Math.random() * Math.PI * 2,
+          spd: 0.35 + Math.random() * 0.55,
+          // more visible sway; longer filaments sway more at the tip
+          sw: 5 + (L / (H * 1.05)) * 18,
+        });
       }
     };
     const size = () => {
@@ -146,9 +173,11 @@ export function TimeNetworkBackground() {
       mouse.y = e.clientY - r.top;
     };
 
+    let t = 0;
     const frame = () => {
       const th = THEMES[themeRef.current];
       ctx.clearRect(0, 0, W, H);
+      t += reduce ? 0 : 0.009;
 
       const g = ctx.createRadialGradient(origin.x, origin.y, 0, origin.x, origin.y, H * 0.6);
       g.addColorStop(0, th.core);
@@ -161,9 +190,13 @@ export function TimeNetworkBackground() {
 
       for (let i = 0; i < fibers.length; i++) {
         const f = fibers[i];
-        // spring the live endpoint back to its rest position
-        f.x += (f.bx - f.x) * 0.08;
-        f.y += (f.by - f.y) * 0.08;
+        // idle underwater sway around the rest endpoint — tips drift side to
+        // side (and gently in/out) like plants in a current, even with no cursor
+        const tx = f.bx + Math.sin(t * f.spd + f.ph) * f.sw;
+        const ty = f.by + Math.cos(t * f.spd * 0.7 + f.ph) * f.sw * 0.45;
+        // floaty spring toward the swayed target (low k = languid, underwater)
+        f.x += (tx - f.x) * 0.05;
+        f.y += (ty - f.y) * 0.05;
         // positional brush: physically push the endpoint away from the cursor
         const dx = f.x - mouse.x;
         const dy = f.y - mouse.y;
@@ -188,10 +221,18 @@ export function TimeNetworkBackground() {
         ctx.moveTo(origin.x, origin.y);
         ctx.lineTo(f.x, f.y);
         ctx.stroke();
+        // glowing tip: a soft twinkling halo behind a bright core dot
+        const tw = 0.55 + 0.45 * Math.sin(t * 1.7 + f.ph); // twinkle 0.1..1
+        const core = f.dot + glow * 2.4;
+        ctx.globalAlpha = (0.16 + glow * 0.24) * tw;
+        ctx.fillStyle = th.tip;
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, core + 3.5 + glow * 3.5, 0, 6.3);
+        ctx.fill();
         ctx.globalAlpha = 0.9 + glow * 0.1;
         ctx.fillStyle = th.dot;
         ctx.beginPath();
-        ctx.arc(f.x, f.y, f.dot + glow * 2.4, 0, 6.3);
+        ctx.arc(f.x, f.y, core, 0, 6.3);
         ctx.fill();
       }
       ctx.globalAlpha = 1;

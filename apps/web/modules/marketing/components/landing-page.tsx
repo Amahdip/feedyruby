@@ -21,7 +21,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { SCHOOL_URL } from "@/lib/brand-color";
+import { SCHOOL_URL, STUDIO_URL } from "@/lib/brand-color";
 import { useIsAuthed } from "@/modules/marketing/hooks/use-is-authed";
 import { FeedyRubyWordmark } from "@/modules/ui/components/feedyruby-brand";
 
@@ -32,12 +32,12 @@ const HeroAurora = dynamic(
   () => import("@/modules/marketing/components/hero-aurora").then((m) => m.HeroAurora),
   { ssr: false }
 );
-const TimeNetworkBackground = dynamic(
-  () => import("@/modules/marketing/components/time-network-section").then((m) => m.TimeNetworkBackground),
-  { ssr: false }
-);
 const AuroraBackground = dynamic(
   () => import("@/modules/marketing/components/aurora-background").then((m) => m.AuroraBackground),
+  { ssr: false }
+);
+const TimeNetworkBackground = dynamic(
+  () => import("@/modules/marketing/components/time-network-section").then((m) => m.TimeNetworkBackground),
   { ssr: false }
 );
 
@@ -142,7 +142,8 @@ export const LandingPage = () => {
       ],
       cta: t("marketing.landing.pricing.free.cta"),
       href: "/auth/signup",
-      highlighted: false,
+      highlighted: true,
+      disabled: false,
     },
     {
       name: t("marketing.landing.pricing.starter.name"),
@@ -158,7 +159,8 @@ export const LandingPage = () => {
       ],
       cta: t("marketing.landing.pricing.starter.cta"),
       href: "/auth/signup",
-      highlighted: true,
+      highlighted: false,
+      disabled: true,
     },
     {
       name: t("marketing.landing.pricing.pro.name"),
@@ -175,6 +177,7 @@ export const LandingPage = () => {
       cta: t("marketing.landing.pricing.pro.cta"),
       href: "/auth/signup",
       highlighted: false,
+      disabled: true,
     },
     {
       name: t("marketing.landing.pricing.enterprise.name"),
@@ -190,6 +193,7 @@ export const LandingPage = () => {
       cta: t("marketing.landing.pricing.enterprise.cta"),
       href: "mailto:sales@feedyruby.ir",
       highlighted: false,
+      disabled: true,
     },
   ];
 
@@ -263,8 +267,9 @@ export const LandingPage = () => {
           <div className="hidden items-center gap-4 md:flex">
             <button
               onClick={toggleLanguage}
-              className="rounded border border-slate-200 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-500 transition-colors hover:text-fr-fuchsia">
-              {isRtl ? "English" : "فارسی"}
+              aria-label={isRtl ? "Switch to English" : "تغییر به فارسی"}
+              className="hover:border-fr-fuchsia/50 inline-flex size-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-xs font-bold uppercase tracking-wider text-slate-600 transition-colors hover:text-fr-fuchsia">
+              {isRtl ? "EN" : "FA"}
             </button>
             {authState === "authed" ? (
               <Link
@@ -469,14 +474,27 @@ export const LandingPage = () => {
             {pricingTiers.map((tier, idx) => (
               <div
                 key={idx}
-                className={`flex flex-col rounded-xl border bg-white p-8 shadow-sm transition-all ${
+                className={`relative flex flex-col rounded-xl border bg-white p-8 shadow-sm transition-all ${
                   tier.highlighted
-                    ? "ring-fr-fuchsia/20 relative border-fr-fuchsia ring-2 md:scale-[1.05]"
-                    : "border-slate-200 hover:border-slate-300"
-                }`}>
+                    ? "ring-fr-fuchsia/20 border-fr-fuchsia ring-2 md:scale-[1.05]"
+                    : "border-slate-200"
+                } ${tier.disabled ? "" : "hover:border-slate-300"}`}>
+                {/* opaque scrim: keeps paid cards solid (so the fiber burst stays
+                    behind them) while dimming them to read as "coming soon". */}
+                {tier.disabled && (
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 z-20 rounded-xl bg-white/65"
+                  />
+                )}
                 {tier.highlighted && (
-                  <span className="absolute right-1/2 top-0 -translate-y-1/2 translate-x-1/2 rounded-full bg-fr-fuchsia px-3 py-0.5 text-xs font-semibold text-white">
+                  <span className="absolute right-1/2 top-0 z-30 -translate-y-1/2 translate-x-1/2 rounded-full bg-fr-fuchsia px-3 py-0.5 text-xs font-semibold text-white">
                     {t("marketing.landing.pricing.popular")}
+                  </span>
+                )}
+                {tier.disabled && (
+                  <span className="absolute right-1/2 top-0 z-30 -translate-y-1/2 translate-x-1/2 whitespace-nowrap rounded-full bg-slate-200 px-3 py-0.5 text-xs font-semibold text-slate-500">
+                    {t("marketing.landing.pricing.comingSoon")}
                   </span>
                 )}
                 <h3 className="text-lg font-bold text-slate-900">{tier.name}</h3>
@@ -495,15 +513,23 @@ export const LandingPage = () => {
                   ))}
                 </ul>
 
-                <Link
-                  href={tier.href}
-                  className={`mt-8 inline-flex items-center justify-center rounded-md py-2.5 text-sm font-medium shadow-sm transition-colors ${
-                    tier.highlighted
-                      ? "bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange text-white hover:opacity-90"
-                      : "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
-                  }`}>
-                  {tier.cta}
-                </Link>
+                {tier.disabled ? (
+                  <span
+                    aria-disabled
+                    className="mt-8 inline-flex cursor-not-allowed items-center justify-center rounded-md border border-slate-200 bg-slate-50 py-2.5 text-sm font-medium text-slate-400">
+                    {t("marketing.landing.pricing.comingSoon")}
+                  </span>
+                ) : (
+                  <Link
+                    href={tier.href}
+                    className={`mt-8 inline-flex items-center justify-center rounded-md py-2.5 text-sm font-medium shadow-sm transition-colors ${
+                      tier.highlighted
+                        ? "bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange text-white hover:opacity-90"
+                        : "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
+                    }`}>
+                    {tier.cta}
+                  </Link>
+                )}
               </div>
             ))}
           </div>
@@ -601,8 +627,16 @@ export const LandingPage = () => {
 
           <div className="flex flex-col items-center justify-between gap-4 text-xs text-slate-400 sm:flex-row">
             <p>{t("marketing.landing.footer.rights", { year: new Date().getFullYear() })}</p>
-            <p className="flex items-center gap-1">
-              <span>{t("marketing.landing.footer.madeByLead")}</span>
+            <p className="text-center">
+              {t("marketing.landing.footer.madeByLead")}{" "}
+              <a
+                href={STUDIO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-slate-500 transition-colors hover:text-fr-fuchsia hover:underline">
+                {t("marketing.landing.footer.studioName")}
+              </a>
+              {t("marketing.landing.footer.studioConnector")}{" "}
               <a
                 href={SCHOOL_URL}
                 target="_blank"

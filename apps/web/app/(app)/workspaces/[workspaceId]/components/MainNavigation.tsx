@@ -6,6 +6,7 @@ import {
   Building2Icon,
   Cog,
   FoldersIcon,
+  HomeIcon,
   Loader2,
   LogOutIcon,
   MessageCircle,
@@ -229,6 +230,12 @@ export const MainNavigation = ({
       label: t("common.account"),
       href: `/workspaces/${workspace.id}/settings/account/profile`,
       icon: UserCircleIcon,
+    },
+    {
+      // A way back out to the public marketing site from inside the app.
+      label: t("common.view_site"),
+      href: "/",
+      icon: HomeIcon,
     },
     ...(HIDE_FEEDYRUBY_EXTERNAL_LINKS
       ? []

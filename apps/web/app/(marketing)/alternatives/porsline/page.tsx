@@ -9,6 +9,7 @@ import {
   SCHOOL_NAME,
   SCHOOL_NAME_FA,
   SCHOOL_URL,
+  STUDIO_NAME_FA,
   STUDIO_URL,
 } from "@/lib/brand-color";
 
@@ -19,7 +20,7 @@ const URL = marketingUrl("/alternatives/porsline");
 export function generateMetadata(): Metadata {
   const title = "جایگزین پرس‌لاین: مقایسه‌ی فیدی‌روبی و پرس‌لاین";
   const description =
-    "مقایسه‌ی فیدی‌روبی و پرس‌لاین برای ساخت فرم و نظرسنجی آنلاین فارسی؛ با میزبانی امن و مدیریت‌شده در داخل ایران، رابط مدرن راست‌چین و کنترل کامل داده‌ها. پروژه‌ای از مدرسه‌ی برنامه‌نویسی سلام‌روبی. در چند دقیقه مهاجرت کنید.";
+    "مقایسه‌ی فیدی‌روبی و پرس‌لاین برای ساخت فرم و نظرسنجی آنلاین فارسی؛ با میزبانی امن و مدیریت‌شده در داخل ایران، رابط مدرن راست‌چین و کنترل کامل داده‌ها. محصولی از تک‌روبی، استودیوی فنیِ مدرسه‌ی برنامه‌نویسی سلام‌روبی. در چند دقیقه مهاجرت کنید.";
 
   return {
     title,
@@ -63,8 +64,8 @@ const ROWS: Row[] = [
     edge: "us",
   },
   {
-    feature: "شروع رایگان بدون نیاز به کارت",
-    feedyruby: "بله",
+    feature: "استفاده‌ی رایگان",
+    feedyruby: "در حال حاضر کاملاً رایگان",
     porsline: "نسخه‌ی رایگان محدود",
     edge: "us",
   },
@@ -157,7 +158,7 @@ const ADVANTAGES = [
 const FAQ: { q: string; a: string }[] = [
   {
     q: "آیا فیدی‌روبی رایگان است؟",
-    a: "بله، شروع کار با فیدی‌روبی رایگان است. پلتفرم به‌صورت مدیریت‌شده روی سرورهای ما در داخل ایران میزبانی می‌شود و نیازی به راه‌اندازی سرور ندارید.",
+    a: "بله؛ فیدی‌روبی در حال حاضر کاملاً رایگان است — بدون نیاز به پرداخت. پلتفرم به‌صورت مدیریت‌شده روی سرورهای ما در داخل ایران میزبانی می‌شود و نیازی به راه‌اندازی سرور ندارید.",
   },
   {
     q: "آیا اطلاعات پرس‌لاین قابل انتقال به فیدی‌روبی است؟",
@@ -244,15 +245,23 @@ export default function PorslineAlternativePage() {
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
             چرا فیدی‌روبی؟ برای ساخت فرم و نظرسنجی آنلاین فارسی، فیدی‌روبی رابط کاربری مدرن و کاملاً راست‌چین،
             میزبانی امن و مدیریت‌شده در داخل ایران و کنترل کامل داده‌ها را با هم ارائه می‌دهد. فیدی‌روبی
-            پروژه‌ای از{" "}
+            محصولی از{" "}
+            <a
+              href={STUDIO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-fr-fuchsia hover:underline">
+              {STUDIO_NAME_FA}
+            </a>
+            ، استودیوی فنیِ{" "}
             <a
               href={SCHOOL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-fr-fuchsia hover:underline">
-              مدرسه‌ی برنامه‌نویسی سلام‌روبی
-            </a>{" "}
-            است.
+              {SCHOOL_NAME_FA}
+            </a>
+            ، است.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-4">
             <Link

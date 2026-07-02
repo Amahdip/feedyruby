@@ -16,7 +16,9 @@ type I18n = Record<string, string> | string | undefined;
 // workspace, so we render a friendly brand stand-in instead of leaking the raw
 // token to visitors. The underlying template keeps the placeholder intact.
 const WORKSPACE_PLACEHOLDER = /\$\[workspaceName\]/g;
-const WORKSPACE_FALLBACK = "brand";
+// Shown on public template previews where there's no real workspace yet — the
+// brackets signal it's a placeholder ("your brand name goes here"), not copy.
+const WORKSPACE_FALLBACK = "[brand]";
 
 function pickI18n(value: I18n): string {
   if (!value) return "";

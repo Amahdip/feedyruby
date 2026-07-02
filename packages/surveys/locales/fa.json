@@ -14,7 +14,7 @@
     "people_responded": "{count, plural, one {۱ نفر پاسخ داد} other {{count} نفر پاسخ دادند}}",
     "please_retry_now_or_try_again_later": "لطفاً اکنون دوباره تلاش کنید یا بعداً امتحان کنید.",
     "powered_by": "قدرت گرفته از",
-    "privacy_policy": "سیاست حریم خصوصی",
+    "privacy_policy": "حریم خصوصی",
     "protected_by_reCAPTCHA_and_the_Google": "محافظت‌شده توسط reCAPTCHA و Google",
     "question": "سؤال",
     "question_video": "ویدیوی سؤال",
@@ -24,7 +24,7 @@
     "retry": "تلاش مجدد",
     "retrying": "در حال تلاش مجدد…",
     "search": "جستجو...",
-    "select_option": "یک گزینه انتخاب کنید",
+    "select_option": "یک گزینه را انتخاب کنید",
     "select_options": "گزینه‌ها را انتخاب کنید",
     "sending_responses": "در حال ارسال پاسخ‌ها…",
     "studio_credit_lead": "محصولی از",
@@ -83,7 +83,7 @@
     "please_enter_a_valid_url": "لطفاً یک URL معتبر وارد کنید",
     "please_fill_out_this_field": "لطفاً این فیلد را پر کنید",
     "recaptcha_error": {
-      "message": "پاسخ شما ارسال نشد زیرا به‌عنوان فعالیت خودکار شناسایی شد. اگر انسان هستید، لطفاً دوباره تلاش کنید.",
+      "message": "پاسخ شما ارسال نشد، چون به‌عنوان فعالیت خودکار (ربات) شناسایی شد. اگه نفس می‌کشید، لطفاً دوباره امتحان کنید.",
       "title": "نتوانستیم تأیید کنیم که شما انسان هستید."
     },
     "value_must_contain": "مقدار باید شامل {value} باشد",

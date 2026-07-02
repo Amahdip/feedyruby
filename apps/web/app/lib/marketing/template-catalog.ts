@@ -99,7 +99,9 @@ const VALID_SLUG = /^[a-z][a-z0-9-]*$/;
  * no workspace, so we substitute a friendly brand stand-in for display only.
  */
 const WORKSPACE_PLACEHOLDER = /\$\[workspaceName\]/g;
-const WORKSPACE_FALLBACK = "brand";
+// Shown on public template previews where there's no real workspace yet — the
+// brackets signal it's a placeholder ("your brand name goes here"), not copy.
+const WORKSPACE_FALLBACK = "[brand]";
 
 export interface PublicTemplate {
   /** Stable id, used verbatim as the URL slug. */

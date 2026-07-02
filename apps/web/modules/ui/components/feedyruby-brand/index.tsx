@@ -65,7 +65,10 @@ export const FeedyRubyWordmark = ({
       <span
         className={cn(
           "bg-gradient-to-r from-[#FBBF24] via-[#EC4899] to-[#7C3AED] bg-clip-text",
-          "text-2xl font-bold leading-none tracking-tight text-transparent"
+          // leading-none clips descenders (the Farsi «ی» tail / Latin «y») under
+          // bg-clip-text — the glyph falls below the tight content box. A roomier
+          // line-height keeps the whole wordmark inside the clipped paint region.
+          "text-2xl font-bold leading-[1.4] tracking-tight text-transparent"
         )}>
         {text}
       </span>

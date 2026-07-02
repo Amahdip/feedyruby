@@ -48,13 +48,18 @@ export const LoginPage = async ({
   ]);
   const oauthError = getSearchParamString(searchParams.error);
 
+  // With no explicit callback (the normal "ورود" entry), send users to the
+  // authenticated resolver, NOT the site root: "/" is a static, edge-cached
+  // marketing landing, so defaulting there would drop a just-logged-in user on
+  // the homepage. "/continue" resolves their org/workspace and forwards them in.
+  const defaultPostAuthUrl = `${WEBAPP_URL.replace(/\/$/, "")}/continue`;
   const resolvedCallbackUrl =
     resolveAuthCallbackUrl({
       searchParamCallbackUrl: searchParams.callbackUrl,
       cookieCallbackUrl: getAuthCallbackUrlFromCookies(cookieStore),
       allowCookieFallback: oauthError === "OAuthAccountNotLinked",
       webAppUrl: WEBAPP_URL,
-    }) ?? WEBAPP_URL;
+    }) ?? defaultPostAuthUrl;
   const resolvedCallbackPath = getRelativeCallbackUrl(resolvedCallbackUrl, WEBAPP_URL);
   const inviteToken = getInviteTokenFromCallbackUrl(resolvedCallbackUrl, WEBAPP_URL);
   const samlSsoEnabled = isSamlSsoEnabled && SAML_OAUTH_ENABLED;
