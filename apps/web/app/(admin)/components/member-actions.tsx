@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import toast from "react-hot-toast";
@@ -42,18 +43,24 @@ export function MemberActions({ orgId, userId, email, role }: Props) {
 
   return (
     <div className="flex items-center justify-end gap-2">
-      <select
-        aria-label={t("admin.role")}
-        value={value}
-        disabled={pending}
-        onChange={(e) => onRoleChange(e.target.value)}
-        className="h-8 rounded-md border border-slate-300 bg-white px-2 text-sm text-slate-700 disabled:opacity-50">
-        {ROLES.map((r) => (
-          <option key={r} value={r}>
-            {t(`admin.role_${r}`)}
-          </option>
-        ))}
-      </select>
+      <div className="relative">
+        <select
+          aria-label={t("admin.role")}
+          value={value}
+          disabled={pending}
+          onChange={(e) => onRoleChange(e.target.value)}
+          className="h-8 w-32 cursor-pointer appearance-none rounded-md border border-slate-300 bg-white pe-8 ps-3 text-sm text-slate-700 hover:border-slate-400 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200 disabled:cursor-not-allowed disabled:opacity-50">
+          {ROLES.map((r) => (
+            <option key={r} value={r}>
+              {t(`admin.role_${r}`)}
+            </option>
+          ))}
+        </select>
+        <ChevronDown
+          className="pointer-events-none absolute inset-y-0 end-2 my-auto size-4 text-slate-400"
+          aria-hidden
+        />
+      </div>
 
       <ConfirmActionButton
         action={() => removeMember(orgId, userId)}

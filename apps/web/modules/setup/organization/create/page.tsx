@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { getServerSession } from "next-auth";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { AuthenticationError } from "@feedyruby/types/errors";
 import { DISABLE_ACCOUNT_DELETION_SSO_CONFIRMATION, IS_FEEDYRUBY_CLOUD } from "@/lib/constants";
 import { getHasNoOrganizations } from "@/lib/instance/service";
@@ -8,6 +8,7 @@ import { getOrganizationsByUserId } from "@/lib/organization/service";
 import { getUser } from "@/lib/user/service";
 import { getTranslate } from "@/lingodotdev/server";
 import { requiresPasswordConfirmationForAccountDeletion } from "@/modules/account/lib/account-deletion-auth";
+import { isSuperAdminEmail } from "@/modules/admin/lib/auth";
 import { authOptions } from "@/modules/auth/lib/authOptions";
 import { getIsMultiOrgEnabled } from "@/modules/ee/license-check/lib/utils";
 import { RemovedFromOrganization } from "@/modules/setup/organization/create/components/removed-from-organization";
@@ -33,6 +34,12 @@ export const CreateOrganizationPage = async () => {
   const hasNoOrganizations = await getHasNoOrganizations();
   const isMultiOrgEnabled = await getIsMultiOrgEnabled();
   const userOrganizations = await getOrganizationsByUserId(session.user.id);
+
+  // A dedicated operator (super-admin) intentionally belongs to no customer org.
+  // Send them to the panel instead of the "removed from organization" wall.
+  if (userOrganizations.length === 0 && isSuperAdminEmail(session.user.email)) {
+    redirect("/admin");
+  }
 
   if (hasNoOrganizations || isMultiOrgEnabled) {
     return <CreateOrganization />;
