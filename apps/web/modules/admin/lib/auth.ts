@@ -2,17 +2,30 @@ import "server-only";
 import { getServerSession } from "next-auth";
 import type { Session } from "next-auth";
 import { notFound, redirect } from "next/navigation";
+import { prisma } from "@feedyruby/database";
 import { SUPER_ADMIN_EMAILS } from "@/lib/constants";
 import { authOptions } from "@/modules/auth/lib/authOptions";
 
 /**
- * Access gate for the cross-tenant operator panel (/admin). Membership is driven
- * entirely by the SUPER_ADMIN_EMAILS env — a session email must be on that list.
- * Case-insensitive; if the env is empty, nobody can get in.
+ * PERMANENT (env) admins — a session email on the SUPER_ADMIN_EMAILS allowlist.
+ * These can't be revoked in-app (they're config / break-glass). Case-insensitive.
  */
 export function isSuperAdminEmail(email?: string | null): boolean {
   if (!email) return false;
   return SUPER_ADMIN_EMAILS.includes(email.trim().toLowerCase());
+}
+
+/**
+ * Full admin check: permanent env admin OR DB-flagged (`User.isSuperAdmin`, which
+ * the panel can grant/revoke). Env is checked first so it needs no DB query and
+ * can never be locked out. Use this everywhere access is gated.
+ */
+export async function isSuperAdmin(user?: { id?: string; email?: string | null } | null): Promise<boolean> {
+  if (!user) return false;
+  if (isSuperAdminEmail(user.email)) return true;
+  if (!user.id) return false;
+  const row = await prisma.user.findUnique({ where: { id: user.id }, select: { isSuperAdmin: true } });
+  return row?.isSuperAdmin === true;
 }
 
 // Defense in depth: the allowlist env is the primary revocation control, but the
@@ -27,7 +40,7 @@ const isInactive = (session: Session | null): boolean =>
  */
 export async function getSuperAdminSession(): Promise<Session | null> {
   const session = await getServerSession(authOptions);
-  if (!isSuperAdminEmail(session?.user?.email) || isInactive(session)) return null;
+  if (isInactive(session) || !(await isSuperAdmin(session?.user))) return null;
   return session;
 }
 
@@ -41,6 +54,6 @@ export async function getSuperAdminSession(): Promise<Session | null> {
 export async function requireSuperAdmin(): Promise<Session> {
   const session = await getServerSession(authOptions);
   if (!session?.user?.email) redirect("/auth/login");
-  if (!isSuperAdminEmail(session.user.email) || isInactive(session)) notFound();
+  if (isInactive(session) || !(await isSuperAdmin(session.user))) notFound();
   return session;
 }

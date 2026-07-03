@@ -8,7 +8,7 @@ import { getOrganizationsByUserId } from "@/lib/organization/service";
 import { getUser } from "@/lib/user/service";
 import { getTranslate } from "@/lingodotdev/server";
 import { requiresPasswordConfirmationForAccountDeletion } from "@/modules/account/lib/account-deletion-auth";
-import { isSuperAdminEmail } from "@/modules/admin/lib/auth";
+import { isSuperAdmin } from "@/modules/admin/lib/auth";
 import { authOptions } from "@/modules/auth/lib/authOptions";
 import { getIsMultiOrgEnabled } from "@/modules/ee/license-check/lib/utils";
 import { RemovedFromOrganization } from "@/modules/setup/organization/create/components/removed-from-organization";
@@ -37,7 +37,7 @@ export const CreateOrganizationPage = async () => {
 
   // A dedicated operator (super-admin) intentionally belongs to no customer org.
   // Send them to the panel instead of the "removed from organization" wall.
-  if (userOrganizations.length === 0 && isSuperAdminEmail(session.user.email)) {
+  if (userOrganizations.length === 0 && (await isSuperAdmin(session.user))) {
     redirect("/admin");
   }
 

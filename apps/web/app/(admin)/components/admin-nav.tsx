@@ -1,6 +1,15 @@
 "use client";
 
-import { BarChart3, Building2, ExternalLink, LogOut, ScrollText, ShieldCheck, Users } from "lucide-react";
+import {
+  BarChart3,
+  Building2,
+  ExternalLink,
+  LogOut,
+  ScrollText,
+  ShieldCheck,
+  UserCircle,
+  Users,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
@@ -13,6 +22,7 @@ const LINKS = [
   { href: "/admin/organizations", labelKey: "admin.organizations", icon: Building2, exact: false },
   { href: "/admin/audit", labelKey: "admin.audit_log", icon: ScrollText, exact: false },
   { href: "/admin/operators", labelKey: "admin.operators", icon: ShieldCheck, exact: false },
+  { href: "/admin/account", labelKey: "admin.account", icon: UserCircle, exact: false },
 ];
 
 const isActive = (pathname: string, href: string, exact: boolean) =>

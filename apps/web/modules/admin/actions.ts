@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { prisma } from "@feedyruby/database";
 import { writeAudit } from "@/modules/admin/lib/audit";
-import { getSuperAdminSession } from "@/modules/admin/lib/auth";
+import { getSuperAdminSession, isSuperAdminEmail } from "@/modules/admin/lib/auth";
 import { requestPasswordReset } from "@/modules/auth/forgot-password/lib/password-reset-service";
 
 export type ActionResult = { ok: true } | { ok: false; error: string };
@@ -218,5 +218,58 @@ export async function deleteOrg(orgId: string, confirmName: string): Promise<Act
   });
   await prisma.organization.delete({ where: { id: orgId } });
   revalidatePath("/admin/organizations");
+  return { ok: true };
+}
+
+// ---------------------------------------------------------------- admins (super-admin grant/revoke)
+
+export async function grantAdmin(email: string): Promise<ActionResult> {
+  const actorEmail = await actor();
+  if (!actorEmail) return { ok: false, error: "unauthorized" };
+  const target = email.trim().toLowerCase();
+  if (!target) return { ok: false, error: "user_not_found" };
+
+  const user = await prisma.user.findFirst({
+    where: { email: { equals: target, mode: "insensitive" } },
+    select: { id: true, email: true, isSuperAdmin: true },
+  });
+  if (!user) return { ok: false, error: "user_not_found" }; // must have signed up first
+  if (isSuperAdminEmail(user.email) || user.isSuperAdmin) return { ok: false, error: "already_admin" };
+
+  await prisma.user.update({ where: { id: user.id }, data: { isSuperAdmin: true } });
+  await writeAudit({
+    actorEmail,
+    action: "admin.grant",
+    targetType: "user",
+    targetId: user.id,
+    targetLabel: user.email,
+  });
+  revalidatePath("/admin/operators");
+  return { ok: true };
+}
+
+export async function revokeAdmin(userId: string): Promise<ActionResult> {
+  const actorEmail = await actor();
+  if (!actorEmail) return { ok: false, error: "unauthorized" };
+
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: { id: true, email: true, isSuperAdmin: true },
+  });
+  if (!user) return { ok: false, error: "not_found" };
+  if (user.email.toLowerCase() === actorEmail) return { ok: false, error: "cannot_revoke_self" };
+  // Env (permanent) admins can't be revoked in-app — they're config.
+  if (isSuperAdminEmail(user.email)) return { ok: false, error: "cannot_revoke_permanent" };
+  if (!user.isSuperAdmin) return { ok: false, error: "not_admin" };
+
+  await prisma.user.update({ where: { id: user.id }, data: { isSuperAdmin: false } });
+  await writeAudit({
+    actorEmail,
+    action: "admin.revoke",
+    targetType: "user",
+    targetId: user.id,
+    targetLabel: user.email,
+  });
+  revalidatePath("/admin/operators");
   return { ok: true };
 }

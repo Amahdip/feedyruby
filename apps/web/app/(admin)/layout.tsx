@@ -8,7 +8,7 @@ import { getUserLocale } from "@/lib/user/service";
 import { requireSuperAdmin } from "@/modules/admin/lib/auth";
 
 export const metadata: Metadata = {
-  title: "Operator · FeedyRuby",
+  title: "Admin · FeedyRuby",
   robots: { index: false, follow: false },
 };
 

@@ -1,7 +1,10 @@
 import { prisma } from "@feedyruby/database";
+import { ConfirmActionButton } from "@/app/(admin)/components/confirm-action-button";
+import { GrantAdminForm } from "@/app/(admin)/components/grant-admin-form";
 import { fmtDate } from "@/app/(admin)/components/table-controls";
 import { SUPER_ADMIN_EMAILS } from "@/lib/constants";
 import { getTranslate } from "@/lingodotdev/server";
+import { revokeAdmin } from "@/modules/admin/actions";
 import { getSuperAdminSession, requireSuperAdmin } from "@/modules/admin/lib/auth";
 import { Badge } from "@/modules/ui/components/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/modules/ui/components/table";
@@ -14,21 +17,37 @@ export default async function AdminOperatorsPage() {
   const session = await getSuperAdminSession();
   const me = session?.user?.email?.toLowerCase();
 
-  // Operators are defined by the SUPER_ADMIN_EMAILS env; enrich each with its
-  // user record (if the person has signed up) so we can show name/status.
-  const users = await prisma.user.findMany({
-    where: { email: { in: SUPER_ADMIN_EMAILS } },
-    select: { email: true, name: true, isActive: true, lastLoginAt: true },
-  });
-  const byEmail = new Map(users.map((u) => [u.email.toLowerCase(), u]));
+  const select = { id: true, email: true, name: true, isActive: true, lastLoginAt: true } as const;
+  const [envUsers, dbAdmins] = await Promise.all([
+    prisma.user.findMany({ where: { email: { in: SUPER_ADMIN_EMAILS } }, select }),
+    prisma.user.findMany({ where: { isSuperAdmin: true }, select }),
+  ]);
+  const envByEmail = new Map(envUsers.map((u) => [u.email.toLowerCase(), u]));
+  const envSet = new Set(SUPER_ADMIN_EMAILS.map((e) => e.toLowerCase()));
 
-  const rows = SUPER_ADMIN_EMAILS.map((email) => ({ email, user: byEmail.get(email.toLowerCase()) ?? null }));
+  // Permanent (env) admins first, then DB-managed (revocable) admins.
+  const rows = [
+    ...SUPER_ADMIN_EMAILS.map((email) => ({
+      email,
+      user: envByEmail.get(email.toLowerCase()) ?? null,
+      permanent: true,
+    })),
+    ...dbAdmins
+      .filter((u) => !envSet.has(u.email.toLowerCase()))
+      .map((u) => ({ email: u.email, user: u, permanent: false })),
+  ];
 
   return (
     <div className="mx-auto max-w-4xl space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">{t("admin.operators")}</h1>
         <p className="text-sm text-slate-500">{t("admin.operators_hint")}</p>
+      </div>
+
+      <div className="rounded-lg border border-slate-200 bg-white p-4">
+        <p className="mb-3 text-sm font-medium text-slate-700">{t("admin.add_admin")}</p>
+        <GrantAdminForm />
+        <p className="mt-2 text-xs text-slate-400">{t("admin.add_admin_hint")}</p>
       </div>
 
       <div className="overflow-hidden rounded-lg border border-slate-200 bg-white">
@@ -39,39 +58,58 @@ export default async function AdminOperatorsPage() {
               <TableHead>{t("admin.name")}</TableHead>
               <TableHead>{t("admin.status")}</TableHead>
               <TableHead>{t("admin.last_login")}</TableHead>
+              <TableHead className="text-end">{t("admin.actions")}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {rows.map(({ email, user }) => (
-              <TableRow key={email}>
-                <TableCell className="font-medium">
-                  {email}
-                  {me === email.toLowerCase() && (
-                    <Badge text={t("admin.operator_you")} type="info" size="tiny" className="ms-2" />
-                  )}
-                </TableCell>
-                <TableCell>{user?.name || "—"}</TableCell>
-                <TableCell>
-                  {!user ? (
-                    <Badge text={t("admin.not_registered")} type="warning" size="tiny" />
-                  ) : (
-                    <Badge
-                      text={user.isActive ? t("admin.status_active") : t("admin.status_blocked")}
-                      type={user.isActive ? "success" : "error"}
-                      size="tiny"
-                    />
-                  )}
-                </TableCell>
-                <TableCell className="text-slate-500">{fmtDate(user?.lastLoginAt)}</TableCell>
-              </TableRow>
-            ))}
+            {rows.map(({ email, user, permanent }) => {
+              const isSelf = me === email.toLowerCase();
+              return (
+                <TableRow key={email}>
+                  <TableCell className="font-medium">
+                    {email}
+                    {isSelf && (
+                      <Badge text={t("admin.operator_you")} type="info" size="tiny" className="ms-2" />
+                    )}
+                    {permanent && (
+                      <Badge text={t("admin.admin_permanent")} type="gray" size="tiny" className="ms-2" />
+                    )}
+                  </TableCell>
+                  <TableCell>{user?.name || "—"}</TableCell>
+                  <TableCell>
+                    {!user ? (
+                      <Badge text={t("admin.not_registered")} type="warning" size="tiny" />
+                    ) : (
+                      <Badge
+                        text={user.isActive ? t("admin.status_active") : t("admin.status_blocked")}
+                        type={user.isActive ? "success" : "error"}
+                        size="tiny"
+                      />
+                    )}
+                  </TableCell>
+                  <TableCell className="text-slate-500">{fmtDate(user?.lastLoginAt)}</TableCell>
+                  <TableCell className="text-end">
+                    {!permanent && !isSelf && user ? (
+                      <ConfirmActionButton
+                        action={() => revokeAdmin(user.id)}
+                        triggerLabel={t("admin.action_revoke_admin")}
+                        triggerVariant="ghost"
+                        title={t("admin.confirm_revoke_admin_title")}
+                        description={t("admin.confirm_revoke_admin_body", { email })}
+                        confirmLabel={t("admin.action_revoke_admin")}
+                        confirmVariant="destructive"
+                        successMessage={t("admin.toast_admin_revoked")}
+                      />
+                    ) : (
+                      <span className="text-xs text-slate-300">—</span>
+                    )}
+                  </TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </div>
-
-      <p className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-500">
-        {t("admin.operators_env_note")}
-      </p>
     </div>
   );
 }

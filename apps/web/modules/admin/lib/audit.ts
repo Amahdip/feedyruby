@@ -10,7 +10,9 @@ export type AdminAction =
   | "org.member.remove"
   | "org.suspend"
   | "org.unsuspend"
-  | "org.delete";
+  | "org.delete"
+  | "admin.grant"
+  | "admin.revoke";
 
 /**
  * Append-only record of an operator action. Written inside every mutation server

@@ -9,7 +9,7 @@ import { getAccessFlags } from "@/lib/membership/utils";
 import { getOrganizationsByUserId } from "@/lib/organization/service";
 import { getUser } from "@/lib/user/service";
 import { getUserWorkspaces } from "@/lib/workspace/service";
-import { isSuperAdminEmail } from "@/modules/admin/lib/auth";
+import { isSuperAdmin } from "@/modules/admin/lib/auth";
 import { authOptions } from "@/modules/auth/lib/authOptions";
 import { ClientLogout } from "@/modules/ui/components/client-logout";
 
@@ -37,7 +37,7 @@ const ContinuePage = async () => {
   if (userOrganizations.length === 0) {
     // A dedicated operator (super-admin) intentionally belongs to no customer org —
     // send them straight to the panel instead of the create-organization onboarding.
-    if (isSuperAdminEmail(session.user.email)) {
+    if (await isSuperAdmin(session.user)) {
       return redirect("/admin");
     }
     return redirect("/setup/organization/create");
