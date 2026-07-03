@@ -1,24 +1,40 @@
 "use client";
 
-import { BarChart3, Building2, ExternalLink, ScrollText, Users } from "lucide-react";
+import { BarChart3, Building2, ExternalLink, LogOut, ScrollText, ShieldCheck, Users } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/cn";
+import { useSignOut } from "@/modules/auth/hooks/use-sign-out";
 
 const LINKS = [
   { href: "/admin", labelKey: "admin.overview", icon: BarChart3, exact: true },
   { href: "/admin/users", labelKey: "admin.users", icon: Users, exact: false },
   { href: "/admin/organizations", labelKey: "admin.organizations", icon: Building2, exact: false },
   { href: "/admin/audit", labelKey: "admin.audit_log", icon: ScrollText, exact: false },
+  { href: "/admin/operators", labelKey: "admin.operators", icon: ShieldCheck, exact: false },
 ];
 
 const isActive = (pathname: string, href: string, exact: boolean) =>
   exact ? pathname === href : pathname.startsWith(href);
 
-export function AdminNav({ email, showBackToApp = true }: { email: string; showBackToApp?: boolean }) {
+export function AdminNav({
+  userId,
+  email,
+  showBackToApp = true,
+}: {
+  userId: string;
+  email: string;
+  showBackToApp?: boolean;
+}) {
   const pathname = usePathname();
   const { t } = useTranslation();
+  const { signOut } = useSignOut({ id: userId, email });
+
+  const logout = async () => {
+    await signOut({ reason: "user_initiated", callbackUrl: "/auth/login", redirect: false });
+    window.location.href = "/auth/login";
+  };
 
   return (
     <>
@@ -45,6 +61,13 @@ export function AdminNav({ email, showBackToApp = true }: { email: string; showB
               {t(l.labelKey)}
             </Link>
           ))}
+          <button
+            type="button"
+            onClick={logout}
+            aria-label={t("common.logout")}
+            className="flex shrink-0 items-center rounded-md px-2 py-1.5 text-slate-500 hover:bg-slate-100 hover:text-red-600">
+            <LogOut className="size-3.5 rtl:rotate-180" />
+          </button>
         </nav>
       </div>
 
@@ -70,17 +93,23 @@ export function AdminNav({ email, showBackToApp = true }: { email: string; showB
             </Link>
           ))}
         </nav>
-        <div className="border-t border-slate-100 px-4 py-4">
+        <div className="space-y-2 border-t border-slate-100 px-4 py-4">
           <p className="truncate text-xs text-slate-400" title={email}>
             {email}
           </p>
           {showBackToApp && (
             <Link
               href="/continue"
-              className="mt-2 flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-slate-900">
+              className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-slate-900">
               <ExternalLink className="size-3" /> {t("admin.back_to_app")}
             </Link>
           )}
+          <button
+            type="button"
+            onClick={logout}
+            className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-red-600">
+            <LogOut className="size-3 rtl:rotate-180" /> {t("common.logout")}
+          </button>
         </div>
       </aside>
     </>

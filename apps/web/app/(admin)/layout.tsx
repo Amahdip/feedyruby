@@ -28,7 +28,7 @@ export default async function AdminLayout({ children }: { children: ReactNode })
 
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900 md:flex-row" dir={dir}>
-      <AdminNav email={session.user.email ?? ""} showBackToApp={hasApp} />
+      <AdminNav userId={session.user.id} email={session.user.email ?? ""} showBackToApp={hasApp} />
       <main className="min-w-0 flex-1 overflow-x-auto px-4 py-6 md:px-10 md:py-8">{children}</main>
     </div>
   );
