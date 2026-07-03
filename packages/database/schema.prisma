@@ -1290,3 +1290,18 @@ model FeedbackDirectoryWorkspace {
   @@id([feedbackDirectoryId, workspaceId])
   @@index([workspaceId])
 }
+
+/// Append-only audit trail for cross-tenant operator (/admin) actions.
+/// Never updated or deleted from the app — every super-admin mutation writes one row.
+model AdminAuditLog {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now()) @map(name: "created_at")
+  actorEmail  String   @map(name: "actor_email")
+  action      String
+  targetType  String   @map(name: "target_type")
+  targetId    String?  @map(name: "target_id")
+  targetLabel String?  @map(name: "target_label")
+  meta        Json     @default("{}")
+
+  @@index([createdAt])
+}

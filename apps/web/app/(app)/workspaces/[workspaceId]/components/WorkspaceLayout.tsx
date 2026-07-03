@@ -6,6 +6,7 @@ import { getPublicDomain } from "@/lib/getPublicUrl";
 import { getAccessFlags } from "@/lib/membership/utils";
 import { getPostHogFeatureFlag } from "@/lib/posthog/get-feature-flag";
 import { getTranslate } from "@/lingodotdev/server";
+import { isSuperAdminEmail } from "@/modules/admin/lib/auth";
 import { getOrganizationWorkspacesLimit } from "@/modules/ee/license-check/lib/utils";
 import { LimitsReachedBanner } from "@/modules/ui/components/limits-reached-banner";
 import { PendingDowngradeBanner } from "@/modules/ui/components/pending-downgrade-banner";
@@ -74,6 +75,7 @@ export const WorkspaceLayout = async ({ layoutData, children }: WorkspaceLayoutP
           isAccessControlAllowed={isAccessControlAllowed}
           responseCount={responseCount}
           newTrialBannerVariant={newTrialBannerVariant}
+          isSuperAdmin={isSuperAdminEmail(user.email)}
         />
         <div id="mainContent" className="flex flex-1 flex-col overflow-hidden bg-slate-50">
           <TopControlBar

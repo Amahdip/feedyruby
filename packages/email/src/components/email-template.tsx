@@ -28,11 +28,12 @@ export function EmailTemplate({
   privacyUrl,
   imprintUrl,
   imprintAddress,
+  isRtl = false,
 }: EmailTemplateProps): React.JSX.Element {
   const isDefaultLogo = !logoUrl || logoUrl === fbLogoUrl;
 
   return (
-    <Html>
+    <Html dir={isRtl ? "rtl" : "ltr"} lang={isRtl ? "fa" : "en"}>
       {forceLightMode && (
         <Head>
           <meta name="color-scheme" content="only light" />
@@ -68,7 +69,8 @@ export function EmailTemplate({
               />
             )}
           </Section>
-          <Container className="mx-auto my-8 max-w-xl rounded-md bg-white p-4 text-left">
+          <Container
+            className={`mx-auto my-8 max-w-xl rounded-md bg-white p-4 ${isRtl ? "text-right" : "text-left"}`}>
             {children}
           </Container>
 

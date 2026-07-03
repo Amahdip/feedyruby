@@ -38,6 +38,7 @@ import {
   WEBAPP_URL,
 } from "@/lib/constants";
 import { getPublicDomain } from "@/lib/getPublicUrl";
+import { isRtlLocale } from "@/lib/i18n/rtl";
 import {
   createEmailChangeToken,
   createEmailToken,
@@ -59,6 +60,12 @@ const legalProps: TEmailTemplateLegalProps = {
   imprintUrl: IMPRINT_URL || undefined,
   imprintAddress: IMPRINT_ADDRESS || undefined,
 };
+
+/** Shared email props with `isRtl` derived from the recipient's locale (Farsi ⇒ RTL). */
+const legalPropsFor = (locale?: TUserLocale): TEmailTemplateLegalProps => ({
+  ...legalProps,
+  isRtl: locale ? isRtlLocale(locale) : false,
+});
 
 interface SendEmailDataProps {
   to: string;
@@ -119,7 +126,7 @@ export const sendVerificationNewEmail = async (
     const token = createEmailChangeToken(id, email);
     const verifyLink = `${WEBAPP_URL}/verify-email-change?token=${encodeURIComponent(token)}`;
 
-    const html = await renderNewEmailVerification({ verifyLink, t, ...legalProps });
+    const html = await renderNewEmailVerification({ verifyLink, t, ...legalPropsFor(locale) });
 
     return await sendEmail({
       to: email,
@@ -163,7 +170,7 @@ export const sendVerificationEmail = async ({
       verificationRequestLink,
       verifyLink,
       t,
-      ...legalProps,
+      ...legalPropsFor(locale),
     });
 
     return await sendEmail({
@@ -188,7 +195,7 @@ export const sendPasswordResetLinkEmail = async (user: {
     verifyLink: user.verifyLink,
     linkValidityInMinutes: user.linkValidityInMinutes,
     t,
-    ...legalProps,
+    ...legalPropsFor(user.locale),
   });
   return await sendEmail({
     to: user.email,
@@ -202,7 +209,7 @@ export const sendPasswordResetNotifyEmail = async (user: {
   locale: TUserLocale;
 }): Promise<boolean> => {
   const t = await getTranslate(user.locale);
-  const html = await renderPasswordResetNotifyEmail({ t, ...legalProps });
+  const html = await renderPasswordResetNotifyEmail({ t, ...legalPropsFor(user.locale) });
   return await sendEmail({
     to: user.email,
     subject: t("emails.password_reset_notify_email_subject"),
@@ -238,7 +245,12 @@ export const sendInviteAcceptedEmail = async (
   inviterLocale?: TUserLocale
 ): Promise<void> => {
   const t = await getTranslate(inviterLocale);
-  const html = await renderInviteAcceptedEmail({ inviteeName, inviterName, t, ...legalProps });
+  const html = await renderInviteAcceptedEmail({
+    inviteeName,
+    inviterName,
+    t,
+    ...legalPropsFor(inviterLocale),
+  });
   await sendEmail({
     to: email,
     subject: t("emails.invite_accepted_email_subject"),
@@ -290,7 +302,7 @@ export const sendResponseFinishedEmail = async (
     organization,
     elements: elementsWithResolvedUrls,
     t,
-    ...legalProps,
+    ...legalPropsFor(locale),
   });
 
   await sendEmail({
@@ -323,7 +335,7 @@ export const sendEmbedSurveyPreviewEmail = async (
     workspaceId,
     logoUrl: resolvedLogoUrl,
     t,
-    ...legalProps,
+    ...legalPropsFor(locale),
   });
   return await sendEmail({
     to,
@@ -345,7 +357,7 @@ export const sendEmailCustomizationPreviewEmail = async (
     userName,
     logoUrl: resolvedLogoUrl,
     t,
-    ...legalProps,
+    ...legalPropsFor(locale),
   });
 
   return await sendEmail({
@@ -379,7 +391,13 @@ export const sendLinkSurveyToVerifiedEmail = async (data: TLinkSurveyEmailData):
   };
   const surveyLink = getSurveyLink();
 
-  const html = await renderLinkSurveyEmail({ surveyName, surveyLink, logoUrl, t, ...legalProps });
+  const html = await renderLinkSurveyEmail({
+    surveyName,
+    surveyLink,
+    logoUrl,
+    t,
+    ...legalPropsFor(data.locale),
+  });
   return await sendEmail({
     to: data.email,
     subject: t("emails.verified_link_survey_email_subject"),

@@ -8,6 +8,14 @@ export { DEFAULT_BRAND_COLOR, HIDE_STORAGE_NOT_CONFIGURED_WARNING };
 
 export const IS_FEEDYRUBY_CLOUD = env.IS_FEEDYRUBY_CLOUD === "1";
 
+// Instance operators who may access the cross-tenant /admin panel. Comma-
+// separated emails in the SUPER_ADMIN_EMAILS env; lowercased for case-insensitive
+// matching against the session email. Empty => the panel is inaccessible to all.
+export const SUPER_ADMIN_EMAILS =
+  env.SUPER_ADMIN_EMAILS?.split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean) ?? [];
+
 export const IS_PRODUCTION = env.NODE_ENV === "production";
 
 export const IS_DEVELOPMENT = env.NODE_ENV === "development";

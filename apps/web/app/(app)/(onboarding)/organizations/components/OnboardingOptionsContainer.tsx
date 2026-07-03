@@ -19,14 +19,17 @@ interface OnboardingOptionsContainerProps {
 
 export const OnboardingOptionsContainer = ({ options }: Readonly<OnboardingOptionsContainerProps>) => {
   return (
-    <div className="flex w-full max-w-5xl flex-wrap justify-center gap-8 text-center">
+    <div className="flex w-full max-w-5xl flex-wrap items-stretch justify-center gap-8 text-center">
       {options.map((option) => {
         const Icon = option.icon;
 
         return (
-          <div
-            key={option.title}
-            className="flex h-full w-full max-w-xs flex-col items-center gap-2 sm:w-auto">
+          // No explicit height here: an explicit `h-full` on a flex item resolves to
+          // `auto` against the indefinite-height row and suppresses `align-items:
+          // stretch` in some browsers, leaving each card at its own content height.
+          // Letting stretch size the wrapper keeps both cards equal; OptionCard's own
+          // `h-full` then fills the equalized wrapper.
+          <div key={option.title} className="flex w-full max-w-xs flex-col items-center gap-2 sm:w-auto">
             <OptionCard
               size="md"
               title={option.title}

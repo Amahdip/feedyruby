@@ -18,6 +18,7 @@ import {
   PlusIcon,
   RocketIcon,
   SettingsIcon,
+  ShieldCheckIcon,
   UserCircleIcon,
   UserIcon,
 } from "lucide-react";
@@ -85,6 +86,7 @@ interface NavigationProps {
   isAccessControlAllowed: boolean;
   responseCount: number;
   newTrialBannerVariant: string | boolean;
+  isSuperAdmin?: boolean;
 }
 
 export const MainNavigation = ({
@@ -100,6 +102,7 @@ export const MainNavigation = ({
   isAccessControlAllowed,
   responseCount,
   newTrialBannerVariant,
+  isSuperAdmin,
 }: NavigationProps) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -881,6 +884,14 @@ export const MainNavigation = ({
                       </DropdownMenuItem>
                     </Link>
                   ))}
+                  {isSuperAdmin && (
+                    <Link href="/admin" className="flex w-full items-center">
+                      <DropdownMenuItem>
+                        <ShieldCheckIcon className="me-2 size-4" strokeWidth={1.5} />
+                        {t("admin.operator_panel")}
+                      </DropdownMenuItem>
+                    </Link>
+                  )}
                   <DropdownMenuItem
                     onClick={async () => {
                       const loginUrl = `${publicDomain}/auth/login`;
