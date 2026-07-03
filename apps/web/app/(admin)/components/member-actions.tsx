@@ -49,7 +49,7 @@ export function MemberActions({ orgId, userId, email, role }: Props) {
           value={value}
           disabled={pending}
           onChange={(e) => onRoleChange(e.target.value)}
-          className="h-8 w-32 cursor-pointer appearance-none rounded-md border border-slate-300 bg-white pe-8 ps-3 text-sm text-slate-700 hover:border-slate-400 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200 disabled:cursor-not-allowed disabled:opacity-50">
+          className="h-8 cursor-pointer appearance-none rounded-md border border-slate-300 bg-white pe-8 ps-3 text-sm text-slate-700 hover:border-slate-400 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200 disabled:cursor-not-allowed disabled:opacity-50">
           {ROLES.map((r) => (
             <option key={r} value={r}>
               {t(`admin.role_${r}`)}

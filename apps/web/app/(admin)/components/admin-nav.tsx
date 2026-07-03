@@ -16,7 +16,7 @@ const LINKS = [
 const isActive = (pathname: string, href: string, exact: boolean) =>
   exact ? pathname === href : pathname.startsWith(href);
 
-export function AdminNav({ email }: { email: string }) {
+export function AdminNav({ email, showBackToApp = true }: { email: string; showBackToApp?: boolean }) {
   const pathname = usePathname();
   const { t } = useTranslation();
 
@@ -74,11 +74,13 @@ export function AdminNav({ email }: { email: string }) {
           <p className="truncate text-xs text-slate-400" title={email}>
             {email}
           </p>
-          <Link
-            href="/continue"
-            className="mt-2 flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-slate-900">
-            <ExternalLink className="size-3" /> {t("admin.back_to_app")}
-          </Link>
+          {showBackToApp && (
+            <Link
+              href="/continue"
+              className="mt-2 flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-slate-900">
+              <ExternalLink className="size-3" /> {t("admin.back_to_app")}
+            </Link>
+          )}
         </div>
       </aside>
     </>
