@@ -1,10 +1,9 @@
 import { prisma } from "@feedyruby/database";
-import { ConfirmActionButton } from "@/app/(admin)/components/confirm-action-button";
 import { GrantAdminForm } from "@/app/(admin)/components/grant-admin-form";
+import { RevokeAdminButton } from "@/app/(admin)/components/revoke-admin-button";
 import { fmtDate } from "@/app/(admin)/components/table-controls";
 import { SUPER_ADMIN_EMAILS } from "@/lib/constants";
 import { getTranslate } from "@/lingodotdev/server";
-import { revokeAdmin } from "@/modules/admin/actions";
 import { getSuperAdminSession, requireSuperAdmin } from "@/modules/admin/lib/auth";
 import { Badge } from "@/modules/ui/components/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/modules/ui/components/table";
@@ -90,16 +89,7 @@ export default async function AdminOperatorsPage() {
                   <TableCell className="text-slate-500">{fmtDate(user?.lastLoginAt)}</TableCell>
                   <TableCell className="text-end">
                     {!permanent && !isSelf && user ? (
-                      <ConfirmActionButton
-                        action={() => revokeAdmin(user.id)}
-                        triggerLabel={t("admin.action_revoke_admin")}
-                        triggerVariant="ghost"
-                        title={t("admin.confirm_revoke_admin_title")}
-                        description={t("admin.confirm_revoke_admin_body", { email })}
-                        confirmLabel={t("admin.action_revoke_admin")}
-                        confirmVariant="destructive"
-                        successMessage={t("admin.toast_admin_revoked")}
-                      />
+                      <RevokeAdminButton userId={user.id} email={email} />
                     ) : (
                       <span className="text-xs text-slate-300">—</span>
                     )}

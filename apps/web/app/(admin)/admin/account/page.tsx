@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { ChangePasswordForm } from "@/app/(admin)/components/change-password-form";
 import { EditProfileDetailsForm } from "@/app/(app)/workspaces/[workspaceId]/settings/account/profile/components/EditProfileDetailsForm";
 import { EMAIL_VERIFICATION_DISABLED, PASSWORD_RESET_DISABLED } from "@/lib/constants";
 import { getUser } from "@/lib/user/service";
@@ -32,9 +33,17 @@ export default async function AdminAccountPage() {
         <EditProfileDetailsForm
           user={user}
           emailVerificationDisabled={EMAIL_VERIFICATION_DISABLED}
-          isPasswordResetEnabled={isPasswordResetEnabled}
+          isPasswordResetEnabled={false}
         />
       </div>
+
+      {isPasswordResetEnabled && (
+        <div className="rounded-lg border border-slate-200 bg-white p-6">
+          <h2 className="mb-1 text-sm font-semibold text-slate-700">{t("admin.change_password")}</h2>
+          <p className="mb-4 text-sm text-slate-500">{t("admin.change_password_hint")}</p>
+          <ChangePasswordForm />
+        </div>
+      )}
     </div>
   );
 }

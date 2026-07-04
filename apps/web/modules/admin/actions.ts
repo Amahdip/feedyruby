@@ -1,10 +1,14 @@
 "use server";
 
+import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { prisma } from "@feedyruby/database";
+import { ZUserPassword } from "@feedyruby/types/user";
+import { hashPassword, verifyPassword } from "@/lib/auth";
 import { writeAudit } from "@/modules/admin/lib/audit";
 import { getSuperAdminSession, isSuperAdminEmail } from "@/modules/admin/lib/auth";
 import { requestPasswordReset } from "@/modules/auth/forgot-password/lib/password-reset-service";
+import { authOptions } from "@/modules/auth/lib/authOptions";
 
 export type ActionResult = { ok: true } | { ok: false; error: string };
 
@@ -271,5 +275,31 @@ export async function revokeAdmin(userId: string): Promise<ActionResult> {
     targetLabel: user.email,
   });
   revalidatePath("/admin/operators");
+  return { ok: true };
+}
+
+// ---------------------------------------------------------------- self: change own password
+
+/** Inline password change for the signed-in admin (verify current → set new), no
+ *  email round-trip or logout. Operates only on the caller's own account. */
+export async function changeOwnPassword(currentPassword: string, newPassword: string): Promise<ActionResult> {
+  const session = await getServerSession(authOptions);
+  const userId = session?.user?.id;
+  if (!userId) return { ok: false, error: "unauthorized" };
+
+  if (!ZUserPassword.safeParse(newPassword).success) return { ok: false, error: "weak_password" };
+
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: { id: true, password: true, identityProvider: true },
+  });
+  if (!user || user.identityProvider !== "email" || !user.password) {
+    return { ok: false, error: "not_password_account" };
+  }
+  if (!(await verifyPassword(currentPassword, user.password))) {
+    return { ok: false, error: "wrong_current_password" };
+  }
+
+  await prisma.user.update({ where: { id: user.id }, data: { password: await hashPassword(newPassword) } });
   return { ok: true };
 }

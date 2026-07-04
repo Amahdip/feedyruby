@@ -75,6 +75,7 @@ export const ZUser = z.object({
     | "teamUsers"
     | "role" //doesn't satisfy the type because we remove the billing role
     | "deprecatedRole"
+    | "isSuperAdmin"
   >
 >;
 
