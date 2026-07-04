@@ -63,6 +63,9 @@ export const LandingPage = () => {
   // Primary "get started" CTAs: send logged-in users into the app (dashboard)
   // instead of the signup page, which would just bounce an authed user back.
   const primaryCtaHref = authState === "authed" ? "/continue" : "/auth/signup";
+  // The hero uses a login-framed entry ("log in to your account"); the login page
+  // itself has a prominent sign-up link, so new users are one clear click away.
+  const heroCtaHref = authState === "authed" ? "/continue" : "/auth/login";
 
   const isRtl = i18n.language === "fa-IR" || i18n.language.startsWith("fa");
 
@@ -392,9 +395,9 @@ export const LandingPage = () => {
             </p>
             <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
               <Link
-                href={primaryCtaHref}
+                href={heroCtaHref}
                 className="shadow-fr-fuchsia/20 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fr-violet via-fr-fuchsia to-fr-orange px-6 py-3.5 text-base font-medium text-white shadow-lg transition-all hover:scale-[1.02] hover:opacity-90">
-                {t("marketing.landing.hero.startFree")}
+                {t("marketing.landing.hero.login")}
                 <ArrowRight className="ms-2 size-5 rtl:rotate-180" />
               </Link>
               <a

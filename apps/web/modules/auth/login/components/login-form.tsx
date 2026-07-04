@@ -68,7 +68,6 @@ export const LoginForm = ({
   azureOAuthEnabled,
   oidcOAuthEnabled,
   oidcDisplayName,
-  isMultiOrgEnabled,
   isSsoEnabled,
   samlSsoEnabled,
   samlTenant,
@@ -296,13 +295,12 @@ export const LoginForm = ({
           )}
         </div>
 
-        {publicSignUpEnabled && !totpLogin && isMultiOrgEnabled && (
-          <div className="mt-9 text-center text-xs">
-            <span className="leading-5 text-slate-500">{t("auth.login.new_to_feedyruby")}</span>
-            <br />
+        {publicSignUpEnabled && !totpLogin && (
+          <div className="mt-8">
+            <p className="mb-2 text-center text-sm text-slate-500">{t("auth.login.new_to_feedyruby")}</p>
             <Link
               href={inviteToken ? `/auth/signup?inviteToken=${inviteToken}` : "/auth/signup"}
-              className="font-semibold text-slate-600 underline hover:text-slate-700">
+              className="flex h-11 w-full items-center justify-center rounded-md border border-slate-300 bg-white text-sm font-semibold text-slate-800 transition-colors hover:bg-slate-50">
               {t("auth.login.create_an_account")}
             </Link>
           </div>

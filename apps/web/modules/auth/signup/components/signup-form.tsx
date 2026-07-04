@@ -321,12 +321,11 @@ export const SignupForm = ({
         />
       )}
       <TermsPrivacyLinks termsUrl={termsUrl} privacyUrl={privacyUrl} />
-      <div className="mt-9 text-center text-xs">
-        <span className="leading-5 text-slate-500">{t("auth.signup.have_an_account")}</span>
-        <br />
+      <div className="mt-8">
+        <p className="mb-2 text-center text-sm text-slate-500">{t("auth.signup.have_an_account")}</p>
         <Link
           href={inviteToken ? `/auth/login?callbackUrl=${returnToUrl}` : "/auth/login"}
-          className="font-semibold text-slate-600 underline hover:text-slate-700">
+          className="flex h-11 w-full items-center justify-center rounded-md border border-slate-300 bg-white text-sm font-semibold text-slate-800 transition-colors hover:bg-slate-50">
           {t("auth.signup.log_in")}
         </Link>
       </div>
