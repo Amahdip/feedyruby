@@ -132,6 +132,7 @@ export function TimeNetworkBackground() {
     const build = () => {
       fibers = [];
       const N = Math.round(Math.min(620, W / 2.2));
+      const maxL = Math.hypot(W / 2, H);
       for (let i = 0; i < N; i++) {
         const a = -Math.PI + (i / (N - 1)) * Math.PI + (Math.random() - 0.5) * 0.018;
         // A mix of long filaments (that reach the edges) and lots of SHORT ones,
@@ -139,8 +140,8 @@ export function TimeNetworkBackground() {
         // the outer rim. ~45% are short and cluster low/central.
         const short = Math.random() < 0.45;
         const L = short
-          ? (0.05 + Math.pow(Math.random(), 1.4) * 0.33) * H
-          : (0.12 + Math.pow(Math.random(), 0.6) * 0.95) * H * 1.05;
+          ? (0.05 + Math.pow(Math.random(), 1.4) * 0.33) * maxL
+          : (0.12 + Math.pow(Math.random(), 0.6) * 0.95) * maxL * 1.05;
         const bx = origin.x + Math.cos(a) * L;
         const by = origin.y + Math.sin(a) * L;
         fibers.push({
@@ -152,7 +153,7 @@ export function TimeNetworkBackground() {
           ph: Math.random() * Math.PI * 2,
           spd: 0.35 + Math.random() * 0.55,
           // more visible sway; longer filaments sway more at the tip
-          sw: 5 + (L / (H * 1.05)) * 18,
+          sw: 5 + (L / (maxL * 1.05)) * 18,
         });
       }
     };
@@ -179,7 +180,8 @@ export function TimeNetworkBackground() {
       ctx.clearRect(0, 0, W, H);
       t += reduce ? 0 : 0.009;
 
-      const g = ctx.createRadialGradient(origin.x, origin.y, 0, origin.x, origin.y, H * 0.6);
+      const maxL = Math.hypot(W / 2, H);
+      const g = ctx.createRadialGradient(origin.x, origin.y, 0, origin.x, origin.y, maxL * 0.8);
       g.addColorStop(0, th.core);
       g.addColorStop(0.16, th.core + "99");
       g.addColorStop(1, "transparent");
@@ -258,7 +260,7 @@ export function TimeNetworkBackground() {
       aria-hidden
       className="absolute inset-0 overflow-hidden"
       style={{ background: theme.bg, transition: "background .8s ease" }}>
-      <canvas ref={canvasRef} className="absolute inset-0 hidden md:block" />
+      <canvas ref={canvasRef} className="absolute inset-0 hidden size-full md:block" />
     </div>
   );
 }
